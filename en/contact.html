@@ -93,12 +93,11 @@
 
         <!--
           Web3Forms — works on static hosting.
-          TO ENABLE SENDING:
-          1. Go to https://web3forms.com
-          2. Enter jean-philippe.talou@xsom.fr and collect the access key sent by email
-          3. Replace VOTRE_CLE_WEB3FORMS below (and in the French contact.html)
-          The key is public by design: it only allows sending to that address.
-          Until it is set, the form falls back to mailto: automatically.
+          The access key is public by design: it only permits sending to the email
+          address that generated it. Keeping it in the markup is how the service
+          is meant to be used.
+          If the request fails, the form falls back to a prefilled mailto: — no
+          input is ever lost.
         -->
         <form class="form" id="contact-form" novalidate
               data-mailto="jean-philippe.talou@xsom.fr"
@@ -110,7 +109,7 @@
               data-msg-error="Automatic sending failed."
               data-msg-fallback="Send by email instead">
 
-          <input type="hidden" name="access_key" value="VOTRE_CLE_WEB3FORMS">
+          <input type="hidden" name="access_key" value="c843faec-fec8-43dc-8c8b-7dd1025d384f">
           <input type="hidden" name="from_name" value="xsom.fr contact form (EN)">
           <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
 

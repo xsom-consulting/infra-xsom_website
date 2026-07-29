@@ -95,12 +95,11 @@
 
         <!--
           Formulaire Web3Forms — compatible hébergement statique.
-          POUR ACTIVER L'ENVOI :
-          1. Aller sur https://web3forms.com
-          2. Saisir jean-philippe.talou@xsom.fr, récupérer la clé d'accès reçue par email
-          3. Remplacer VOTRE_CLE_WEB3FORMS ci-dessous (et dans en/contact.html)
-          La clé est publique par conception : elle n'autorise que l'envoi vers cette adresse.
-          Tant qu'elle n'est pas renseignée, le formulaire bascule automatiquement sur mailto:.
+          La clé d'accès est publique par conception : elle n'autorise que l'envoi
+          vers l'adresse email qui l'a générée, et rien d'autre. La laisser en clair
+          dans le HTML est le fonctionnement nominal du service.
+          Si la requête échoue, le formulaire bascule sur un mailto: pré-rempli :
+          aucune saisie n'est perdue.
         -->
         <form class="form" id="contact-form" novalidate
               data-mailto="jean-philippe.talou@xsom.fr"
@@ -112,7 +111,7 @@
               data-msg-error="L'envoi automatique a échoué."
               data-msg-fallback="Envoyer par email à la place">
 
-          <input type="hidden" name="access_key" value="VOTRE_CLE_WEB3FORMS">
+          <input type="hidden" name="access_key" value="c843faec-fec8-43dc-8c8b-7dd1025d384f">
           <input type="hidden" name="from_name" value="Formulaire xsom.fr">
           <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
 
