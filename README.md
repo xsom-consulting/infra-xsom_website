@@ -17,11 +17,14 @@ mentions-legales.html · cookies.html              Pages légales (FR)
 404.html                                          Page d'erreur
 
 en/                       Pages anglaises (index, expertise, ai-sovereignty,
-                          firm, careers, contact)
+                          firm, careers, contact, legal-notice, cookies)
+
+assets/fonts/             Fichiers woff2 servis depuis le domaine
 
 expertise.html · IA.html · vision.html            Anciennes URL conservées
 about.html · join.html                            comme redirections
 
+assets/css/fonts.css      Polices auto-hébergées (aucune requête externe)
 assets/css/tokens.css     Couleurs, typographie, espacements — source unique
 assets/css/base.css       Reset, typographie, layout, utilitaires
 assets/css/components.css Header, pied de page, boutons, cartes, formulaire
@@ -42,32 +45,13 @@ docs/bmad/                Documents de conception : brief, PRD, UX, architecture
 
 ---
 
-## À faire pour rendre le site pleinement opérationnel
+## Ce qui reste à fournir
 
-### 1. Activer le formulaire de contact — **requis**
+Le site est complet et en ligne : formulaire opérationnel, mentions légales
+renseignées depuis le registre du commerce, aucun contenu provisoire visible.
+Deux sections attendent encore de la matière.
 
-Le formulaire ne peut pas envoyer d'email tant que la clé n'est pas renseignée.
-Il bascule automatiquement sur `mailto:` en attendant, donc aucune saisie n'est
-perdue.
-
-1. Aller sur [web3forms.com](https://web3forms.com) et saisir `jean-philippe.talou@xsom.fr`
-2. Récupérer la clé d'accès reçue par email
-3. Remplacer `VOTRE_CLE_WEB3FORMS` dans `contact.html` **et** `en/contact.html`
-
-La clé est publique par conception : elle n'autorise que l'envoi vers l'adresse
-qui l'a générée.
-
-### 2. Compléter les mentions légales — **obligation légale**
-
-Renseigner les champs `[À COMPLÉTER]` dans `mentions-legales.html` : forme
-juridique, capital, siège, SIREN, TVA, directeur de publication.
-
-### 3. Vérifier l'URL LinkedIn
-
-Le site pointe vers `linkedin.com/company/xsom-consulting/`. Corriger dans les
-14 pages si l'URL réelle diffère.
-
-### 4. Ajouter les preuves — **le vrai levier de conversion**
+### 1. Ajouter les preuves — **le vrai levier de conversion**
 
 Deux sections sont construites et masquées, en attente de contenu. Retirer
 l'attribut `data-requires-content` de la balise `<section>` suffit à les activer.
@@ -80,7 +64,7 @@ l'attribut `data-requires-content` de la balise `<section>` suffit à les active
 C'est le principal facteur limitant du site : le design et la structure sont en
 place, la preuve de résultat ne l'est pas encore.
 
-### 5. Remplacer les chiffres génériques
+### 2. Remplacer les chiffres génériques
 
 Le bandeau de chiffres n'affiche pour l'instant que des valeurs vérifiables
 (ancienneté, secteurs, indépendance). Dès que les chiffres réels du cabinet sont
@@ -91,15 +75,25 @@ renouvellement — les substituer dans `index.html`, `cabinet.html` et leurs
 Les chiffres animés fonctionnent ainsi :
 
 ```html
-<span data-count="18" data-suffix=" ans">18 ans</span>
+<span data-count="6">6</span>                         <!-- valeur fixe -->
+<span data-since="2007" data-suffix=" ans">19 ans</span>  <!-- calculé -->
 ```
 
-La valeur finale est écrite dans le HTML ; le script ne fait que l'animer. Sans
-JavaScript, le bon chiffre s'affiche quand même.
+La valeur est écrite dans le HTML ; le script ne fait que l'animer, donc sans
+JavaScript le bon chiffre s'affiche quand même. `data-since` recalcule
+l'ancienneté à chaque chargement : un nombre d'années écrit en dur se périmerait
+au 1er janvier suivant.
 
 ---
 
 ## Modifier le site
+
+### Remplacer une police
+
+Les fichiers sont dans `assets/fonts/` et déclarés dans `assets/css/fonts.css`.
+Ils sont servis depuis le domaine, jamais depuis un CDN : aucune adresse IP de
+visiteur n'est transmise à un tiers, ce qui serait contradictoire avec le
+discours du cabinet sur la souveraineté.
 
 ### Changer une couleur
 
@@ -156,7 +150,7 @@ survol sont inactifs sur écran tactile.
 
 ### Modifier la navigation ou le pied de page
 
-Ces blocs sont dupliqués dans les 14 pages — c'est le coût assumé de l'absence
+Ces blocs sont dupliqués dans les 16 pages — c'est le coût assumé de l'absence
 de build. Modifier `index.html` (référence française) ou `en/index.html`
 (référence anglaise), puis propager :
 
@@ -198,8 +192,11 @@ node tools/sync-partials.js --check
 
 - aucun lien mort — **attention à la casse**, GitHub Pages y est sensible ;
 - les cinq anciennes URL redirigent toujours ;
-- le formulaire envoie réellement un email (nécessite la clé Web3Forms) ;
-- `sitemap.xml` reste valide.
+- le formulaire envoie réellement un email ;
+- `sitemap.xml` reste valide ;
+- le menu mobile s'ouvre **en plein écran** et tous ses liens sont cliquables —
+  poser un `backdrop-filter` sur `.site-header` le rabattrait à la hauteur du
+  header et rendrait le menu inutilisable.
 
 ---
 

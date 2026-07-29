@@ -69,7 +69,10 @@
   --text-hi:    rgba(255, 255, 255, .95);
   --text-mid:   rgba(255, 255, 255, .72);
   --text-low:   rgba(255, 255, 255, .52);
-  --text-faint: rgba(255, 255, 255, .38);
+  /* .38 ne donnait que 3.57:1 sur navy : sous le seuil AA alors que ce jeton
+     porte du texte lisible (baseline du logo, langue inactive, bas de page).
+     .48 le remonte à 4.68:1. */
+  --text-faint: rgba(255, 255, 255, .48);
 
   /* ---- Surfaces et bordures (contextuelles) ---------------------------- */
   --surface:    rgba(255, 255, 255, .035);
@@ -152,8 +155,10 @@
 .section--light {
   --text-hi:     var(--ink-900);
   --text-mid:    rgba(15, 32, 56, .78);
-  --text-low:    rgba(15, 32, 56, .58);
-  --text-faint:  rgba(15, 32, 56, .42);
+  /* Mêmes seuils sur fond clair : .58 tombait à 3.99:1 sur le titre
+     « Ils nous font confiance ». */
+  --text-low:    rgba(15, 32, 56, .70);
+  --text-faint:  rgba(15, 32, 56, .66);
   --surface:     rgba(10, 22, 40, .03);
   --surface-up:  rgba(10, 22, 40, .06);
   --border:      rgba(10, 22, 40, .10);

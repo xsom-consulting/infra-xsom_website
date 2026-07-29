@@ -59,6 +59,20 @@ que l'envoi vers l'adresse email qui l'a générée.
 bascule sur un lien `mailto:` pré-rempli avec les valeurs saisies. Aucune saisie
 n'est perdue.
 
+### ADR-4 bis — Polices auto-hébergées plutôt que CDN
+
+**Décision :** les quatre familles sont servies depuis `assets/fonts/`.
+
+**Raison :** charger depuis `fonts.gstatic.com` transmet l'adresse IP de chaque
+visiteur à un tiers, ce qui contredit frontalement le discours du cabinet sur
+la souveraineté des données. Le coût est nul : 133 Ko en sous-ensemble latin,
+soit l'équivalent de ce que servait le CDN, sans la connexion externe.
+
+**Vérification :** les fichiers renvoyés par Google couvrent plusieurs graisses
+chacun. Un contrôle de la table `fvar` s'étant révélé peu fiable, la variation
+réelle a été mesurée dans le navigateur — largeur d'un même texte en 600, 700 et
+800 — pour confirmer que les graisses restent distinctes.
+
 ### ADR-5 — Trois fichiers CSS chargés en cascade
 
 **Décision :** `tokens.css`, `base.css`, `components.css`, dans cet ordre.
@@ -104,10 +118,13 @@ HTTP/2.
 │   ├── ai-sovereignty.html
 │   ├── firm.html
 │   ├── careers.html
-│   └── contact.html
+│   ├── contact.html
+│   ├── legal-notice.html
+│   └── cookies.html
 │
 ├── assets/
 │   ├── css/
+│   │   ├── fonts.css              @font-face vers les fichiers locaux
 │   │   ├── tokens.css             Jetons de design — source unique de vérité
 │   │   ├── base.css               Reset, typographie, layout, utilitaires
 │   │   └── components.css         Header, footer, boutons, cartes, formulaire
@@ -117,6 +134,7 @@ HTTP/2.
 │   │   ├── motion.js              Titres ligne par ligne, parallaxe, schémas
 │   │   ├── hero-network.js        Visualisation canvas (accueil uniquement)
 │   │   └── contact-form.js        Soumission et validation (contact uniquement)
+│   ├── fonts/                     4 woff2, sous-ensemble latin (133 Ko)
 │   └── images/
 │       ├── secteurs/              6 visuels sectoriels optimisés (~90 Ko pièce)
 │       ├── backdrop.jpg           Fond des en-têtes de page
@@ -132,10 +150,7 @@ HTTP/2.
 ## 3. Chargement des ressources
 
 ```html
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Inter+Tight:wght@600;700;800&family=Instrument+Serif:ital@1&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
-
+<link rel="stylesheet" href="assets/css/fonts.css">
 <link rel="stylesheet" href="assets/css/tokens.css">
 <link rel="stylesheet" href="assets/css/base.css">
 <link rel="stylesheet" href="assets/css/components.css">
@@ -226,7 +241,7 @@ s'initialise pas et un rendu SVG statique reste affiché.
 
 | Levier | Mise en œuvre |
 |--------|---------------|
-| Polices | 4 familles, 8 graisses au total, `display=swap`, préconnexion. |
+| Polices | 4 familles servies **depuis le domaine** (`assets/fonts/`, 133 Ko, sous-ensemble latin). Aucune requête vers un CDN : pas d'adresse IP de visiteur transmise à un tiers, une connexion externe de moins, et une cohérence avec ce que le cabinet défend sur la souveraineté. Licences SIL OFL 1.1. |
 | Images | Visuels sectoriels recadrés en 900×600 et compressés (~90 Ko pièce, contre 1 Mo pour certains originaux). `loading="lazy"`, `width` et `height` explicites pour éviter les décalages de mise en page. |
 | CSS | 3 fichiers partagés, mis en cache pour toute la navigation. 50 Ko bruts, **11 Ko transmis** — GitHub Pages compresse en gzip. |
 | JS | 5 fichiers, tous `defer`, zéro dépendance externe. Aucune page ne les charge tous : `site.js` + `ui.js` + `motion.js` partout, plus `hero-network.js` sur l'accueil ou `contact-form.js` sur les pages de contact. Page la plus lourde (l'accueil) : 29 Ko bruts, **8,3 Ko transmis**. |

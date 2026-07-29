@@ -105,11 +105,33 @@
   <!-- ============ Légales ============ -->
   <url>
     <loc>https://www.xsom.fr/mentions-legales.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.xsom.fr/mentions-legales.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.xsom.fr/en/legal-notice.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.xsom.fr/mentions-legales.html"/>
     <changefreq>yearly</changefreq>
     <priority>0.2</priority>
   </url>
   <url>
     <loc>https://www.xsom.fr/cookies.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.xsom.fr/cookies.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.xsom.fr/en/cookies.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.xsom.fr/cookies.html"/>
+    <changefreq>yearly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  <url>
+    <loc>https://www.xsom.fr/en/legal-notice.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.xsom.fr/en/legal-notice.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.xsom.fr/mentions-legales.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.xsom.fr/mentions-legales.html"/>
+    <changefreq>yearly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  <url>
+    <loc>https://www.xsom.fr/en/cookies.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.xsom.fr/en/cookies.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.xsom.fr/cookies.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.xsom.fr/cookies.html"/>
     <changefreq>yearly</changefreq>
     <priority>0.2</priority>
   </url>

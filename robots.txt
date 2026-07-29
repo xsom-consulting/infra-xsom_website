@@ -1,12 +1,9 @@
 User-agent: *
 Allow: /
 
-# Anciennes URL conservées uniquement pour rediriger les liens entrants.
-# Elles portent déjà une balise noindex ; ces règles évitent tout crawl inutile.
-Disallow: /expertise.html
-Disallow: /IA.html
-Disallow: /vision.html
-Disallow: /about.html
-Disallow: /join.html
+# Les anciennes URL ne sont pas bloquées volontairement : elles portent une
+# balise noindex et une canonical vers leur remplaçante. Les interdire au
+# crawl empêcherait les moteurs de lire ces indications, et le bénéfice des
+# liens entrants serait perdu.
 
 Sitemap: https://www.xsom.fr/sitemap.xml

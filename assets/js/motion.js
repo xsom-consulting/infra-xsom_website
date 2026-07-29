@@ -85,7 +85,7 @@
       lines.sort(function (a, b) { return a - b; });
 
       words.forEach(function (word, i) {
-        word.style.transitionDelay = (lines.indexOf(tops[i]) * 90) + 'ms';
+        word.style.transitionDelay = (lines.indexOf(tops[i]) * 65) + 'ms';
       });
 
       title.classList.add('split-ready');

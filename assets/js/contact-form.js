@@ -74,12 +74,28 @@
     return ok;
   }
 
-  // Efface l'erreur dès que l'utilisateur corrige.
+  // Efface l'erreur dès que l'utilisateur corrige, pour ne pas le harceler
+  // pendant la frappe.
   form.addEventListener('input', function (e) {
     if (e.target.hasAttribute('data-validate') && e.target.getAttribute('aria-invalid')) {
       setError(e.target, '');
     }
   });
+
+  // Mais à la sortie du champ, on revalide : sinon un email resté invalide
+  // paraît accepté jusqu'à la soumission, alors que l'erreur était affichée
+  // un instant plus tôt.
+  form.addEventListener('focusout', function (e) {
+    var field = e.target;
+    if (!field.hasAttribute || !field.hasAttribute('data-validate')) return;
+    var rules = field.getAttribute('data-validate').split(' ');
+    var value = field.type === 'checkbox' ? field.checked : field.value.trim();
+    if (!value) return;                     // champ vide : on attend l'envoi
+    if (rules.indexOf('email') !== -1 &&
+        !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(field.value.trim())) {
+      setError(field, t.email);
+    }
+  }, true);
 
   /* ---- Repli mailto ------------------------------------------------------ */
 
