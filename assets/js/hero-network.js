@@ -24,10 +24,15 @@
   var nodes = [], edges = [], pulses = [];
   var running = false, inView = true, visible = true, rafId = null;
 
+  // Position du curseur en coordonnées normalisées, et intensité de l'effet
+  // (montée et descente progressives quand le curseur entre et sort).
+  var pointer = { x: 0, y: 0, strength: 0, target: 0 };
+
   var NODE_COUNT = 28;
   var LINK_DIST = 0.30;      // fraction de la largeur
   var COPPER = '226, 96, 58';
   var CORE_RADIUS = 0.19;    // zone centrale réservée au logo
+  var POINTER_DIST = 0.26;   // rayon d'influence du curseur
 
   function resize() {
     var rect = canvas.getBoundingClientRect();
@@ -138,6 +143,9 @@
       ctx.fill();
     }
 
+    // Lissage de l'intensité du curseur : pas d'apparition ni de coupure nette.
+    pointer.strength += (pointer.target - pointer.strength) * 0.08;
+
     // Nœuds
     for (var i = 0; i < nodes.length; i++) {
       var node = nodes[i];
@@ -147,20 +155,46 @@
       node.y += Math.sin(node.driftA + t * 0.16) * node.drift * 0.02;
 
       var pulseVal = 0.5 + 0.5 * Math.sin(t * node.speed + node.phase);
-      var radius = node.r * (0.82 + pulseVal * 0.34);
 
-      if (node.hot) {
+      // Proximité du curseur : 1 au contact, 0 au-delà du rayon d'influence.
+      var near = 0;
+      if (pointer.strength > 0.01) {
+        var dx = node.x - pointer.x;
+        var dy = node.y - pointer.y;
+        var dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < POINTER_DIST) {
+          near = (1 - dist / POINTER_DIST) * pointer.strength;
+
+          // Le nœud se relie au curseur, avec une opacité qui décroît.
+          ctx.beginPath();
+          ctx.moveTo(node.x * W, node.y * H);
+          ctx.lineTo(pointer.x * W, pointer.y * H);
+          ctx.strokeStyle = 'rgba(' + COPPER + ', ' + (near * 0.42).toFixed(3) + ')';
+          ctx.lineWidth = 1;
+          ctx.stroke();
+        }
+      }
+
+      var radius = node.r * (0.82 + pulseVal * 0.34 + near * 0.9);
+
+      if (node.hot || near > 0.05) {
         ctx.beginPath();
         ctx.arc(node.x * W, node.y * H, radius * 3.6, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(' + COPPER + ', ' + (0.05 + pulseVal * 0.07).toFixed(3) + ')';
+        var haloAlpha = (node.hot ? 0.05 + pulseVal * 0.07 : 0) + near * 0.14;
+        ctx.fillStyle = 'rgba(' + COPPER + ', ' + haloAlpha.toFixed(3) + ')';
         ctx.fill();
       }
 
       ctx.beginPath();
       ctx.arc(node.x * W, node.y * H, radius, 0, Math.PI * 2);
-      ctx.fillStyle = node.hot
-        ? 'rgba(' + COPPER + ', ' + (0.55 + pulseVal * 0.4).toFixed(3) + ')'
-        : 'rgba(255, 255, 255, ' + (0.22 + pulseVal * 0.24).toFixed(3) + ')';
+      if (node.hot) {
+        ctx.fillStyle = 'rgba(' + COPPER + ', ' + Math.min(1, 0.55 + pulseVal * 0.4 + near * 0.4).toFixed(3) + ')';
+      } else if (near > 0.02) {
+        // Fondu du blanc vers le cuivre à mesure que le curseur approche.
+        ctx.fillStyle = 'rgba(' + COPPER + ', ' + Math.min(1, near * 1.1).toFixed(3) + ')';
+      } else {
+        ctx.fillStyle = 'rgba(255, 255, 255, ' + (0.22 + pulseVal * 0.24).toFixed(3) + ')';
+      }
       ctx.fill();
     }
   }
@@ -201,6 +235,24 @@
       visible = !document.hidden;
       sync();
     });
+
+    // Interaction au pointeur. On écoute sur le conteneur du hero plutôt que
+    // sur le canvas seul : le logo est posé par-dessus et intercepterait
+    // sinon les événements au centre de la visualisation.
+    var zone = canvas.closest('.hero') || canvas.parentElement;
+    if (zone && window.matchMedia('(pointer: fine)').matches) {
+      zone.addEventListener('pointermove', function (e) {
+        var rect = canvas.getBoundingClientRect();
+        if (!rect.width) return;
+        pointer.x = (e.clientX - rect.left) / rect.width;
+        pointer.y = (e.clientY - rect.top) / rect.height;
+        // L'effet ne s'active qu'à proximité de la visualisation.
+        pointer.target = (pointer.x > -0.35 && pointer.x < 1.35 &&
+                          pointer.y > -0.35 && pointer.y < 1.35) ? 1 : 0;
+      }, { passive: true });
+
+      zone.addEventListener('pointerleave', function () { pointer.target = 0; }, { passive: true });
+    }
 
     if ('IntersectionObserver' in window) {
       new IntersectionObserver(function (entries) {

@@ -808,3 +808,199 @@
   text-align: center;
   padding: var(--gutter);
 }
+
+/* ==========================================================================
+   Titres révélés ligne par ligne
+   Les états masqués ne sont posés qu'après découpage réussi par motion.js :
+   sans script, ou en mouvement réduit, les titres restent visibles.
+   ========================================================================== */
+
+.split-ready .word {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(.44em);
+  transition: opacity .6s var(--ease-out), transform .6s var(--ease-out);
+}
+.split-ready.is-revealed .word { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .split-ready .word { opacity: 1 !important; transform: none !important; }
+}
+
+/* ==========================================================================
+   Secteurs illustrés
+
+   Au repos : image désaturée et teintée navy, pour rester dans la charte.
+   Au survol : la couleur revient. Le zoom permanent (scale 1.08) laisse au
+   parallaxe la marge nécessaire pour translater sans découvrir les bords.
+   ========================================================================== */
+
+.sectors { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--sp-6); }
+
+.sector {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 330px;
+  padding: var(--sp-12) var(--sp-6) var(--sp-6);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  isolation: isolate;
+  background: var(--ink-800);
+  transition: border-color var(--t-mid) var(--ease), transform var(--t-mid) var(--ease);
+}
+.sector:hover { border-color: rgba(226, 96, 58, .42); transform: translateY(-3px); }
+
+.sector__media { position: absolute; inset: 0; overflow: hidden; }
+.sector__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.08);
+  filter: grayscale(1) brightness(.46) contrast(1.12);
+  transition: filter .55s var(--ease);
+  will-change: transform;
+}
+.sector:hover .sector__media img { filter: grayscale(0) brightness(.66) contrast(1.04); }
+
+/* Teinte navy : ramène l'image dans la palette du site. */
+.sector__tint {
+  position: absolute;
+  inset: 0;
+  background: var(--ink-900);
+  mix-blend-mode: color;
+  opacity: .62;
+  transition: opacity .55s var(--ease);
+}
+.sector:hover .sector__tint { opacity: 0; }
+
+/* Voile dégradé : garantit la lisibilité du texte quelle que soit l'image. */
+.sector__scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg,
+    rgba(5, 11, 20, .30) 0%,
+    rgba(5, 11, 20, .62) 48%,
+    rgba(5, 11, 20, .94) 100%);
+}
+
+.sector__body { position: relative; z-index: 2; }
+.sector__num {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  font-weight: 500;
+  letter-spacing: .14em;
+  color: var(--copper);
+  margin-bottom: var(--sp-3);
+}
+.sector__body h3 { color: var(--paper); margin-bottom: var(--sp-3); }
+.sector__body p { font-size: var(--fs-sm); color: rgba(255, 255, 255, .74); }
+
+/* Filet cuivre qui se déploie en bordure basse au survol. */
+.sector::after {
+  content: '';
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 2px;
+  z-index: 3;
+  background: linear-gradient(90deg, var(--copper), transparent 75%);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--t-slow) var(--ease-out);
+}
+.sector:hover::after { transform: scaleX(1); }
+
+/* Les sections claires gardent des cartes sombres : les images sont
+   traitées en navy, un fond clair casserait le contraste. */
+.section--light .sector { border-color: rgba(10, 22, 40, .12); }
+
+@media (max-width: 1000px) { .sectors { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 640px)  { .sectors { grid-template-columns: 1fr; } .sector { min-height: 280px; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .sector__media img { transform: scale(1.02) !important; }
+}
+
+/* ==========================================================================
+   En-tête de page avec visuel de fond
+   ========================================================================== */
+
+.page-head--visual::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: url('../images/backdrop.jpg') center 30% / cover no-repeat;
+  opacity: .13;
+  filter: grayscale(1) contrast(1.1);
+  mask-image: linear-gradient(180deg, #000 10%, transparent 92%);
+  -webkit-mask-image: linear-gradient(180deg, #000 10%, transparent 92%);
+  pointer-events: none;
+}
+
+/* ==========================================================================
+   Schémas techniques
+
+   Les tracés portent une longueur de pointillé égale à leur longueur réelle
+   (posée par motion.js) : passer l'offset à zéro dessine le trait.
+   ========================================================================== */
+
+.diagram {
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+.diagram-wrap {
+  padding: var(--sp-8) var(--sp-6);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  background: var(--surface);
+}
+.diagram-wrap .label { display: block; margin-bottom: var(--sp-6); }
+
+.dg-ready .dg-draw { transition: stroke-dashoffset 1.2s var(--ease-out); }
+.dg-ready.is-drawn .dg-draw { stroke-dashoffset: 0 !important; }
+
+.dg-ready .dg-fade {
+  opacity: 0;
+  transition: opacity .55s var(--ease-out), transform .55s var(--ease-out);
+  transform: translateY(6px);
+}
+.dg-ready.is-drawn .dg-fade { opacity: 1; transform: none; }
+
+/* Cadence de construction : chaque étage s'allume après le précédent. */
+.dg-ready .dg-s1 { transition-delay: .05s; }
+.dg-ready .dg-s2 { transition-delay: .35s; }
+.dg-ready .dg-s3 { transition-delay: .65s; }
+.dg-ready .dg-s4 { transition-delay: .95s; }
+.dg-ready .dg-s5 { transition-delay: 1.25s; }
+
+.dg-node  { fill: var(--ink-800); stroke: rgba(255, 255, 255, .16); }
+.dg-node--hot { fill: rgba(226, 96, 58, .12); stroke: var(--copper-line); }
+.dg-line  { stroke: rgba(255, 255, 255, .16); fill: none; }
+.dg-line--hot { stroke: var(--copper); fill: none; }
+.dg-text  { fill: var(--text-hi); font-family: var(--font-display); font-size: 13px; font-weight: 700; }
+.dg-sub   { fill: var(--text-low); font-family: var(--font-mono); font-size: 9.5px; letter-spacing: .1em; }
+.dg-tag   { fill: var(--copper); font-family: var(--font-mono); font-size: 9.5px; letter-spacing: .12em; }
+
+.section--light .dg-node { fill: var(--paper); stroke: rgba(10, 22, 40, .16); }
+.section--light .dg-line { stroke: rgba(10, 22, 40, .2); }
+
+@media (prefers-reduced-motion: reduce) {
+  .dg-ready .dg-draw { stroke-dashoffset: 0 !important; }
+  .dg-ready .dg-fade { opacity: 1 !important; transform: none !important; }
+}
+
+.dg-arrow { fill: rgba(255, 255, 255, .34); stroke: none; }
+.dg-arrow.dg-s4, .dg-arrow.dg-s5 { fill: var(--copper); }
+.section--light .dg-arrow { fill: rgba(10, 22, 40, .4); }
+
+/* Les cartes s'alignent par le bas : sans hauteur minimale sur le texte, les
+   titres se retrouvent à des hauteurs différentes d'une carte à l'autre.
+   Uniquement en grille — en colonne unique, la contrainte créerait du vide. */
+@media (min-width: 641px) {
+  .sector__body p { min-height: 4.8em; }
+}

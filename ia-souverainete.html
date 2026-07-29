@@ -17,11 +17,11 @@
 <meta property="og:url" content="https://www.xsom.fr/ia-souverainete.html">
 <meta property="og:title" content="IA &amp; Souveraineté — xSOM Consulting">
 <meta property="og:description" content="L'IA avance vite. Les fondations, pas assez. Architectures souveraines, sécurisation des pipelines, conformité AI Act.">
-<meta property="og:image" content="https://www.xsom.fr/assets/images/MAIN.jpg">
+<meta property="og:image" content="https://www.xsom.fr/assets/images/og-cover.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="IA &amp; Souveraineté — xSOM Consulting">
 <meta name="twitter:description" content="Déployer l'IA sans perdre le contrôle : souveraineté, sécurité, sérénité opérationnelle.">
-<meta name="twitter:image" content="https://www.xsom.fr/assets/images/MAIN.jpg">
+<meta name="twitter:image" content="https://www.xsom.fr/assets/images/og-cover.jpg">
 
 <link rel="icon" type="image/png" href="assets/images/LOGO_NOBG.PNG">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -75,10 +75,10 @@
 <main id="main">
 
   <!-- ===================== EN-TÊTE ===================== -->
-  <section class="page-head">
+  <section class="page-head page-head--visual">
     <div class="wrap page-head__inner">
       <p class="eyebrow" data-num="—">IA &amp; Souveraineté</p>
-      <h1 class="t-h1">L'IA avance vite.<br>Les fondations, <span class="em">pas assez</span>.</h1>
+      <h1 class="t-h1" data-split>L'IA avance vite.<br>Les fondations, <span class="em">pas assez</span>.</h1>
       <hr class="rule">
       <p class="lead">Chaque organisation se précipite vers l'intelligence artificielle. Mais
       derrière chaque modèle, il y a une infrastructure. Derrière chaque infrastructure, il y a
@@ -153,11 +153,67 @@
     </div>
   </section>
 
+  <!-- ===================== SCHÉMA : COUCHES SOUVERAINES ===================== -->
+  <section class="section section--tight" aria-labelledby="stack-title">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <p class="eyebrow" data-num="02">L'architecture visée</p>
+        <h2 class="t-h2" id="stack-title" data-split>Quatre couches, une seule <span class="em">maîtrise</span></h2>
+        <hr class="rule">
+        <p class="lead">La souveraineté ne se décrète pas au niveau du modèle : elle se construit
+        de bas en haut. Une seule couche hors de contrôle suffit à la rendre théorique.</p>
+      </div>
+
+      <div class="diagram-wrap reveal" data-delay="1">
+        <svg class="diagram" viewBox="0 0 900 330" role="img" aria-labelledby="stack-desc" data-diagram>
+          <title id="stack-desc">Pile d'architecture IA souveraine en quatre couches, de l'infrastructure à la gouvernance</title>
+
+          <!-- Couche 04 — Gouvernance -->
+          <g class="dg-fade dg-s4">
+            <rect class="dg-node dg-node--hot" x="60" y="16" width="700" height="62" rx="4"/>
+            <text class="dg-text" x="86" y="43">Gouvernance &amp; conformité</text>
+            <text class="dg-sub" x="86" y="62">AI ACT · DORA · NIS2 · AUDIT INDÉPENDANT</text>
+            <text class="dg-tag" x="800" y="52">COUCHE 04</text>
+          </g>
+
+          <!-- Couche 03 — Modèles -->
+          <g class="dg-fade dg-s3">
+            <rect class="dg-node" x="60" y="94" width="700" height="62" rx="4"/>
+            <text class="dg-text" x="86" y="121">Modèles &amp; pipelines</text>
+            <text class="dg-sub" x="86" y="140">MLOPS · VERSIONNAGE · PORTABILITÉ · ZÉRO VERROU</text>
+            <text class="dg-tag" x="800" y="130">COUCHE 03</text>
+          </g>
+
+          <!-- Couche 02 — Données -->
+          <g class="dg-fade dg-s2">
+            <rect class="dg-node" x="60" y="172" width="700" height="62" rx="4"/>
+            <text class="dg-text" x="86" y="199">Données</text>
+            <text class="dg-sub" x="86" y="218">LIGNAGE · QUALIFICATION · RGPD · CONTRÔLE D'ACCÈS</text>
+            <text class="dg-tag" x="800" y="208">COUCHE 02</text>
+          </g>
+
+          <!-- Couche 01 — Infrastructure -->
+          <g class="dg-fade dg-s1">
+            <rect class="dg-node dg-node--hot" x="60" y="250" width="700" height="62" rx="4"/>
+            <text class="dg-text" x="86" y="277">Infrastructure souveraine</text>
+            <text class="dg-sub" x="86" y="296">SECNUMCLOUD · ON-PREMISE · GPU · RÉSEAU · ÉNERGIE</text>
+            <text class="dg-tag" x="800" y="286">COUCHE 01</text>
+          </g>
+
+          <!-- Axe de maîtrise, dessiné de bas en haut -->
+          <path class="dg-line--hot dg-draw" d="M34 306 L34 30" stroke-width="1.5"/>
+          <path class="dg-line--hot dg-fade dg-s4" d="M34 22 L29 34 L39 34 Z" fill="currentColor" stroke="none" style="fill:var(--copper)"/>
+          <text class="dg-tag dg-fade dg-s5" x="410" y="328" text-anchor="middle">MAÎTRISE CONSTRUITE DE BAS EN HAUT — 18 ANS D'INFRASTRUCTURES CRITIQUES</text>
+        </svg>
+      </div>
+    </div>
+  </section>
+
   <!-- ===================== LES TROIS PROMESSES ===================== -->
   <section class="section section--light" aria-labelledby="promises-title">
     <div class="wrap">
       <div class="sec-head sec-head--center reveal">
-        <p class="eyebrow" data-num="02">Notre engagement</p>
+        <p class="eyebrow" data-num="03">Notre engagement</p>
         <h2 class="t-h2" id="promises-title">Trois exigences, jamais l'une au détriment des <span class="em">autres</span></h2>
         <hr class="rule">
         <p class="lead">Chaque intervention est conçue pour les satisfaire simultanément. Un
@@ -211,11 +267,61 @@
   <section class="section" aria-labelledby="levers-title">
     <div class="wrap">
       <div class="sec-head reveal">
-        <p class="eyebrow" data-num="03">Notre offre</p>
+        <p class="eyebrow" data-num="04">Notre offre</p>
         <h2 class="t-h2" id="levers-title">De la matière brute à l'intelligence en <span class="em">production</span></h2>
         <hr class="rule">
         <p class="lead">Trois leviers activables séparément ou en séquence complète, selon votre
         point de départ.</p>
+      </div>
+
+      <div class="diagram-wrap reveal" style="margin-bottom:var(--sp-8)">
+        <span class="label">La chaîne complète, du système source au scoring en production</span>
+        <svg class="diagram" viewBox="0 0 900 232" role="img" aria-labelledby="chain-desc" data-diagram>
+          <title id="chain-desc">Chaîne de traitement : sources, pipeline de données, modèle, production, le tout sous supervision continue</title>
+
+          <!-- Étape 01 — Sources -->
+          <g class="dg-fade dg-s1">
+            <text class="dg-tag" x="108" y="26" text-anchor="middle">01</text>
+            <rect class="dg-node" x="20" y="38" width="176" height="76" rx="4"/>
+            <text class="dg-text" x="108" y="70" text-anchor="middle">Sources</text>
+            <text class="dg-sub" x="108" y="90" text-anchor="middle">MULTI-SYSTÈMES</text>
+          </g>
+          <path class="dg-line dg-draw dg-s1" d="M200 76 L236 76" stroke-width="1.5"/>
+          <path class="dg-arrow dg-fade dg-s2" d="M236 71 L245 76 L236 81 Z"/>
+
+          <!-- Étape 02 — Pipeline -->
+          <g class="dg-fade dg-s2">
+            <text class="dg-tag" x="336" y="26" text-anchor="middle">02</text>
+            <rect class="dg-node" x="248" y="38" width="176" height="76" rx="4"/>
+            <text class="dg-text" x="336" y="70" text-anchor="middle">Pipeline</text>
+            <text class="dg-sub" x="336" y="90" text-anchor="middle">QUALIFICATION</text>
+          </g>
+          <path class="dg-line dg-draw dg-s2" d="M428 76 L464 76" stroke-width="1.5"/>
+          <path class="dg-arrow dg-fade dg-s3" d="M464 71 L473 76 L464 81 Z"/>
+
+          <!-- Étape 03 — Modèle -->
+          <g class="dg-fade dg-s3">
+            <text class="dg-tag" x="564" y="26" text-anchor="middle">03</text>
+            <rect class="dg-node" x="476" y="38" width="176" height="76" rx="4"/>
+            <text class="dg-text" x="564" y="70" text-anchor="middle">Modèle</text>
+            <text class="dg-sub" x="564" y="90" text-anchor="middle">ENTRAÎNEMENT</text>
+          </g>
+          <path class="dg-line dg-draw dg-s3" d="M656 76 L692 76" stroke-width="1.5"/>
+          <path class="dg-arrow dg-fade dg-s4" d="M692 71 L701 76 L692 81 Z"/>
+
+          <!-- Étape 04 — Production -->
+          <g class="dg-fade dg-s4">
+            <text class="dg-tag" x="792" y="26" text-anchor="middle">04</text>
+            <rect class="dg-node dg-node--hot" x="704" y="38" width="176" height="76" rx="4"/>
+            <text class="dg-text" x="792" y="70" text-anchor="middle">Production</text>
+            <text class="dg-sub" x="792" y="90" text-anchor="middle">SCORING &amp; API</text>
+          </g>
+
+          <!-- Boucle de supervision : c'est elle qui fait tenir l'ensemble dans le temps -->
+          <path class="dg-line--hot dg-draw dg-s5" d="M336 114 L336 168 L792 168 L792 114" stroke-width="1.5" stroke-dasharray="0"/>
+          <path class="dg-line--hot dg-draw dg-s5" d="M564 114 L564 168" stroke-width="1.5"/>
+          <text class="dg-tag dg-fade dg-s5" x="564" y="200" text-anchor="middle">SUPERVISION CONTINUE — DÉRIVE · COÛTS · SÉCURITÉ · CONFORMITÉ</text>
+        </svg>
       </div>
 
       <div class="stack stack-6">
@@ -378,5 +484,6 @@
 <!-- footer:end -->
 
 <script src="assets/js/site.js" defer></script>
+<script src="assets/js/motion.js" defer></script>
 </body>
 </html>

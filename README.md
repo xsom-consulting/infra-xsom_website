@@ -27,8 +27,13 @@ assets/css/base.css       Reset, typographie, layout, utilitaires
 assets/css/components.css Header, pied de page, boutons, cartes, formulaire
 
 assets/js/site.js         Navigation, révélations au défilement, compteurs
-assets/js/hero-network.js Visualisation canvas de l'accueil
+assets/js/motion.js       Titres ligne par ligne, parallaxe, schémas animés
+assets/js/hero-network.js Visualisation canvas de l'accueil (réagit au curseur)
 assets/js/contact-form.js Validation et envoi du formulaire
+
+assets/images/secteurs/   6 visuels sectoriels optimisés (~90 Ko pièce)
+assets/images/backdrop.jpg  Fond des en-têtes de page
+assets/images/og-cover.jpg  Vignette de partage 1200×630
 
 tools/sync-partials.js    Utilitaire de maintenance (facultatif)
 docs/bmad/                Documents de conception : brief, PRD, UX, architecture
@@ -104,6 +109,40 @@ Tout est dans `assets/css/tokens.css`. L'accent cuivre, par exemple :
 ```
 
 Aucune valeur de couleur n'est écrite ailleurs.
+
+### Remplacer une image sectorielle
+
+Les visuels de `assets/images/secteurs/` sont des versions recadrées en 900×600
+et compressées. Les originaux restent à la racine de `assets/images/` mais ne
+sont pas servis. Pour en remplacer un :
+
+```bash
+python3 - <<'EOF'
+from PIL import Image, ImageOps
+im = Image.open('assets/images/NOUVELLE.jpg').convert('RGB')
+im = ImageOps.fit(im, (900, 600), Image.LANCZOS, centering=(0.5, 0.45))
+im.save('assets/images/secteurs/energie.jpg', 'JPEG', quality=76,
+        optimize=True, progressive=True)
+EOF
+```
+
+Ne pas nommer un fichier optimisé comme son original en changeant seulement la
+casse : `PUBLIC.jpg` et `public.jpg` entrent en collision sur macOS et Windows.
+C'est la raison du sous-dossier `secteurs/`.
+
+### Désactiver une animation
+
+Toutes les dynamiques sont pilotées par des attributs dans le HTML, pas par des
+sélecteurs de classe : les retirer suffit.
+
+| Attribut | Effet |
+|----------|-------|
+| `data-split` sur un titre | Révélation ligne par ligne |
+| `data-parallax` sur une image | Déplacement léger au défilement |
+| `data-diagram` sur un SVG | Construction progressive du schéma |
+| `data-count` sur un chiffre | Incrémentation à l'entrée dans le viewport |
+
+Tout est déjà neutralisé sous `prefers-reduced-motion: reduce`.
 
 ### Modifier la navigation ou le pied de page
 

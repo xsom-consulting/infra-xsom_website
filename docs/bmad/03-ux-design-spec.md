@@ -154,12 +154,53 @@ l'enjeu.
 
 Dans le hero : un réseau de nœuds reliés, dessiné en canvas. Les nœuds pulsent,
 des impulsions circulent le long des arêtes en cuivre. Le logo xSOM est au
-centre. Trois nœuds sont étiquetés — les trois pôles.
+centre.
 
-Contraintes : moins de 4 Ko de JavaScript, ~30 nœuds maximum, arrêt du rendu
-quand l'onglet est masqué (`visibilitychange`) et hors du viewport
-(`IntersectionObserver`). Remplacé par un rendu SVG statique si
-`prefers-reduced-motion: reduce`.
+Le réseau **réagit au curseur** : les nœuds situés dans un rayon de 26 % de la
+largeur s'agrandissent, virent au cuivre et se relient au pointeur. L'intensité
+monte et retombe progressivement — pas d'apparition ni de coupure nette.
+Désactivé sur pointeur grossier (`pointer: coarse`), où l'effet n'a pas de sens.
+
+Contraintes : ~28 nœuds, arrêt du rendu quand l'onglet est masqué
+(`visibilitychange`) et hors du viewport (`IntersectionObserver`). Remplacé par
+un rendu SVG statique si `prefers-reduced-motion: reduce`.
+
+### 5.6 Les visuels sectoriels
+
+Les six secteurs d'intervention sont illustrés. Au repos, l'image est désaturée
+et teintée navy (`mix-blend-mode: color`) : elle reste dans la charte et ne
+concurrence pas le texte. Au survol, la couleur revient et un filet cuivre se
+déploie en bordure basse.
+
+Un zoom permanent de 8 % laisse au parallaxe la marge nécessaire pour translater
+l'image de ±14 px sans découvrir les bords. Un voile dégradé garantit la
+lisibilité du texte quelle que soit l'image.
+
+### 5.7 Les schémas techniques
+
+Deux schémas SVG construits au défilement, sur la page IA & Souveraineté :
+
+- **La pile souveraine** — quatre couches, de l'infrastructure à la gouvernance,
+  qui s'allument de bas en haut le long d'un axe cuivre. Le message est
+  structurel : la souveraineté se construit du sol vers le sommet.
+- **La chaîne de production** — sources, pipeline, modèle, production, refermée
+  par une boucle de supervision continue. Le message est opérationnel : ce qui
+  fait tenir un système IA dans la durée, c'est la boucle, pas la ligne droite.
+
+Les tracés portent une longueur de pointillé égale à leur longueur réelle,
+calculée par `getTotalLength()` : passer l'offset à zéro dessine le trait. Les
+étages s'enchaînent par paliers de 300 ms.
+
+### 5.8 Les titres révélés ligne par ligne
+
+Chaque mot des grands titres est enveloppé dans un span, puis reçoit un délai
+calculé à partir de son `offsetTop` : les mots d'une même ligne partagent le
+même délai, la ligne se lève donc d'un bloc. Aucun conteneur de ligne n'est
+inséré — cela casserait la césure naturelle du navigateur.
+
+Le découpage préserve les éléments inline : l'italique serif de `.em` survit à
+l'opération. Il n'est appliqué que si `prefers-reduced-motion` est inactif, et
+l'état masqué n'est posé qu'après découpage réussi.
 
 ---
 

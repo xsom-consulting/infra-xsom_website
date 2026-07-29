@@ -17,11 +17,11 @@
 <meta property="og:url" content="https://www.xsom.fr/expertises.html">
 <meta property="og:title" content="Expertises — xSOM Consulting">
 <meta property="og:description" content="Gouvernance et urbanisation du SI, conformité cyber, infrastructures IA et cloud souverain, data science et MLOps.">
-<meta property="og:image" content="https://www.xsom.fr/assets/images/MAIN.jpg">
+<meta property="og:image" content="https://www.xsom.fr/assets/images/og-cover.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Expertises — xSOM Consulting">
 <meta name="twitter:description" content="Gouvernance SI, cybersécurité, infrastructures IA, data science.">
-<meta name="twitter:image" content="https://www.xsom.fr/assets/images/MAIN.jpg">
+<meta name="twitter:image" content="https://www.xsom.fr/assets/images/og-cover.jpg">
 
 <link rel="icon" type="image/png" href="assets/images/LOGO_NOBG.PNG">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -75,10 +75,10 @@
 <main id="main">
 
   <!-- ===================== EN-TÊTE ===================== -->
-  <section class="page-head">
+  <section class="page-head page-head--visual">
     <div class="wrap page-head__inner">
       <p class="eyebrow" data-num="—">Expertises</p>
-      <h1 class="t-h1">De la stratégie du SI à la mise en <span class="em">production</span></h1>
+      <h1 class="t-h1" data-split>De la stratégie du SI à la mise en <span class="em">production</span></h1>
       <hr class="rule">
       <p class="lead">Trois pôles complémentaires, activables séparément ou ensemble. Sur les
       programmes complexes, c'est justement la capacité à tenir l'infrastructure, la sécurité et
@@ -264,46 +264,99 @@
   </section>
 
   <!-- ===================== SECTEURS ===================== -->
-  <section class="section section--light" aria-labelledby="sectors-title">
+  <section class="section" aria-labelledby="sectors-title">
     <div class="wrap">
       <div class="sec-head sec-head--center reveal">
         <p class="eyebrow" data-num="05">Secteurs</p>
-        <h2 class="t-h2" id="sectors-title">Six secteurs à forte <span class="em">exigence</span></h2>
+        <h2 class="t-h2" id="sectors-title" data-split>Six secteurs à forte <span class="em">exigence</span></h2>
         <hr class="rule">
         <p class="lead">Nos consultants interviennent auprès de grands comptes et d'organisations
         publiques dont les systèmes ne tolèrent pas l'approximation.</p>
       </div>
 
-      <div class="grid grid-3 reveal" data-delay="1">
-        <article class="card">
-          <h3 class="t-h3">Secteur public</h3>
-          <p>Souveraineté des données, marchés publics, continuité de service, modernisation du
-          patrimoine applicatif.</p>
+      <div class="sectors">
+        <article class="sector reveal" data-delay="1">
+          <div class="sector__media">
+            <img src="assets/images/secteurs/public.jpg" alt="" width="900" height="600" loading="lazy" data-parallax>
+            <span class="sector__tint"></span>
+            <span class="sector__scrim"></span>
+          </div>
+          <div class="sector__body">
+            <span class="sector__num">01</span>
+            <h3 class="t-h3">Secteur public</h3>
+            <p>Souveraineté des données, marchés publics, continuité de service, modernisation du
+            patrimoine applicatif.</p>
+          </div>
         </article>
-        <article class="card">
-          <h3 class="t-h3">Énergie &amp; utilities</h3>
-          <p>Systèmes industriels, réseaux de supervision, résilience des infrastructures
-          d'importance vitale.</p>
+
+        <article class="sector reveal" data-delay="2">
+          <div class="sector__media">
+            <img src="assets/images/secteurs/energie.jpg" alt="" width="900" height="600" loading="lazy" data-parallax>
+            <span class="sector__tint"></span>
+            <span class="sector__scrim"></span>
+          </div>
+          <div class="sector__body">
+            <span class="sector__num">02</span>
+            <h3 class="t-h3">Énergie &amp; utilities</h3>
+            <p>Systèmes industriels, réseaux de supervision, résilience des infrastructures
+            d'importance vitale.</p>
+          </div>
         </article>
-        <article class="card">
-          <h3 class="t-h3">Banque, finance &amp; assurance</h3>
-          <p>Conformité DORA, résilience opérationnelle numérique, gouvernance des modèles et des
-          données.</p>
+
+        <article class="sector reveal" data-delay="3">
+          <div class="sector__media">
+            <img src="assets/images/secteurs/bank.jpg" alt="" width="900" height="600" loading="lazy" data-parallax>
+            <span class="sector__tint"></span>
+            <span class="sector__scrim"></span>
+          </div>
+          <div class="sector__body">
+            <span class="sector__num">03</span>
+            <h3 class="t-h3">Banque, finance &amp; assurance</h3>
+            <p>Conformité DORA, résilience opérationnelle numérique, gouvernance des modèles et des
+            données.</p>
+          </div>
         </article>
-        <article class="card">
-          <h3 class="t-h3">Télécommunications</h3>
-          <p>Architecture réseau, cœur de réseau, exploitation, transformation des systèmes
-          d'information opérateurs.</p>
+
+        <article class="sector reveal" data-delay="1">
+          <div class="sector__media">
+            <img src="assets/images/secteurs/telecom.jpg" alt="" width="900" height="600" loading="lazy" data-parallax>
+            <span class="sector__tint"></span>
+            <span class="sector__scrim"></span>
+          </div>
+          <div class="sector__body">
+            <span class="sector__num">04</span>
+            <h3 class="t-h3">Télécommunications</h3>
+            <p>Architecture réseau, cœur de réseau, exploitation, transformation des systèmes
+            d'information opérateurs.</p>
+          </div>
         </article>
-        <article class="card">
-          <h3 class="t-h3">Grande distribution</h3>
-          <p>Chaîne logistique, données clients, intégration omnicanale, industrialisation
-          d'usages IA.</p>
+
+        <article class="sector reveal" data-delay="2">
+          <div class="sector__media">
+            <img src="assets/images/secteurs/distribution.jpg" alt="" width="900" height="600" loading="lazy" data-parallax>
+            <span class="sector__tint"></span>
+            <span class="sector__scrim"></span>
+          </div>
+          <div class="sector__body">
+            <span class="sector__num">05</span>
+            <h3 class="t-h3">Grande distribution</h3>
+            <p>Chaîne logistique, données clients, intégration omnicanale, industrialisation
+            d'usages IA.</p>
+          </div>
         </article>
-        <article class="card">
-          <h3 class="t-h3">Industrie</h3>
-          <p>Convergence IT/OT, dette technique, maintenance prédictive, sécurisation des
-          environnements de production.</p>
+
+        <article class="sector reveal" data-delay="3">
+          <div class="sector__media">
+            <img src="assets/images/secteurs/industrie.jpg" alt="" width="900" height="600" loading="lazy" data-parallax>
+            <span class="sector__tint"></span>
+            <span class="sector__scrim"></span>
+          </div>
+          <div class="sector__body">
+            <span class="sector__num">06</span>
+            <h3 class="t-h3">Industrie</h3>
+            <p>Convergence IT/OT, dette technique, maintenance prédictive, sécurisation des
+            environnements de production.</p>
+          </div>
         </article>
       </div>
     </div>
@@ -381,5 +434,6 @@
 <!-- footer:end -->
 
 <script src="assets/js/site.js" defer></script>
+<script src="assets/js/motion.js" defer></script>
 </body>
 </html>
