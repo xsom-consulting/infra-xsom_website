@@ -124,9 +124,24 @@ h1, h2, h3, h4, h5 {
     color: transparent;
   }
 
+  /* Quand le titre est découpé pour l'animation, motion.js déplace le texte
+     dans des spans `inline-block`. Or `background-clip: text` ne clippe le
+     fond d'un élément que sur SON propre texte : un descendant inline-block
+     crée sa propre boîte, le fond du parent ne le traverse pas, et le mot
+     devient invisible puisqu'il hérite de `color: transparent`.
+     Le dégradé doit donc être porté par chaque mot. */
+  .em .word {
+    background: var(--copper-text-metal);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+
   /* Sur fond clair, le dégradé descendrait sous le seuil de lisibilité :
      on garde la teinte pleine, déjà validée à 4.75:1. */
-  .section--light .em {
+  .section--light .em,
+  .section--light .em .word {
     background: none;
     -webkit-text-fill-color: var(--copper-deep);
     color: var(--copper-deep);
