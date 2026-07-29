@@ -1004,3 +1004,134 @@
 @media (min-width: 641px) {
   .sector__body p { min-height: 4.8em; }
 }
+
+/* ==========================================================================
+   Micro-interactions
+   ========================================================================== */
+
+/* ---- Halo qui suit le curseur -------------------------------------------
+   Le pseudo-élément reste sous le contenu : les enfants directs prennent un
+   contexte d'empilement, sinon le dégradé passerait devant le texte. */
+.has-spotlight { --mx: 50%; --my: 50%; }
+.has-spotlight::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: radial-gradient(240px circle at var(--mx) var(--my),
+              rgba(226, 96, 58, .10), transparent 62%);
+  opacity: 0;
+  transition: opacity .35s var(--ease);
+}
+.has-spotlight:hover::after { opacity: 1; }
+.has-spotlight > * { position: relative; z-index: 1; }
+.card::before { z-index: 2; }
+
+/* ---- Indicateur de navigation -------------------------------------------
+   Une barre unique glisse sous le lien survolé. Le soulignement par lien est
+   retiré dès que l'indicateur est en place. */
+.nav { position: relative; }
+.nav__indicator {
+  position: absolute;
+  left: 0;
+  bottom: 2px;
+  height: 1.5px;
+  width: 0;
+  background: var(--copper);
+  opacity: 0;
+  pointer-events: none;
+  transition: transform .34s var(--ease-out),
+              width .34s var(--ease-out),
+              opacity .2s var(--ease);
+}
+.nav.has-indicator a::after { display: none; }
+
+/* ---- Progression de lecture ---------------------------------------------- */
+.read-progress {
+  position: fixed;
+  inset: 0 0 auto 0;
+  height: 2px;
+  z-index: 200;
+  pointer-events: none;
+}
+.read-progress span {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, var(--copper-deep), var(--copper));
+  transform: scaleX(0);
+  transform-origin: left;
+}
+
+/* ---- Retour en haut ------------------------------------------------------ */
+.to-top {
+  position: fixed;
+  right: clamp(1rem, 3vw, 2rem);
+  bottom: clamp(1rem, 3vw, 2rem);
+  z-index: 90;
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  color: var(--text-mid);
+  background: rgba(10, 22, 40, .82);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--border-mid);
+  border-radius: var(--r-md);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+  transition: opacity var(--t-mid) var(--ease),
+              transform var(--t-mid) var(--ease),
+              visibility var(--t-mid),
+              border-color var(--t-fast) var(--ease),
+              color var(--t-fast) var(--ease);
+}
+@supports not (backdrop-filter: blur(1px)) {
+  .to-top { background: rgba(10, 22, 40, .96); }
+}
+.to-top.is-visible { opacity: 1; visibility: visible; transform: none; }
+.to-top:hover { border-color: var(--copper); color: var(--copper); }
+
+/* ==========================================================================
+   Révélation des visuels sectoriels
+
+   L'image se découvre par balayage vertical plutôt que par un simple fondu.
+   Le clip-path n'est appliqué que si JavaScript est actif.
+   ========================================================================== */
+
+.js .sector .sector__media {
+  clip-path: inset(0 0 100% 0);
+  transition: clip-path 1.05s var(--ease-out);
+}
+.js .sector.is-visible .sector__media { clip-path: inset(0 0 0 0); }
+
+@media (prefers-reduced-motion: reduce) {
+  .js .sector .sector__media { clip-path: none !important; }
+}
+
+/* ==========================================================================
+   Transitions entre pages
+
+   API native, sans dépendance. Les navigateurs qui ne la connaissent pas
+   naviguent normalement — il n'y a rien à prévoir en repli.
+   ========================================================================== */
+
+@view-transition { navigation: auto; }
+
+::view-transition-old(root) { animation: vt-out .18s var(--ease) both; }
+::view-transition-new(root) { animation: vt-in .26s var(--ease-out) both; }
+
+@keyframes vt-out { to { opacity: 0; } }
+@keyframes vt-in  { from { opacity: 0; transform: translateY(6px); } }
+
+@media (prefers-reduced-motion: reduce) {
+  @view-transition { navigation: none; }
+}
+
+/* Sur fond clair, un halo à 10 % passe inaperçu : on le remonte légèrement. */
+.section--light .has-spotlight::after {
+  background: radial-gradient(240px circle at var(--mx) var(--my),
+              rgba(226, 96, 58, .15), transparent 62%);
+}

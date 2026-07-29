@@ -27,6 +27,7 @@ assets/css/base.css       Reset, typographie, layout, utilitaires
 assets/css/components.css Header, pied de page, boutons, cartes, formulaire
 
 assets/js/site.js         Navigation, révélations au défilement, compteurs
+assets/js/ui.js           Halo curseur, indicateur de nav, progression, retour haut
 assets/js/motion.js       Titres ligne par ligne, parallaxe, schémas animés
 assets/js/hero-network.js Visualisation canvas de l'accueil (réagit au curseur)
 assets/js/contact-form.js Validation et envoi du formulaire
@@ -142,7 +143,16 @@ sélecteurs de classe : les retirer suffit.
 | `data-diagram` sur un SVG | Construction progressive du schéma |
 | `data-count` sur un chiffre | Incrémentation à l'entrée dans le viewport |
 
-Tout est déjà neutralisé sous `prefers-reduced-motion: reduce`.
+Les micro-interactions de `ui.js` (halo curseur, indicateur de navigation,
+boutons attirés, progression de lecture, retour en haut) s'appliquent
+automatiquement. Pour en retirer une, commenter l'appel correspondant dans
+`init()` en bas du fichier.
+
+Les transitions entre pages sont pilotées par la règle `@view-transition` en fin
+de `components.css`.
+
+Tout est déjà neutralisé sous `prefers-reduced-motion: reduce`, et les effets de
+survol sont inactifs sur écran tactile.
 
 ### Modifier la navigation ou le pied de page
 

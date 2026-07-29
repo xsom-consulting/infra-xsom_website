@@ -113,6 +113,7 @@ HTTP/2.
 │   │   └── components.css         Header, footer, boutons, cartes, formulaire
 │   ├── js/
 │   │   ├── site.js                Navigation, révélations, compteurs
+│   │   ├── ui.js                  Halo curseur, indicateur de nav, progression
 │   │   ├── motion.js              Titres ligne par ligne, parallaxe, schémas
 │   │   ├── hero-network.js        Visualisation canvas (accueil uniquement)
 │   │   └── contact-form.js        Soumission et validation (contact uniquement)
@@ -227,8 +228,8 @@ s'initialise pas et un rendu SVG statique reste affiché.
 |--------|---------------|
 | Polices | 4 familles, 8 graisses au total, `display=swap`, préconnexion. |
 | Images | Visuels sectoriels recadrés en 900×600 et compressés (~90 Ko pièce, contre 1 Mo pour certains originaux). `loading="lazy"`, `width` et `height` explicites pour éviter les décalages de mise en page. |
-| CSS | 3 fichiers partagés, mis en cache pour toute la navigation. Objectif < 60 Ko non compressé. |
-| JS | 4 fichiers, tous `defer`, zéro dépendance externe. Aucune page ne les charge tous : `site.js` + `motion.js` partout (12,5 Ko), plus `hero-network.js` sur l'accueil ou `contact-form.js` sur les pages de contact. Plafond réel par page : ~21 Ko. |
+| CSS | 3 fichiers partagés, mis en cache pour toute la navigation. 50 Ko bruts, **11 Ko transmis** — GitHub Pages compresse en gzip. |
+| JS | 5 fichiers, tous `defer`, zéro dépendance externe. Aucune page ne les charge tous : `site.js` + `ui.js` + `motion.js` partout, plus `hero-network.js` sur l'accueil ou `contact-form.js` sur les pages de contact. Page la plus lourde (l'accueil) : 29 Ko bruts, **8,3 Ko transmis**. |
 | Canvas | Suspendu hors viewport et onglet masqué. |
 | Animations | Limitées à `transform` et `opacity` — pas de recalcul de mise en page. Le parallaxe lit toutes les positions avant d'écrire les styles, dans un seul `requestAnimationFrame`. |
 

@@ -191,7 +191,32 @@ Les tracés portent une longueur de pointillé égale à leur longueur réelle,
 calculée par `getTotalLength()` : passer l'offset à zéro dessine le trait. Les
 étages s'enchaînent par paliers de 300 ms.
 
-### 5.8 Les titres révélés ligne par ligne
+### 5.8 Les micro-interactions
+
+Ce qui distingue une interface soignée d'une interface correcte tient à des
+retours visuels discrets, placés là où l'attention se porte déjà.
+
+| Effet | Comportement | Pourquoi |
+|-------|--------------|----------|
+| **Halo curseur** | Un dégradé cuivre à 10 % suit le pointeur sur les cartes (15 % sur fond clair, sinon invisible). | Confirme la zone active sans bordure clignotante. |
+| **Indicateur de navigation** | Une barre unique glisse sous le lien survolé et revient sur la page courante à la sortie. | Plus lisible qu'un soulignement qui apparaît et disparaît sous chaque lien, et le repère de page reste permanent. |
+| **Boutons attirés** | Les CTA principaux se décalent vers le curseur, 5 px maximum. | Au-delà, l'effet devient un gadget et la cible devient difficile à atteindre. |
+| **Progression de lecture** | Un filet cuivre de 2 px en haut de fenêtre. | Sur des pages longues et denses, indique où l'on en est. |
+| **Retour en haut** | Apparaît après 80 % de hauteur de fenêtre défilée. | Le clic renvoie le focus sur le lien d'évitement, pas seulement le scroll. |
+
+Le halo et l'attraction sont désactivés sur pointeur grossier
+(`pointer: coarse`) : ils n'ont pas de sens au doigt. L'indicateur et le halo
+sont désactivés sous `prefers-reduced-motion`, où le soulignement classique
+reprend la main.
+
+### 5.9 Les transitions entre pages
+
+Fondu court au changement de page via l'API native View Transitions
+(`@view-transition { navigation: auto }`). Les navigateurs qui ne la
+connaissent pas naviguent normalement — il n'y a rien à prévoir en repli.
+Désactivée sous `prefers-reduced-motion`.
+
+### 5.10 Les titres révélés ligne par ligne
 
 Chaque mot des grands titres est enveloppé dans un span, puis reçoit un délai
 calculé à partir de son `offsetTop` : les mots d'une même ligne partagent le
