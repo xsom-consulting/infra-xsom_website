@@ -2,237 +2,37 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<title>Expertises – xSOM Consulting</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Expertises xSOM Consulting : stratégie SI, architecture, cybersécurité, infrastructures IA, Data Science.">
+<meta http-equiv="refresh" content="0; url=expertises.html">
+<title>Page déplacée — xSOM Consulting</title>
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://www.xsom.fr/expertises.html">
 <link rel="icon" type="image/png" href="assets/images/LOGO_NOBG.PNG">
-<link rel="stylesheet" href="assets/css/style.css">
-<script src="assets/js/header.js" defer></script>
-<script src="assets/js/navbar.js" defer></script>
-<script src="assets/js/footer.js" defer></script>
-<script src="assets/js/carousel.js" defer></script>
-<script src="assets/js/animations.js" defer></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Inter+Tight:wght@600;700;800&family=Instrument+Serif:ital@1&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/tokens.css">
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/components.css">
 </head>
 <body>
-
-<main>
-<section class="page-hero" style="background:linear-gradient(165deg,var(--navy-light) 0%,var(--navy) 100%);">
-  <div class="w">
-    <h1 class="page-title">Nos expertises</h1>
-    <p class="page-subtitle">Expertises fonctionnelles, techniques et sectorielles pour accompagner vos projets de transformation.</p>
+<!--
+  Redirection d'une ancienne URL. GitHub Pages ne permet pas de renvoyer un
+  code HTTP 301 : on utilise un meta refresh, complété par une balise
+  canonical qui indique aux moteurs la cible réelle.
+-->
+<main class="redirect">
+  <div>
+    <p class="eyebrow" data-num="→">Page déplacée</p>
+    <h1 class="t-h2" style="margin-block:var(--sp-6)">Cette page vit désormais<br>sous <span class="em">Expertises</span></h1>
+    <p class="lead" style="margin-inline:auto">Vous allez être redirigé automatiquement. Si rien ne se passe, suivez le lien ci-dessous.</p>
+    <p style="margin-top:var(--sp-8)">
+      <a class="btn btn--primary" href="expertises.html">Continuer vers Expertises
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </p>
   </div>
-</section>
-
-<!-- SECTEURS -->
-<section class="section section-alt" style="background:#fff;">
-  <div class="w">
-    <div class="sh rv">
-      <div class="sk" style="color:#bfc5ce;border-color:rgba(191,197,206,.16);background:rgba(191,197,206,.04)">Domaines fonctionnels</div>
-      <h2 class="st" style="color:var(--navy)">Secteurs d'intervention</h2>
-      <p class="sd" style="color:var(--navy)">Nos consultants interviennent auprès de grands comptes et organisations publiques dans des secteurs à forte exigence.</p>
-    </div>
-    <div class="sector-grid">
-      <div class="sector-tile" style="background:#f7fafd;">
-        <!-- Mairie / bâtiment public -->
-        <img src="https://images.unsplash.com/photo-1568992687947-868a62a9f521?w=400&h=110&fit=crop&auto=format" alt="Secteur Public" style="width:100%;height:110px;object-fit:cover;border-radius:10px 10px 0 0;">
-        <span style="display:block;padding:1rem 0 .5rem;font-weight:600;color:var(--navy)">Secteur Public</span>
-      </div>
-      <div class="sector-tile" style="background:#f7fafd;">
-        <!-- Éolienne / énergie -->
-        <img src="https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=400&h=110&fit=crop&auto=format" alt="Énergie" style="width:100%;height:110px;object-fit:cover;border-radius:10px 10px 0 0;">
-        <span style="display:block;padding:1rem 0 .5rem;font-weight:600;color:var(--navy)">Énergie</span>
-      </div>
-      <div class="sector-tile" style="background:#f7fafd;">
-        <!-- Finance / trading -->
-        <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=400&h=110&fit=crop&auto=format" alt="Banque, Finance & Assurance" style="width:100%;height:110px;object-fit:cover;border-radius:10px 10px 0 0;">
-        <span style="display:block;padding:1rem 0 .5rem;font-weight:600;color:var(--navy)">Banque, Finance & Assurance</span>
-      </div>
-      <div class="sector-tile" style="background:#f7fafd;">
-        <!-- Antennes / télécoms -->
-        <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=400&h=110&fit=crop&auto=format" alt="Télécommunication" style="width:100%;height:110px;object-fit:cover;border-radius:10px 10px 0 0;">
-        <span style="display:block;padding:1rem 0 .5rem;font-weight:600;color:var(--navy)">Télécommunication</span>
-      </div>
-      <div class="sector-tile" style="background:#f7fafd;">
-        <!-- Supermarché / distribution -->
-        <img src="https://images.unsplash.com/photo-1604719312566-8912e9227c6a?w=400&h=110&fit=crop&auto=format" alt="Grande Distribution" style="width:100%;height:110px;object-fit:cover;border-radius:10px 10px 0 0;">
-        <span style="display:block;padding:1rem 0 .5rem;font-weight:600;color:var(--navy)">Grande Distribution</span>
-      </div>
-      <div class="sector-tile" style="background:#f7fafd;">
-        <!-- Usine / industrie -->
-        <img src="https://images.unsplash.com/photo-1565008576549-57569a49371d?w=400&h=110&fit=crop&auto=format" alt="Industrie" style="width:100%;height:110px;object-fit:cover;border-radius:10px 10px 0 0;">
-        <span style="display:block;padding:1rem 0 .5rem;font-weight:600;color:var(--navy)">Industrie</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- EXPERTISES FONCTIONNELLES -->
-<section class="section section-alt section-border" style="background:var(--navy-mid);">
-  <div class="w">
-    <div class="sh rv">
-      <div class="sk" style="color:#bfc5ce;border-color:rgba(191,197,206,.16);background:rgba(191,197,206,.04)">Expertises fonctionnelles</div>
-      <h2 class="st">Stratégie, Gouvernance & Accompagnement</h2>
-    </div>
-    <div class="carousel">
-      <div class="slides">
-        <div class="slide" style="background:#fff;color:var(--navy)">
-          <!-- Salle de réunion / gouvernance -->
-          <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=90&fit=crop&auto=format" alt="Gouvernance du SI" style="width:100%;height:90px;object-fit:cover;border-radius:10px 10px 0 0;margin-bottom:.7rem;">
-          <h3>Gouvernance du SI</h3>
-          <p>Structuration de la gouvernance SI, schémas directeurs, alignement stratégique et priorisation.</p>
-        </div>
-        <div class="slide" style="background:#fff;color:var(--navy)">
-          <!-- Gestion de projet / tableau de bord -->
-          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=90&fit=crop&auto=format" alt="Pilotage de grands projets" style="width:100%;height:90px;object-fit:cover;border-radius:10px 10px 0 0;margin-bottom:.7rem;">
-          <h3>Pilotage de grands projets</h3>
-          <p>Gouvernance de programmes complexes d'intégration SI, coordination multi-acteurs.</p>
-        </div>
-        <div class="slide" style="background:#fff;color:var(--navy)">
-          <!-- Formation / salle de classe -->
-          <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=400&h=90&fit=crop&auto=format" alt="Formation & compétences" style="width:100%;height:90px;object-fit:cover;border-radius:10px 10px 0 0;margin-bottom:.7rem;">
-          <h3>Formation & compétences</h3>
-          <p>Formations ITIL, CMMI, Prince II, Agile, DevOps. Transfert de savoir-faire.</p>
-        </div>
-        <div class="slide" style="background:#fff;color:var(--navy)">
-          <!-- Brainstorming / post-its -->
-          <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=400&h=90&fit=crop&auto=format" alt="Assistance MOA" style="width:100%;height:90px;object-fit:cover;border-radius:10px 10px 0 0;margin-bottom:.7rem;">
-          <h3>Assistance MOA</h3>
-          <p>Expression de besoins, cadrage, appels d'offre, suivi de réalisation.</p>
-        </div>
-        <div class="slide" style="background:#fff;color:var(--navy)">
-          <!-- Continuité d'activité / sécurité -->
-          <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=400&h=90&fit=crop&auto=format" alt="PCA & PRA" style="width:100%;height:90px;object-fit:cover;border-radius:10px 10px 0 0;margin-bottom:.7rem;">
-          <h3>PCA & PRA</h3>
-          <p>Plans de continuité et reprise d'activité pour sécuriser les opérations critiques.</p>
-        </div>
-        <div class="slide" style="background:#fff;color:var(--navy)">
-          <!-- Green IT / feuilles + tech -->
-          <img src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=400&h=90&fit=crop&auto=format" alt="Modernisation & RSE" style="width:100%;height:90px;object-fit:cover;border-radius:10px 10px 0 0;margin-bottom:.7rem;">
-          <h3>Modernisation & RSE</h3>
-          <p>Diminution de la dette technique, gestion des obsolescences, stratégie Green IT.</p>
-        </div>
-        <div class="slide" style="background:#fff;color:var(--navy)">
-          <!-- Data / analytics -->
-          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=90&fit=crop&auto=format" alt="Data Science & IA" style="width:100%;height:90px;object-fit:cover;border-radius:10px 10px 0 0;margin-bottom:.7rem;">
-          <h3>Data Science & IA</h3>
-          <p>Accompagnement data, IA et valorisation des données. Cadrage et industrialisation.</p>
-        </div>
-      </div>
-      <div class="carousel-dots"></div>
-    </div>
-  </div>
-</section>
-
-<!-- EXPERTISES TECHNIQUES -->
-<section class="section" style="background:var(--navy);">
-  <div class="w">
-    <div class="sh rv">
-      <div class="sk" style="color:#bfc5ce;border-color:rgba(191,197,206,.16);background:rgba(191,197,206,.04)">Expertises techniques</div>
-      <h2 class="st">Architecture, Infrastructures & Sécurité</h2>
-    </div>
-    <div class="card-grid">
-      <div class="card rv" style="background:#fff;color:var(--navy)">
-        <!-- Architecture / plans -->
-        <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=400&h=90&fit=crop&auto=format" alt="Urbanisation du SI" style="width:100%;height:90px;object-fit:cover;border-radius:10px 10px 0 0;margin-bottom:.7rem;">
-        <h3>Urbanisation du SI</h3>
-        <p>Cartographie applicative, architecture cible, modélisation des flux et trajectoires d'urbanisation.</p>
-      </div>
-      <div class="card rv" style="background:#fff;color:var(--navy)">
-        <!-- CTO / tech leadership -->
-        <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=400&h=90&fit=crop&auto=format" alt="Direction technique & CTO" style="width:100%;height:90px;object-fit:cover;border-radius:10px 10px 0 0;margin-bottom:.7rem;">
-        <h3>Direction technique & CTO</h3>
-        <p>Accompagnement des directions techniques, stratégies technologiques et structuration des équipes IT.</p>
-      </div>
-      <div class="card rv" style="background:#fff;color:var(--navy)">
-        <!-- Cybersécurité / cadenas / code -->
-        <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=400&h=90&fit=crop&auto=format" alt="Programmes cyber" style="width:100%;height:90px;object-fit:cover;border-radius:10px 10px 0 0;margin-bottom:.7rem;">
-        <h3>Programmes cyber</h3>
-        <p>Direction de programmes de conformité cyber : LPM, DORA, NIS et réglementations sectorielles.</p>
-      </div>
-      <div class="card rv" style="background:#fff;color:var(--navy)">
-        <!-- Développement / code -->
-        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=400&h=90&fit=crop&auto=format" alt="Assistance MOE" style="width:100%;height:90px;object-fit:cover;border-radius:10px 10px 0 0;margin-bottom:.7rem;">
-        <h3>Assistance MOE</h3>
-        <p>Support technique, supervision de la réalisation, validation des livrables jusqu'à la mise en production.</p>
-      </div>
-      <div class="card rv" style="background:#fff;color:var(--navy)">
-        <!-- Datacenter / serveurs -->
-        <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=400&h=90&fit=crop&auto=format" alt="Infrastructures & Green IT" style="width:100%;height:90px;object-fit:cover;border-radius:10px 10px 0 0;margin-bottom:.7rem;">
-        <h3>Infrastructures & Green IT</h3>
-        <p>Architecture datacenter, stratégies Green IT, infrastructures haut débit et optimisation énergétique.</p>
-      </div>
-      <div class="card rv" style="background:#fff;color:var(--navy)">
-        <!-- Migration / déménagement tech -->
-        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=400&h=90&fit=crop&auto=format" alt="Décommissionnement" style="width:100%;height:90px;object-fit:cover;border-radius:10px 10px 0 0;margin-bottom:.7rem;">
-        <h3>Décommissionnement</h3>
-        <p>Pilotage de projets de déménagement de salles informatiques et migration d'infrastructures critiques.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- IA & DATA -->
-<section class="section section-alt section-border" id="data-ai">
-  <div class="w">
-    <div class="sh sh-c rv">
-      <div class="sk" style="color:#bfc5ce;border-color:rgba(191,197,206,.16);background:rgba(191,197,206,.04)">Pôle IA & Data</div>
-      <h2 class="st">Infrastructures IA & Souveraineté Numérique</h2>
-      <p class="sd">Nous structurons vos fondations technologiques : de la souveraineté de l'hébergement à la conformité de vos modèles.</p>
-    </div>
-    <div class="pillar-grid">
-      <div class="pillar bar-grey rv">
-        <div class="card-sub" style="color:#bfc5ce;">Cloud Souverain & Green IT</div>
-        <h3>Architectures IA Hybrides</h3>
-        <p>Stratégie de localisation des données, optimisation énergétique et architectures résilientes pour l'entraînement intensif.</p>
-      </div>
-      <div class="pillar bar-blue rv">
-        <div class="card-sub" style="color:#bfc5ce;">Observabilité Full-Stack</div>
-        <h3>Monitoring & FinOps IA</h3>
-        <p>Solutions unifiées pour monitorer la performance applicative et maîtriser les coûts GPU. AIOps.</p>
-      </div>
-      <div class="pillar bar-accent rv">
-        <div class="card-sub" style="color:#bfc5ce;">Conformité & Sécurité</div>
-        <h3>Cyber-IA & AI Act</h3>
-        <p>Sécurisation des pipelines de données sensibles, audit de conformité européenne et gouvernance éthique.</p>
-      </div>
-    </div>
-    <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:.4rem;margin-top:2rem">
-      <span class="tag tag-lg">Infrastructure Critique</span>
-      <span class="tag tag-lg">Souveraineté</span>
-      <span class="tag tag-lg">Secteur public</span>
-      <span class="tag tag-lg">Énergie & Utilities</span>
-      <span class="tag tag-lg">Banque & Finance</span>
-    </div>
-    <div style="text-align:center;margin-top:1.75rem">
-      <a href="ia.html" class="btn bp">Découvrir l'offre IA & Data complète <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-    </div>
-  </div>
-</section>
-
-<!-- CTA -->
-<section class="cta-section">
-  <div class="w rv">
-    <div class="highlight" style="text-align:center;max-width:600px;margin:0 auto;padding:2.5rem">
-      <h3 style="font-size:1.15rem;font-weight:700;margin-bottom:.5rem">Un accompagnement sur mesure</h3>
-      <p style="font-size:.88rem;color:var(--text-mid);line-height:1.6;margin-bottom:1.25rem">Chaque projet est unique. Nous adaptons nos expertises à vos enjeux, en combinant conseil stratégique, accompagnement opérationnel et transfert de compétences.</p>
-      <a href="contact.html" class="btn bp">Discutons de votre projet</a>
-    </div>
-  </div>
-</section>
-
 </main>
-
-<footer></footer>
-
-<script>
-(function(){
-var t=document.getElementById('mt'),n=document.getElementById('mn');
-if(t&&n)t.addEventListener('click',function(){n.classList.toggle('open')});
-var h=document.getElementById('sh');
-window.addEventListener('scroll',function(){h.classList.toggle('scrolled',window.scrollY>50)},{passive:true});
-var o=new IntersectionObserver(function(e){e.forEach(function(en){if(en.isIntersecting)en.target.classList.add('visible')})},{threshold:.12,rootMargin:'0px 0px -40px 0px'});
-document.querySelectorAll('.rv,.pl,.ai').forEach(function(el){o.observe(el)});
-})();
-</script>
+<script src="assets/js/site.js" defer></script>
 </body>
 </html>

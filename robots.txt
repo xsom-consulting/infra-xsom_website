@@ -1,0 +1,12 @@
+User-agent: *
+Allow: /
+
+# Anciennes URL conservées uniquement pour rediriger les liens entrants.
+# Elles portent déjà une balise noindex ; ces règles évitent tout crawl inutile.
+Disallow: /expertise.html
+Disallow: /IA.html
+Disallow: /vision.html
+Disallow: /about.html
+Disallow: /join.html
+
+Sitemap: https://www.xsom.fr/sitemap.xml

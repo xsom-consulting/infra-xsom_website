@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <!-- ============ Français ============ -->
+  <url>
+    <loc>https://www.xsom.fr/index.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.xsom.fr/index.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.xsom.fr/en/index.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.xsom.fr/index.html"/>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://www.xsom.fr/expertises.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.xsom.fr/expertises.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.xsom.fr/en/expertise.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.xsom.fr/expertises.html"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.xsom.fr/ia-souverainete.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.xsom.fr/ia-souverainete.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.xsom.fr/en/ai-sovereignty.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.xsom.fr/ia-souverainete.html"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.xsom.fr/cabinet.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.xsom.fr/cabinet.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.xsom.fr/en/firm.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.xsom.fr/cabinet.html"/>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.xsom.fr/carrieres.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.xsom.fr/carrieres.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.xsom.fr/en/careers.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.xsom.fr/carrieres.html"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.xsom.fr/contact.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.xsom.fr/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.xsom.fr/en/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.xsom.fr/contact.html"/>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- ============ English ============ -->
+  <url>
+    <loc>https://www.xsom.fr/en/index.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.xsom.fr/en/index.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.xsom.fr/index.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.xsom.fr/index.html"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.xsom.fr/en/expertise.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.xsom.fr/en/expertise.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.xsom.fr/expertises.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.xsom.fr/expertises.html"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.xsom.fr/en/ai-sovereignty.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.xsom.fr/en/ai-sovereignty.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.xsom.fr/ia-souverainete.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.xsom.fr/ia-souverainete.html"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.xsom.fr/en/firm.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.xsom.fr/en/firm.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.xsom.fr/cabinet.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.xsom.fr/cabinet.html"/>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.xsom.fr/en/careers.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.xsom.fr/en/careers.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.xsom.fr/carrieres.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.xsom.fr/carrieres.html"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.xsom.fr/en/contact.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.xsom.fr/en/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.xsom.fr/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.xsom.fr/contact.html"/>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- ============ Légales ============ -->
+  <url>
+    <loc>https://www.xsom.fr/mentions-legales.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  <url>
+    <loc>https://www.xsom.fr/cookies.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.2</priority>
+  </url>
+
+</urlset>
