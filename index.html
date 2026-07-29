@@ -2,487 +2,433 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<title>xSOM Consulting | Conseil IT, Cybersécurité, IA & Data</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="xSOM Consulting — cabinet de conseil en informatique. Stratégie SI, cybersécurité, infrastructures IA, Data Science.">
+<title>xSOM Consulting — Conseil en systèmes d'information, cybersécurité et IA</title>
+<meta name="description" content="Cabinet de conseil indépendant depuis 2007. Gouvernance des SI, cybersécurité, infrastructures IA et cloud souverain, data science. Du cadrage à la mise en production.">
+
+<link rel="canonical" href="https://www.xsom.fr/index.html">
+<link rel="alternate" hreflang="fr" href="https://www.xsom.fr/index.html">
+<link rel="alternate" hreflang="en" href="https://www.xsom.fr/en/index.html">
+<link rel="alternate" hreflang="x-default" href="https://www.xsom.fr/index.html">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="xSOM Consulting">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:url" content="https://www.xsom.fr/index.html">
+<meta property="og:title" content="xSOM Consulting — Le conseil qui tient jusqu'à la production">
+<meta property="og:description" content="Gouvernance des SI, cybersécurité et infrastructures IA. Depuis 2007, nous accompagnons les DSI de grands comptes sur leurs systèmes les plus critiques.">
+<meta property="og:image" content="https://www.xsom.fr/assets/images/MAIN.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="xSOM Consulting — Le conseil qui tient jusqu'à la production">
+<meta name="twitter:description" content="Gouvernance des SI, cybersécurité et infrastructures IA. Cabinet indépendant depuis 2007.">
+<meta name="twitter:image" content="https://www.xsom.fr/assets/images/MAIN.jpg">
+
 <link rel="icon" type="image/png" href="assets/images/LOGO_NOBG.PNG">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
-<style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{
---navy:#0a1628;--navy-mid:#0f2038;--navy-light:#162d4a;
---blue:#2563eb;--blue-bright:#3b82f6;--blue-glow:rgba(37,99,235,.25);
---grey-arrow:#7b8a9e;--grey-light:#97a5b7;
---accent:#bfc5ce;--accent-glow:rgba(191,197,206,.15);
---white:#fff;--text-dim:rgba(255,255,255,.48);--text-mid:rgba(255,255,255,.72);
---surface:rgba(255,255,255,.035);--surface-h:rgba(255,255,255,.065);
---border-s:rgba(255,255,255,.06);--border-m:rgba(255,255,255,.11);
---rl:12px;--rxl:16px;--hh:68px;
---ease:cubic-bezier(.25,.46,.45,.94);--eo:cubic-bezier(.16,1,.3,1)
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Inter+Tight:wght@600;700;800&family=Instrument+Serif:ital@1&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/tokens.css">
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/components.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "xSOM Consulting",
+  "url": "https://www.xsom.fr",
+  "logo": "https://www.xsom.fr/assets/images/LOGO_NOBG.PNG",
+  "description": "Cabinet de conseil indépendant en systèmes d'information : gouvernance, cybersécurité, infrastructures IA et cloud souverain, data science et automatisation.",
+  "foundingDate": "2007",
+  "email": "jean-philippe.talou@xsom.fr",
+  "areaServed": [
+    { "@type": "Country", "name": "France" },
+    { "@type": "Country", "name": "United States" }
+  ],
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Paris",
+    "addressCountry": "FR"
+  },
+  "knowsAbout": [
+    "Gouvernance des systèmes d'information",
+    "Cybersécurité",
+    "Conformité DORA, NIS2, LPM, AI Act",
+    "Infrastructures d'intelligence artificielle",
+    "Cloud souverain",
+    "Data science et MLOps",
+    "Réseaux et télécommunications"
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Pôles d'expertise",
+    "itemListElement": [
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Télécom, réseau et cybersécurité" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Infrastructures IA et cloud souverain" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Data science, machine learning et automatisation" } }
+    ]
+  }
 }
-html{scroll-behavior:smooth}
-body{font-family:'Plus Jakarta Sans',-apple-system,sans-serif;background:var(--navy);color:var(--white);overflow-x:hidden;-webkit-font-smoothing:antialiased;font-size:15px;line-height:1.6}
-a{color:inherit;text-decoration:none}img{max-width:100%;display:block}ul{list-style:none}
-.w{max-width:1200px;margin:0 auto;padding:0 2rem}
-
-/* ---- HEADER ---- */
-
-/* ---- HERO ---- */
-.hero{min-height:100vh;display:flex;align-items:center;position:relative;padding-top:var(--hh);overflow:hidden;background:url('assets/images/MAIN.jpg') center/cover no-repeat}
-.hero::after{content:'';position:absolute;inset:0;background:linear-gradient(165deg,rgba(10,22,40,.92) 0%,rgba(10,22,40,.82) 40%,rgba(10,22,40,.88) 100%);z-index:0}
-
-/* Background effects */
-.hbg{position:absolute;inset:0;z-index:1;overflow:hidden;pointer-events:none}
-.hbg .ob{position:absolute;border-radius:50%;filter:blur(120px);animation:obf 22s ease-in-out infinite}
-.ob1{width:500px;height:500px;top:-10%;right:-6%;background:radial-gradient(circle,var(--blue-glow),transparent 70%)}
-.ob2{width:400px;height:400px;bottom:-15%;left:-4%;background:radial-gradient(circle,rgba(100,120,140,.1),transparent 70%);animation-delay:-8s}
-.ob3{width:250px;height:250px;top:38%;left:42%;background:radial-gradient(circle,var(--accent-glow),transparent 70%);animation-delay:-14s}
-.hbg::before{content:'';position:absolute;inset:0;background-image:linear-gradient(var(--border-s) 1px,transparent 1px),linear-gradient(90deg,var(--border-s) 1px,transparent 1px);background-size:72px 72px;mask-image:radial-gradient(ellipse 60% 50% at 50% 50%,black 20%,transparent 70%);-webkit-mask-image:radial-gradient(ellipse 60% 50% at 50% 50%,black 20%,transparent 70%);opacity:.2}
-@keyframes obf{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(20px,-15px) scale(1.03)}66%{transform:translate(-15px,10px) scale(.97)}}
-
-.hc{position:relative;z-index:2;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;padding:2rem 0 4rem}
-.ht{max-width:520px}
-
-/* Kicker */
-.hk{display:inline-flex;align-items:center;gap:.4rem;padding:.28rem .75rem;font-size:.66rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--accent);border:1px solid rgba(200,164,86,.18);border-radius:999px;background:rgba(200,164,86,.04);margin-bottom:1.4rem;opacity:0;animation:fu .7s var(--eo) .2s forwards}
-.hk .dt{width:5px;height:5px;border-radius:50%;background:var(--accent);animation:pu 2.5s ease-in-out infinite}
-@keyframes pu{0%,100%{opacity:1}50%{opacity:.25}}
-
-/* Title */
-h1.htt{font-size:clamp(2.1rem,4vw,3rem);line-height:1.08;font-weight:800;letter-spacing:-.03em;margin-bottom:1.3rem;opacity:0;animation:fu .7s var(--eo) .35s forwards}
-.htt .em{color:var(--blue-bright)}
-
-.hd{font-size:.95rem;line-height:1.7;color:var(--text-mid);max-width:440px;margin-bottom:1.8rem;opacity:0;animation:fu .7s var(--eo) .48s forwards}
-.ha{display:flex;gap:.65rem;flex-wrap:wrap;opacity:0;animation:fu .7s var(--eo) .6s forwards}
-
-/* Buttons */
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:.4rem;padding:.65rem 1.4rem;font-family:inherit;font-size:.82rem;font-weight:600;border-radius:999px;border:1.5px solid transparent;cursor:pointer;transition:all .3s var(--ease);white-space:nowrap}
-.bp{background:var(--blue);color:var(--white);border-color:var(--blue);box-shadow:0 0 18px var(--blue-glow)}
-.bp:hover{background:var(--blue-bright);border-color:var(--blue-bright);transform:translateY(-1px);box-shadow:0 4px 24px var(--blue-glow)}
-.bo{background:transparent;color:var(--white);border-color:var(--border-m)}
-.bo:hover{border-color:rgba(255,255,255,.25);background:rgba(255,255,255,.03)}
-
-@keyframes fu{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
-
-/* ---- HERO LOGO AREA ---- */
-.hla{position:relative;display:flex;align-items:center;justify-content:center;opacity:0;animation:fu .9s var(--eo) .4s forwards}
-.li{position:relative;width:480px;height:460px}
-
-/* The actual logo image */
-.logo-img-wrap{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:220px;height:220px;opacity:0;animation:logoIn 1s var(--eo) .6s forwards}
-.logo-hero-img{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 0 50px rgba(37,99,235,.15)) drop-shadow(0 0 100px rgba(37,99,235,.06))}
-@keyframes logoIn{from{opacity:0;transform:translate(-50%,-50%) scale(.85)}to{opacity:1;transform:translate(-50%,-50%) scale(1)}}
-
-/* Subtle glow ring */
-.lg{position:absolute;width:300px;height:300px;border-radius:50%;border:1px solid rgba(37,99,235,.05);top:50%;left:50%;transform:translate(-50%,-50%);animation:gp 5s ease-in-out infinite}
-.lg::before{content:'';position:absolute;inset:-20px;border-radius:50%;border:1px solid rgba(37,99,235,.025)}
-@keyframes gp{0%,100%{opacity:.4;transform:translate(-50%,-50%) scale(1)}50%{opacity:.7;transform:translate(-50%,-50%) scale(1.02)}}
-
-/* Connector lines SVG */
-.clines{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;opacity:0;animation:fi .5s ease 1.8s forwards}
-@keyframes fi{from{opacity:0}to{opacity:1}}
-
-/* Floating labels */
-.ll{position:absolute;padding:.5rem .9rem;background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.07);border-radius:var(--rl);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);font-size:.76rem;font-weight:600;color:var(--white);white-space:nowrap;cursor:default;transition:all .3s var(--ease);opacity:0;animation:la .5s var(--eo) forwards}
-.ll:hover{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.12);transform:translateY(-2px)}
-.ll .ld{display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:.4rem;vertical-align:middle}
-.ll .ls{display:block;font-size:.64rem;font-weight:400;color:var(--text-dim);margin-top:.15rem}
-
-/* 
-  Layout logic (viewBox 480×460, .li is 480×460px):
-  
-  Arrow tips (approximate, logo centered at 240,230, image 220×220):
-    - Top arrow tip:         x≈248, y≈118   → label-tr goes top-right
-    - Bottom-left arrow tip: x≈148, y≈352   → label-tl goes bottom-left
-    - Bottom-right arrow tip:x≈340, y≈352   → label-br goes bottom-right
-
-  Labels sit AT the line endpoints.
-  label-tr  → top:  118/460 ≈ 25% from top,  right edge near x=375 → right: ~10%
-  label-tl  → bottom: (460-385)/460 ≈ 16% from bottom, left: ~-2%
-  label-br  → same bottom level as tl: bottom ~16%, right: ~-2%
-*/
-
-/* Top arrow → Infrastructures IA (top right) */
-.label-tr{
-  top: 14%;
-  right: 2%;
-  animation-delay: 2.15s;
-}
-.label-tr .ld{background:var(--blue-bright)}
-
-/* Bottom-left arrow → Télécom & Cyber */
-.label-tl{
-  bottom: 12%;
-  left: -2%;
-  animation-delay: 2s;
-}
-.label-tl .ld{background:var(--grey-light)}
-
-/* Bottom-right arrow → Data Science & ML — same bottom as label-tl */
-.label-br{
-  bottom: 12%;
-  right: -2%;
-  animation-delay: 2.3s;
-}
-.label-br .ld{background:var(--blue)}
-
-@keyframes la{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
-
-/* ---- TICKER ---- */
-.tk{
-  padding:1.15rem 0;
-  border-top:1px solid var(--border-s);
-  border-bottom:1px solid var(--border-s);
-  overflow:hidden;
-  background:var(--white);
-  mask-image:linear-gradient(90deg,transparent,black 8%,black 92%,transparent);
-  -webkit-mask-image:linear-gradient(90deg,transparent,black 8%,black 92%,transparent);
-}
-.tkt{display:flex;gap:2.5rem;animation:ts 28s linear infinite;width:max-content}
-.tki{font-size:.76rem;font-weight:500;color:var(--navy);white-space:nowrap}
-.sep{display:inline-block;width:3px;height:3px;border-radius:50%;background:rgba(10,22,40,.12);vertical-align:middle}
-@keyframes ts{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
-
-/* ---- PARTNERS ---- */
-.pt{
-  padding:3.5rem 0;
-  border-bottom:1px solid var(--border-s);
-  background:var(--white);
-}
-.pt-title{
-  text-align:center;
-  font-size:.7rem;
-  font-weight:700;
-  text-transform:uppercase;
-  letter-spacing:.14em;
-  color:var(--navy);
-  margin-bottom:1.5rem;
-}
-.pt-scroll{
-  overflow:hidden;
-  position:relative;
-  mask-image:linear-gradient(90deg,transparent 0%,black 8%,black 92%,transparent 100%);
-  -webkit-mask-image:linear-gradient(90deg,transparent 0%,black 8%,black 92%,transparent 100%);
-}
-.pt-track{
-  display:flex;
-  gap:4rem;
-  align-items:center;
-  animation:ptScroll 22s linear infinite;
-  width:max-content;
-}
-.pt-scroll:hover .pt-track{animation-play-state:paused}
-.pt-track img{
-  height:38px;
-  width:auto;
-  object-fit:contain;
-  filter:none;
-  opacity:.7;
-  transition:all .4s var(--ease);
-  cursor:pointer;
-  flex-shrink:0;
-}
-.pt-track img:hover{
-  opacity:1;
-  filter:none;
-  transform:scale(1.1);
-}
-@keyframes ptScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
-
-/* ---- SECTION UTILITIES ---- */
-.sh{text-align:center;margin-bottom:3.5rem}
-.sk{display:inline-flex;padding:.28rem .75rem;font-size:.64rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--accent);border:1px solid rgba(200,164,86,.16);border-radius:999px;background:rgba(200,164,86,.04);margin-bottom:1rem}
-.st{font-size:clamp(1.5rem,2.6vw,2.2rem);font-weight:700;line-height:1.15;letter-spacing:-.02em;margin-bottom:.55rem}
-.sd{font-size:.9rem;color:var(--text-mid);max-width:500px;margin:0 auto;line-height:1.6}
-
-/* ---- PILLARS ---- */
-.ps{padding:6rem 0}
-.pg{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}
-.pl{position:relative;background:var(--surface);border:1px solid var(--border-s);border-radius:var(--rxl);padding:2rem 1.6rem 1.6rem;transition:all .4s var(--ease);overflow:hidden;opacity:0;transform:translateY(32px)}
-.pl.visible{opacity:1;transform:translateY(0)}
-.pl:hover{border-color:var(--border-m);background:var(--surface-h);transform:translateY(-3px);box-shadow:0 14px 44px rgba(0,0,0,.22)}
-.pl::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;opacity:.45;transition:opacity .3s}
-.pl:hover::before{opacity:1}
-.p1::before{background:linear-gradient(90deg,var(--grey-arrow),var(--grey-light))}
-.p2::before{background:linear-gradient(90deg,var(--blue),var(--blue-bright))}
-.p3::before{background:linear-gradient(90deg,var(--blue-bright),var(--accent))}
-.pi{width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:1.15rem}
-.p1 .pi{background:rgba(107,122,141,.08);color:var(--grey-light)}
-.p2 .pi{background:rgba(37,99,235,.08);color:var(--blue-bright)}
-.p3 .pi{background:rgba(200,164,86,.08);color:var(--accent)}
-.pn{font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text-dim);margin-bottom:.55rem}
-.pl h3{font-size:1.1rem;font-weight:700;letter-spacing:-.01em;margin-bottom:.55rem;line-height:1.25}
-.pl p{font-size:.84rem;color:var(--text-mid);line-height:1.6;margin-bottom:1.15rem}
-.ptgs{display:flex;flex-wrap:wrap;gap:.3rem}
-.ptg{padding:.22rem .55rem;font-size:.65rem;font-weight:600;border-radius:999px;border:1px solid var(--border-s);color:var(--text-dim);transition:all .2s}
-.pl:hover .ptg{border-color:var(--border-m);color:var(--text-mid)}
-
-/* ---- METRICS ---- */
-.mb{padding:3rem 0;background:linear-gradient(135deg,var(--navy-light),var(--navy))}
-.mr{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;text-align:center}
-.mv{font-size:1.8rem;font-weight:800;letter-spacing:-.02em;line-height:1;margin-bottom:.3rem;background:linear-gradient(135deg,var(--white),var(--blue-bright));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.ml{font-size:.72rem;color:var(--text-dim);font-weight:500}
-
-/* ---- APPROACH ---- */
-.as{padding:6rem 0;background:var(--white);border-top:1px solid var(--border-s);border-bottom:1px solid var(--border-s)}
-.ag2{display:grid;grid-template-columns:1fr 1fr;gap:3.5rem;align-items:start}
-.al{display:flex;flex-direction:column;gap:1.4rem;margin-top:1.6rem}
-.ai{display:flex;gap:.8rem;align-items:flex-start;opacity:0;transform:translateX(-14px);transition:all .5s var(--eo)}
-.ai.visible{opacity:1;transform:translateX(0)}
-.ac{flex-shrink:0;width:24px;height:24px;border-radius:50%;background:rgba(37,99,235,.07);border:1px solid rgba(37,99,235,.15);display:flex;align-items:center;justify-content:center;color:var(--blue-bright);margin-top:2px}
-.ai strong{display:block;font-weight:700;margin-bottom:.1rem;font-size:.88rem}
-.ai>div>span{font-size:.82rem;color:var(--text-mid);line-height:1.5}
-
-.ss{display:flex;flex-direction:column;gap:1.15rem}
-.sc{padding:1.6rem;background:var(--surface);border:1px solid var(--border-s);border-radius:var(--rxl);transition:all .3s}
-.sc:hover{border-color:var(--border-m);transform:translateY(-1px)}
-.sv{font-size:2.2rem;font-weight:800;letter-spacing:-.02em;line-height:1;margin-bottom:.35rem}
-.slb{font-size:.78rem;color:var(--text-dim);line-height:1.4}
-.stc h4{font-size:.95rem;font-weight:700;margin-bottom:.8rem}
-.stgs{display:flex;flex-wrap:wrap;gap:.35rem}
-.stg{padding:.32rem .7rem;font-size:.72rem;font-weight:600;border-radius:999px;border:1px solid var(--border-s);color:var(--text-mid);transition:all .2s}
-.stg:hover{border-color:var(--blue);color:var(--blue-bright);background:rgba(37,99,235,.04)}
-
-/* ---- CTA ---- */
-.cs{padding:6rem 0;text-align:center;position:relative}
-.cs .ob{position:absolute;border-radius:50%;filter:blur(100px)}
-.cs .ob1{width:320px;height:320px;background:var(--blue-glow);top:-70px;right:12%}
-.cs .ob2{width:220px;height:220px;background:var(--accent-glow);bottom:-50px;left:18%}
-.cc{position:relative;z-index:1}
-.ctt{font-size:clamp(1.7rem,2.8vw,2.4rem);font-weight:800;letter-spacing:-.02em;line-height:1.12;margin-bottom:.9rem}
-.cds{font-size:.92rem;color:var(--text-mid);max-width:440px;margin:0 auto 1.6rem;line-height:1.6}
-.cas{display:flex;gap:.65rem;justify-content:center;flex-wrap:wrap}
-
-/* ---- FOOTER ---- */
-footer{padding:2.5rem 0 1.5rem;border-top:1px solid var(--border-s)}
-.fg{display:flex;justify-content:space-between;align-items:start;gap:2rem;flex-wrap:wrap}
-.fb p{font-size:.76rem;color:var(--text-dim);max-width:250px;margin-top:.55rem;line-height:1.5}
-.fl{display:flex;gap:2.5rem}
-.fl h5{font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text-dim);margin-bottom:.55rem}
-.fl ul{display:flex;flex-direction:column;gap:.28rem}
-.fl a{font-size:.8rem;color:var(--text-mid);transition:color .2s}
-.fl a:hover{color:var(--white)}
-.fbot{margin-top:2rem;padding-top:1.15rem;border-top:1px solid var(--border-s);display:flex;justify-content:space-between;font-size:.7rem;color:var(--text-dim)}
-
-/* ---- REVEAL ---- */
-.rv{opacity:0;transform:translateY(24px);transition:all .7s var(--eo)}
-.rv.visible{opacity:1;transform:translateY(0)}
-
-/* ---- RESPONSIVE ---- */
-@media(max-width:1024px){
-.hc{grid-template-columns:1fr;gap:2rem;text-align:center}
-.ht{max-width:100%;margin:0 auto}.hd{margin:0 auto 1.8rem}.ha{justify-content:center}
-.hla{order:-1}.li{width:340px;height:340px}.logo-img-wrap{width:170px;height:170px}.lg{width:230px;height:230px}
-.label-tl{left:2%}.label-br{right:0}
-.pg{grid-template-columns:1fr;max-width:460px;margin:0 auto}
-.ag2{grid-template-columns:1fr;gap:2.5rem}
-.mr{grid-template-columns:repeat(2,1fr)}
-}
-@media(max-width:768px){
-.w{padding:0 1.15rem}
-.mt{display:block}
-nav{display:none}
-nav.open{display:flex;flex-direction:column;position:absolute;top:var(--hh);left:0;width:100%;background:var(--navy);border-bottom:1px solid var(--border-s);padding:.75rem 0}
-nav.open a{padding:.65rem 1.75rem}
-.li{width:280px;height:280px}.logo-img-wrap{width:140px;height:140px}
-.ll{font-size:.68rem;padding:.4rem .7rem}
-.label-tl{left:0;bottom:10%}.label-tr{right:0;top:12%}.label-br{right:0;bottom:10%}
-.mr{grid-template-columns:1fr 1fr}
-.fg{flex-direction:column}.fl{flex-direction:column;gap:1rem}
-.fbot{flex-direction:column;gap:.4rem;text-align:center}
-}
-</style>
+</script>
 </head>
 <body>
 
-<script src="assets/js/header.js" defer></script>
+<a class="skip-link" href="#main">Aller au contenu</a>
 
-<!-- ===== HERO ===== -->
-<section class="hero" style="padding-top:68px;">
-<div class="hbg"><div class="ob ob1"></div><div class="ob ob2"></div><div class="ob ob3"></div></div>
-<div class="w hc">
-  <div class="ht">
-    <div class="hk"><span class="dt"></span>Cabinet de conseil — depuis 2007</div>
-    <h1 class="htt">Gouvernance, Cybersécurité<br>et <span class="em">Intelligence Artificielle</span></h1>
-    <p class="hd">Nous accompagnons les DSI et directions métiers dans la conception, la sécurisation et la transformation de leurs systèmes d'information — de la stratégie à la mise en production.</p>
-    <div class="ha">
-      <a href="expertise.html" class="btn bp">Découvrir nos expertises <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-      <a href="contact.html" class="btn bo">Nous contacter</a>
+<!-- nav:start -->
+<header class="site-header">
+  <div class="wrap site-header__inner">
+    <a class="brand" href="index.html">
+      <img src="assets/images/LOGO_NOBG.PNG" alt="" width="34" height="34">
+      <span>
+        <span class="brand__name">xSOM Consulting</span>
+        <span class="brand__tag">Conseil en systèmes d'information</span>
+      </span>
+    </a>
+
+    <div class="nav-panel" id="nav-panel">
+      <nav class="nav" aria-label="Navigation principale">
+        <a href="index.html" aria-current="page">Accueil</a>
+        <a href="expertises.html">Expertises</a>
+        <a href="ia-souverainete.html">IA &amp; Souveraineté</a>
+        <a href="cabinet.html">Le cabinet</a>
+        <a href="carrieres.html">Carrières</a>
+      </nav>
+      <div class="header-actions">
+        <p class="lang">
+          <span aria-current="true">FR</span>
+          <span aria-hidden="true">/</span>
+          <a href="en/index.html" hreflang="en" lang="en">EN</a>
+        </p>
+        <a class="btn btn--primary btn--sm" href="contact.html">Nous contacter</a>
+      </div>
     </div>
-  </div>
 
-  <!-- LOGO: actual image + floating labels -->
-  <div class="hla">
-    <div class="li">
-      <div class="lg"></div>
-      <div class="logo-img-wrap" style="position:relative;">
-        <span style="position:absolute;top:57%;left:47%;transform:translate(-50%,-50%);width:120%;height:120%;border-radius:50%;background:rgba(255,255,255,0.5);z-index:0;"></span>
-        <img src="assets/images/LOGO_NOBG.PNG" alt="xSOM Logo" class="logo-hero-img" style="position:relative;z-index:1;">
+    <button class="nav-toggle" data-nav-toggle aria-expanded="false" aria-controls="nav-panel"
+            aria-label="Ouvrir le menu" data-label-open="Ouvrir le menu" data-label-close="Fermer le menu">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/></svg>
+    </button>
+  </div>
+</header>
+<!-- nav:end -->
+
+<main id="main">
+
+  <!-- ===================== HERO ===================== -->
+  <section class="hero">
+    <div class="wrap hero__inner">
+      <div class="hero__text">
+        <p class="eyebrow" data-num="2007">Cabinet de conseil indépendant</p>
+
+        <h1 class="t-display">Le conseil qui tient jusqu'à la <span class="em">production</span></h1>
+
+        <p class="lead">Gouvernance des systèmes d'information, cybersécurité et infrastructures
+        d'intelligence artificielle. Depuis 2007, nous accompagnons les DSI de grands comptes sur
+        leurs systèmes les plus critiques — du cadrage stratégique jusqu'à la mise en production.</p>
+
+        <div class="hero__actions">
+          <a class="btn btn--primary" href="expertises.html">
+            Découvrir nos expertises
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a class="btn btn--ghost" href="contact.html">Parler de votre projet</a>
+        </div>
+
+        <div class="hero__meta">
+          <div><strong>2007</strong>Année de création</div>
+          <div><strong>3 pôles</strong>Expertises intégrées</div>
+          <div><strong>France · USA</strong>Présence bi-continentale</div>
+        </div>
       </div>
 
-      <!-- 
-        Connector lines — viewBox 480×460
-        Arrow tips (logo centered ~240,230, image 220×220):
-          Top arrow tip:          248, 118
-          Bottom-left arrow tip:  148, 352
-          Bottom-right arrow tip: 340, 352
+      <div class="hero__viz">
+        <canvas id="hero-network" class="hero-canvas" aria-hidden="true"></canvas>
 
-        Line endpoints match label positions:
-          label-tr  → top:14%  right:2%   → approx x=455, y=64   (label left edge ~375, center-top ~78)
-          label-tl  → bottom:12% left:-2% → approx x=10,  y=406  (label right edge ~165)
-          label-br  → bottom:12% right:-2%→ approx x=460, y=406  (label left edge ~340)
-      -->
-      <svg class="clines" viewBox="0 0 480 460" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <!-- Top arrow tip → label-tr (Infrastructures IA, top right) -->
-        <line x1="252" y1="118" x2="378" y2="72" stroke="rgba(255,255,255,.15)" stroke-width="1" stroke-dasharray="4 3"/>
-        <!-- Bottom-left arrow tip → label-tl (Télécom & Cyber, bottom left) -->
-        <line x1="148" y1="350" x2="20" y2="400" stroke="rgba(255,255,255,.15)" stroke-width="1" stroke-dasharray="4 3"/>
-        <!-- Bottom-right arrow tip → label-br (Data Science & ML, bottom right) -->
-        <line x1="340" y1="350" x2="450" y2="400" stroke="rgba(255,255,255,.15)" stroke-width="1" stroke-dasharray="4 3"/>
-      </svg>
+        <!-- Rendu statique : affiché sans JavaScript et en mouvement réduit. -->
+        <svg class="hero__viz-fallback" viewBox="0 0 400 400" fill="none" aria-hidden="true">
+          <g stroke="rgba(255,255,255,.07)" stroke-width="1">
+            <path d="M200 60 L310 130 M310 130 L330 250 M330 250 L230 330 M230 330 L120 320 M120 320 L70 210 M70 210 L110 100 M110 100 L200 60"/>
+            <path d="M200 60 L330 250 M120 320 L310 130 M70 210 L230 330"/>
+          </g>
+          <g fill="rgba(255,255,255,.3)">
+            <circle cx="310" cy="130" r="3"/><circle cx="330" cy="250" r="2.5"/>
+            <circle cx="120" cy="320" r="3"/><circle cx="70" cy="210" r="2.5"/>
+            <circle cx="110" cy="100" r="3"/>
+          </g>
+          <g fill="#e2603a">
+            <circle cx="200" cy="60" r="4"/><circle cx="230" cy="330" r="4"/>
+          </g>
+        </svg>
 
-      <!-- label-tr: Infrastructures IA — top right, end of top arrow line -->
-      <div class="ll label-tr"><span class="ld"></span>Infrastructures IA<span class="ls">Cloud · GPU · Green IT</span></div>
-      <!-- label-tl: Télécom & Cyber — bottom left, end of bottom-left arrow line -->
-      <div class="ll label-tl"><span class="ld"></span>Télécom & Cyber<span class="ls">Réseau · Conformité · Résilience</span></div>
-      <!-- label-br: Data Science & ML — bottom right, same height as label-tl, end of bottom-right arrow line -->
-      <div class="ll label-br"><span class="ld"></span>Data Science & ML<span class="ls">MLOps · Automatisation · Prod</span></div>
+        <div class="hero__logo">
+          <img src="assets/images/LOGO_NOBG.PNG" alt="Logo xSOM Consulting" width="180" height="180">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== RÉFÉRENCES ===================== -->
+  <section class="clients section--light" aria-labelledby="clients-title">
+    <div class="wrap">
+      <h2 class="clients__title" id="clients-title">Ils nous font confiance</h2>
+    </div>
+    <div class="clients__viewport">
+      <div class="clients__track">
+        <img src="assets/images/partenaires/Credit-Agricole-logo.png" alt="Crédit Agricole" height="40" loading="lazy">
+        <img src="assets/images/partenaires/EDF.png" alt="EDF" height="40" loading="lazy">
+        <img src="assets/images/partenaires/LA-POSTE-BANQUE-POSTALE.png" alt="La Banque Postale" height="40" loading="lazy">
+        <img src="assets/images/partenaires/logo-siplec_eleclerc_H_RVB_OK.png" alt="Siplec — E.Leclerc" height="40" loading="lazy">
+        <img src="assets/images/partenaires/Credit-Agricole-logo.png" alt="" aria-hidden="true" height="40" loading="lazy">
+        <img src="assets/images/partenaires/EDF.png" alt="" aria-hidden="true" height="40" loading="lazy">
+        <img src="assets/images/partenaires/LA-POSTE-BANQUE-POSTALE.png" alt="" aria-hidden="true" height="40" loading="lazy">
+        <img src="assets/images/partenaires/logo-siplec_eleclerc_H_RVB_OK.png" alt="" aria-hidden="true" height="40" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== TROIS PÔLES ===================== -->
+  <section class="section" aria-labelledby="offer-title">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <p class="eyebrow" data-num="01">Notre offre</p>
+        <h2 class="t-h2" id="offer-title">Trois pôles, une même exigence d'<span class="em">exécution</span></h2>
+        <hr class="rule">
+        <p class="lead">Chaque pôle couvre la chaîne complète : diagnostic, architecture, pilotage,
+        mise en production et transfert aux équipes. Les trois se combinent sur les programmes
+        où l'infrastructure, la sécurité et la donnée ne peuvent pas être traitées séparément.</p>
+      </div>
+
+      <div class="grid grid-3">
+        <a class="card card--link reveal" data-delay="1" href="expertises.html#pole-cyber">
+          <span class="card__icon" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2l8 4v6c0 5-3.2 9-8 10-4.8-1-8-5-8-10V6l8-4z"/></svg>
+          </span>
+          <span class="card__num">Pôle 01</span>
+          <h3 class="t-h3">Télécom, réseau &amp; cybersécurité</h3>
+          <p>Gouvernance des infrastructures réseau, programmes de conformité réglementaire et
+          résilience opérationnelle des systèmes critiques.</p>
+          <ul class="tags" style="margin-top:var(--sp-6)">
+            <li class="tag">Architecture réseau</li>
+            <li class="tag">DORA · NIS2 · LPM</li>
+            <li class="tag">PCA / PRA</li>
+            <li class="tag">Audit</li>
+          </ul>
+        </a>
+
+        <a class="card card--link reveal" data-delay="2" href="ia-souverainete.html">
+          <span class="card__icon" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2.5" y="3.5" width="19" height="13" rx="1.5"/><path d="M8 21h8M12 16.5V21"/></svg>
+          </span>
+          <span class="card__num">Pôle 02</span>
+          <h3 class="t-h3">Infrastructures IA &amp; cloud souverain</h3>
+          <p>Architectures souveraines, dimensionnement GPU, observabilité full-stack, maîtrise des
+          coûts et conformité AI Act.</p>
+          <ul class="tags" style="margin-top:var(--sp-6)">
+            <li class="tag">Cloud souverain</li>
+            <li class="tag">GPU &amp; datacenter</li>
+            <li class="tag">FinOps · AIOps</li>
+            <li class="tag">Green IT</li>
+          </ul>
+        </a>
+
+        <a class="card card--link reveal" data-delay="3" href="expertises.html#pole-data">
+          <span class="card__icon" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><ellipse cx="12" cy="5.5" rx="7.5" ry="3"/><path d="M4.5 5.5v13c0 1.7 3.4 3 7.5 3s7.5-1.3 7.5-3v-13"/><path d="M4.5 12c0 1.7 3.4 3 7.5 3s7.5-1.3 7.5-3"/></svg>
+          </span>
+          <span class="card__num">Pôle 03</span>
+          <h3 class="t-h3">Data science, ML &amp; automatisation</h3>
+          <p>Pipelines de données, modélisation, MLOps et industrialisation de solutions IA
+          réellement déployées en production.</p>
+          <ul class="tags" style="margin-top:var(--sp-6)">
+            <li class="tag">Feature engineering</li>
+            <li class="tag">APIs de scoring</li>
+            <li class="tag">MLOps · CI/CD</li>
+            <li class="tag">Gouvernance</li>
+          </ul>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CHIFFRES ===================== -->
+  <section class="section section--tight" aria-label="Chiffres clés">
+    <div class="wrap">
+      <hr class="rule rule--full">
+      <div class="metrics reveal" style="margin-top:var(--sp-12)">
+        <div class="metric">
+          <div class="metric__value"><span data-count="18" data-suffix=" ans">18 ans</span></div>
+          <p class="metric__label">d'interventions sur des infrastructures critiques</p>
+        </div>
+        <div class="metric">
+          <div class="metric__value"><span data-count="6">6</span></div>
+          <p class="metric__label">secteurs couverts, du service public à l'industrie</p>
+        </div>
+        <div class="metric">
+          <div class="metric__value"><span data-count="3">3</span></div>
+          <p class="metric__label">pôles d'expertise activables ensemble</p>
+        </div>
+        <div class="metric">
+          <div class="metric__value">100&nbsp;%</div>
+          <p class="metric__label">indépendant — aucune affiliation éditeur</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== APPROCHE ===================== -->
+  <section class="section section--light" aria-labelledby="approach-title">
+    <div class="wrap split">
+      <div>
+        <div class="sec-head reveal" style="margin-bottom:var(--sp-8)">
+          <p class="eyebrow" data-num="02">Notre approche</p>
+          <h2 class="t-h2" id="approach-title">Un conseil proche du terrain, orienté <span class="em">résultats</span></h2>
+          <hr class="rule">
+        </div>
+        <ul class="checklist reveal" data-delay="1">
+          <li>
+            <span class="checklist__mark" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2"><polyline points="20 6 9 17 4 12"/></svg></span>
+            <div><strong>Co-construction</strong><span>Nos consultants travaillent aux côtés de vos équipes, dans vos instances, sur vos outils.</span></div>
+          </li>
+          <li>
+            <span class="checklist__mark" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2"><polyline points="20 6 9 17 4 12"/></svg></span>
+            <div><strong>Pragmatisme</strong><span>Les contraintes budgétaires, humaines et calendaires sont intégrées dès le cadrage, pas découvertes en cours de route.</span></div>
+          </li>
+          <li>
+            <span class="checklist__mark" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2"><polyline points="20 6 9 17 4 12"/></svg></span>
+            <div><strong>Transparence</strong><span>Nous nommons les risques et les arbitrages, y compris quand la conclusion n'est pas celle attendue.</span></div>
+          </li>
+          <li>
+            <span class="checklist__mark" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2"><polyline points="20 6 9 17 4 12"/></svg></span>
+            <div><strong>Livrables exploitables</strong><span>Des documents que vos équipes reprennent et font vivre après notre départ — pas des rapports qui s'archivent.</span></div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="stack stack-6 reveal" data-delay="2">
+        <div class="card">
+          <h3 class="t-h3" style="margin-bottom:var(--sp-6)">Secteurs d'intervention</h3>
+          <ul class="tags">
+            <li class="tag">Secteur public</li>
+            <li class="tag">Énergie &amp; utilities</li>
+            <li class="tag">Banque, finance &amp; assurance</li>
+            <li class="tag">Télécommunications</li>
+            <li class="tag">Grande distribution</li>
+            <li class="tag">Industrie</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3 class="t-h3" style="margin-bottom:var(--sp-6)">Types de mission</h3>
+          <table class="spec">
+            <tbody>
+              <tr><th scope="row">Audit</th><td>Diagnostic et cadrage stratégique</td></tr>
+              <tr><th scope="row">AMOA</th><td>Expression de besoin, appels d'offres, pilotage</td></tr>
+              <tr><th scope="row">AMOE</th><td>Supervision technique jusqu'à la mise en production</td></tr>
+              <tr><th scope="row">Programme</th><td>Accompagnement long terme et transfert</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== RÉALISATIONS =====================
+       Section prête à recevoir 3 à 5 missions anonymisées.
+       Retirer l'attribut data-requires-content pour l'activer.
+       Format attendu par fiche : contexte → intervention → résultat mesurable.
+  -->
+  <section class="section" aria-labelledby="cases-title" data-requires-content>
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <p class="eyebrow" data-num="03">Réalisations</p>
+        <h2 class="t-h2" id="cases-title">Ce que nous avons <span class="em">livré</span></h2>
+        <hr class="rule">
+      </div>
+      <div class="grid grid-3">
+        <article class="card reveal" data-delay="1">
+          <span class="card__num">Secteur — Année</span>
+          <h3 class="t-h3">Titre de la mission</h3>
+          <p><strong>Contexte.</strong> Situation de départ du client.</p>
+          <p style="margin-top:var(--sp-3)"><strong>Intervention.</strong> Ce que xSOM a fait.</p>
+          <p style="margin-top:var(--sp-3)"><strong>Résultat.</strong> Effet mesurable obtenu.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CTA ===================== -->
+  <section class="section cta-band">
+    <div class="wrap wrap--narrow cta-band__inner reveal">
+      <p class="eyebrow" data-num="→" style="justify-content:center">Prochaine étape</p>
+      <h2 class="t-h2" style="margin-top:var(--sp-6)">Un programme à cadrer, une architecture à <span class="em">challenger</span> ?</h2>
+      <p class="lead">Décrivez votre situation en quelques lignes. Vous obtenez une réponse d'un
+      consultant sous 48 heures — pas d'un commercial.</p>
+      <div class="row">
+        <a class="btn btn--primary" href="contact.html">
+          Nous écrire
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a class="btn btn--ghost" href="carrieres.html">Rejoindre l'équipe</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- footer:start -->
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="site-footer__top">
+      <div>
+        <a class="brand" href="index.html">
+          <img src="assets/images/LOGO_NOBG.PNG" alt="" width="34" height="34">
+          <span><span class="brand__name">xSOM Consulting</span></span>
+        </a>
+        <p>Cabinet de conseil indépendant en systèmes d'information. Gouvernance,
+        cybersécurité, infrastructures IA et data science.</p>
+      </div>
+
+      <div>
+        <h5>Expertises</h5>
+        <ul>
+          <li><a href="expertises.html">Toutes nos expertises</a></li>
+          <li><a href="expertises.html#pole-cyber">Télécom &amp; cybersécurité</a></li>
+          <li><a href="ia-souverainete.html">IA &amp; souveraineté</a></li>
+          <li><a href="expertises.html#pole-data">Data science &amp; MLOps</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5>Cabinet</h5>
+        <ul>
+          <li><a href="cabinet.html">Qui nous sommes</a></li>
+          <li><a href="carrieres.html">Carrières</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="en/index.html" hreflang="en" lang="en">English</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5>Nous joindre</h5>
+        <ul>
+          <li><a href="mailto:jean-philippe.talou@xsom.fr">jean-philippe.talou@xsom.fr</a></li>
+          <li><a href="https://www.linkedin.com/company/xsom-consulting/" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="mentions-legales.html">Mentions légales</a></li>
+          <li><a href="cookies.html">Cookies</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="site-footer__bottom">
+      <span>© <span data-year>2026</span> xSOM Consulting — Tous droits réservés</span>
+      <span>Paris, France · États-Unis</span>
     </div>
   </div>
-</div>
-</section>
+</footer>
+<!-- footer:end -->
 
-
-
-<!-- ===== PARTNERS ===== -->
-<div class="pt">
-  <div class="w"><div class="pt-title">Ils nous ont fait confiance</div></div>
-  <div class="pt-scroll">
-    <div class="pt-track">
-      <img src="assets/images/partenaires/Credit-Agricole-logo.png" alt="Crédit Agricole">
-      <img src="assets/images/partenaires/EDF.png" alt="EDF">
-      <img src="assets/images/partenaires/LA-POSTE-BANQUE-POSTALE.png" alt="La Banque Postale">
-      <img src="assets/images/partenaires/logo-siplec_eleclerc_H_RVB_OK.png" alt="E.Leclerc">
-      <img src="assets/images/partenaires/logo.png" alt="Partner">
-      <img src="assets/images/partenaires/Credit-Agricole-logo.png" alt="Crédit Agricole">
-      <img src="assets/images/partenaires/EDF.png" alt="EDF">
-      <img src="assets/images/partenaires/LA-POSTE-BANQUE-POSTALE.png" alt="La Banque Postale">
-      <img src="assets/images/partenaires/logo-siplec_eleclerc_H_RVB_OK.png" alt="E.Leclerc">
-      <img src="assets/images/partenaires/logo.png" alt="Partner">
-    </div>
-  </div>
-</div>
-
-<!-- ===== 3 PILLARS ===== -->
-<section class="ps"><div class="w">
-<div class="sh rv">
-  <div class="sk">Notre offre</div>
-  <h2 class="st">Trois pôles pour transformer votre SI</h2>
-  <p class="sd">Une offre structurée autour de trois piliers complémentaires, du diagnostic à l'industrialisation.</p>
-</div>
-<div class="pg">
-  <div class="pl p1" style="transition-delay:.1s">
-    <div class="pi"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l8 4v6c0 5-3 9-8 10-5-1-8-5-8-10V6l8-4z"/></svg></div>
-    <div class="pn">Pôle 01</div>
-    <h3>Télécom, Réseau & Cybersécurité</h3>
-    <p>Gouvernance des infrastructures réseau, programmes de conformité cyber (LPM, DORA, NIS) et résilience opérationnelle.</p>
-    <div class="ptgs"><span class="ptg">Architecture réseau</span><span class="ptg">Conformité cyber</span><span class="ptg">PCA / PRA</span><span class="ptg">Audit</span></div>
-  </div>
-  <div class="pl p2" style="transition-delay:.22s">
-    <div class="pi"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg></div>
-    <div class="pn">Pôle 02</div>
-    <h3>Infrastructures IA & Cloud Souverain</h3>
-    <p>Architectures cloud souveraines, data centers optimisés IA, monitoring full-stack et conformité AI Act.</p>
-    <div class="ptgs"><span class="ptg">Cloud souverain</span><span class="ptg">GPU / entraînement</span><span class="ptg">FinOps & AIOps</span><span class="ptg">Green IT</span></div>
-  </div>
-  <div class="pl p3" style="transition-delay:.34s">
-    <div class="pi"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18H7a3 3 0 0 1-3-3v-1a3 3 0 0 1 3-3h1"/><path d="M15 6h2a3 3 0 0 1 3 3v1a3 3 0 0 1-3 3h-2"/><path d="M8 6a4 4 0 0 1 8 0v12a4 4 0 0 1-8 0V6z"/></svg></div>
-    <div class="pn">Pôle 03</div>
-    <h3>Data Science, ML & Automatisation</h3>
-    <p>Modélisation, pipelines de données, MLOps et déploiement de solutions IA industrialisées en production.</p>
-    <div class="ptgs"><span class="ptg">Feature engineering</span><span class="ptg">APIs & scoring</span><span class="ptg">MLOps & CI/CD</span><span class="ptg">Gouvernance</span></div>
-  </div>
-</div>
-</div></section>
-
-<!-- ===== METRICS ===== -->
-<div class="mb"><div class="w"><div class="mr rv">
-<div><div class="mv">18 ans</div><div class="ml">d'expérience (créé en 2007)</div></div>
-<div><div class="mv">3 pôles</div><div class="ml">d'expertise intégrés</div></div>
-<div><div class="mv">100%</div><div class="ml">indépendant & opérationnel</div></div>
-</div></div></div>
-
-<!-- ===== APPROACH ===== -->
-<section class="as"><div class="w ag2" style="color:#0a1628;">
-<div>
-  <div class="sh rv" style="text-align:left;color:#0a1628;">
-    <div class="sk">Notre approche</div>
-    <h2 class="st">Un conseil proche du terrain,<br>orienté résultats</h2>
-    <p class="sd" style="margin:0;color:#0f2038;">Pragmatisme, co-construction et transparence à chaque étape.</p>
-  </div>
-  <div class="al">
-    <div class="ai" style="transition-delay:.1s;color:#0a1628;"><div class="ac"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div><div><strong>Co-construction</strong><span style="color:#0f2038;">Interventions menées aux côtés de vos équipes, en mode collaboratif.</span></div></div>
-    <div class="ai" style="transition-delay:.18s;color:#0a1628;"><div class="ac"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div><div><strong>Pragmatisme</strong><span style="color:#0f2038;">Prise en compte des contraintes opérationnelles et budgétaires dès le cadrage.</span></div></div>
-    <div class="ai" style="transition-delay:.26s;color:#0a1628;"><div class="ac"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div><div><strong>Transparence</strong><span style="color:#0f2038;">Communication claire sur les enjeux, risques et arbitrages.</span></div></div>
-    <div class="ai" style="transition-delay:.34s;color:#0a1628;"><div class="ac"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div><div><strong>Livrables actionnables</strong><span style="color:#0f2038;">Documents clairs, exploitables et réutilisables par vos équipes.</span></div></div>
-  </div>
-</div>
-<div class="ss">
-  <div class="sc"><div class="sv" style="color:var(--accent)">18+</div><div class="slb" style="color:#0a1628;">années d'expérience en télécoms, réseaux et infrastructures critiques</div></div>
-  <div class="sc stc"><h4 style="color:#0a1628;">Secteurs d'intervention</h4><div class="stgs">
-    <span class="stg" style="color:#0a1628;border-color:#e0e6ef;">Secteur Public</span>
-    <span class="stg" style="color:#0a1628;border-color:#e0e6ef;">Énergie</span>
-    <span class="stg" style="color:#0a1628;border-color:#e0e6ef;">Banque & Assurance</span>
-    <span class="stg" style="color:#0a1628;border-color:#e0e6ef;">Télécommunication</span>
-    <span class="stg" style="color:#0a1628;border-color:#e0e6ef;">Grande Distribution</span>
-    <span class="stg" style="color:#0a1628;border-color:#e0e6ef;">Industrie</span>
-  </div></div>
-  <div class="sc">
-    <div style="font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#0a1628;margin-bottom:.65rem">Types de missions</div>
-    <div style="display:flex;flex-direction:column;gap:.35rem">
-      <span style="font-size:.84rem;color:#0a1628;">→ Audits & cadrages</span>
-      <span style="font-size:.84rem;color:#0a1628;">→ AMOA & PMO</span>
-      <span style="font-size:.84rem;color:#0a1628;">→ Assistance à maîtrise d'œuvre</span>
-      <span style="font-size:.84rem;color:#0a1628;">→ Accompagnement long terme</span>
-    </div>
-  </div>
-</div>
-</div></section>
-
-<!-- ===== CTA ===== -->
-<section class="cs">
-<div class="ob ob1"></div><div class="ob ob2"></div>
-<div class="cc w rv">
-  <div class="sk" style="color:var(--blue-bright);border-color:rgba(37,99,235,.2);background:rgba(37,99,235,.04)">Carrières</div>
-  <h2 class="ctt">Rejoignez nos équipes</h2>
-  <p class="cds">Vous êtes consultant(e) expérimenté(e) en SI et souhaitez rejoindre une équipe à taille humaine, orientée expertise ?</p>
-  <div class="cas"><a href="join.html" class="btn bp">Voir nos offres</a><a href="contact.html" class="btn bo">Nous contacter</a></div>
-</div>
-</section>
-
-<!-- ===== FOOTER ===== -->
-<footer><div class="w">
-<div class="fg">
-  <div class="fb"><div class="lo"><img src="assets/images/LOGO_NOBG.png" alt="xSOM" style="width:26px;height:26px"><div class="lo-t"><a href="index.html">xSOM Consulting</a></div></div><p>Cabinet de conseil en informatique. Stratégie, cybersécurité, infrastructures IA et Data Science.</p></div>
-  <div class="fl">
-    <div><h5>Expertises</h5><ul><li><a href="expertise.html">Télécom & Cyber</a></li><li><a href="ia.html">IA & Data Science</a></li><li><a href="vision.html">Vision & Mission</a></li></ul></div>
-    <div><h5>Cabinet</h5><ul><li><a href="about.html">Qui nous sommes</a></li><li><a href="join.html">Nous rejoindre</a></li><li><a href="contact.html">Contact</a></li></ul></div>
-  </div>
-</div>
-<div class="fbot"><span>© 2026 xSOM Consulting. Tous droits réservés.</span><span>Paris · France · USA</span></div>
-</div></footer>
-
-<script>
-(function(){
-var t=document.getElementById('mt'),n=document.getElementById('mn');
-if(t&&n)t.addEventListener('click',function(){n.classList.toggle('open')});
-var h=document.getElementById('sh');
-window.addEventListener('scroll',function(){h.classList.toggle('scrolled',window.scrollY>50)},{passive:true});
-var o=new IntersectionObserver(function(e){e.forEach(function(en){if(en.isIntersecting)en.target.classList.add('visible')})},{threshold:.12,rootMargin:'0px 0px -40px 0px'});
-document.querySelectorAll('.rv,.pl,.ai').forEach(function(el){o.observe(el)});
-})();
-</script>
+<script src="assets/js/site.js" defer></script>
+<script src="assets/js/hero-network.js" defer></script>
 </body>
 </html>

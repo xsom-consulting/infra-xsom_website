@@ -1,0 +1,125 @@
+/* ==========================================================================
+   xSOM Consulting — Design tokens
+   Source unique de vérité pour couleurs, typographie, espacements, mouvement.
+   Aucune valeur brute ne doit apparaître ailleurs dans le CSS.
+   ========================================================================== */
+
+:root {
+  /* ---- Fonds ---------------------------------------------------------- */
+  --ink-950: #050b14;
+  --ink-900: #0a1628;
+  --ink-800: #0f2038;
+  --ink-700: #16304f;
+  --ink-600: #1e3d63;
+
+  /* ---- Accent signature ----------------------------------------------- */
+  --copper:        #e2603a;
+  --copper-bright: #f5793f;
+  --copper-deep:   #b84a28;
+  --copper-wash:   rgba(226, 96, 58, .10);
+  --copper-line:   rgba(226, 96, 58, .38);
+  --copper-glow:   rgba(226, 96, 58, .22);
+
+  /* ---- Surfaces claires ----------------------------------------------- */
+  --paper:      #ffffff;
+  --paper-warm: #f6f3f0;
+  --paper-dim:  #e8e2dc;
+
+  /* ---- Texte (contextuels : redéfinis par .section--light) ------------- */
+  --text-hi:    rgba(255, 255, 255, .95);
+  --text-mid:   rgba(255, 255, 255, .72);
+  --text-low:   rgba(255, 255, 255, .52);
+  --text-faint: rgba(255, 255, 255, .38);
+
+  /* ---- Surfaces et bordures (contextuelles) ---------------------------- */
+  --surface:    rgba(255, 255, 255, .035);
+  --surface-up: rgba(255, 255, 255, .06);
+  --border:     rgba(255, 255, 255, .08);
+  --border-mid: rgba(255, 255, 255, .14);
+
+  /* Couleur du cuivre quand il porte du texte.
+     Sur fond sombre : --copper (4.62:1, AA).
+     Sur fond clair  : --copper-deep (5.9:1) — voir .section--light. */
+  --copper-text: var(--copper);
+
+  /* ---- Sémantique ------------------------------------------------------ */
+  --danger:  #ff6b6b;
+  --success: #4ade80;
+
+  /* ---- Typographie ----------------------------------------------------- */
+  --font-display: 'Inter Tight', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-body:    'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-serif:   'Instrument Serif', Georgia, 'Times New Roman', serif;
+  --font-mono:    'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+
+  --fs-display: clamp(2.6rem, 6vw, 4.75rem);
+  --fs-h1:      clamp(2.1rem, 4.4vw, 3.4rem);
+  --fs-h2:      clamp(1.65rem, 3.2vw, 2.5rem);
+  --fs-h3:      clamp(1.15rem, 1.8vw, 1.4rem);
+  --fs-lead:    clamp(1rem, 1.4vw, 1.15rem);
+  --fs-body:    0.975rem;
+  --fs-sm:      0.875rem;
+  --fs-xs:      0.8rem;
+  --fs-label:   0.7rem;
+  --fs-metric:  clamp(2.2rem, 4vw, 3.2rem);
+
+  /* ---- Espacements (base 4px) ------------------------------------------ */
+  --sp-1:  0.25rem;
+  --sp-2:  0.5rem;
+  --sp-3:  0.75rem;
+  --sp-4:  1rem;
+  --sp-6:  1.5rem;
+  --sp-8:  2rem;
+  --sp-12: 3rem;
+  --sp-16: 4rem;
+  --sp-24: 6rem;
+  --sp-32: 8rem;
+
+  --section-y: clamp(4.5rem, 9vw, 8rem);
+
+  /* ---- Layout ---------------------------------------------------------- */
+  --container:        1240px;
+  --container-narrow: 760px;
+  --gutter:           clamp(1.25rem, 4vw, 2.5rem);
+  --header-h:         72px;
+
+  /* ---- Rayons — angles quasi droits, registre technique ---------------- */
+  --r-sm: 3px;
+  --r-md: 4px;
+  --r-lg: 6px;
+
+  /* ---- Mouvement ------------------------------------------------------- */
+  --ease:     cubic-bezier(.25, .46, .45, .94);
+  --ease-out: cubic-bezier(.16, 1, .3, 1);
+  --t-fast:   200ms;
+  --t-mid:    240ms;
+  --t-slow:   320ms;
+  --t-reveal: 700ms;
+
+  /* ---- Élévation ------------------------------------------------------- */
+  --shadow-copper: 0 6px 24px rgba(226, 96, 58, .22);
+  --shadow-dark:   0 18px 50px rgba(0, 0, 0, .38);
+
+  /* ---- Grain : bruit SVG en data-URI, aucun fichier image -------------- */
+  --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E");
+}
+
+/* --------------------------------------------------------------------------
+   Sections sur fond clair.
+   On redéfinit les jetons contextuels au niveau du bloc, plutôt que de
+   réécrire les couleurs élément par élément en style inline.
+   -------------------------------------------------------------------------- */
+.section--light {
+  --text-hi:     var(--ink-900);
+  --text-mid:    rgba(15, 32, 56, .78);
+  --text-low:    rgba(15, 32, 56, .58);
+  --text-faint:  rgba(15, 32, 56, .42);
+  --surface:     rgba(10, 22, 40, .03);
+  --surface-up:  rgba(10, 22, 40, .06);
+  --border:      rgba(10, 22, 40, .10);
+  --border-mid:  rgba(10, 22, 40, .18);
+  --copper-text: var(--copper-deep);
+
+  background: var(--paper-warm);
+  color: var(--text-hi);
+}
