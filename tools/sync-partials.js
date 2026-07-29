@@ -42,8 +42,8 @@ const PAGES = {
       { file: 'cabinet.html',           nav: 'cabinet.html',          alt: 'en/firm.html' },
       { file: 'carrieres.html',         nav: 'carrieres.html',        alt: 'en/careers.html' },
       { file: 'contact.html',           nav: 'contact.html',          alt: 'en/contact.html' },
-      { file: 'mentions-legales.html',  nav: null,                    alt: 'en/index.html' },
-      { file: 'cookies.html',           nav: null,                    alt: 'en/index.html' }
+      { file: 'mentions-legales.html',  nav: null,                    alt: 'en/legal-notice.html' },
+      { file: 'cookies.html',           nav: null,                    alt: 'en/cookies.html' }
     ]
   },
   en: {
@@ -54,7 +54,9 @@ const PAGES = {
       { file: 'en/ai-sovereignty.html', nav: 'ai-sovereignty.html',   alt: '../ia-souverainete.html' },
       { file: 'en/firm.html',           nav: 'firm.html',             alt: '../cabinet.html' },
       { file: 'en/careers.html',        nav: 'careers.html',          alt: '../carrieres.html' },
-      { file: 'en/contact.html',        nav: 'contact.html',          alt: '../contact.html' }
+      { file: 'en/contact.html',        nav: 'contact.html',          alt: '../contact.html' },
+      { file: 'en/legal-notice.html',   nav: null,                    alt: '../mentions-legales.html' },
+      { file: 'en/cookies.html',        nav: null,                    alt: '../cookies.html' }
     ]
   }
 };

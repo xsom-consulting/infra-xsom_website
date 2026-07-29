@@ -6,25 +6,34 @@
    Header
    ========================================================================== */
 
+/* Le flou est porté par un pseudo-élément, pas par le header lui-même.
+   `backdrop-filter` crée un bloc conteneur pour les descendants en
+   `position: fixed` : posé sur .site-header, il rabattait #nav-panel à la
+   hauteur du header (96 px au lieu de la fenêtre entière), rendant le menu
+   mobile inutilisable — aucun lien atteignable. */
 .site-header {
   position: fixed;
   inset: 0 0 auto 0;
   z-index: 100;
   height: var(--header-h);
+  border-bottom: 1px solid transparent;
+  transition: border-color var(--t-slow) var(--ease);
+}
+.site-header::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
   background: rgba(10, 22, 40, .72);
   backdrop-filter: blur(16px) saturate(140%);
   -webkit-backdrop-filter: blur(16px) saturate(140%);
-  border-bottom: 1px solid transparent;
-  transition: background var(--t-slow) var(--ease),
-              border-color var(--t-slow) var(--ease);
+  transition: background var(--t-slow) var(--ease);
 }
-@supports not (backdrop-filter: blur(1px)) {
-  .site-header { background: rgba(10, 22, 40, .96); }
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .site-header::before { background: rgba(10, 22, 40, .96); }
 }
-.site-header.is-scrolled {
-  background: rgba(5, 11, 20, .94);
-  border-bottom-color: rgba(226, 96, 58, .15);
-}
+.site-header.is-scrolled::before { background: rgba(5, 11, 20, .94); }
+.site-header.is-scrolled { border-bottom-color: rgba(226, 96, 58, .15); }
 
 .site-header__inner {
   display: flex;
@@ -977,7 +986,7 @@
 }
 .diagram-wrap .label { display: block; margin-bottom: var(--sp-6); }
 
-.dg-ready .dg-draw { transition: stroke-dashoffset 1.2s var(--ease-out); }
+.dg-ready .dg-draw { transition: stroke-dashoffset .85s var(--ease-out); }
 .dg-ready.is-drawn .dg-draw { stroke-dashoffset: 0 !important; }
 
 .dg-ready .dg-fade {
@@ -988,11 +997,13 @@
 .dg-ready.is-drawn .dg-fade { opacity: 1; transform: none; }
 
 /* Cadence de construction : chaque étage s'allume après le précédent. */
-.dg-ready .dg-s1 { transition-delay: .05s; }
-.dg-ready .dg-s2 { transition-delay: .35s; }
-.dg-ready .dg-s3 { transition-delay: .65s; }
-.dg-ready .dg-s4 { transition-delay: .95s; }
-.dg-ready .dg-s5 { transition-delay: 1.25s; }
+/* Paliers resserrés : la construction restait lisible mais s'étirait sur
+   près de deux secondes et demie avant d'être complète. */
+.dg-ready .dg-s1 { transition-delay: .04s; }
+.dg-ready .dg-s2 { transition-delay: .24s; }
+.dg-ready .dg-s3 { transition-delay: .44s; }
+.dg-ready .dg-s4 { transition-delay: .64s; }
+.dg-ready .dg-s5 { transition-delay: .84s; }
 
 .dg-node  { fill: var(--ink-800); stroke: rgba(255, 255, 255, .16); }
 .dg-node--hot { fill: rgba(226, 96, 58, .12); stroke: var(--copper-line); }
@@ -1119,7 +1130,7 @@
 
 .js .sector .sector__media {
   clip-path: inset(0 0 100% 0);
-  transition: clip-path 1.05s var(--ease-out);
+  transition: clip-path .8s var(--ease-out);
 }
 .js .sector.is-visible .sector__media { clip-path: inset(0 0 0 0); }
 
@@ -1199,4 +1210,37 @@
 }
 .sector::after {
   background: linear-gradient(90deg, var(--copper-sheen), var(--copper) 35%, transparent 78%);
+}
+
+/* ==========================================================================
+   Cibles tactiles
+
+   Les liens de pied de page et le sélecteur de langue tombaient à 16-19 px de
+   haut. Le minimum utilisable au doigt est 24 px.
+   ========================================================================== */
+
+.site-footer ul a {
+  display: inline-block;
+  min-height: 24px;
+  padding-block: 3px;
+}
+.lang a,
+.lang [aria-current="true"] {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 26px;
+  min-height: 26px;
+}
+
+/* Titres de colonne du pied de page : même rendu qu'avant, en h2 pour ne pas
+   sauter de niveau après les h3 du contenu. */
+.footer-title {
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  font-weight: 500;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--copper-text);
+  margin-bottom: var(--sp-4);
 }

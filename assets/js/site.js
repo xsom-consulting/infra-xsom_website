@@ -136,10 +136,29 @@
     for (var i = 0; i < nodes.length; i++) nodes[i].textContent = year;
   }
 
+  /* ---- Ancienneté ---------------------------------------------------------
+     Un nombre d'années écrit en dur se périme au 1er janvier suivant. On le
+     recalcule depuis l'année de création ; la valeur inscrite dans le HTML
+     sert de repli et reste juste tant que l'année ne change pas.
+     ------------------------------------------------------------------------ */
+  function initSince() {
+    var nodes = document.querySelectorAll('[data-since]');
+    var year = new Date().getFullYear();
+    for (var i = 0; i < nodes.length; i++) {
+      var from = parseInt(nodes[i].getAttribute('data-since'), 10);
+      if (!from || from > year) continue;
+      var value = year - from;
+      nodes[i].textContent = value + (nodes[i].getAttribute('data-suffix') || '');
+      // Le compteur animé lit data-count : on le renseigne avant son init.
+      nodes[i].setAttribute('data-count', String(value));
+    }
+  }
+
   function init() {
     initNav();
     initScrollHeader();
     initReveal();
+    initSince();
     initCounters();
     initYear();
   }
