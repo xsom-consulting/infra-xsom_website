@@ -195,12 +195,28 @@
 .btn svg { flex-shrink: 0; transition: transform var(--t-mid) var(--ease-out); }
 .btn:hover svg { transform: translateX(3px); }
 
-/* Texte ink-950 sur cuivre : 11.4:1. Le blanc sur cuivre ne serait que 3.5:1. */
-.btn--primary { background: var(--copper); color: var(--ink-950); }
+/* Texte ink-950 sur cuivre. Le blanc ne donnerait que 3.5:1 ; ici le point le
+   plus sombre du dégradé reste à 4.50:1, donc le texte tient partout. */
+.btn--primary {
+  background: var(--copper-metal);
+  color: var(--ink-950);
+  box-shadow: var(--copper-relief), 0 1px 2px rgba(120, 42, 20, .32);
+  transition: background-image var(--t-fast) var(--ease),
+              transform var(--t-fast) var(--ease),
+              box-shadow var(--t-fast) var(--ease);
+}
 .btn--primary:hover {
-  background: var(--copper-bright);
+  background: var(--copper-metal-hot);
   transform: translateY(-1px);
-  box-shadow: var(--shadow-copper);
+  box-shadow: var(--copper-relief),
+              0 6px 22px rgba(226, 96, 58, .34),
+              0 2px 4px rgba(120, 42, 20, .3);
+}
+/* Enfoncé : le reflet passe en bas, la surface s'assombrit. */
+.btn--primary:active {
+  transform: translateY(0);
+  background: linear-gradient(176deg, var(--copper-shade) 0%, var(--copper) 100%);
+  box-shadow: inset 0 2px 5px rgba(92, 28, 12, .42);
 }
 
 .btn--ghost { color: var(--text-hi); border-color: var(--border-mid); }
@@ -1134,4 +1150,53 @@
 .section--light .has-spotlight::after {
   background: radial-gradient(240px circle at var(--mx) var(--my),
               rgba(226, 96, 58, .15), transparent 62%);
+}
+
+/* ==========================================================================
+   Matière cuivre — chiffres et filets
+
+   Déclaré ici et non dans base.css : `.metric__value` y porte déjà une
+   couleur pleine, qui écraserait la transparence nécessaire au dégradé.
+   ========================================================================== */
+
+@supports (background-clip: text) or (-webkit-background-clip: text) {
+  .metric__value {
+    background: var(--copper-text-metal);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .section--light .metric__value {
+    background: none;
+    -webkit-text-fill-color: var(--copper-deep);
+    color: var(--copper-deep);
+  }
+}
+
+/* Les filets prennent le même dégradé : un trait plat à côté de boutons
+   métalliques trahit l'aplat. */
+.rule {
+  background: linear-gradient(90deg,
+    rgba(247, 160, 119, .55) 0%,
+    rgba(226, 96, 58, .42) 30%,
+    transparent 70%);
+}
+.rule--full {
+  background: linear-gradient(90deg,
+    transparent,
+    rgba(247, 160, 119, .30) 18%,
+    rgba(226, 96, 58, .45) 50%,
+    rgba(247, 160, 119, .30) 82%,
+    transparent);
+}
+
+/* Barre de progression et filet des cartes : même matière. */
+.read-progress span {
+  background: linear-gradient(90deg, var(--copper-shade), var(--copper) 55%, var(--copper-sheen));
+}
+.card::before {
+  background: linear-gradient(90deg, var(--copper-sheen), var(--copper) 30%, transparent 72%);
+}
+.sector::after {
+  background: linear-gradient(90deg, var(--copper-sheen), var(--copper) 35%, transparent 78%);
 }

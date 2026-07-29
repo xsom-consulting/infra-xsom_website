@@ -113,6 +113,26 @@ h1, h2, h3, h4, h5 {
   font-size: 1.06em;
 }
 
+/* Le mot accentué prend la matière du métal plutôt qu'un aplat.
+   `color` reste déclaré au-dessus : si background-clip n'est pas géré, le
+   texte s'affiche en cuivre uni au lieu de disparaître. */
+@supports (background-clip: text) or (-webkit-background-clip: text) {
+  .em {
+    background: var(--copper-text-metal);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  /* Sur fond clair, le dégradé descendrait sous le seuil de lisibilité :
+     on garde la teinte pleine, déjà validée à 4.75:1. */
+  .section--light .em {
+    background: none;
+    -webkit-text-fill-color: var(--copper-deep);
+    color: var(--copper-deep);
+  }
+}
+
 .lead {
   font-size: var(--fs-lead);
   line-height: 1.65;
