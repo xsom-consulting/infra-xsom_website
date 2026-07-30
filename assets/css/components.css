@@ -44,7 +44,12 @@
 }
 
 .brand { display: flex; align-items: center; gap: var(--sp-3); flex-shrink: 0; }
-.brand img { width: 34px; height: 34px; object-fit: contain; flex-shrink: 0; }
+/* 42 px pour un signe qui en fait 34.
+   Les SVG du kit embarquent une marge de réserve : le tracé n'occupe que
+   81,4 % de la largeur du viewBox. Une boîte de 34 px ne rendrait donc que
+   27,7 px de dessin, soit un cinquième de moins que l'ancien logo, qui lui
+   touchait ses bords. Le rapport est identique sur les six variantes. */
+.brand img { width: 42px; height: 42px; object-fit: contain; flex-shrink: 0; }
 .brand__name {
   font-family: var(--font-display);
   font-size: 1rem;
@@ -422,7 +427,10 @@
   position: absolute;
   top: 50%; left: 50%;
   transform: translate(-50%, -50%);
-  width: 34%;
+  /* Même compensation qu'en en-tête : 42 % de boîte pour 34 % de dessin.
+     Reste sous le diamètre réservé par hero-network.js (CORE_RADIUS 0.19,
+     soit 38 % de large), donc le réseau ne vient pas mordre sur le signe. */
+  width: 42%;
   z-index: 3;
   pointer-events: none;
 }
