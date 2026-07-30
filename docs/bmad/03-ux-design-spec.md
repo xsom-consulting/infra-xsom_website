@@ -78,13 +78,14 @@ Sur un bouton cuivre plein, le texte est `--ink-950` (11.4:1) et non blanc
 
 | Rôle | Police | Poids | Justification |
 |------|--------|-------|---------------|
-| Titres | **Inter Tight** | 600, 700, 800 | Grotesque serré, neutre, excellent en très grande taille. Ne date pas. |
-| Accent éditorial | **Instrument Serif** *italique* | 400 | Un ou deux mots par titre, en cuivre. C'est le marqueur de la marque : il introduit la dimension humaine dans un système par ailleurs technique. Résout visuellement le positionnement hybride. |
+| Titres | **Saira** | 600 à 800, variable | Descend de la DIN : la lettre de la signalétique technique, des plans d'infrastructure et de l'étiquetage industriel. Elle nomme le métier sans le costume. Légèrement étroite, d'où un interlettrage nettement moins serré que pour un grotesque large. |
 | Texte courant | **Inter** | 400, 500 | Lisibilité de référence en interface. |
 | Labels et données | **JetBrains Mono** | 500 | Numérotations de section, étiquettes, chiffres, badges techniques. Signale l'ingénierie. |
 
-Chargement : `preconnect` vers Google Fonts, `display=swap`, sous-ensembles
-`latin` et `latin-ext`, poids strictement limités à ceux listés.
+Chargement : fichiers `woff2` auto-hébergés depuis le domaine, `display=swap`,
+sous-ensemble `latin` seul. Aucune requête vers un CDN tiers — aucune adresse IP
+de visiteur transmise, ce qui serait contradictoire avec le discours du cabinet
+sur la souveraineté. Saira est variable : une déclaration couvre 600 à 800.
 
 ### 3.2 Échelle
 
@@ -143,12 +144,21 @@ Un bruit SVG en overlay à 3 % d'opacité sur les fonds sombres, en
 `pointer-events: none`. Il retire l'aspect « aplat numérique » et donne une
 matière imprimée. Généré en data-URI, aucun fichier image.
 
-### 5.4 L'italique serif accentué
+### 5.4 Le balayage lumineux des titres
 
-Dans les titres, un ou deux mots passent en Instrument Serif italique cuivre.
-Exemple : « Gouvernance, cybersécurité et *intelligence artificielle* ».
-Un seul par titre. Jamais sur un mot technique — toujours sur le mot qui porte
-l'enjeu.
+Les titres tiennent sur une seule teinte et un seul caractère. Le relief vient
+d'une lumière qui traverse le texte et suit horizontalement le curseur : c'est
+de la lumière, jamais un changement de couleur.
+
+Le traitement précédent — un ou deux mots par titre basculés en serif italique
+cuivre — a été abandonné. C'est la composition la plus reconnaissable des pages
+générées automatiquement, et elle datait le site avant qu'on en ait lu une
+ligne. La classe `.em` reste dans le balisage pour marquer le mot porteur, mais
+ne modifie plus ni fonte, ni style, ni teinte.
+
+Sans JavaScript, sans pointeur fin ou sous `prefers-reduced-motion`, la lumière
+reste au centre et immobile. Sur fond clair le titre est en aplat : y ajouter
+de la lumière ferait chuter le contraste au lieu de le creuser.
 
 ### 5.5 La visualisation d'infrastructure
 
@@ -275,7 +285,7 @@ et `aria-describedby` renseignés.
 
 ### 6.5 Chiffres clés
 
-Valeur en Inter Tight 800, cuivre. Libellé en dessous en `--text-low`.
+Valeur en Saira 800, cuivre. Libellé en dessous en `--text-low`.
 Un filet cuivre vertical de 1 px à gauche. Les valeurs numériques s'incrémentent
 à l'entrée dans le viewport, une seule fois, en 900 ms — sauf si
 `prefers-reduced-motion` est actif.

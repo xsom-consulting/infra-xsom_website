@@ -106,6 +106,16 @@ emplacement et la raison de chaque choix sont dans
 où le logo apparaît, l'en-tête, le pied de page et le hero utilisent la même
 variante `moderne-dark.svg` — un seul fichier, mis en cache une fois.
 
+### Refaire la vignette de partage
+
+`assets/images/og-cover.jpg` et `og-cover-en.jpg` sont ce que LinkedIn, X ou
+Slack affichent quand un lien du site est partagé. Elles sont produites depuis
+`tools/og-cover/template.html`, qui charge les mêmes tokens et les mêmes
+polices que le site : la vignette ne peut donc pas diverger de la charte sans
+que le site diverge aussi. Le gabarit s'ouvre directement dans un navigateur
+(`?lang=en` pour la version anglaise) et porte en commentaire les deux
+commandes de régénération.
+
 ### Changer une couleur
 
 Tout est dans `assets/css/tokens.css`. L'accent cuivre, par exemple :

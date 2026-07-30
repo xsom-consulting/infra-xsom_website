@@ -6,17 +6,28 @@
    tiers, une requête externe de moins au chargement, et une cohérence avec ce
    que le cabinet défend en matière de souveraineté.
 
-   Inter, Inter Tight, Instrument Serif et JetBrains Mono sont publiées sous
-   SIL Open Font License 1.1, qui autorise cette redistribution.
-   Sous-ensemble latin uniquement : il couvre le français et l'anglais.
+   Saira, Inter et JetBrains Mono sont publiées sous SIL Open Font License 1.1,
+   qui autorise cette redistribution. Sous-ensemble latin uniquement : il
+   couvre le français et l'anglais, accents et ligature œ compris.
+
+   Trois fichiers, trois rôles :
+     Saira           titres — parenté DIN, la lettre de la signalétique
+                     technique, des plans et des baies
+     Inter           texte courant, dessiné pour se lire sur la longueur
+     JetBrains Mono  surtitres, étiquettes, chiffres
    ========================================================================== */
 
+/* Saira est variable : une seule déclaration couvre 600 à 800, et le
+   navigateur interpole les graisses intermédiaires. Déclarer chaque graisse
+   séparément vers le même fichier, comme le faisait Inter Tight, revient à
+   télécharger la même chose trois fois du point de vue du cache. */
 @font-face {
-  font-family: 'Instrument Serif';
-  font-style: italic;
-  font-weight: 400;
+  font-family: 'Saira';
+  font-style: normal;
+  font-weight: 600 800;
+  font-stretch: 100%;
   font-display: swap;
-  src: url('../fonts/instrument-serif-400-italic.woff2') format('woff2');
+  src: url('../fonts/saira-600-800.woff2') format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
@@ -35,33 +46,6 @@
   font-weight: 500;
   font-display: swap;
   src: url('../fonts/inter-400.woff2') format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-
-@font-face {
-  font-family: 'Inter Tight';
-  font-style: normal;
-  font-weight: 600;
-  font-display: swap;
-  src: url('../fonts/inter-tight-600.woff2') format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-
-@font-face {
-  font-family: 'Inter Tight';
-  font-style: normal;
-  font-weight: 700;
-  font-display: swap;
-  src: url('../fonts/inter-tight-600.woff2') format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-
-@font-face {
-  font-family: 'Inter Tight';
-  font-style: normal;
-  font-weight: 800;
-  font-display: swap;
-  src: url('../fonts/inter-tight-600.woff2') format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 

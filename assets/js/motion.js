@@ -57,9 +57,38 @@
     });
   }
 
+  /* Recolle le balayage lumineux d'un mot à l'autre.
+
+     Chaque mot porte le même dégradé, mais dans sa propre boîte : sans
+     correction, chacun rejouerait le dégradé en entier et le titre se lirait
+     comme une suite de mots rayés. On donne donc à chaque mot la taille du
+     titre en `background-size`, et son propre décalage en `background-position`.
+     Les mots deviennent alors des fenêtres sur un seul et même dégradé.
+
+     Les positions sont toutes lues avant d'écrire quoi que ce soit : lire
+     après une écriture forcerait un recalcul de mise en page par mot. */
+  function alignSheen(title, words) {
+    var box = title.getBoundingClientRect();
+    if (!box.width) return;
+
+    var offsets = words.map(function (word) {
+      var r = word.getBoundingClientRect();
+      return { x: r.left - box.left, y: r.top - box.top };
+    });
+
+    var size = box.width + 'px ' + box.height + 'px';
+    words.forEach(function (word, i) {
+      word.style.backgroundSize = size;
+      word.style.backgroundPosition =
+        (-offsets[i].x) + 'px ' + (-offsets[i].y) + 'px';
+    });
+  }
+
   function initSplitTitles() {
     var titles = document.querySelectorAll('[data-split]');
     if (!titles.length) return;
+
+    var aligned = [];
 
     var observer = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
@@ -89,8 +118,29 @@
       });
 
       title.classList.add('split-ready');
+      aligned.push({ title: title, words: words });
+      alignSheen(title, words);
       observer.observe(title);
     });
+
+    /* Le titre se recompose quand la fenêtre change de largeur, et les mots
+       changent alors de ligne : leurs décalages doivent être recalculés, sinon
+       le balayage se disloque. */
+    var realignTimer;
+    window.addEventListener('resize', function () {
+      window.clearTimeout(realignTimer);
+      realignTimer = window.setTimeout(function () {
+        aligned.forEach(function (entry) { alignSheen(entry.title, entry.words); });
+      }, 150);
+    }, { passive: true });
+
+    /* Les polices basculent après le premier rendu : la largeur des mots
+       change sans redimensionnement de fenêtre. */
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(function () {
+        aligned.forEach(function (entry) { alignSheen(entry.title, entry.words); });
+      });
+    }
   }
 
   /* ======================================================================

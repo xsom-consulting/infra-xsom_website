@@ -209,8 +209,51 @@
     update();
   }
 
+  /* ======================================================================
+     6. Lumière des titres
+
+     Un balayage clair traverse chaque titre et suit horizontalement le
+     curseur. Le dégradé est décrit dans tokens.css ; on ne réécrit ici que sa
+     position, une variable CSS, donc le navigateur ne recalcule aucune mise en
+     page — il repeint.
+
+     Sans pointeur fin, ou sous prefers-reduced-motion, rien n'est branché : la
+     variable garde sa valeur par défaut de 50 %, la lumière reste au centre et
+     le titre est strictement aussi lisible.
+     ====================================================================== */
+  function initTitleSheen() {
+    if (reduce || !finePointer) return;
+
+    var titles = document.querySelectorAll('[data-split]');
+    if (!titles.length) return;
+
+    var pending = false;
+    var pointerX = 0;
+
+    function paint() {
+      pending = false;
+      for (var i = 0; i < titles.length; i++) {
+        var box = titles[i].getBoundingClientRect();
+        // Hors écran : inutile de repeindre, et la valeur serait aberrante.
+        if (box.bottom < 0 || box.top > window.innerHeight || !box.width) continue;
+
+        // Le balayage déborde de 30 % de part et d'autre : la lumière entre et
+        // sort du titre au lieu de rester collée à ses bords.
+        var ratio = (pointerX - box.left) / box.width;
+        var pos = (-30 + Math.max(-0.6, Math.min(1.6, ratio)) * 160);
+        titles[i].style.setProperty('--title-sheen-pos', pos.toFixed(1) + '%');
+      }
+    }
+
+    window.addEventListener('pointermove', function (e) {
+      pointerX = e.clientX;
+      if (!pending) { pending = true; window.requestAnimationFrame(paint); }
+    }, { passive: true });
+  }
+
   function init() {
     initSpotlight();
+    initTitleSheen();
     initNavIndicator();
     initMagnetic();
     initProgress();

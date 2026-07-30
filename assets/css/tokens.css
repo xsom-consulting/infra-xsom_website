@@ -85,14 +85,40 @@
      Sur fond clair  : --copper-deep (5.9:1) — voir .section--light. */
   --copper-text: var(--copper);
 
+  /* ---- Titres ----------------------------------------------------------
+     Une seule teinte, un seul caractère typographique. Le relief vient d'une
+     lumière qui balaie le texte et suit le curseur, jamais d'un changement de
+     couleur ou de style : c'est ce qui distingue un titre composé d'un titre
+     décoré.
+
+     --title-sheen-pos est réécrite au pointeur par ui.js. Sans JavaScript ou
+     sous prefers-reduced-motion elle vaut 50 % : la lumière reste au centre,
+     immobile, et le titre garde exactement la même lisibilité.
+
+     Le dégradé lui-même est écrit dans base.css et non ici, contrairement à
+     tout le reste. Un `var()` imbriqué dans une custom property est résolu là
+     où la propriété est DÉCLARÉE, pas là où elle est utilisée : un dégradé
+     défini ici figerait --title-sheen-pos à la valeur de :root, puis hériterait
+     cette valeur figée. La position ne bougerait jamais. */
+  --title-ink:        #eef2f8;   /* 15.8:1 sur ink-900 */
+  --title-glint:      #ffffff;   /* cœur du balayage */
+  --title-glint-warm: #fff5ed;   /* fuite tiède, rappel du cuivre */
+  --title-sheen-pos:  50%;
+
   /* ---- Sémantique ------------------------------------------------------ */
   --danger:  #ff6b6b;
   --success: #4ade80;
 
   /* ---- Typographie ----------------------------------------------------- */
-  --font-display: 'Inter Tight', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  /* Saira descend de la DIN : la lettre de la signalétique technique, des
+     plans d'infrastructure et de l'étiquetage industriel. Elle dit le métier
+     sans le costume, là où Inter Tight ne disait rien. Elle est légèrement
+     étroite, ce qui densifie les titres — d'où l'interlettrage repris plus
+     bas, moins serré que pour Inter Tight.
+     `sans-serif-condensed` en secours : c'est le substitut système le plus
+     proche si le fichier ne charge pas. */
+  --font-display: 'Saira', 'Roboto Condensed', 'Arial Narrow', sans-serif;
   --font-body:    'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  --font-serif:   'Instrument Serif', Georgia, 'Times New Roman', serif;
   --font-mono:    'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace;
 
   --fs-display: clamp(2.6rem, 6vw, 4.75rem);

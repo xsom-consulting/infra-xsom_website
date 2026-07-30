@@ -81,72 +81,94 @@ h1, h2, h3, h4, h5 {
 .t-display {
   font-size: var(--fs-display);
   line-height: 1.02;
-  letter-spacing: -.035em;
+  letter-spacing: -.008em;
   font-weight: 800;
 }
 .t-h1 {
   font-size: var(--fs-h1);
   line-height: 1.08;
-  letter-spacing: -.03em;
+  letter-spacing: -.006em;
   font-weight: 800;
 }
 .t-h2 {
   font-size: var(--fs-h2);
   line-height: 1.14;
-  letter-spacing: -.025em;
+  letter-spacing: -.004em;
 }
 .t-h3 {
   font-size: var(--fs-h3);
   line-height: 1.25;
-  letter-spacing: -.015em;
+  letter-spacing: -.002em;
 }
 
-/* L'italique serif accentué — marqueur de marque.
-   Un ou deux mots par titre, jamais plus. */
+/* Les titres tiennent sur une seule teinte et un seul caractère.
+
+   `.em` portait un italique serif en cuivre. C'est la composition la plus
+   reconnaissable des pages générées automatiquement, au point de dater un site
+   avant qu'on en ait lu une ligne. La classe reste dans le balisage — elle
+   marque toujours le mot porteur du titre — mais elle ne change plus ni la
+   fonte, ni le style, ni la couleur. */
 .em {
-  font-family: var(--font-serif);
-  font-style: italic;
-  font-weight: 400;
-  color: var(--copper-text);
-  letter-spacing: -.01em;
-  /* Le serif a une hauteur d'x plus faible : on compense optiquement. */
-  font-size: 1.06em;
+  font-family: inherit;
+  font-style: inherit;
+  font-weight: inherit;
+  font-size: inherit;
+  letter-spacing: inherit;
+  color: inherit;
 }
 
-/* Le mot accentué prend la matière du métal plutôt qu'un aplat.
-   `color` reste déclaré au-dessus : si background-clip n'est pas géré, le
-   texte s'affiche en cuivre uni au lieu de disparaître. */
-@supports (background-clip: text) or (-webkit-background-clip: text) {
-  .em {
-    background: var(--copper-text-metal);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-  }
+/* Les titres sont posés en couleur pleine. Tout ce qui suit n'ajoute que de la
+   lumière par-dessus : si rien de tout cela ne s'applique, le titre reste
+   exactement lisible. */
+.t-display, .t-h1, .t-h2 { color: var(--title-ink); }
 
-  /* Quand le titre est découpé pour l'animation, motion.js déplace le texte
-     dans des spans `inline-block`. Or `background-clip: text` ne clippe le
-     fond d'un élément que sur SON propre texte : un descendant inline-block
-     crée sa propre boîte, le fond du parent ne le traverse pas, et le mot
-     devient invisible puisqu'il hérite de `color: transparent`.
-     Le dégradé doit donc être porté par chaque mot. */
-  .em .word {
-    background: var(--copper-text-metal);
+@supports (background-clip: text) or (-webkit-background-clip: text) {
+  /* Un balayage lumineux traverse le titre et suit le curseur.
+
+     Il est porté par chaque mot et non par le titre : quand motion.js découpe
+     un titre pour l'animer, il déplace le texte dans des spans `inline-block`.
+     Or `background-clip: text` ne clippe le fond d'un élément que sur SON
+     propre texte — un descendant inline-block crée sa propre boîte, que le
+     fond du parent ne traverse pas, et le mot disparaîtrait en héritant de
+     `color: transparent`.
+
+     La continuité du balayage d'un mot à l'autre est rétablie par motion.js,
+     qui donne à chaque mot la taille du titre en `background-size` et son
+     propre décalage en `background-position` : les mots échantillonnent alors
+     un dégradé unique au lieu d'en répéter un chacun. */
+  .js .split-ready .word {
+    /* Le dégradé est écrit ici et pas dans tokens.css : un `var()` imbriqué
+       dans une custom property se résout à la déclaration, si bien qu'un
+       dégradé défini dans :root y figerait --title-sheen-pos à 50 % avant
+       d'hériter. Écrit au point d'usage, il lit la valeur du titre. */
+    background-image: linear-gradient(94deg,
+      var(--title-ink)        0%,
+      var(--title-ink)        calc(var(--title-sheen-pos) - 24%),
+      var(--title-glint)      calc(var(--title-sheen-pos) - 3%),
+      var(--title-glint-warm) calc(var(--title-sheen-pos) + 3%),
+      var(--title-ink)        calc(var(--title-sheen-pos) + 24%),
+      var(--title-ink)        100%);
+    background-repeat: no-repeat;
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
     color: transparent;
   }
 
-  /* Sur fond clair, le dégradé descendrait sous le seuil de lisibilité :
-     on garde la teinte pleine, déjà validée à 4.75:1. */
-  .section--light .em,
-  .section--light .em .word {
-    background: none;
-    -webkit-text-fill-color: var(--copper-deep);
-    color: var(--copper-deep);
+  /* Sur fond clair, ajouter de la lumière ferait chuter le contraste au lieu
+     de le creuser. Le titre y reste en aplat. */
+  .section--light .split-ready .word {
+    background-image: none;
+    -webkit-text-fill-color: var(--text-hi);
+    color: var(--text-hi);
   }
 }
+
+/* Sans le balayage, le titre ne doit pas rester en teinte de repos plus pâle
+   que prévu sur fond clair. */
+.section--light .t-display,
+.section--light .t-h1,
+.section--light .t-h2 { color: var(--text-hi); }
 
 .lead {
   font-size: var(--fs-lead);
