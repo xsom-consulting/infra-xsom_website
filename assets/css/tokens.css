@@ -110,9 +110,15 @@
   --success: #4ade80;
 
   /* ---- Typographie ----------------------------------------------------- */
-  --font-display: 'Inter Tight', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  /* Saira descend de la DIN : la lettre de la signalétique technique, des
+     plans d'infrastructure et de l'étiquetage industriel. Elle dit le métier
+     sans le costume, là où Inter Tight ne disait rien. Elle est légèrement
+     étroite, ce qui densifie les titres — d'où l'interlettrage repris plus
+     bas, moins serré que pour Inter Tight.
+     `sans-serif-condensed` en secours : c'est le substitut système le plus
+     proche si le fichier ne charge pas. */
+  --font-display: 'Saira', 'Roboto Condensed', 'Arial Narrow', sans-serif;
   --font-body:    'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  --font-serif:   'Instrument Serif', Georgia, 'Times New Roman', serif;
   --font-mono:    'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace;
 
   --fs-display: clamp(2.6rem, 6vw, 4.75rem);

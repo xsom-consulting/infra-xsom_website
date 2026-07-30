@@ -54,7 +54,7 @@
   font-family: var(--font-display);
   font-size: 1rem;
   font-weight: 700;
-  letter-spacing: -.02em;
+  letter-spacing: -.004em;
   color: var(--paper);
   line-height: 1.1;
 }
@@ -153,7 +153,7 @@
     font-size: 1.35rem;
     font-family: var(--font-display);
     font-weight: 600;
-    letter-spacing: -.02em;
+    letter-spacing: -.004em;
     border-bottom: 1px solid var(--border);
   }
   .nav a::after { display: none; }
@@ -405,7 +405,7 @@
   border-top: 1px solid var(--border);
 }
 .hero__meta div { font-family: var(--font-mono); font-size: var(--fs-label); letter-spacing: .12em; text-transform: uppercase; color: var(--text-faint); }
-.hero__meta strong { display: block; font-family: var(--font-display); font-size: 1.1rem; font-weight: 700; letter-spacing: -.02em; color: var(--copper); margin-bottom: 2px; }
+.hero__meta strong { display: block; font-family: var(--font-display); font-size: 1.1rem; font-weight: 700; letter-spacing: -.004em; color: var(--copper); margin-bottom: 2px; }
 
 /* Visualisation d'infrastructure */
 .hero__viz {
@@ -508,7 +508,7 @@
   font-family: var(--font-display);
   font-size: var(--fs-metric);
   font-weight: 800;
-  letter-spacing: -.03em;
+  letter-spacing: -.006em;
   line-height: 1;
   color: var(--copper-text);
   margin-bottom: var(--sp-2);
@@ -577,7 +577,7 @@
   font-size: clamp(1.25rem, 2.4vw, 1.75rem);
   font-weight: 600;
   line-height: 1.35;
-  letter-spacing: -.02em;
+  letter-spacing: -.004em;
   color: var(--text-hi);
   max-width: none;
 }

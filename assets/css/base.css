@@ -81,24 +81,24 @@ h1, h2, h3, h4, h5 {
 .t-display {
   font-size: var(--fs-display);
   line-height: 1.02;
-  letter-spacing: -.035em;
+  letter-spacing: -.008em;
   font-weight: 800;
 }
 .t-h1 {
   font-size: var(--fs-h1);
   line-height: 1.08;
-  letter-spacing: -.03em;
+  letter-spacing: -.006em;
   font-weight: 800;
 }
 .t-h2 {
   font-size: var(--fs-h2);
   line-height: 1.14;
-  letter-spacing: -.025em;
+  letter-spacing: -.004em;
 }
 .t-h3 {
   font-size: var(--fs-h3);
   line-height: 1.25;
-  letter-spacing: -.015em;
+  letter-spacing: -.002em;
 }
 
 /* Les titres tiennent sur une seule teinte et un seul caractère.
