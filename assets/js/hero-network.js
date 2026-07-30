@@ -28,11 +28,20 @@
   // (montée et descente progressives quand le curseur entre et sort).
   var pointer = { x: 0, y: 0, strength: 0, target: 0 };
 
-  var NODE_COUNT = 28;
+  var NODE_COUNT = 24;
   var LINK_DIST = 0.30;      // fraction de la largeur
-  var COPPER = '226, 96, 58';
   var CORE_RADIUS = 0.19;    // zone centrale réservée au logo
   var POINTER_DIST = 0.26;   // rayon d'influence du curseur
+
+  /* Palette.
+
+     Les nœuds reprennent les deux teintes du logo, et le cuivre est réservé à
+     ce qui bouge : impulsions et lien au curseur. Le réseau se lit alors comme
+     l'écosystème du signe posé en son centre, et l'accent du site reste un
+     signal, pas une troisième famille de couleur. */
+  var NODE   = '202, 210, 220';   // #cad2dc — flèche gris clair du logo
+  var HOT    = '63, 147, 255';    // #3f93ff — flèche bleu vif du logo
+  var COPPER = '226, 96, 58';     // accent du site, uniquement en mouvement
 
   function resize() {
     var rect = canvas.getBoundingClientRect();
@@ -58,8 +67,14 @@
       var r = CORE_RADIUS + 0.06 + ((i * 37) % 100) / 100 * 0.26;
       nodes.push({
         x: cx + Math.cos(a) * r,
-        y: cy + Math.sin(a) * r * 0.94,
-        r: 1.6 + ((i * 13) % 100) / 100 * 1.9,
+        // L'anneau était aplati à 0.94, ce qui n'a plus lieu d'être : la boîte
+        // est carrée, l'aplatissement ne faisait que le déséquilibrer.
+        y: cy + Math.sin(a) * r,
+        /* Rayon plancher à 2.2 px CSS, soit 8.8 px de diamètre à l'écran en
+           densité 2. En dessous d'environ 7 px, l'antialiasing ne peut plus
+           décrire une courbe : le disque devient un carré flou que l'œil lit
+           comme une ellipse selon sa position sous-pixel. */
+        r: 2.2 + ((i * 13) % 100) / 100 * 1.8,
         phase: (i * 0.41) % (Math.PI * 2),
         speed: 0.6 + ((i * 7) % 100) / 100 * 0.7,
         drift: 0.0016 + ((i * 11) % 100) / 100 * 0.0022,
@@ -101,7 +116,10 @@
       ctx.beginPath();
       ctx.moveTo(na.x * W, na.y * H);
       ctx.lineTo(nb.x * W, nb.y * H);
-      ctx.strokeStyle = 'rgba(255, 255, 255, 0.055)';
+      // 5,5 % ne dessinait pas une arête mais une rayure : la structure du
+      // réseau ne se lisait pas. Assez visible pour faire graphe, assez
+      // discret pour rester derrière le logo.
+      ctx.strokeStyle = 'rgba(' + NODE + ', 0.11)';
       ctx.lineWidth = 1;
       ctx.stroke();
     }
@@ -134,12 +152,14 @@
       ctx.moveTo(tx, ty);
       ctx.lineTo(px, py);
       ctx.strokeStyle = grad;
-      ctx.lineWidth = 1.4;
+      ctx.lineWidth = 1.6;
       ctx.stroke();
 
+      // Mise à l'échelle des nœuds, qui ont grossi : une impulsion plus fine
+      // qu'eux se lirait comme une poussière plutôt que comme un signal.
       ctx.beginPath();
-      ctx.arc(px, py, 2, 0, Math.PI * 2);
-      ctx.fillStyle = 'rgba(' + COPPER + ', 0.9)';
+      ctx.arc(px, py, 2.6, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(' + COPPER + ', 0.92)';
       ctx.fill();
     }
 
@@ -177,23 +197,35 @@
 
       var radius = node.r * (0.82 + pulseVal * 0.34 + near * 0.9);
 
+      /* Halo. Il était à 3,6 rayons pour une opacité de 5 à 12 % : trop large
+         et trop faible, il rendait une bavure brune au lieu d'une lueur. Plus
+         serré et un peu plus dense, il se lit comme un halo. */
       if (node.hot || near > 0.05) {
         ctx.beginPath();
-        ctx.arc(node.x * W, node.y * H, radius * 3.6, 0, Math.PI * 2);
-        var haloAlpha = (node.hot ? 0.05 + pulseVal * 0.07 : 0) + near * 0.14;
-        ctx.fillStyle = 'rgba(' + COPPER + ', ' + haloAlpha.toFixed(3) + ')';
-        ctx.fill();
+        ctx.arc(node.x * W, node.y * H, radius * 2.5, 0, Math.PI * 2);
+        var haloHot = node.hot ? 0.10 + pulseVal * 0.10 : 0;
+        if (haloHot) {
+          ctx.fillStyle = 'rgba(' + HOT + ', ' + haloHot.toFixed(3) + ')';
+          ctx.fill();
+        }
+        if (near > 0.05) {
+          ctx.beginPath();
+          ctx.arc(node.x * W, node.y * H, radius * 2.5, 0, Math.PI * 2);
+          ctx.fillStyle = 'rgba(' + COPPER + ', ' + (near * 0.16).toFixed(3) + ')';
+          ctx.fill();
+        }
       }
 
       ctx.beginPath();
       ctx.arc(node.x * W, node.y * H, radius, 0, Math.PI * 2);
       if (node.hot) {
-        ctx.fillStyle = 'rgba(' + COPPER + ', ' + Math.min(1, 0.55 + pulseVal * 0.4 + near * 0.4).toFixed(3) + ')';
+        ctx.fillStyle = 'rgba(' + HOT + ', ' + Math.min(1, 0.62 + pulseVal * 0.38).toFixed(3) + ')';
       } else if (near > 0.02) {
-        // Fondu du blanc vers le cuivre à mesure que le curseur approche.
+        // Le nœud vire au cuivre à l'approche du curseur : c'est l'accent du
+        // site qui signale l'interaction, pas la couleur de repos du réseau.
         ctx.fillStyle = 'rgba(' + COPPER + ', ' + Math.min(1, near * 1.1).toFixed(3) + ')';
       } else {
-        ctx.fillStyle = 'rgba(255, 255, 255, ' + (0.22 + pulseVal * 0.24).toFixed(3) + ')';
+        ctx.fillStyle = 'rgba(' + NODE + ', ' + (0.30 + pulseVal * 0.28).toFixed(3) + ')';
       }
       ctx.fill();
     }
@@ -225,11 +257,25 @@
     if (!W) return;
     build();
 
-    var resizeTimer;
-    window.addEventListener('resize', function () {
-      window.clearTimeout(resizeTimer);
-      resizeTimer = window.setTimeout(function () { resize(); build(); }, 180);
-    }, { passive: true });
+    /* Le canvas doit être resynchronisé quand *l'élément* change de taille,
+       pas seulement quand la fenêtre bouge : une recomposition tardive — les
+       polices qui basculent, la barre d'URL d'un mobile qui se replie — change
+       la boîte sans déclencher d'événement `resize`. Le tampon garderait alors
+       ses anciennes dimensions et serait étiré par le CSS, ce qui déforme les
+       disques en ellipses. */
+    if ('ResizeObserver' in window) {
+      var roTimer;
+      new ResizeObserver(function () {
+        window.clearTimeout(roTimer);
+        roTimer = window.setTimeout(function () { resize(); build(); }, 120);
+      }).observe(canvas);
+    } else {
+      var resizeTimer;
+      window.addEventListener('resize', function () {
+        window.clearTimeout(resizeTimer);
+        resizeTimer = window.setTimeout(function () { resize(); build(); }, 180);
+      }, { passive: true });
+    }
 
     document.addEventListener('visibilitychange', function () {
       visible = !document.hidden;

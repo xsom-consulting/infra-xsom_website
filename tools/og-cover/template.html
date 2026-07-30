@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Vignette de partage — xSOM Consulting</title>
+
+<!--
+  Gabarit de la vignette Open Graph (assets/images/og-cover.jpg et
+  og-cover-en.jpg), au format 1200 x 630 attendu par LinkedIn, X et Slack.
+
+  Le fond, le halo et la grille reprennent la recette exacte du hero, et la
+  typographie vient des mêmes fichiers que le site : la vignette ne peut donc
+  pas diverger de la charte sans que le site diverge aussi.
+
+  Prévisualiser :
+      python3 -m http.server 8000
+      http://localhost:8000/tools/og-cover/template.html
+      http://localhost:8000/tools/og-cover/template.html?lang=en
+
+  Régénérer — rendu en 2400 x 1260 puis réduit, le texte y gagne en netteté :
+
+      node -e "
+      const {chromium}=require('@playwright/test');
+      (async()=>{const b=await chromium.launch();
+        for(const [l,f] of [['fr','og-cover'],['en','og-cover-en']]){
+          const p=await(await b.newContext({viewport:{width:1200,height:630},
+            deviceScaleFactor:2})).newPage();
+          await p.goto('http://localhost:8000/tools/og-cover/template.html?lang='+l,
+            {waitUntil:'networkidle'});
+          await p.waitForTimeout(500);
+          await p.screenshot({path:'/tmp/'+f+'.png'});
+        } await b.close();})()"
+
+      python3 -c "
+      from PIL import Image
+      for f in ['og-cover','og-cover-en']:
+          im=Image.open('/tmp/%s.png'%f).convert('RGB').resize((1200,630),Image.LANCZOS)
+          im.save('assets/images/%s.jpg'%f,'JPEG',quality=88,optimize=True,progressive=True)"
+-->
+
+<link rel="stylesheet" href="../../assets/css/fonts.css">
+<link rel="stylesheet" href="../../assets/css/tokens.css">
+
+<style>
+  html, body { margin: 0; padding: 0; }
+
+  .card {
+    position: relative;
+    width: 1200px;
+    height: 630px;
+    overflow: hidden;
+    background: var(--ink-900);
+    display: flex;
+    align-items: center;
+    font-family: var(--font-body);
+  }
+
+  /* Halo cuivre — même recette que .hero::before, à l'échelle de la vignette. */
+  .card::before {
+    content: '';
+    position: absolute;
+    width: 620px; height: 620px;
+    top: -34%; right: -12%;
+    border-radius: 50%;
+    background: radial-gradient(circle, var(--copper-glow), transparent 68%);
+    filter: blur(90px);
+  }
+
+  /* Grille technique, masquée en dégradé — même recette que .hero::after. */
+  .card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255, 255, 255, .04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, .04) 1px, transparent 1px);
+    background-size: 80px 80px;
+    mask-image: radial-gradient(ellipse 66% 70% at 40% 50%, #000 12%, transparent 74%);
+    -webkit-mask-image: radial-gradient(ellipse 66% 70% at 40% 50%, #000 12%, transparent 74%);
+  }
+
+  .inner {
+    position: relative;
+    z-index: 1;
+    padding: 0 84px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .lockup { display: flex; align-items: center; gap: 26px; }
+
+  /* 128 px de boîte pour ~104 px de dessin : les SVG du kit portent une marge
+     de réserve et n'occupent que 81,4 % de leur viewBox. */
+  .lockup img { width: 128px; height: 128px; object-fit: contain; }
+
+  .name {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 58px;
+    letter-spacing: -.025em;
+    color: #fff;
+    line-height: 1;
+    margin: 0 0 12px;
+  }
+
+  .tag {
+    font-family: var(--font-mono);
+    font-weight: 500;
+    font-size: 15px;
+    letter-spacing: .19em;
+    text-transform: uppercase;
+    color: var(--text-faint);
+    margin: 0;
+  }
+
+  .rule {
+    width: 108px; height: 3px;
+    margin: 40px 0 30px;
+    border-radius: 2px;
+    background: var(--copper-metal);
+  }
+
+  .pitch {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 40px;
+    line-height: 1.24;
+    letter-spacing: -.018em;
+    color: var(--text-high, #fff);
+    margin: 0;
+    max-width: 20ch;
+  }
+  .pitch em { font-style: normal; color: var(--copper); }
+
+  .meta {
+    position: absolute;
+    left: 84px; bottom: 54px;
+    display: flex;
+    gap: 30px;
+    font-family: var(--font-mono);
+    font-weight: 500;
+    font-size: 14px;
+    letter-spacing: .17em;
+    text-transform: uppercase;
+    color: var(--text-faint);
+  }
+  .meta span::before { content: '·'; margin-right: 30px; color: var(--copper-line); }
+  .meta span:first-child::before { content: none; margin: 0; }
+</style>
+</head>
+<body>
+
+<div class="card">
+  <div class="inner">
+    <div class="lockup">
+      <img src="../../assets/logo/moderne-dark.svg" alt="">
+      <div>
+        <p class="name">xSOM Consulting</p>
+        <p class="tag" data-fr="Conseil en systèmes d'information"
+                       data-en="Information systems consulting">Conseil en systèmes d'information</p>
+      </div>
+    </div>
+
+    <div class="rule"></div>
+
+    <p class="pitch"
+       data-fr="Gouvernance des SI, cybersécurité et infrastructures <em>IA</em>"
+       data-en="IT governance, cybersecurity and <em>AI</em> infrastructure">
+      Gouvernance des SI, cybersécurité et infrastructures <em>IA</em>
+    </p>
+  </div>
+
+  <div class="meta">
+    <span data-fr="Depuis 2007" data-en="Since 2007">Depuis 2007</span>
+    <span data-fr="France · USA" data-en="France · USA">France · USA</span>
+  </div>
+</div>
+
+<script>
+  // Une seule source pour les deux langues : le gabarit reste unique, donc une
+  // retouche de mise en page ne peut pas n'être appliquée qu'à une version.
+  var lang = new URLSearchParams(location.search).get('lang') === 'en' ? 'en' : 'fr';
+  document.documentElement.lang = lang;
+  document.querySelectorAll('[data-' + lang + ']').forEach(function (node) {
+    node.innerHTML = node.getAttribute('data-' + lang);
+  });
+</script>
+
+</body>
+</html>
