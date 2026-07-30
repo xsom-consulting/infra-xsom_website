@@ -35,6 +35,9 @@ assets/js/motion.js       Titres ligne par ligne, parallaxe, schémas animés
 assets/js/hero-network.js Visualisation canvas de l'accueil (réagit au curseur)
 assets/js/contact-form.js Validation et envoi du formulaire
 
+assets/logo/              Kit logo : 6 variantes SVG + favicon et icône iOS
+                          (voir assets/logo/README.md pour l'usage de chacune)
+
 assets/images/secteurs/   6 visuels sectoriels optimisés (~90 Ko pièce)
 assets/images/backdrop.jpg  Fond des en-têtes de page
 assets/images/og-cover.jpg  Vignette de partage 1200×630
@@ -94,6 +97,14 @@ Les fichiers sont dans `assets/fonts/` et déclarés dans `assets/css/fonts.css`
 Ils sont servis depuis le domaine, jamais depuis un CDN : aucune adresse IP de
 visiteur n'est transmise à un tiers, ce qui serait contradictoire avec le
 discours du cabinet sur la souveraineté.
+
+### Changer le logo
+
+Les variantes sont dans `assets/logo/`, toutes en SVG. Le choix par
+emplacement et la raison de chaque choix sont dans
+[`assets/logo/README.md`](assets/logo/README.md). Le site étant sombre partout
+où le logo apparaît, l'en-tête, le pied de page et le hero utilisent la même
+variante `moderne-dark.svg` — un seul fichier, mis en cache une fois.
 
 ### Changer une couleur
 
