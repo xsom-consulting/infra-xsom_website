@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>xSOM AI Guard — Control what your AI agents do | xSOM Consulting</title>
+<meta name="description" content="A control point between your AI agents and their tools: deterministic authorisation policy, human approval on irreversible actions, tamper-evident audit log. We control the action, not just the prompt.">
+
+<link rel="canonical" href="https://www.xsom.fr/en/ai-guard.html">
+<link rel="alternate" hreflang="en" href="https://www.xsom.fr/en/ai-guard.html">
+<link rel="alternate" hreflang="fr" href="https://www.xsom.fr/ai-guard.html">
+<link rel="alternate" hreflang="x-default" href="https://www.xsom.fr/ai-guard.html">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="xSOM Consulting">
+<meta property="og:locale" content="en_GB">
+<meta property="og:url" content="https://www.xsom.fr/en/ai-guard.html">
+<meta property="og:title" content="xSOM AI Guard — xSOM Consulting">
+<meta property="og:description" content="Put your AI agents into production. Without losing control: deterministic policy, human in the loop, tamper-evident audit.">
+<meta property="og:image" content="https://www.xsom.fr/assets/images/og-cover-en.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="xSOM AI Guard — xSOM Consulting">
+<meta name="twitter:description" content="We control what the agent does, not just what it is told.">
+<meta name="twitter:image" content="https://www.xsom.fr/assets/images/og-cover-en.jpg">
+
+<link rel="icon" href="../assets/logo/cuivre.svg" type="image/svg+xml">
+<link rel="icon" href="../assets/logo/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="../assets/logo/apple-touch-icon.png">
+<link rel="stylesheet" href="../assets/css/fonts.css">
+<link rel="stylesheet" href="../assets/css/tokens.css">
+<link rel="stylesheet" href="../assets/css/base.css">
+<link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- nav:start -->
+<header class="site-header">
+  <div class="wrap site-header__inner">
+    <a class="brand" href="index.html">
+      <img src="../assets/logo/moderne-dark.svg" alt="" width="42" height="42">
+      <span>
+        <span class="brand__name">xSOM Consulting</span>
+        <span class="brand__tag">IT consulting</span>
+      </span>
+    </a>
+
+    <div class="nav-panel" id="nav-panel">
+      <nav class="nav" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="expertise.html">Expertise</a>
+        <a href="ai-sovereignty.html">AI &amp; Sovereignty</a>
+        <a href="firm.html">The firm</a>
+        <a href="careers.html">Careers</a>
+      </nav>
+      <div class="header-actions">
+        <p class="lang">
+          <a href="../ai-guard.html" hreflang="fr" lang="fr">FR</a>
+          <span aria-hidden="true">/</span>
+          <span aria-current="true">EN</span>
+        </p>
+        <a class="btn btn--primary btn--sm" href="contact.html">Get in touch</a>
+      </div>
+    </div>
+
+    <button class="nav-toggle" data-nav-toggle aria-expanded="false" aria-controls="nav-panel"
+            aria-label="Open menu" data-label-open="Open menu" data-label-close="Close menu">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/></svg>
+    </button>
+  </div>
+</header>
+<!-- nav:end -->
+
+<main id="main">
+
+  <!-- ===================== HEADER ===================== -->
+  <section class="page-head page-head--visual">
+    <div class="wrap page-head__inner">
+      <p class="eyebrow" data-num="—">xSOM AI Guard</p>
+      <h1 class="t-h1" data-split>Put your AI agents into production.<br><span class="em">Without losing control</span>.</h1>
+      <hr class="rule">
+      <p class="lead">An agent that writes text creates a text risk. An agent with tools deletes,
+      pays, sends, writes to production. xSOM AI Guard sits between the agent and its tools, and
+      decides — call by call — what goes through, what waits for a human, and what will not
+      happen.</p>
+      <div class="hero__actions" style="margin-top:var(--sp-8)">
+        <a class="btn btn--primary" href="contact.html">
+          Request a demonstration
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a class="btn btn--ghost" href="ai-sovereignty.html">AI &amp; Sovereignty</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== THE SHIFT ===================== -->
+  <section class="section" aria-labelledby="shift-title">
+    <div class="wrap split">
+      <div>
+        <p class="eyebrow" data-num="01">The shift</p>
+        <h2 class="t-h2" id="shift-title" style="margin-top:var(--sp-4)">This is not a
+        <span class="em">prompt</span> firewall.</h2>
+      </div>
+      <div>
+        <p>Most guardrails look at what the model is told, or at what it answers. That is useful,
+        and insufficient: the damage does not happen in the sentence, it happens the moment the
+        agent calls a tool.</p>
+        <p>Control therefore has to apply to the <strong>action</strong>. Deleting a contact,
+        moving money, shipping a release, writing into a client system: those are decided before
+        they are executed, not after they have been described.</p>
+        <p>It is the only place where a refusal is still a refusal.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== THE MECHANISM ===================== -->
+  <section class="section section--light" aria-labelledby="mech-title">
+    <div class="wrap">
+      <p class="eyebrow" data-num="02">The mechanism</p>
+      <h2 class="t-h2" id="mech-title">Three guarantees, in this order.</h2>
+
+      <div class="grid grid-3" style="margin-top:var(--sp-8)">
+        <article class="card reveal" data-delay="1">
+          <span class="card__num">Guarantee 01</span>
+          <h3 class="t-h3">A readable policy</h3>
+          <p>Every tool call is classified, then settled by a written, versioned, reviewable rule.
+          A language model does not arbitrate authorisations: it is consulted only on ambiguous
+          cases, and never to lift a prohibition.</p>
+        </article>
+        <article class="card reveal" data-delay="2">
+          <span class="card__num">Guarantee 02</span>
+          <h3 class="t-h3">A human on the irreversible</h3>
+          <p>An irreversible action is held, shown as a dry run — what it would do, and to what —
+          then executed only once approved. Not approved means it does not happen. The block is
+          held by the gateway, never delegated to the model.</p>
+        </article>
+        <article class="card reveal" data-delay="3">
+          <span class="card__num">Guarantee 03</span>
+          <h3 class="t-h3">A tamper-evident log</h3>
+          <p>Every decision is append-only and hash-chained: altering one line breaks the chain,
+          and the break is visible. The exports serve a demonstration of compliance rather than a
+          promise of it.</p>
+        </article>
+      </div>
+
+      <p class="lead" style="margin-top:var(--sp-8)">And the rule that holds all three: when in
+      doubt, refuse. Unknown tool, approval service unreachable — on anything irreversible, no
+      answer means refusal, never permission.</p>
+    </div>
+  </section>
+
+  <!-- ===================== INTERPOSITION ===================== -->
+  <section class="section" aria-labelledby="paths-title">
+    <div class="wrap">
+      <p class="eyebrow" data-num="03">Sitting in the path</p>
+      <h2 class="t-h2" id="paths-title">Three ways, which do not guarantee the same thing.</h2>
+      <p class="lead">The difference is not an integration detail: it decides whether a refused
+      action can still happen.</p>
+
+      <div class="grid grid-3" style="margin-top:var(--sp-8)">
+        <article class="card reveal" data-delay="1">
+          <span class="card__num">Binding</span>
+          <h3 class="t-h3">MCP gateway</h3>
+          <p>The agent's tools go through the gateway. It executes, or it does not. This is the
+          only path where the refusal does not depend on the agent's goodwill.</p>
+        </article>
+        <article class="card reveal" data-delay="2">
+          <span class="card__num">Cooperative</span>
+          <h3 class="t-h3">Authorisation call</h3>
+          <p>For an agent whose code you own: a few lines that ask for a verdict before acting.
+          The guarantee is worth exactly what the agent honouring it is worth.</p>
+        </article>
+        <article class="card reveal" data-delay="3">
+          <span class="card__num">Binding on egress</span>
+          <h3 class="t-h3">Provider proxy</h3>
+          <p>One change of base URL, no code touched. Binding on what leaves — which is already a
+          great deal when the agent's code is not yours.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== WHERE THE PRODUCT STANDS ===================== -->
+  <section class="section section--tight" aria-labelledby="state-title">
+    <div class="wrap split">
+      <div>
+        <p class="eyebrow" data-num="04">Where the product stands</p>
+        <h2 class="t-h2" id="state-title" style="margin-top:var(--sp-4)">Said plainly.</h2>
+      </div>
+      <div>
+        <p>xSOM AI Guard is a product under construction, built by the firm. The foundation is
+        working and tested — gateway, policy, human approval, chained log — and that is what the
+        demonstration shows.</p>
+        <p>What it does not do, it does not claim: it is not a prompt-injection detector, not a
+        personal-data filter, and not a sovereign hosting offer. Those belong to our consulting
+        work, not to this tool.</p>
+        <p>The demonstration is given under named access, by appointment: we show an agent
+        attempting an irreversible action, the hold, the refusal, and the fact that the action did
+        not happen.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CALL ===================== -->
+  <section class="section cta-band">
+    <div class="wrap wrap--narrow cta-band__inner reveal">
+      <p class="eyebrow" data-num="→" style="justify-content:center">Next step</p>
+      <h2 class="t-h2" style="margin-top:var(--sp-6)">Which agents do you <span class="em">already</span> run in production?</h2>
+      <p class="lead">Tell us which tools they touch and what keeps you up at night. We will show
+      you what putting them under control would change, on your own case.</p>
+      <div class="row">
+        <a class="btn btn--primary" href="contact.html">
+          Request a demonstration
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a class="btn btn--ghost" href="ai-sovereignty.html">Our approach to AI</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- footer:start -->
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="site-footer__top">
+      <div>
+        <a class="brand" href="index.html">
+          <img src="../assets/logo/moderne-dark.svg" alt="" width="42" height="42">
+          <span><span class="brand__name">xSOM Consulting</span></span>
+        </a>
+        <p>Independent IT consulting firm. Governance, cybersecurity, AI infrastructure and
+        data science.</p>
+      </div>
+
+      <div>
+        <h2 class="footer-title">Expertise</h2>
+        <ul>
+          <li><a href="expertise.html">All expertise</a></li>
+          <li><a href="expertise.html#practice-cyber">Telecom &amp; cybersecurity</a></li>
+          <li><a href="ai-sovereignty.html">AI &amp; sovereignty</a></li>
+          <li><a href="expertise.html#practice-data">Data science &amp; MLOps</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="footer-title">Firm</h2>
+        <ul>
+          <li><a href="firm.html">Who we are</a></li>
+          <li><a href="careers.html">Careers</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="../ai-guard.html" hreflang="fr" lang="fr">Français</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="footer-title">Reach us</h2>
+        <ul>
+          <li><a href="mailto:jean-philippe.talou@xsom.fr">jean-philippe.talou@xsom.fr</a></li>
+          <li><a href="https://www.linkedin.com/company/xsom-consulting/" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="legal-notice.html">Legal notice</a></li>
+          <li><a href="cookies.html">Cookies</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="site-footer__bottom">
+      <span>© <span data-year>2026</span> xSOM Consulting — All rights reserved</span>
+      <span>Bordeaux · France · United States</span>
+    </div>
+  </div>
+</footer>
+<!-- footer:end -->
+
+<script src="../assets/js/site.js" defer></script>
+<script src="../assets/js/ui.js" defer></script>
+<script src="../assets/js/motion.js" defer></script>
+</body>
+</html>

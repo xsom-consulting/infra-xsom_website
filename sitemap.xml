@@ -28,6 +28,14 @@
     <priority>0.9</priority>
   </url>
   <url>
+    <loc>https://www.xsom.fr/ai-guard.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.xsom.fr/ai-guard.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.xsom.fr/en/ai-guard.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.xsom.fr/ai-guard.html"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://www.xsom.fr/cabinet.html</loc>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.xsom.fr/cabinet.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.xsom.fr/en/firm.html"/>
@@ -74,6 +82,14 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://www.xsom.fr/en/ai-sovereignty.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.xsom.fr/ia-souverainete.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.xsom.fr/ia-souverainete.html"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.xsom.fr/en/ai-guard.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.xsom.fr/en/ai-guard.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.xsom.fr/ai-guard.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.xsom.fr/ai-guard.html"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
