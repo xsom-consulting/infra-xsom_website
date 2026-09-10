@@ -5,6 +5,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { execFileSync } from 'node:child_process';
+import { createHash } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -18,6 +19,15 @@ const pairs = [
 const read = file => restore ? execFileSync('git', ['show', `a9dfd3c:${file}`], { cwd: root, encoding: 'utf8' }) : fs.readFileSync(path.join(root, file), 'utf8');
 const write = (file, content) => fs.writeFileSync(path.join(root, file), content.replace(/[ \t]+$/gm, '').trim() + '\n');
 const styles = ['design-system/fonts.css', 'assets/css/tokens.css', 'assets/css/base.css', 'assets/css/components.css', 'design-system/tokens.css', 'design-system/components.css', 'assets/css/heritage-site.css'];
+// HTML can change before cached runtime files expire. Content-derived versions
+// refresh only changed assets and keep repeated generation deterministic.
+const assetVersions = new Map();
+function runtimeAsset(file, prefix) {
+  if (!assetVersions.has(file)) {
+    assetVersions.set(file, createHash('sha256').update(fs.readFileSync(path.join(root, file))).digest('hex').slice(0, 12));
+  }
+  return `${prefix}${file}?v=${assetVersions.get(file)}`;
+}
 
 function heroArt(prefix, en) {
   const practices = en ? [
@@ -77,12 +87,12 @@ function decorate(file, source, pair) {
     html = html.replace('</head>', `<link rel="canonical" href="https://www.xsom.fr/${file}">\n<link rel="alternate" hreflang="fr" href="https://www.xsom.fr/${pair[0]}">\n<link rel="alternate" hreflang="en" href="https://www.xsom.fr/${pair[1]}">\n<link rel="alternate" hreflang="x-default" href="https://www.xsom.fr/${pair[0]}">\n</head>`);
   }
   const fonts = ['manrope-latin-variable', 'source-sans-3-latin-variable'].map(name => `<link rel="preload" href="${prefix}design-system/assets/${name}.woff2" as="font" type="font/woff2" crossorigin>`).join('\n');
-  html = html.replace('</head>', `${fonts}\n${styles.map(css => `<link rel="stylesheet" href="${prefix}${css}">`).join('\n')}\n<script src="${prefix}assets/js/signal-preferences-init.js"></script>\n</head>`);
+  html = html.replace('</head>', `${fonts}\n${styles.map(css => `<link rel="stylesheet" href="${runtimeAsset(css, prefix)}">`).join('\n')}\n<script src="${runtimeAsset('assets/js/signal-preferences-init.js', prefix)}"></script>\n</head>`);
   if (!html.includes('<signal-preferences')) {
     const preferences = `<div class="heritage-preferences"><signal-preferences lang="${en ? 'en' : 'fr'}">${en ? 'Theme and motion respect your browser preferences.' : 'Le thème et les animations suivent les préférences de votre navigateur.'}</signal-preferences></div>`;
     html = html.includes('</footer>') ? html.replace('</footer>', `${preferences}\n</footer>`) : html.replace('</main>', `${preferences}\n</main>`);
   }
-  html = html.replace('</body>', `<script src="${prefix}assets/js/heritage-site.js" defer></script>\n<script type="module" src="${prefix}design-system/signal.js"></script>${file.endsWith('contact.html') ? `\n<script src="${prefix}assets/js/contact-form.js" defer></script>` : ''}\n</body>`);
+  html = html.replace('</body>', `<script src="${runtimeAsset('assets/js/heritage-site.js', prefix)}" defer></script>\n<script type="module" src="${runtimeAsset('design-system/signal.js', prefix)}"></script>${file.endsWith('contact.html') ? `\n<script src="${runtimeAsset('assets/js/contact-form.js', prefix)}" defer></script>` : ''}\n</body>`);
   return html.replace(/\n[ \t]*\n(?:[ \t]*\n)+/g, '\n\n');
 }
 
