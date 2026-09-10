@@ -1,6 +1,35 @@
 # Corporate visual verification
 
-## Heritage blue correction — current
+## Original three-arrow hero — current
+
+The user's actual window was 736 × 734 CSS pixels (a 1478px physical screenshot
+did not mean a desktop viewport). The previous breakpoint placed the illustration
+after the entire text block. The original mark now sits to the right from 700px;
+at 390px it follows the headline, before the lead paragraph. The original copy
+and heading order in the HTML remain unchanged.
+
+First pass: inspected 1440, 736, 768 and 390 screenshots. The original logo and
+three actual practice labels were readable, with no page overflow. Corrected the
+top connector to terminate exactly at its label; used the untouched original
+gradient variant on light and the untouched moderne-dark variant on dark.
+
+Second pass: 16/16 layouts passed (2 languages × 4 widths × 2 themes), with the
+logo loaded and visible in the first viewport, including the exact 736px case.
+Inspected light desktop, dark 736px, both mobile themes and English tablet.
+Six FR/EN links were followed with keyboard Enter to their actual destinations;
+focus rings and connector focus passed. OS reduced motion removes transitions.
+The no-JavaScript check exposed an expanded sticky header intercepting links;
+only that fallback header is now non-sticky, and a real link click passes.
+
+Durable regression: `tools/verify-hero-mark.cjs`.
+Static checks: 26/26 (23 copy/site contracts + 3 mark/label/destination contracts).
+Both logo SVG files are byte-for-byte equal to the original `a9dfd3c` assets.
+Generator output hashes are unchanged on a second run; partials and diff checks pass.
+Final report: `/tmp/xsom-original-mark-final/report.json`.
+Key captures: `fr-light-1440.png`, `fr-dark-736.png`, `fr-light-390.png` and
+`en-light-768.png` in the same directory. No shared package or console file changed.
+
+## Heritage blue correction — previous full-site pass
 
 The approved original copy (`a9dfd3c`) is restored on all 16 corporate pages.
 The only content exceptions are the removed experimental-product promotion and

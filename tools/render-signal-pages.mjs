@@ -20,19 +20,25 @@ const write = (file, content) => fs.writeFileSync(path.join(root, file), content
 const styles = ['design-system/fonts.css', 'assets/css/tokens.css', 'assets/css/base.css', 'assets/css/components.css', 'design-system/tokens.css', 'design-system/components.css', 'assets/css/heritage-site.css'];
 
 function heroArt(prefix, en) {
-  return `<figure class="hero__viz heritage-hero-art" data-infrastructure>
-        <div class="heritage-art-stage"><picture><source srcset="${prefix}assets/images/infrastructure-hero.webp" type="image/webp"><img src="${prefix}assets/images/infrastructure-hero.jpg" width="1536" height="1024" fetchpriority="high" alt="${en ? 'Illustration of connected network, cybersecurity and data infrastructure.' : 'Illustration d’infrastructures réseau, cybersécurité et données interconnectées.'}"></picture>
-          <div class="heritage-explorer heritage-art-points">
-            <svg class="heritage-art-routes" viewBox="0 0 1536 1024" fill="none" aria-hidden="true"><path data-route="network" d="M320 550 L490 610 L760 440"/><path data-route="cyber" d="M320 550 L490 610 L760 440 L1040 575 L1240 525"/><path data-route="data" d="M760 440 L1040 575 L1240 525"/></svg>
-            <button class="heritage-hotspot heritage-hotspot--network" type="button" data-infrastructure-focus="network" aria-pressed="false" aria-label="${en ? 'Network architecture' : 'Architecture réseau'}">01</button>
-            <button class="heritage-hotspot heritage-hotspot--cyber" type="button" data-infrastructure-focus="cyber" aria-pressed="false" aria-label="${en ? 'Cybersecurity' : 'Cybersécurité'}">02</button>
-            <button class="heritage-hotspot heritage-hotspot--data" type="button" data-infrastructure-focus="data" aria-pressed="false" aria-label="Data science">03</button>
-          </div>
-        </div>
-        <div class="heritage-explorer heritage-hero-controls" aria-label="${en ? 'Explore the infrastructure' : 'Explorer les infrastructures'}">
-          <button type="button" data-infrastructure-focus="network" aria-pressed="true">${en ? 'Network architecture' : 'Architecture réseau'}</button>
-          <button type="button" data-infrastructure-focus="cyber" aria-pressed="false">${en ? 'Cybersecurity' : 'Cybersécurité'}</button>
-          <button type="button" data-infrastructure-focus="data" aria-pressed="false">Data science</button>
+  const practices = en ? [
+    ['Telecom, network &amp; cybersecurity', 'expertise.html#practice-cyber'],
+    ['AI infrastructure &amp; sovereign cloud', 'ai-sovereignty.html'],
+    ['Data science, ML &amp; automation', 'expertise.html#practice-data'],
+  ] : [
+    ['Télécom, réseau &amp; cybersécurité', 'expertises.html#pole-cyber'],
+    ['Infrastructures IA &amp; cloud souverain', 'ia-souverainete.html'],
+    ['Data science, ML &amp; automatisation', 'expertises.html#pole-data'],
+  ];
+  return `<figure class="hero__viz heritage-hero-art" data-hero-mark>
+        <div class="heritage-explorer heritage-mark-map" aria-label="${en ? 'The three xSOM practices' : 'Les trois pôles xSOM'}">
+          <img class="heritage-mark" src="${prefix}assets/logo/gradient.svg" width="374" height="374" fetchpriority="high" alt="${en ? 'Original xSOM logo: three interlocking blue and grey arrows.' : 'Logo original xSOM : trois flèches bleues et grise entrelacées.'}">
+          <svg class="heritage-mark-routes" viewBox="0 0 600 600" fill="none" aria-hidden="true">
+            <path data-mark-route="1" d="M280 157 L280 114 L320 114 L320 90"/>
+            <path data-mark-route="2" d="M456 412 L504 412 L504 486"/>
+            <path data-mark-route="3" d="M146 438 L96 438 L96 486"/>
+            <circle cx="280" cy="157" r="5"/><circle cx="456" cy="412" r="5"/><circle cx="146" cy="438" r="5"/>
+          </svg>
+${practices.map(([label, href], index) => `          <a class="heritage-mark-link heritage-mark-link--${index + 1}" data-mark-practice="${index + 1}" href="${href}"><span class="heritage-mark-number" aria-hidden="true">0${index + 1}</span><span>${label}</span><span class="heritage-mark-arrow" aria-hidden="true">↗</span></a>`).join('\n')}
         </div>
       </figure>`;
 }
