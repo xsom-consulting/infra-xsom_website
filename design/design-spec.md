@@ -1,14 +1,64 @@
-# xSOM Signal — design specification
+# xSOM — heritage blue correction
 
-## Direction
-An engineering practice that takes responsibility through production. Precise, grounded, calm. Oversized left-aligned Saira headings meet instrument-like JetBrains Mono labels; body text remains the existing locally hosted Inter. The warm charcoal canvas, copper routing line and interlocking arrow mark connect corporate storytelling with dense operational screens.
+## Current authority and content boundary
+The user's correction supersedes the previous Signal creative brief. xSOM remains
+an engineering services company specialised in cybersecurity. AI Guard is an
+experimental proof of concept supporting the firm's gradual AI transition, not
+its central corporate offer.
 
-## Decisions
-- Keep static HTML/GitHub Pages and Next.js 14. Share a dependency-free, versioned design-system directory, not a new framework.
-- Preserve #e2603a as the brand accent. Warm charcoal replaces navy; ivory light mode has independently defined accessible colors.
-- Retain original logo geometry. Recolor its three existing arrows copper, bronze and ivory; do not introduce a shield as a new company logo.
-- Two signatures: AuthorizationFlow and the Guarded/Unguarded control. Motion describes a transition and then stops.
-- Self-host existing Saira (600–800), Inter (400) and JetBrains Mono (500) WOFF2. No remote fonts, tracking, invented customers, portraits or production measurements.
+Corporate copy source: commit `a9dfd3c`, before the Signal redesign. Preserve its
+headings, paragraphs, services, facts, client references and French/English
+meaning. Layout and presentation may change; messaging must not be rewritten.
+Explicit exception: remove AI Guard mentions, calls to action and search exposure
+from the corporate site. Previous public POC URLs redirect without advertising it.
+
+## Current visual direction
+Recognisable, reassuring and contemporary. Restore the original blue/grey logo
+assets exactly; never recolour or redraw their arrows. Deep ink blue, slate,
+silver and cool off-white replace the warm charcoal/olive palette. Blue is the
+primary interaction colour. Copper remains secondary, never the dominant brand
+colour. The default corporate surface is light, with deliberate navy hero/diagram
+sections; both existing user themes remain supported.
+
+Headings: Manrope variable, softer and less condensed than Saira. Body: Source
+Sans 3 variable. JetBrains Mono is reserved for technical identifiers and small
+diagram labels, not every navigation item. Local WOFF2 only, with redistribution
+licences retained. Semantic state colours stay distinct from brand colours.
+
+## Current visual mechanisms
+A sourced, generated 3D infrastructure still anchors the corporate hero. It is an
+illustration, not a customer system or screenshot. Separate DOM/SVG controls let
+visitors explore network, cyber resilience and data paths with keyboard access.
+Perspective and packet movement are user-driven and stop at rest. The asset never
+contains a fake logo, text, statistics or interface.
+
+The POC landing is independently reworked around concrete usage: developers,
+employees in large organisations, confidential documents, OpenAI/Claude services
+and open-weight models hosted internally. Diagrams, arrows, selectable paths and
+concise lists come before prose. Backend profile IDs and actual guarantees stay
+unchanged. Personal web subscriptions are not automatically covered by an API
+gateway; selecting a diagram is not a real connection or approval. Implementation
+details and existing evidence remain accessible on secondary routes/disclosures.
+
+## Current implementation and acceptance
+Root owns shared tokens/fonts/logo, the hero asset, synchronisation and release.
+Corporate owns original-copy restoration and layout. Console owns public landing,
+usage explorer and scoped onboarding language. Verification owns content invariants
+and regression tests. No backend/auth rewrite or workflow changes.
+
+- Preserve the original corporate message, with an explicit AI Guard removal diff.
+- Restore original blue/grey logo in both fronts, not a recoloured derivative.
+- Two visual passes at 390/768/1440 in both themes; error/loading/empty/dense states.
+- Keyboard, focus, 44px targets and reduced motion; no false protection claims.
+- Verify tests, then merged SHA, public routes/assets and backend readiness.
+
+---
+
+## Retained engineering constraints
+
+Keep static HTML/GitHub Pages and Next.js 14. Share a dependency-free, versioned
+design-system directory, not a new framework. The rejected visual specification
+remains available in Git history; it is not an active design instruction.
 
 ## Source of truth
 `design-system/design/tokens.json` generates `design-system/tokens.css`. This placement adapts the frontend-quality token convention to the explicitly requested portable package. Both repositories consume the exact same package; its build/check command detects drift. Product layout styles may add semantic layout variables to the package, never redefine brand colors.

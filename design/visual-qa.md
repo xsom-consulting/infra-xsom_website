@@ -1,5 +1,33 @@
 # Corporate visual verification
 
+## Heritage blue correction — current
+
+The approved original copy (`a9dfd3c`) is restored on all 16 corporate pages.
+The only content exceptions are the removed experimental-product promotion and
+the bounded technical privacy updates. The copy/heading comparison and static
+contracts pass 23 tests; no marketing copy was newly authored.
+
+First visual pass: the inherited hero illustration width limit left the new 3D
+asset too small. Removed the limit, extended the navy image area to the right
+edge, kept the complete 3:2 illustration, and connected visible, accessible
+points to the network/cyber/data regions. A 390px practice-selector overflow was
+then found and corrected with zero-minimum grid tracks and appropriately sized
+node labels. Existing interior heading line breaks are retained.
+
+Second full pass: 108/108 layouts pass (18 pages × 3 widths × 2 themes), without
+document overflow or failed images. Inspected the home, expertise, sovereignty,
+firm, careers, contact, privacy, legal and error layouts. Original text remains
+readable; interior diagrams scroll inside their own region on narrow screens.
+The independent behavior check also passed menu keyboard/focus, hero focus
+selection, practice selection, SVG-layer controls, both language forms, theme
+persistence and OS reduced-motion priority. Contact requests were mocked only.
+
+Hero reference: `/tmp/xsom-heritage-hero-connected.png`.
+Final captures and report: `/tmp/xsom-heritage-final/report.json`.
+The maintenance generator was rerun and all output hashes remained identical.
+
+## Earlier Signal verification — superseded
+
 ## First pass
 
 Inspected actual Chrome rendering, not markup alone. The initial 1440px homepage revealed three issues: the hero's line-break fallback joined words; the three-practice diagram clipped inside its narrower parent; monochrome inversion turned opaque client logos into squares. Corrected headline spacing/scale, added a shared component container layout (by design-system owner), and displayed original logos on a restrained light reference band.

@@ -9,9 +9,7 @@ const pairs = [
   ['index.html', 'en/index.html'],
   ['expertises.html', 'en/expertise.html'],
   ['cabinet.html', 'en/firm.html'],
-  ['vision.html', 'en/vision.html'],
   ['ia-souverainete.html', 'en/ai-sovereignty.html'],
-  ['ai-guard.html', 'en/ai-guard.html'],
   ['carrieres.html', 'en/careers.html'],
   ['contact.html', 'en/contact.html'],
   ['mentions-legales.html', 'en/legal-notice.html'],
@@ -97,10 +95,14 @@ test('GitHub Pages domain, old URLs and search sitemap remain valid', () => {
     'IA.html': 'ia-souverainete.html',
     'about.html': 'cabinet.html',
     'join.html': 'carrieres.html',
+    'vision.html': 'ia-souverainete.html',
+    'en/vision.html': 'ai-sovereignty.html',
+    'ai-guard.html': 'index.html',
+    'en/ai-guard.html': 'index.html',
   };
   for (const [file, target] of Object.entries(redirects)) {
     assert.match(read(file), new RegExp(`url=${target.replace('.', '\\.')}["']`, 'i'), file);
-    assert.ok(fs.existsSync(path.join(root, target)), target);
+    assert.ok(fs.existsSync(path.resolve(root, path.dirname(file), target)), target);
   }
   const urls = [...read('sitemap.xml').matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => new URL(match[1]));
   assert.ok(urls.length >= pairs.length * 2, 'Sitemap must cover both languages');
@@ -111,15 +113,15 @@ test('GitHub Pages domain, old URLs and search sitemap remain valid', () => {
   }
 });
 
-test('AI Guard links directly to the authenticated console and retains guided contact in both languages', () => {
-  const consoleUrl = 'https://frontend-phi-red-47.vercel.app/home';
-  for (const [file, label, contactLabel] of [
-    ['ai-guard.html', 'Ouvrir la console', 'Voir la démonstration'],
-    ['en/ai-guard.html', 'Open the console', 'Request a demonstration'],
-  ]) {
-    const links = [...read(file).matchAll(/<a\b([^>]*)>([\s\S]*?)<\/a>/g)]
-      .map(([, tag, content]) => ({ ...attributes(tag), text: content.replace(/<[^>]+>/g, '').trim() }));
-    assert.ok(links.some(link => link.href === consoleUrl && link.text.startsWith(label)), `${file}: direct console link`);
-    assert.ok(links.some(link => link.href === 'contact.html' && link.text.startsWith(contactLabel)), `${file}: guided demonstration contact`);
+test('The corporate site contains no POC promotion, product link or indexed product page', () => {
+  const pages = ['', 'en'].flatMap(directory => fs.readdirSync(path.join(root, directory))
+    .filter(file => file.endsWith('.html')).map(file => path.join(directory, file)));
+  for (const file of pages) {
+    const html = read(file).replace(/&nbsp;|&#160;|&#xA0;/gi, ' ');
+    assert.doesNotMatch(html, /ai[\s-]*guard|frontend-phi-red-47\.vercel\.app/i, file);
   }
+  for (const file of ['ai-guard.html', 'en/ai-guard.html']) {
+    assert.match(read(file), /name=["']robots["'][^>]+content=["']noindex/i, file);
+  }
+  assert.doesNotMatch(read('sitemap.xml'), /ai-guard|vision\.html/i);
 });
