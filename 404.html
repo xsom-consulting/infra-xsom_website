@@ -1,27 +1,31 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" data-theme="dark">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Page introuvable — xSOM Consulting</title>
 <meta name="robots" content="noindex, follow">
-<link rel="icon" href="/assets/logo/cuivre.svg" type="image/svg+xml">
+<link rel="icon" href="/design-system/assets/mark.svg" type="image/svg+xml">
 <link rel="icon" href="/assets/logo/favicon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="/assets/logo/apple-touch-icon.png">
-<link rel="stylesheet" href="/assets/css/fonts.css">
+<link rel="stylesheet" href="/design-system/fonts.css">
 <link rel="stylesheet" href="/assets/css/tokens.css">
 <link rel="stylesheet" href="/assets/css/base.css">
-<link rel="stylesheet" href="/assets/css/components.css">
+<link rel="stylesheet" href="/assets/css/signal-compat.css">
+<link rel="stylesheet" href="/design-system/tokens.css">
+<link rel="stylesheet" href="/design-system/components.css">
+<link rel="stylesheet" href="/assets/css/signal-site.css">
+<script src="/assets/js/signal-preferences-init.js"></script>
 </head>
-<body>
+<body class="signal-site">
 <!-- Chemins absolus : cette page est servie depuis n'importe quelle profondeur d'URL. -->
-<main class="redirect">
+<header class="signal-header"><div class="wrap signal-header-inner"><a class="brand signal-brand" href="/index.html"><img src="/design-system/assets/mark.svg" alt="" width="44" height="44"><span class="brand__name">xSOM Consulting</span></a><a class="signal-link" href="/en/404.html" lang="en" hreflang="en">English <span aria-hidden="true">↗</span></a></div></header>
+<main class="wrap signal-error-page">
   <div>
     <p class="eyebrow" data-num="404">Page introuvable</p>
-    <h1 class="t-h2" style="margin-block:var(--sp-6)">Cette adresse ne mène <span class="em">nulle part</span></h1>
-    <p class="lead" style="margin-inline:auto">La page a peut-être été déplacée lors de la refonte
-    du site, ou l'adresse comporte une erreur.</p>
-    <div class="row" style="justify-content:center;margin-top:var(--sp-8)">
+    <h1 class="t-h2" style="margin-block:var(--sp-6)">Cette route<br>ne mène plus ici.</h1>
+    <p class="lead">La page a changé d’adresse, ou le lien est incomplet.</p>
+    <div class="row" style="margin-top:var(--sp-8)">
       <a class="btn btn--primary" href="/index.html">Retour à l'accueil
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
       </a>
@@ -30,16 +34,16 @@
     <p style="margin-top:var(--sp-12)">
       <span class="label">Aller directement à</span>
     </p>
-    <ul class="tags" style="justify-content:center;margin-top:var(--sp-4)">
+    <ul class="tags" style="margin-top:var(--sp-4)">
       <li><a class="tag" href="/expertises.html">Expertises</a></li>
       <li><a class="tag" href="/ia-souverainete.html">IA &amp; Souveraineté</a></li>
       <li><a class="tag" href="/cabinet.html">Le cabinet</a></li>
       <li><a class="tag" href="/carrieres.html">Carrières</a></li>
       <li><a class="tag" href="/en/index.html" hreflang="en" lang="en">English</a></li>
     </ul>
+    <signal-preferences lang="fr">Les animations suivent les préférences de votre navigateur.</signal-preferences>
   </div>
 </main>
-<script src="/assets/js/site.js" defer></script>
-<script src="/assets/js/ui.js" defer></script>
+<script type="module" src="/design-system/signal.js"></script>
 </body>
 </html>

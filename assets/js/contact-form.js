@@ -14,6 +14,8 @@
 
   var form = document.getElementById('contact-form');
   if (!form) return;
+  // Native POST + browser validation remain a safe fallback when JavaScript is unavailable.
+  form.noValidate = true;
 
   var statusBox = form.querySelector('[data-form-status]');
   var submitBtn = form.querySelector('[type="submit"]');
@@ -33,6 +35,7 @@
   };
 
   var mailTo = form.getAttribute('data-mailto') || 'jean-philippe.talou@xsom.fr';
+  var english = document.documentElement.lang === 'en';
 
   /* ---- Validation -------------------------------------------------------- */
 
@@ -40,7 +43,12 @@
     var wrap = field.closest('.field') || field.closest('.consent');
     if (!wrap) return;
     var box = wrap.querySelector('.field__error');
-    if (box) box.textContent = message || '';
+    if (box) {
+      box.textContent = message || '';
+      if (!box.id && field.id) box.id = field.id + '-error';
+      if (box.id) field.setAttribute('aria-describedby', box.id);
+    }
+    wrap.classList.toggle('is-valid', !message && field.type !== 'checkbox' && !!field.value.trim());
     if (message) field.setAttribute('aria-invalid', 'true');
     else field.removeAttribute('aria-invalid');
   }
@@ -94,19 +102,19 @@
     if (rules.indexOf('email') !== -1 &&
         !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(field.value.trim())) {
       setError(field, t.email);
-    }
+    } else setError(field, '');
   }, true);
 
   /* ---- Repli mailto ------------------------------------------------------ */
 
   function buildMailto() {
     var data = new FormData(form);
-    var subject = 'Contact xsom.fr — ' + (data.get('subject') || 'Demande');
+    var subject = 'Contact xsom.fr — ' + (data.get('subject') || (english ? 'Request' : 'Demande'));
     var body = [
-      'Nom : ' + (data.get('name') || ''),
-      'Organisation : ' + (data.get('company') || ''),
-      'Email : ' + (data.get('email') || ''),
-      'Sujet : ' + (data.get('subject') || ''),
+      (english ? 'Name: ' : 'Nom : ') + (data.get('name') || ''),
+      (english ? 'Organisation: ' : 'Organisation : ') + (data.get('company') || ''),
+      (english ? 'Email: ' : 'Email : ') + (data.get('email') || ''),
+      (english ? 'Subject: ' : 'Sujet : ') + (data.get('subject') || ''),
       '',
       data.get('message') || ''
     ].join('\n');
@@ -130,6 +138,7 @@
 
   function setBusy(busy) {
     if (!submitBtn) return;
+    submitBtn.disabled = busy;
     submitBtn.setAttribute('aria-busy', String(busy));
     submitBtn.textContent = busy ? t.sending : submitLabel;
   }
@@ -138,6 +147,7 @@
 
   form.addEventListener('submit', function (e) {
     e.preventDefault();
+    if (submitBtn && submitBtn.disabled) return;
 
     // Honeypot : un bot coche tout, un humain ne voit pas ce champ.
     // Attention : sur une case à cocher, `.value` vaut "on" même décochée —
@@ -169,6 +179,8 @@
           form.reset();
           var errs = form.querySelectorAll('.field__error');
           for (var i = 0; i < errs.length; i++) errs[i].textContent = '';
+          form.querySelectorAll('[aria-invalid]').forEach(function (field) { field.removeAttribute('aria-invalid'); });
+          form.querySelectorAll('.is-valid').forEach(function (field) { field.classList.remove('is-valid'); });
         } else {
           showFallback(t.error);
         }
