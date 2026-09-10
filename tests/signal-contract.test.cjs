@@ -110,3 +110,16 @@ test('GitHub Pages domain, old URLs and search sitemap remain valid', () => {
     assert.ok(fs.existsSync(path.join(root, pathname)), `Sitemap points at ${pathname}`);
   }
 });
+
+test('AI Guard links directly to the authenticated console and retains guided contact in both languages', () => {
+  const consoleUrl = 'https://frontend-phi-red-47.vercel.app/home';
+  for (const [file, label, contactLabel] of [
+    ['ai-guard.html', 'Ouvrir la console', 'Voir la démonstration'],
+    ['en/ai-guard.html', 'Open the console', 'Request a demonstration'],
+  ]) {
+    const links = [...read(file).matchAll(/<a\b([^>]*)>([\s\S]*?)<\/a>/g)]
+      .map(([, tag, content]) => ({ ...attributes(tag), text: content.replace(/<[^>]+>/g, '').trim() }));
+    assert.ok(links.some(link => link.href === consoleUrl && link.text.startsWith(label)), `${file}: direct console link`);
+    assert.ok(links.some(link => link.href === 'contact.html' && link.text.startsWith(contactLabel)), `${file}: guided demonstration contact`);
+  }
+});
