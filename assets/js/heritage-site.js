@@ -21,7 +21,7 @@
     matchMedia('(min-width: 1101px)').addEventListener('change', function () { setMenu(false); });
   }
   function syncBrands() {
-    document.querySelectorAll('.brand img').forEach(function (img) {
+    document.querySelectorAll('.brand img, .heritage-mark').forEach(function (img) {
       img.src = img.src.replace(/(?:gradient|moderne-dark)\.svg$/, html.dataset.theme === 'dark' ? 'moderne-dark.svg' : 'gradient.svg');
     });
   }
@@ -30,30 +30,15 @@
   document.querySelectorAll('[data-year]').forEach(function (el) { el.textContent = String(new Date().getFullYear()); });
   document.querySelectorAll('[data-since]').forEach(function (el) { el.textContent = String(new Date().getFullYear() - Number(el.dataset.since)) + (el.dataset.suffix || ''); });
 
-  // The illustration starts in overview. A selected domain focuses its depicted area.
-  document.querySelectorAll('[data-infrastructure]').forEach(function (art) {
-    var buttons = Array.from(art.querySelectorAll('[data-infrastructure-focus]'));
-    var picture = art.querySelector('picture');
-    buttons.forEach(function (button) {
-      button.setAttribute('aria-pressed', 'false');
-      button.addEventListener('click', function () {
-        var active = button.getAttribute('aria-pressed') !== 'true';
-        buttons.forEach(function (item) { item.setAttribute('aria-pressed', String(active && item.dataset.infrastructureFocus === button.dataset.infrastructureFocus)); });
-        art.dataset.focus = active ? button.dataset.infrastructureFocus : 'all';
-        art.classList.remove('is-tracing');
-        if (active && !reduced()) requestAnimationFrame(function () { art.classList.add('is-tracing'); });
-      });
-    });
-    art.addEventListener('animationend', function () { art.classList.remove('is-tracing'); });
-    if (matchMedia('(pointer:fine)').matches) {
-      art.addEventListener('pointermove', function (event) {
-        if (reduced() || event.target.closest('button')) return;
-        var r = art.getBoundingClientRect();
-        picture.style.transform = 'rotateY(' + ((event.clientX - r.left) / r.width - .5) * 3 + 'deg) rotateX(' + (.5 - (event.clientY - r.top) / r.height) * 3 + 'deg)';
-      });
-      art.addEventListener('pointerleave', function () { picture.style.transform = ''; });
+  // Real links work without JS. Focus/hover connects one practice to its original arrow.
+  document.querySelectorAll('[data-hero-mark]').forEach(function (art) {
+    function syncFocus() {
+      var link = art.querySelector('[data-mark-practice]:focus') || art.querySelector('[data-mark-practice]:hover');
+      art.dataset.focus = link ? link.dataset.markPractice : '';
     }
-    window.addEventListener('signal-preference', function () { if (reduced()) picture.style.transform = ''; });
+    art.querySelectorAll('[data-mark-practice]').forEach(function (link) {
+      ['pointerenter', 'pointerleave', 'focus', 'blur'].forEach(function (event) { link.addEventListener(event, syncFocus); });
+    });
   });
 
   // Connected practice selector. Existing anchors and their complete copy stay visible.

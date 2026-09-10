@@ -26,11 +26,13 @@ diagram labels, not every navigation item. Local WOFF2 only, with redistribution
 licences retained. Semantic state colours stay distinct from brand colours.
 
 ## Current visual mechanisms
-A sourced, generated 3D infrastructure still anchors the corporate hero. It is an
-illustration, not a customer system or screenshot. Separate DOM/SVG controls let
-visitors explore network, cyber resilience and data paths with keyboard access.
-Perspective and packet movement are user-driven and stop at rest. The asset never
-contains a fake logo, text, statistics or interface.
+The corporate hero is anchored by the unchanged original blue/grey three-arrow
+logo. Each arrow connects to one existing practice label and its real destination:
+telecom/network/cybersecurity, AI infrastructure/sovereign cloud, and data science/
+ML/automation. The links work without JavaScript. Focus and hover illuminate only
+the separate connector, never recolour or distort the logo. At 736 CSS pixels the
+mark remains beside the headline; on narrow phones it follows the headline.
+The generated 3D infrastructure illustration is reserved for the POC, not this hero.
 
 The POC landing is independently reworked around concrete usage: developers,
 employees in large organisations, confidential documents, OpenAI/Claude services
