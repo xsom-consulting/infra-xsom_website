@@ -1,232 +1,122 @@
-# xsom.fr — Site de xSOM Consulting
+# xSOM Consulting — xSOM Signal
 
-Site vitrine du cabinet, bilingue français / anglais, hébergé sur GitHub Pages
-et servi sur `www.xsom.fr` via le fichier `CNAME`.
+Bilingual corporate site, served as checked-in HTML by GitHub Pages at `www.xsom.fr`.
+**No production build step.** Merging `main` publishes the site.
 
-**Pas d'étape de build.** Le dépôt est servi tel quel : une fusion sur `main`
-suffit à publier.
+## Preview
 
----
-
-## Structure
-
-```
-index.html · expertises.html · ia-souverainete.html
-cabinet.html · carrieres.html · contact.html      Pages françaises
-mentions-legales.html · cookies.html              Pages légales (FR)
-404.html                                          Page d'erreur
-
-en/                       Pages anglaises (index, expertise, ai-sovereignty,
-                          firm, careers, contact, legal-notice, cookies)
-
-assets/fonts/             Fichiers woff2 servis depuis le domaine
-
-expertise.html · IA.html · vision.html            Anciennes URL conservées
-about.html · join.html                            comme redirections
-
-assets/css/fonts.css      Polices auto-hébergées (aucune requête externe)
-assets/css/tokens.css     Couleurs, typographie, espacements — source unique
-assets/css/base.css       Reset, typographie, layout, utilitaires
-assets/css/components.css Header, pied de page, boutons, cartes, formulaire
-
-assets/js/site.js         Navigation, révélations au défilement, compteurs
-assets/js/ui.js           Halo curseur, indicateur de nav, progression, retour haut
-assets/js/motion.js       Titres ligne par ligne, parallaxe, schémas animés
-assets/js/hero-network.js Visualisation canvas de l'accueil (réagit au curseur)
-assets/js/contact-form.js Validation et envoi du formulaire
-
-assets/logo/              Kit logo : 6 variantes SVG + favicon et icône iOS
-                          (voir assets/logo/README.md pour l'usage de chacune)
-
-assets/images/secteurs/   6 visuels sectoriels optimisés (~90 Ko pièce)
-assets/images/backdrop.jpg  Fond des en-têtes de page
-assets/images/og-cover.jpg  Vignette de partage 1200×630
-
-tools/sync-partials.js    Utilitaire de maintenance (facultatif)
-docs/bmad/                Documents de conception : brief, PRD, UX, architecture
+```sh
+python3 -m http.server 4173 --bind 127.0.0.1
 ```
 
----
+Open `http://127.0.0.1:4173`. French is at the root; English mirrors live in `en/`.
+The visual component catalogue is at `/design-system/preview.html`.
 
-## Ce qui reste à fournir
+To regenerate signature clips and the logo/social kit, keep that server running.
+With the console's frontend dependencies installed, run from this repository:
 
-Le site est complet et en ligne : formulaire opérationnel, mentions légales
-renseignées depuis le registre du commerce, aucun contenu provisoire visible.
-Deux sections attendent encore de la matière.
-
-### 1. Ajouter les preuves — **le vrai levier de conversion**
-
-Deux sections sont construites et masquées, en attente de contenu. Retirer
-l'attribut `data-requires-content` de la balise `<section>` suffit à les activer.
-
-| Section | Fichiers | Contenu attendu |
-|---------|----------|-----------------|
-| Réalisations | `index.html`, `en/index.html` | 3 à 5 missions anonymisées : contexte → intervention → résultat mesurable |
-| Équipe | `cabinet.html`, `en/firm.html` | Portraits et parcours, au moins des associés |
-
-C'est le principal facteur limitant du site : le design et la structure sont en
-place, la preuve de résultat ne l'est pas encore.
-
-### 2. Remplacer les chiffres génériques
-
-Le bandeau de chiffres n'affiche pour l'instant que des valeurs vérifiables
-(ancienneté, secteurs, indépendance). Dès que les chiffres réels du cabinet sont
-disponibles — nombre de consultants, de missions, de clients, taux de
-renouvellement — les substituer dans `index.html`, `cabinet.html` et leurs
-équivalents anglais.
-
-Les chiffres animés fonctionnent ainsi :
-
-```html
-<span data-count="6">6</span>                         <!-- valeur fixe -->
-<span data-since="2007" data-suffix=" ans">19 ans</span>  <!-- calculé -->
+```sh
+node tools/render-signal-media.mjs . /absolute/path/to/poc-AI_guard/frontend
+node tools/render-signal-kit.mjs . /absolute/path/to/poc-AI_guard/frontend
 ```
 
-La valeur est écrite dans le HTML ; le script ne fait que l'animer, donc sans
-JavaScript le bon chiffre s'affiche quand même. `data-since` recalcule
-l'ancienneté à chaque chargement : un nombre d'années écrit en dur se périmerait
-au 1er janvier suivant.
+These optional maintenance tools require Playwright Chromium, FFmpeg and `cwebp`
+(`CWEBP_BIN` may name the encoder). No runtime service is required. The kit script
+also updates the explicitly supplied console's favicon and public mark.
 
----
+## One identity, two products
 
-## Modifier le site
+This repository and `jt33120/poc-AI_guard` consume the same versioned
+`design-system/` directory. Its source of truth is
+`design-system/design/tokens.json`; generated CSS, verdict states, diagrams and
+preferences are shared byte for byte.
 
-### Remplacer une police
+- Self-hosted Saira, Inter and JetBrains Mono WOFF2 files; no font CDN.
+- Original interlocking-arrow mark, mechanically recolored in copper, bronze and ivory.
+- Warm charcoal default, independently defined light theme.
+- AuthorizationFlow and Guarded/Unguarded are the two signature mechanisms.
+- All diagram samples are explicitly illustrative; none reports client telemetry.
+- Theme and reduced-motion preferences are stored only in the browser. Sound is off on arrival.
+- Functional controls remain keyboard accessible; OS reduced motion always wins.
 
-Les fichiers sont dans `assets/fonts/` et déclarés dans `assets/css/fonts.css`.
-Ils sont servis depuis le domaine, jamais depuis un CDN : aucune adresse IP de
-visiteur n'est transmise à un tiers, ce qui serait contradictoire avec le
-discours du cabinet sur la souveraineté.
+See `design/design-spec.md` for the direction and `design-system/README.md`
+for the component contract. Change brand values in the shared source, regenerate
+with `node design-system/build.mjs`, then sync the same package into the other repo.
+Do not patch generated tokens or introduce page-specific brand colors.
 
-### Changer le logo
+## Authoring
 
-Les variantes sont dans `assets/logo/`, toutes en SVG. Le choix par
-emplacement et la raison de chaque choix sont dans
-[`assets/logo/README.md`](assets/logo/README.md). Le site étant sombre partout
-où le logo apparaît, l'en-tête, le pied de page et le hero utilisent la même
-variante `moderne-dark.svg` — un seul fichier, mis en cache une fois.
+The static pages are the production artifact. The optional
+`tools/render-signal-pages.mjs` maintenance script keeps the 20 canonical pages
+and sitemap aligned. It generates complete HTML, never a client-side page shell.
 
-### Refaire la vignette de partage
-
-`assets/images/og-cover.jpg` et `og-cover-en.jpg` sont ce que LinkedIn, X ou
-Slack affichent quand un lien du site est partagé. Elles sont produites depuis
-`tools/og-cover/template.html`, qui charge les mêmes tokens et les mêmes
-polices que le site : la vignette ne peut donc pas diverger de la charte sans
-que le site diverge aussi. Le gabarit s'ouvre directement dans un navigateur
-(`?lang=en` pour la version anglaise) et porte en commentaire les deux
-commandes de régénération.
-
-### Changer une couleur
-
-Tout est dans `assets/css/tokens.css`. L'accent cuivre, par exemple :
-
-```css
---copper: #e2603a;
-```
-
-Aucune valeur de couleur n'est écrite ailleurs.
-
-### Remplacer une image sectorielle
-
-Les visuels de `assets/images/secteurs/` sont des versions recadrées en 900×600
-et compressées. Les originaux restent à la racine de `assets/images/` mais ne
-sont pas servis. Pour en remplacer un :
-
-```bash
-python3 - <<'EOF'
-from PIL import Image, ImageOps
-im = Image.open('assets/images/NOUVELLE.jpg').convert('RGB')
-im = ImageOps.fit(im, (900, 600), Image.LANCZOS, centering=(0.5, 0.45))
-im.save('assets/images/secteurs/energie.jpg', 'JPEG', quality=76,
-        optimize=True, progressive=True)
-EOF
-```
-
-Ne pas nommer un fichier optimisé comme son original en changeant seulement la
-casse : `PUBLIC.jpg` et `public.jpg` entrent en collision sur macOS et Windows.
-C'est la raison du sous-dossier `secteurs/`.
-
-### Désactiver une animation
-
-Toutes les dynamiques sont pilotées par des attributs dans le HTML, pas par des
-sélecteurs de classe : les retirer suffit.
-
-| Attribut | Effet |
-|----------|-------|
-| `data-split` sur un titre | Révélation ligne par ligne |
-| `data-parallax` sur une image | Déplacement léger au défilement |
-| `data-diagram` sur un SVG | Construction progressive du schéma |
-| `data-count` sur un chiffre | Incrémentation à l'entrée dans le viewport |
-
-Les micro-interactions de `ui.js` (halo curseur, indicateur de navigation,
-boutons attirés, progression de lecture, retour en haut) s'appliquent
-automatiquement. Pour en retirer une, commenter l'appel correspondant dans
-`init()` en bas du fichier.
-
-Les transitions entre pages sont pilotées par la règle `@view-transition` en fin
-de `components.css`.
-
-Tout est déjà neutralisé sous `prefers-reduced-motion: reduce`, et les effets de
-survol sont inactifs sur écran tactile.
-
-### Modifier la navigation ou le pied de page
-
-Ces blocs sont dupliqués dans les 16 pages — c'est le coût assumé de l'absence
-de build. Modifier `index.html` (référence française) ou `en/index.html`
-(référence anglaise), puis propager :
-
-```bash
-node tools/sync-partials.js          # applique
-node tools/sync-partials.js --check  # vérifie sans écrire
-```
-
-Le script recopie les blocs entre `<!-- nav:start -->` / `<!-- nav:end -->` et
-`<!-- footer:start -->` / `<!-- footer:end -->`, en ajustant le lien actif et le
-sélecteur de langue de chaque page.
-
-### Ajouter une page
-
-1. Copier une page existante de la même langue
-2. Adapter `<title>`, `<meta description>`, `canonical` et les `hreflang`
-3. Ajouter l'entrée dans `PAGES` de `tools/sync-partials.js`
-4. Ajouter l'URL dans `sitemap.xml`
-
-### Modifier du contenu bilingue
-
-Toute modification de contenu doit être reportée dans les deux langues. Les
-correspondances sont listées dans `tools/sync-partials.js`.
-
----
-
-## Vérifier avant de fusionner
-
-```bash
-# Aperçu local
-python3 -m http.server 8000
-# puis http://localhost:8000
-
-# Cohérence des blocs partagés
+```sh
+node tools/render-signal-pages.mjs
 node tools/sync-partials.js --check
 ```
 
-À contrôler également :
+Copy and page composition live in that script. The existing legal body and contact
+form are deliberately preserved from their checked-in HTML: edit those in
+`mentions-legales.html`, `en/legal-notice.html`, `contact.html` and
+`en/contact.html` before rerendering. Contact IDs, Web3Forms fields and messages
+remain compatible with `assets/js/contact-form.js`.
 
-- aucun lien mort — **attention à la casse**, GitHub Pages y est sensible ;
-- les cinq anciennes URL redirigent toujours ;
-- le formulaire envoie réellement un email ;
-- `sitemap.xml` reste valide ;
-- le menu mobile s'ouvre **en plein écran** et tous ses liens sont cliquables —
-  poser un `backdrop-filter` sur `.site-header` le rabattrait à la hauteur du
-  header et rendrait le menu inutilisable.
+`tools/sync-partials.js` can separately propagate a nav/footer change from the
+French and English homepages. If authoring templates are used afterward, make
+the same change in the template.
 
----
+Key files:
 
-## Choix techniques
+- `assets/css/signal-compat.css`: small compatibility layer for the retained
+  brand/button, contact and legal HTML; replaces the retired 41 KB component
+  sheet on all Signal pages. Above-the-fold fonts are preloaded locally.
+- `assets/css/signal-site.css`: corporate layout, consumes shared tokens.
+- `assets/js/signal-site.js`: accessible mobile nav, one-time reveals, reading
+  progress and restrained marketing CTA attraction.
+- `assets/js/signal-preferences-init.js`: saved preferences before first paint.
+- `design-system/signal.js`: shared interactive mechanisms and preferences.
+- `404.html`, `en/404.html`: error pages, absolute assets for deep missing paths.
+- `vision.html`, `en/vision.html`: restored canonical perspective page.
+- `expertise.html`, `IA.html`, `about.html`, `join.html`: preserved redirects.
 
-Les décisions structurantes et leurs raisons sont documentées dans
-[`docs/bmad/04-architecture.md`](docs/bmad/04-architecture.md) : pourquoi pas de
-build, pourquoi des pages bilingues dupliquées plutôt qu'un dictionnaire
-JavaScript, pourquoi Web3Forms, et quelle dette est assumée.
+The original network canvas and decorative motion scripts remain in repository
+history/source but are no longer mounted. The functional three-practice mechanism
+replaces the old home canvas; shared components explain actual state changes and
+rest when idle.
 
-Le diagnostic du site précédent et le positionnement retenu figurent dans
-[`docs/bmad/01-project-brief.md`](docs/bmad/01-project-brief.md).
+## Contact and evidence
+
+The form uses the existing Web3Forms public access key and email fallback.
+A failed request preserves the message. Repeated submissions are disabled during
+sending. **Do not submit real messages during tests.**
+
+Already-published client logos are retained. No clients, metrics, team portraits
+or case studies were fabricated. Team and engagement evidence can be added when
+approved material exists; the templates contain honest unpublished slots.
+The existing 48-business-hour response statement is retained.
+
+## Verification
+
+```sh
+node --test tests/signal-contract.test.cjs
+node tools/sync-partials.js --check
+node --check assets/js/signal-site.js
+node --check assets/js/contact-form.js
+```
+
+Browser QA uses an optional installed Playwright package and local Chrome:
+
+```sh
+PLAYWRIGHT_MODULE=/absolute/path/to/node_modules/@playwright/test \
+  SITE_URL=http://127.0.0.1:4173 \
+  node tools/verify-browser.cjs
+```
+
+It checks 22 pages at 390 / 768 / 1440 in both themes, captures French layouts,
+verifies mobile keyboard navigation, mocks contact success/failure, and rejects
+unexpected external runtime requests. Reports go to `/tmp/xsom-site-qa` by default
+(`SITE_QA_OUTPUT` overrides). The browser can be selected with `BROWSER_CHANNEL`.
+
+The site makes no analytics, tracking or remote-font request. Web3Forms is called
+only on explicit form submission; ordinary links such as LinkedIn do not load
+remote scripts.

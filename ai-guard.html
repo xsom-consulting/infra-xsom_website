@@ -1,16 +1,10 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" data-theme="dark">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>xSOM AI Guard — Contrôler ce que vos agents IA font | xSOM Consulting</title>
 <meta name="description" content="Un point de contrôle entre vos agents IA et leurs outils : politique d'autorisation déterministe, approbation humaine sur l'irréversible, journal d'audit inaltérable. On contrôle l'action, pas seulement le prompt.">
-
-<link rel="canonical" href="https://www.xsom.fr/ai-guard.html">
-<link rel="alternate" hreflang="fr" href="https://www.xsom.fr/ai-guard.html">
-<link rel="alternate" hreflang="en" href="https://www.xsom.fr/en/ai-guard.html">
-<link rel="alternate" hreflang="x-default" href="https://www.xsom.fr/ai-guard.html">
-
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="xSOM Consulting">
 <meta property="og:locale" content="fr_FR">
@@ -22,259 +16,219 @@
 <meta name="twitter:title" content="xSOM AI Guard — xSOM Consulting">
 <meta name="twitter:description" content="On contrôle ce que l'agent fait, pas seulement ce qu'on lui dit.">
 <meta name="twitter:image" content="https://www.xsom.fr/assets/images/og-cover.jpg">
-
-<link rel="icon" href="assets/logo/cuivre.svg" type="image/svg+xml">
+<link rel="icon" href="design-system/assets/mark.svg" type="image/svg+xml">
 <link rel="icon" href="assets/logo/favicon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="assets/logo/apple-touch-icon.png">
-<link rel="stylesheet" href="assets/css/fonts.css">
+<link rel="canonical" href="https://www.xsom.fr/ai-guard.html">
+<link rel="alternate" hreflang="fr" href="https://www.xsom.fr/ai-guard.html">
+<link rel="alternate" hreflang="en" href="https://www.xsom.fr/en/ai-guard.html">
+<link rel="alternate" hreflang="x-default" href="https://www.xsom.fr/ai-guard.html">
+<link rel="preload" href="design-system/assets/saira-600-800.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="design-system/assets/inter-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="design-system/assets/jetbrains-mono-500.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="design-system/fonts.css">
 <link rel="stylesheet" href="assets/css/tokens.css">
 <link rel="stylesheet" href="assets/css/base.css">
-<link rel="stylesheet" href="assets/css/components.css">
+<link rel="stylesheet" href="assets/css/signal-compat.css">
+<link rel="stylesheet" href="design-system/tokens.css">
+<link rel="stylesheet" href="design-system/components.css">
+<link rel="stylesheet" href="assets/css/signal-site.css">
+<script src="assets/js/signal-preferences-init.js">
+</script>
 </head>
-<body>
-
+<body class="signal-site" data-page="guard">
 <a class="skip-link" href="#main">Aller au contenu</a>
-
 <!-- nav:start -->
-<header class="site-header">
-  <div class="wrap site-header__inner">
-    <a class="brand" href="index.html">
-      <img src="assets/logo/moderne-dark.svg" alt="" width="42" height="42">
-      <span>
-        <span class="brand__name">xSOM Consulting</span>
-        <span class="brand__tag">Conseil en systèmes d'information</span>
-      </span>
-    </a>
-
-    <div class="nav-panel" id="nav-panel">
-      <nav class="nav" aria-label="Navigation principale">
-        <a href="index.html">Accueil</a>
-        <a href="expertises.html">Expertises</a>
-        <a href="ia-souverainete.html">IA &amp; Souveraineté</a>
-        <a href="cabinet.html">Le cabinet</a>
-        <a href="carrieres.html">Carrières</a>
-      </nav>
-      <div class="header-actions">
-        <p class="lang">
-          <span aria-current="true">FR</span>
-          <span aria-hidden="true">/</span>
-          <a href="en/ai-guard.html" hreflang="en" lang="en">EN</a>
-        </p>
-        <a class="btn btn--primary btn--sm" href="contact.html">Nous contacter</a>
-      </div>
-    </div>
-
-    <button class="nav-toggle" data-nav-toggle aria-expanded="false" aria-controls="nav-panel"
-            aria-label="Ouvrir le menu" data-label-open="Ouvrir le menu" data-label-close="Fermer le menu">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/></svg>
-    </button>
-  </div>
+<header class="signal-header">
+<div class="wrap signal-header-inner">
+<a class="brand signal-brand" href="index.html">
+<img src="design-system/assets/mark.svg" alt="" width="44" height="44">
+<span>
+<span class="brand__name">xSOM<span class="signal-brand-divider">/</span>Consulting</span>
+<span class="brand__tag">Jusqu’à la production.</span>
+</span>
+</a>
+<button class="signal-menu" aria-expanded="false" aria-controls="signal-navigation" aria-label="Ouvrir le menu" data-menu>Menu<span aria-hidden="true">+</span>
+</button>
+<div class="signal-navigation" id="signal-navigation">
+<nav aria-label="Navigation principale">
+<a href="expertises.html">Expertises</a>
+<a href="ia-souverainete.html">IA & souveraineté</a>
+<a href="ai-guard.html" aria-current="page">AI Guard</a>
+<a href="cabinet.html">Le cabinet</a>
+</nav>
+<div class="signal-header-actions">
+<div class="signal-language" aria-label="Langue">
+<span aria-current="true">FR</span>
+<a href="en/ai-guard.html" hreflang="en" lang="en">EN</a>
+</div>
+<a class="btn btn--primary" href="contact.html">Parlons-en<span aria-hidden="true">↗</span>
+</a>
+</div>
+</div>
+</div>
 </header>
 <!-- nav:end -->
-
-<main id="main">
-
-  <!-- ===================== EN-TÊTE ===================== -->
-  <section class="page-head page-head--visual">
-    <div class="wrap page-head__inner">
-      <p class="eyebrow" data-num="—">xSOM AI Guard</p>
-      <h1 class="t-h1" data-split>Déployez vos agents IA en production.<br><span class="em">Sans perdre le contrôle</span>.</h1>
-      <hr class="rule">
-      <p class="lead">Un agent qui rédige un texte fait courir un risque de texte. Un agent qui
-      dispose d'outils supprime, paie, envoie, écrit en production. xSOM AI Guard se place entre
-      l'agent et ses outils, et décide — appel par appel — de ce qui passe, de ce qui attend un
-      humain, et de ce qui n'aura pas lieu.</p>
-      <div class="hero__actions" style="margin-top:var(--sp-8)">
-        <a class="btn btn--primary" href="contact.html">
-          Demander une démonstration
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        </a>
-        <a class="btn btn--ghost" href="ia-souverainete.html">IA &amp; Souveraineté</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===================== LE DÉPLACEMENT ===================== -->
-  <section class="section" aria-labelledby="shift-title">
-    <div class="wrap split">
-      <div>
-        <p class="eyebrow" data-num="01">Le déplacement</p>
-        <h2 class="t-h2" id="shift-title" style="margin-top:var(--sp-4)">Ce n'est pas un pare-feu
-        de <span class="em">prompts</span>.</h2>
-      </div>
-      <div>
-        <p>La plupart des garde-fous s'intéressent à ce qu'on dit au modèle, ou à ce qu'il répond.
-        C'est utile, et insuffisant : le dommage ne se produit pas dans la phrase, il se produit
-        au moment où l'agent appelle un outil.</p>
-        <p>Le contrôle doit donc porter sur l'<strong>action</strong>. Supprimer un contact,
-        virer une somme, déployer une version, écrire dans un système client : ces gestes se
-        décident avant d'être exécutés, pas après avoir été racontés.</p>
-        <p>C'est le seul endroit où un refus est encore un refus.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===================== LES TROIS MÉCANISMES ===================== -->
-  <section class="section section--light" aria-labelledby="mech-title">
-    <div class="wrap">
-      <p class="eyebrow" data-num="02">Le mécanisme</p>
-      <h2 class="t-h2" id="mech-title">Trois garanties, dans cet ordre.</h2>
-
-      <div class="grid grid-3" style="margin-top:var(--sp-8)">
-        <article class="card reveal" data-delay="1">
-          <span class="card__num">Garantie 01</span>
-          <h3 class="t-h3">Une politique lisible</h3>
-          <p>Chaque appel d'outil est classé puis tranché par une règle écrite, versionnée et
-          relisible. Un modèle de langage n'arbitre pas les autorisations : il n'intervient que
-          sur les cas ambigus, et jamais pour lever une interdiction.</p>
-        </article>
-        <article class="card reveal" data-delay="2">
-          <span class="card__num">Garantie 02</span>
-          <h3 class="t-h3">L'humain sur l'irréversible</h3>
-          <p>Une action irréversible est retenue, présentée en simulation — ce qu'elle ferait,
-          sur quoi — puis exécutée seulement après approbation. Non approuvée, elle n'a pas lieu.
-          Le blocage est tenu par la passerelle, pas confié au modèle.</p>
-        </article>
-        <article class="card reveal" data-delay="3">
-          <span class="card__num">Garantie 03</span>
-          <h3 class="t-h3">Un journal inaltérable</h3>
-          <p>Chaque décision est écrite en ajout seul et chaînée par empreinte : modifier une
-          ligne rompt la chaîne, et la rupture se voit. Les exports servent la démonstration de
-          conformité plutôt que la promesse de conformité.</p>
-        </article>
-      </div>
-
-      <p class="lead" style="margin-top:var(--sp-8)">Et la règle qui tient les trois : en cas de
-      doute, on refuse. Outil inconnu, service d'approbation injoignable — sur l'irréversible,
-      l'absence de réponse vaut refus, jamais autorisation.</p>
-    </div>
-  </section>
-
-  <!-- ===================== S'INTERPOSER ===================== -->
-  <section class="section" aria-labelledby="paths-title">
-    <div class="wrap">
-      <p class="eyebrow" data-num="03">S'interposer</p>
-      <h2 class="t-h2" id="paths-title">Trois façons, qui ne garantissent pas la même chose.</h2>
-      <p class="lead">La différence n'est pas un détail d'intégration : elle décide si une action
-      refusée peut malgré tout avoir lieu.</p>
-
-      <div class="grid grid-3" style="margin-top:var(--sp-8)">
-        <article class="card reveal" data-delay="1">
-          <span class="card__num">Contraignante</span>
-          <h3 class="t-h3">Passerelle MCP</h3>
-          <p>Les outils de l'agent passent par la passerelle. Elle exécute, ou elle n'exécute pas.
-          C'est la seule voie où le refus ne dépend pas de la bonne volonté de l'agent.</p>
-        </article>
-        <article class="card reveal" data-delay="2">
-          <span class="card__num">Coopérative</span>
-          <h3 class="t-h3">Appel d'autorisation</h3>
-          <p>Pour un agent dont vous maîtrisez le code : quelques lignes qui demandent un verdict
-          avant d'agir. La garantie vaut ce que vaut l'agent qui l'honore.</p>
-        </article>
-        <article class="card reveal" data-delay="3">
-          <span class="card__num">Contraignante sur l'egress</span>
-          <h3 class="t-h3">Proxy du fournisseur</h3>
-          <p>Un changement d'adresse de base, sans toucher au code. Contraignante sur ce qui sort,
-          et c'est déjà beaucoup quand le code de l'agent ne vous appartient pas.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===================== CE QUE C'EST, ET CE QUE CE N'EST PAS ===================== -->
-  <section class="section section--tight" aria-labelledby="state-title">
-    <div class="wrap split">
-      <div>
-        <p class="eyebrow" data-num="04">Où en est le produit</p>
-        <h2 class="t-h2" id="state-title" style="margin-top:var(--sp-4)">Dit franchement.</h2>
-      </div>
-      <div>
-        <p>xSOM AI Guard est un produit en construction, développé par le cabinet. Le socle est
-        opérationnel et testé — passerelle, politique, approbation humaine, journal chaîné — et
-        c'est ce que montre la démonstration.</p>
-        <p>Ce qu'il ne fait pas, il ne le prétend pas : ce n'est ni un détecteur d'injection de
-        prompt, ni un filtre de données personnelles, ni une offre d'hébergement souverain. Ces
-        sujets relèvent de nos missions de conseil, pas de cet outil.</p>
-        <p>La démonstration se fait en accès nommé, sur rendez-vous : nous montrons un agent qui
-        tente une action irréversible, sa mise en attente, son refus, et le fait que l'action n'a
-        pas eu lieu.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===================== APPEL ===================== -->
-  <section class="section cta-band">
-    <div class="wrap wrap--narrow cta-band__inner reveal">
-      <p class="eyebrow" data-num="→" style="justify-content:center">Prochaine étape</p>
-      <h2 class="t-h2" style="margin-top:var(--sp-6)">Quels agents avez-vous <span class="em">déjà</span> en production ?</h2>
-      <p class="lead">Dites-nous quels outils ils touchent et ce qui vous empêche de dormir.
-      Nous vous montrons ce que la mise sous contrôle changerait, sur votre cas.</p>
-      <div class="row">
-        <a class="btn btn--primary" href="contact.html">
-          Demander une démonstration
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        </a>
-        <a class="btn btn--ghost" href="ia-souverainete.html">Notre approche de l'IA</a>
-      </div>
-    </div>
-  </section>
-
+<main id="main" tabindex="-1">
+<section class="site-hero site-hero--split ">
+<div class="wrap">
+<div class="site-hero-copy">
+<p class="site-kicker">
+<span>xSOM / Conseil</span>xSOM / AI Guard</p>
+<h1>L’agent propose. <br>
+<em>La policy décide.</em>
+</h1>
+<p class="site-lead">Une passerelle entre les agents et leurs outils. L’humain tranche ce qui est irréversible.</p>
+</div>
+<div class="site-hero-aside">
+<p class="site-kicker">
+<span>ACTION CONTROL</span>Produit du cabinet</p>
+<p class="site-statement">Deny <br>by default.</p>
+<div class="site-actions">
+<a class="btn btn--primary" href="https://frontend-phi-red-47.vercel.app/home">Ouvrir la console<span aria-hidden="true">↗</span>
+</a>
+<a class="signal-link" href="contact.html">Voir la démonstration<span aria-hidden="true">↗</span>
+</a>
+</div>
+<p class="site-note">Connexion requise. Démonstration avec le cabinet sur rendez-vous.</p>
+</div>
+</div>
+</section>
+<section class="site-section wrap">
+<div class="site-section-head">
+<p class="site-kicker">
+<span>01</span>Le mécanisme</p>
+<h2>Une décision, avant l’action.</h2>
+</div>
+<signal-flow lang="fr" mode="demo" verdict="hitl" interactive>Agent → Guard → Policy → décision auto, notification, validation humaine ou refus → outil.</signal-flow>
+<p class="site-caption">Scénario illustratif. Changez le verdict pour voir le chemin emprunté. Aucune action réelle n’est exécutée.</p>
+</section>
+    <section class="site-section site-section--ruled wrap site-video-sequence">
+<div class="site-section-head">
+<p class="site-kicker">
+<span>02</span>Guarded / Unguarded</p>
+<h2>Même agent. <br>Autre contrôle.</h2>
+</div>
+<signal-video lang="fr" variant="guarded">Sans Guard : l’outil est appelé directement. Avec Guard : la policy contrôle l’appel avant exécution.</signal-video>
+<div class="site-explain-strip">
+<p>
+<strong>01 / Intent</strong>Lire l’action demandée.</p>
+<p>
+<strong>02 / Policy</strong>Appliquer une règle versionnée.</p>
+<p>
+<strong>03 / Verdict</strong>Autoriser, notifier, retenir ou refuser.</p>
+</div>
+</section>
+    <section class="site-section wrap site-dual">
+<div>
+<div class="site-section-head">
+<p class="site-kicker">
+<span>03</span>Audit</p>
+<h2>La décision laisse <br>une trace.</h2>
+</div>
+<signal-audit lang="fr" mode="demo">Événements liés par leur empreinte. Modifier une entrée rend la rupture détectable.</signal-audit>
+<p class="site-caption">Chaîne illustrative. Le journal opérationnel est append-only et hash-chaîné.</p>
+</div>
+<div>
+<div class="site-section-head">
+<p class="site-kicker">
+<span>04</span>Risk / Trust</p>
+<h2>Le risque guide <br>l’escalade.</h2>
+</div>
+<signal-risk lang="fr" mode="demo" score="68" trust="42">Score de démonstration : risque 68, confiance 42. Le seuil de policy détermine l’escalade.</signal-risk>
+<p class="site-caption">Scores d’illustration. Ils ne mesurent aucun système client.</p>
+</div>
+</section>
+    <section class="site-section site-section--ruled wrap">
+<div class="site-section-head">
+<p class="site-kicker">
+<span>05</span>Intégration</p>
+<h2>La garantie dépend <br>du point de contrôle.</h2>
+</div>
+<div class="site-integration-list">
+<article>
+<span>01</span>
+<h3>MCP gateway</h3>
+<p>Contraignante. La passerelle possède l’exécution : l’action refusée n’atteint pas l’outil.</p>
+<span class="signal-tag">Exécution</span>
+</article>
+<article>
+<span>02</span>
+<h3>Authorization API</h3>
+<p>Coopérative. Votre agent demande un verdict et doit le respecter dans son code.</p>
+<span class="signal-tag">Contrat agent</span>
+</article>
+<article>
+<span>03</span>
+<h3>Provider proxy</h3>
+<p>Contrôle des sorties. La garantie porte sur le trafic qui traverse le proxy.</p>
+<span class="signal-tag">Egress</span>
+</article>
+</div>
+</section>
+    <section class="site-honest wrap">
+<h2>État du produit.</h2>
+<p>AI Guard est en construction. La console opère les politiques, les approbations et l’audit. La démonstration montre un périmètre vérifiable, sans promesse de certification.</p>
+<a class="signal-link" href="contact.html">Accéder à la console avec le cabinet<span aria-hidden="true">↗</span>
+</a>
+</section>
+<section class="site-closing wrap">
+<p class="site-kicker">
+<span>→</span>Prochaine étape</p>
+<div>
+<h2>Quels outils vos agents touchent-ils ?</h2>
+<a class="btn btn--primary" href="contact.html">Ouvrir la discussion<span aria-hidden="true">↗</span>
+</a>
+</div>
+<p>Le premier échange porte sur votre contexte. Pas sur une présentation commerciale.</p>
+</section>
 </main>
-
 <!-- footer:start -->
-<footer class="site-footer">
-  <div class="wrap">
-    <div class="site-footer__top">
-      <div>
-        <a class="brand" href="index.html">
-          <img src="assets/logo/moderne-dark.svg" alt="" width="42" height="42">
-          <span><span class="brand__name">xSOM Consulting</span></span>
-        </a>
-        <p>Cabinet de conseil indépendant en systèmes d'information. Gouvernance,
-        cybersécurité, infrastructures IA et data science.</p>
-      </div>
-
-      <div>
-        <h2 class="footer-title">Expertises</h2>
-        <ul>
-          <li><a href="expertises.html">Toutes nos expertises</a></li>
-          <li><a href="expertises.html#pole-cyber">Télécom &amp; cybersécurité</a></li>
-          <li><a href="ia-souverainete.html">IA &amp; souveraineté</a></li>
-          <li><a href="expertises.html#pole-data">Data science &amp; MLOps</a></li>
-        </ul>
-      </div>
-
-      <div>
-        <h2 class="footer-title">Cabinet</h2>
-        <ul>
-          <li><a href="cabinet.html">Qui nous sommes</a></li>
-          <li><a href="carrieres.html">Carrières</a></li>
-          <li><a href="contact.html">Contact</a></li>
-          <li><a href="en/ai-guard.html" hreflang="en" lang="en">English</a></li>
-        </ul>
-      </div>
-
-      <div>
-        <h2 class="footer-title">Nous joindre</h2>
-        <ul>
-          <li><a href="mailto:jean-philippe.talou@xsom.fr">jean-philippe.talou@xsom.fr</a></li>
-          <li><a href="https://www.linkedin.com/company/xsom-consulting/" target="_blank" rel="noopener">LinkedIn</a></li>
-          <li><a href="mentions-legales.html">Mentions légales</a></li>
-          <li><a href="cookies.html">Cookies</a></li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="site-footer__bottom">
-      <span>© <span data-year>2026</span> xSOM Consulting — Tous droits réservés</span>
-      <span>Bordeaux · France · États-Unis</span>
-    </div>
-  </div>
+<footer class="signal-footer">
+<div class="wrap">
+<div class="signal-footer-main">
+<div>
+<a class="brand signal-brand" href="index.html">
+<img src="design-system/assets/mark.svg" alt="" width="44" height="44">
+<span class="brand__name">xSOM Consulting</span>
+</a>
+<p>Indépendants depuis 2007. <br>Responsables jusqu’à la production.</p>
+</div>
+<nav aria-label="Le cabinet et ses pages">
+<a href="expertises.html">Expertises</a>
+<a href="ia-souverainete.html">IA & souveraineté</a>
+<a href="ai-guard.html">AI Guard</a>
+<a href="cabinet.html">Le cabinet</a>
+<a href="vision.html">Vision</a>
+<a href="carrieres.html">Carrières</a>
+<a href="contact.html">Contact</a>
+</nav>
+<div class="signal-footer-contact">
+<a href="mailto:jean-philippe.talou@xsom.fr">jean-philippe.talou@xsom.fr</a>
+<span>Arcachon · France · USA</span>
+<a href="https://www.linkedin.com/company/xsom-consulting/" target="_blank" rel="noopener">LinkedIn ↗</a>
+</div>
+</div>
+<div class="signal-footer-preferences">
+<span>Votre environnement de lecture</span>
+<signal-preferences lang="fr">Thème et animations suivent les préférences de votre navigateur.</signal-preferences>
+</div>
+<div class="signal-footer-bottom">
+<span>© <span data-year>2026</span> xSOM Consulting</span>
+<div>
+<a href="mentions-legales.html">Mentions légales</a>
+<a href="cookies.html">Confidentialité</a>
+<a href="en/ai-guard.html" hreflang="en" lang="en">English</a>
+</div>
+</div>
+</div>
 </footer>
 <!-- footer:end -->
-
-<script src="assets/js/site.js" defer></script>
-<script src="assets/js/ui.js" defer></script>
-<script src="assets/js/motion.js" defer></script>
+<div class="signal-reading-progress" aria-hidden="true">
+</div>
+<script src="assets/js/signal-site.js" defer>
+</script>
+<script type="module" src="design-system/signal.js">
+</script>
 </body>
 </html>

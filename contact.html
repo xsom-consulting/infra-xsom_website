@@ -1,16 +1,10 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" data-theme="dark">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Contact — Parlons de votre projet | xSOM Consulting</title>
 <meta name="description" content="Contactez xSOM Consulting. Transformation SI, cybersécurité, IA, data : votre message est lu par un consultant, pas par une équipe commerciale. Réponse sous 48 heures.">
-
-<link rel="canonical" href="https://www.xsom.fr/contact.html">
-<link rel="alternate" hreflang="fr" href="https://www.xsom.fr/contact.html">
-<link rel="alternate" hreflang="en" href="https://www.xsom.fr/en/contact.html">
-<link rel="alternate" hreflang="x-default" href="https://www.xsom.fr/contact.html">
-
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="xSOM Consulting">
 <meta property="og:locale" content="fr_FR">
@@ -22,86 +16,75 @@
 <meta name="twitter:title" content="Contact — xSOM Consulting">
 <meta name="twitter:description" content="Votre message est lu par un consultant. Réponse sous 48 heures.">
 <meta name="twitter:image" content="https://www.xsom.fr/assets/images/og-cover.jpg">
-
-<link rel="icon" href="assets/logo/cuivre.svg" type="image/svg+xml">
+<link rel="icon" href="design-system/assets/mark.svg" type="image/svg+xml">
 <link rel="icon" href="assets/logo/favicon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="assets/logo/apple-touch-icon.png">
-<link rel="stylesheet" href="assets/css/fonts.css">
+<link rel="canonical" href="https://www.xsom.fr/contact.html">
+<link rel="alternate" hreflang="fr" href="https://www.xsom.fr/contact.html">
+<link rel="alternate" hreflang="en" href="https://www.xsom.fr/en/contact.html">
+<link rel="alternate" hreflang="x-default" href="https://www.xsom.fr/contact.html">
+<link rel="preload" href="design-system/assets/saira-600-800.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="design-system/assets/inter-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="design-system/assets/jetbrains-mono-500.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="design-system/fonts.css">
 <link rel="stylesheet" href="assets/css/tokens.css">
 <link rel="stylesheet" href="assets/css/base.css">
-<link rel="stylesheet" href="assets/css/components.css">
+<link rel="stylesheet" href="assets/css/signal-compat.css">
+<link rel="stylesheet" href="design-system/tokens.css">
+<link rel="stylesheet" href="design-system/components.css">
+<link rel="stylesheet" href="assets/css/signal-site.css">
+<script src="assets/js/signal-preferences-init.js">
+</script>
 </head>
-<body>
-
+<body class="signal-site" data-page="contact">
 <a class="skip-link" href="#main">Aller au contenu</a>
-
 <!-- nav:start -->
-<header class="site-header">
-  <div class="wrap site-header__inner">
-    <a class="brand" href="index.html">
-      <img src="assets/logo/moderne-dark.svg" alt="" width="42" height="42">
-      <span>
-        <span class="brand__name">xSOM Consulting</span>
-        <span class="brand__tag">Conseil en systèmes d'information</span>
-      </span>
-    </a>
-
-    <div class="nav-panel" id="nav-panel">
-      <nav class="nav" aria-label="Navigation principale">
-        <a href="index.html">Accueil</a>
-        <a href="expertises.html">Expertises</a>
-        <a href="ia-souverainete.html">IA &amp; Souveraineté</a>
-        <a href="cabinet.html">Le cabinet</a>
-        <a href="carrieres.html">Carrières</a>
-      </nav>
-      <div class="header-actions">
-        <p class="lang">
-          <span aria-current="true">FR</span>
-          <span aria-hidden="true">/</span>
-          <a href="en/contact.html" hreflang="en" lang="en">EN</a>
-        </p>
-        <a class="btn btn--primary btn--sm" href="contact.html" aria-current="page">Nous contacter</a>
-      </div>
-    </div>
-
-    <button class="nav-toggle" data-nav-toggle aria-expanded="false" aria-controls="nav-panel"
-            aria-label="Ouvrir le menu" data-label-open="Ouvrir le menu" data-label-close="Fermer le menu">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/></svg>
-    </button>
-  </div>
+<header class="signal-header">
+<div class="wrap signal-header-inner">
+<a class="brand signal-brand" href="index.html">
+<img src="design-system/assets/mark.svg" alt="" width="44" height="44">
+<span>
+<span class="brand__name">xSOM<span class="signal-brand-divider">/</span>Consulting</span>
+<span class="brand__tag">Jusqu’à la production.</span>
+</span>
+</a>
+<button class="signal-menu" aria-expanded="false" aria-controls="signal-navigation" aria-label="Ouvrir le menu" data-menu>Menu<span aria-hidden="true">+</span>
+</button>
+<div class="signal-navigation" id="signal-navigation">
+<nav aria-label="Navigation principale">
+<a href="expertises.html">Expertises</a>
+<a href="ia-souverainete.html">IA & souveraineté</a>
+<a href="ai-guard.html">AI Guard</a>
+<a href="cabinet.html">Le cabinet</a>
+</nav>
+<div class="signal-header-actions">
+<div class="signal-language" aria-label="Langue">
+<span aria-current="true">FR</span>
+<a href="en/contact.html" hreflang="en" lang="en">EN</a>
+</div>
+<a class="btn btn--primary" href="contact.html" aria-current="page">Parlons-en<span aria-hidden="true">↗</span>
+</a>
+</div>
+</div>
+</div>
 </header>
 <!-- nav:end -->
-
-<main id="main">
-
-  <!-- ===================== EN-TÊTE ===================== -->
-  <section class="page-head">
-    <div class="wrap page-head__inner">
-      <p class="eyebrow" data-num="—">Contact</p>
-      <h1 class="t-h1" data-split>Un projet en tête ? <span class="em">Parlons-en</span>.</h1>
-      <hr class="rule">
-      <p class="lead">Transformation du SI, cybersécurité, infrastructures IA, data — quelle que
-      soit votre question, votre message est lu par les consultants qui feraient la mission.
-      Pas par une équipe commerciale.</p>
-    </div>
-  </section>
-
-  <!-- ===================== FORMULAIRE ===================== -->
-  <section class="section section--tight" aria-labelledby="form-title">
-    <div class="wrap split">
-
-      <div class="reveal">
-        <h2 class="t-h3" id="form-title" style="margin-bottom:var(--sp-8)">Écrivez-nous</h2>
-
-        <!--
-          Formulaire Web3Forms — compatible hébergement statique.
-          La clé d'accès est publique par conception : elle n'autorise que l'envoi
-          vers l'adresse email qui l'a générée, et rien d'autre. La laisser en clair
-          dans le HTML est le fonctionnement nominal du service.
-          Si la requête échoue, le formulaire bascule sur un mailto: pré-rempli :
-          aucune saisie n'est perdue.
-        -->
-        <form class="form" id="contact-form" novalidate
+<main id="main" tabindex="-1">
+<section class="site-hero  ">
+<div class="wrap">
+<div class="site-hero-copy">
+<p class="site-kicker">
+<span>xSOM / Conseil</span>Contact</p>
+<h1>Le sujet, c’est <br>votre système.</h1>
+<p class="site-lead">Quelques lignes de contexte. Un consultant vous répond. Délai annoncé : 48 heures ouvrées.</p>
+</div>
+</div>
+</section>
+<section class="site-section site-section--contact wrap">
+<div class="site-contact-form">
+<p class="site-kicker">
+<span>01</span>Ouvrir la discussion</p>
+<form method="post" action="https://api.web3forms.com/submit" class="form" id="contact-form"
               data-mailto="jean-philippe.talou@xsom.fr"
               data-msg-required="Ce champ est requis."
               data-msg-email="Adresse email invalide."
@@ -110,32 +93,35 @@
               data-msg-success="Message envoyé. Un consultant revient vers vous sous 48 heures."
               data-msg-error="L'envoi automatique a échoué."
               data-msg-fallback="Envoyer par email à la place">
-
           <input type="hidden" name="access_key" value="c843faec-fec8-43dc-8c8b-7dd1025d384f">
           <input type="hidden" name="from_name" value="Formulaire xsom.fr">
           <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
-
           <div class="form__row">
             <div class="field">
-              <label for="f-name">Nom <span class="req" aria-hidden="true">*</span></label>
+              <label for="f-name">Nom <span class="req" aria-hidden="true">*</span>
+</label>
               <input type="text" id="f-name" name="name" autocomplete="name" required data-validate="required">
-              <p class="field__error" aria-live="polite"></p>
+              <p class="field__error" aria-live="polite">
+</p>
             </div>
             <div class="field">
               <label for="f-company">Organisation</label>
               <input type="text" id="f-company" name="company" autocomplete="organization">
-              <p class="field__error" aria-live="polite"></p>
+              <p class="field__error" aria-live="polite">
+</p>
             </div>
           </div>
-
           <div class="form__row">
             <div class="field">
-              <label for="f-email">Email <span class="req" aria-hidden="true">*</span></label>
+              <label for="f-email">Email <span class="req" aria-hidden="true">*</span>
+</label>
               <input type="email" id="f-email" name="email" autocomplete="email" required data-validate="required email">
-              <p class="field__error" aria-live="polite"></p>
+              <p class="field__error" aria-live="polite">
+</p>
             </div>
             <div class="field">
-              <label for="f-subject">Sujet <span class="req" aria-hidden="true">*</span></label>
+              <label for="f-subject">Sujet <span class="req" aria-hidden="true">*</span>
+</label>
               <select id="f-subject" name="subject" required data-validate="required">
                 <option value="">Sélectionner…</option>
                 <option>Gouvernance &amp; stratégie SI</option>
@@ -146,169 +132,103 @@
                 <option>Candidature</option>
                 <option>Autre</option>
               </select>
-              <p class="field__error" aria-live="polite"></p>
+              <p class="field__error" aria-live="polite">
+</p>
             </div>
           </div>
-
           <div class="field">
-            <label for="f-message">Votre message <span class="req" aria-hidden="true">*</span></label>
+            <label for="f-message">Votre message <span class="req" aria-hidden="true">*</span>
+</label>
             <textarea id="f-message" name="message" required data-validate="required"
-                      placeholder="Décrivez votre contexte et ce que vous cherchez à obtenir. Quelques lignes suffisent."></textarea>
-            <p class="field__error" aria-live="polite"></p>
+                      placeholder="Décrivez votre contexte et ce que vous cherchez à obtenir. Quelques lignes suffisent.">
+</textarea>
+            <p class="field__error" aria-live="polite">
+</p>
           </div>
-
           <div class="consent">
             <input type="checkbox" id="f-consent" name="consent" value="oui" required data-validate="required">
             <div>
               <label for="f-consent">J'accepte que les informations saisies soient utilisées pour
               traiter ma demande. Elles ne sont ni cédées ni utilisées à des fins commerciales.
               <a href="mentions-legales.html" style="text-decoration:underline">En savoir plus</a>.</label>
-              <p class="field__error" aria-live="polite"></p>
+              <p class="field__error" aria-live="polite">
+</p>
             </div>
           </div>
-
-          <p class="form__status" data-form-status></p>
-
+          <p class="form__status" data-form-status>
+</p>
           <div>
             <button type="submit" class="btn btn--primary">Envoyer le message</button>
           </div>
-
-          <p class="small muted" style="margin-top:var(--sp-2)">
-            Les champs marqués d'un astérisque sont obligatoires. Réponse sous 48 heures ouvrées.
-          </p>
         </form>
-      </div>
-
-      <div class="reveal" data-delay="1">
-        <h2 class="t-h3" style="margin-bottom:var(--sp-8)">Nous joindre directement</h2>
-
-        <div class="contact-item">
-          <span class="contact-item__icon" aria-hidden="true">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg>
-          </span>
-          <div>
-            <strong><a href="mailto:jean-philippe.talou@xsom.fr">jean-philippe.talou@xsom.fr</a></strong>
-            <span>Email principal — réponse sous 48 heures</span>
-          </div>
-        </div>
-
-        <div class="contact-item">
-          <span class="contact-item__icon" aria-hidden="true">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-          </span>
-          <div>
-            <strong><a href="https://www.linkedin.com/company/xsom-consulting/" target="_blank" rel="noopener">LinkedIn xSOM Consulting</a></strong>
-            <span>Actualités du cabinet et prise de contact</span>
-          </div>
-        </div>
-
-        <div class="contact-item">
-          <span class="contact-item__icon" aria-hidden="true">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          </span>
-          <div>
-            <strong>Bordeaux · France · États-Unis</strong>
-            <span>Interventions dans toute la France, Paris compris</span>
-          </div>
-        </div>
-
-        <div class="card" style="margin-top:var(--sp-8)">
-          <h3 class="t-h3" style="margin-bottom:var(--sp-6)">Ce à quoi vous pouvez vous attendre</h3>
-          <ul class="checklist" style="gap:var(--sp-4)">
-            <li>
-              <span class="checklist__mark" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2"><polyline points="20 6 9 17 4 12"/></svg></span>
-              <div><span>Une réponse sous 48 heures ouvrées</span></div>
-            </li>
-            <li>
-              <span class="checklist__mark" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2"><polyline points="20 6 9 17 4 12"/></svg></span>
-              <div><span>Un interlocuteur identifié, pas un numéro de dossier</span></div>
-            </li>
-            <li>
-              <span class="checklist__mark" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2"><polyline points="20 6 9 17 4 12"/></svg></span>
-              <div><span>Aucune relance commerciale non sollicitée</span></div>
-            </li>
-            <li>
-              <span class="checklist__mark" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2"><polyline points="20 6 9 17 4 12"/></svg></span>
-              <div><span>Confidentialité de ce que vous nous confiez</span></div>
-            </li>
-          </ul>
-        </div>
-
-        <div style="margin-top:var(--sp-8)">
-          <h3 class="t-h3" style="margin-bottom:var(--sp-4)">Nos domaines d'intervention</h3>
-          <ul class="tags">
-            <li class="tag">Stratégie &amp; gouvernance SI</li>
-            <li class="tag">Cybersécurité &amp; conformité</li>
-            <li class="tag">Infrastructures IA</li>
-            <li class="tag">Cloud souverain</li>
-            <li class="tag">Data engineering</li>
-            <li class="tag">MLOps</li>
-            <li class="tag">Télécom &amp; réseaux</li>
-            <li class="tag">AMOA &amp; conduite du changement</li>
-          </ul>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
+</div>
+<aside class="site-contact-aside">
+<h2>Un échange direct.</h2>
+<p>Vos contraintes. Les outils concernés. Ce que vous cherchez à obtenir.</p>
+<div class="site-detail-rows">
+<p>
+<strong>Email</strong>
+<a href="mailto:jean-philippe.talou@xsom.fr">jean-philippe.talou@xsom.fr</a>
+</p>
+<p>
+<strong>Ancrage</strong>Arcachon · France · USA</p>
+<p>
+<strong>Confidentialité</strong>Votre message sert uniquement à traiter votre demande.</p>
+</div>
+<p class="site-note">Le formulaire transmet votre message à Web3Forms uniquement au moment de l’envoi.</p>
+<a class="signal-link" href="mentions-legales.html">Traitement des données<span aria-hidden="true">↗</span>
+</a>
+</aside>
+</section>
 </main>
-
 <!-- footer:start -->
-<footer class="site-footer">
-  <div class="wrap">
-    <div class="site-footer__top">
-      <div>
-        <a class="brand" href="index.html">
-          <img src="assets/logo/moderne-dark.svg" alt="" width="42" height="42">
-          <span><span class="brand__name">xSOM Consulting</span></span>
-        </a>
-        <p>Cabinet de conseil indépendant en systèmes d'information. Gouvernance,
-        cybersécurité, infrastructures IA et data science.</p>
-      </div>
-
-      <div>
-        <h2 class="footer-title">Expertises</h2>
-        <ul>
-          <li><a href="expertises.html">Toutes nos expertises</a></li>
-          <li><a href="expertises.html#pole-cyber">Télécom &amp; cybersécurité</a></li>
-          <li><a href="ia-souverainete.html">IA &amp; souveraineté</a></li>
-          <li><a href="expertises.html#pole-data">Data science &amp; MLOps</a></li>
-        </ul>
-      </div>
-
-      <div>
-        <h2 class="footer-title">Cabinet</h2>
-        <ul>
-          <li><a href="cabinet.html">Qui nous sommes</a></li>
-          <li><a href="carrieres.html">Carrières</a></li>
-          <li><a href="contact.html">Contact</a></li>
-          <li><a href="en/contact.html" hreflang="en" lang="en">English</a></li>
-        </ul>
-      </div>
-
-      <div>
-        <h2 class="footer-title">Nous joindre</h2>
-        <ul>
-          <li><a href="mailto:jean-philippe.talou@xsom.fr">jean-philippe.talou@xsom.fr</a></li>
-          <li><a href="https://www.linkedin.com/company/xsom-consulting/" target="_blank" rel="noopener">LinkedIn</a></li>
-          <li><a href="mentions-legales.html">Mentions légales</a></li>
-          <li><a href="cookies.html">Cookies</a></li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="site-footer__bottom">
-      <span>© <span data-year>2026</span> xSOM Consulting — Tous droits réservés</span>
-      <span>Bordeaux · France · États-Unis</span>
-    </div>
-  </div>
+<footer class="signal-footer">
+<div class="wrap">
+<div class="signal-footer-main">
+<div>
+<a class="brand signal-brand" href="index.html">
+<img src="design-system/assets/mark.svg" alt="" width="44" height="44">
+<span class="brand__name">xSOM Consulting</span>
+</a>
+<p>Indépendants depuis 2007. <br>Responsables jusqu’à la production.</p>
+</div>
+<nav aria-label="Le cabinet et ses pages">
+<a href="expertises.html">Expertises</a>
+<a href="ia-souverainete.html">IA & souveraineté</a>
+<a href="ai-guard.html">AI Guard</a>
+<a href="cabinet.html">Le cabinet</a>
+<a href="vision.html">Vision</a>
+<a href="carrieres.html">Carrières</a>
+<a href="contact.html">Contact</a>
+</nav>
+<div class="signal-footer-contact">
+<a href="mailto:jean-philippe.talou@xsom.fr">jean-philippe.talou@xsom.fr</a>
+<span>Arcachon · France · USA</span>
+<a href="https://www.linkedin.com/company/xsom-consulting/" target="_blank" rel="noopener">LinkedIn ↗</a>
+</div>
+</div>
+<div class="signal-footer-preferences">
+<span>Votre environnement de lecture</span>
+<signal-preferences lang="fr">Thème et animations suivent les préférences de votre navigateur.</signal-preferences>
+</div>
+<div class="signal-footer-bottom">
+<span>© <span data-year>2026</span> xSOM Consulting</span>
+<div>
+<a href="mentions-legales.html">Mentions légales</a>
+<a href="cookies.html">Confidentialité</a>
+<a href="en/contact.html" hreflang="en" lang="en">English</a>
+</div>
+</div>
+</div>
 </footer>
 <!-- footer:end -->
-
-<script src="assets/js/site.js" defer></script>
-<script src="assets/js/ui.js" defer></script>
-<script src="assets/js/motion.js" defer></script>
-<script src="assets/js/contact-form.js" defer></script>
+<div class="signal-reading-progress" aria-hidden="true">
+</div>
+<script src="assets/js/signal-site.js" defer>
+</script>
+<script type="module" src="design-system/signal.js">
+</script>
+<script src="assets/js/contact-form.js" defer>
+</script>
 </body>
 </html>

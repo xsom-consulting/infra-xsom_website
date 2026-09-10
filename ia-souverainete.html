@@ -1,16 +1,10 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" data-theme="dark">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>IA &amp; Souveraineté — Infrastructures IA, cloud souverain, AI Act | xSOM Consulting</title>
 <meta name="description" content="Déployer l'IA sans perdre le contrôle : architectures souveraines, sécurisation des pipelines, conformité AI Act, DORA et NIS2. L'expérience des infrastructures critiques appliquée à l'intelligence artificielle.">
-
-<link rel="canonical" href="https://www.xsom.fr/ia-souverainete.html">
-<link rel="alternate" hreflang="fr" href="https://www.xsom.fr/ia-souverainete.html">
-<link rel="alternate" hreflang="en" href="https://www.xsom.fr/en/ai-sovereignty.html">
-<link rel="alternate" hreflang="x-default" href="https://www.xsom.fr/ia-souverainete.html">
-
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="xSOM Consulting">
 <meta property="og:locale" content="fr_FR">
@@ -22,491 +16,208 @@
 <meta name="twitter:title" content="IA &amp; Souveraineté — xSOM Consulting">
 <meta name="twitter:description" content="Déployer l'IA sans perdre le contrôle : souveraineté, sécurité, sérénité opérationnelle.">
 <meta name="twitter:image" content="https://www.xsom.fr/assets/images/og-cover.jpg">
-
-<link rel="icon" href="assets/logo/cuivre.svg" type="image/svg+xml">
+<link rel="icon" href="design-system/assets/mark.svg" type="image/svg+xml">
 <link rel="icon" href="assets/logo/favicon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="assets/logo/apple-touch-icon.png">
-<link rel="stylesheet" href="assets/css/fonts.css">
+<link rel="canonical" href="https://www.xsom.fr/ia-souverainete.html">
+<link rel="alternate" hreflang="fr" href="https://www.xsom.fr/ia-souverainete.html">
+<link rel="alternate" hreflang="en" href="https://www.xsom.fr/en/ai-sovereignty.html">
+<link rel="alternate" hreflang="x-default" href="https://www.xsom.fr/ia-souverainete.html">
+<link rel="preload" href="design-system/assets/saira-600-800.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="design-system/assets/inter-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="design-system/assets/jetbrains-mono-500.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="design-system/fonts.css">
 <link rel="stylesheet" href="assets/css/tokens.css">
 <link rel="stylesheet" href="assets/css/base.css">
-<link rel="stylesheet" href="assets/css/components.css">
+<link rel="stylesheet" href="assets/css/signal-compat.css">
+<link rel="stylesheet" href="design-system/tokens.css">
+<link rel="stylesheet" href="design-system/components.css">
+<link rel="stylesheet" href="assets/css/signal-site.css">
+<script src="assets/js/signal-preferences-init.js">
+</script>
 </head>
-<body>
-
+<body class="signal-site" data-page="sovereignty">
 <a class="skip-link" href="#main">Aller au contenu</a>
-
 <!-- nav:start -->
-<header class="site-header">
-  <div class="wrap site-header__inner">
-    <a class="brand" href="index.html">
-      <img src="assets/logo/moderne-dark.svg" alt="" width="42" height="42">
-      <span>
-        <span class="brand__name">xSOM Consulting</span>
-        <span class="brand__tag">Conseil en systèmes d'information</span>
-      </span>
-    </a>
-
-    <div class="nav-panel" id="nav-panel">
-      <nav class="nav" aria-label="Navigation principale">
-        <a href="index.html">Accueil</a>
-        <a href="expertises.html">Expertises</a>
-        <a href="ia-souverainete.html" aria-current="page">IA &amp; Souveraineté</a>
-        <a href="cabinet.html">Le cabinet</a>
-        <a href="carrieres.html">Carrières</a>
-      </nav>
-      <div class="header-actions">
-        <p class="lang">
-          <span aria-current="true">FR</span>
-          <span aria-hidden="true">/</span>
-          <a href="en/ai-sovereignty.html" hreflang="en" lang="en">EN</a>
-        </p>
-        <a class="btn btn--primary btn--sm" href="contact.html">Nous contacter</a>
-      </div>
-    </div>
-
-    <button class="nav-toggle" data-nav-toggle aria-expanded="false" aria-controls="nav-panel"
-            aria-label="Ouvrir le menu" data-label-open="Ouvrir le menu" data-label-close="Fermer le menu">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/></svg>
-    </button>
-  </div>
+<header class="signal-header">
+<div class="wrap signal-header-inner">
+<a class="brand signal-brand" href="index.html">
+<img src="design-system/assets/mark.svg" alt="" width="44" height="44">
+<span>
+<span class="brand__name">xSOM<span class="signal-brand-divider">/</span>Consulting</span>
+<span class="brand__tag">Jusqu’à la production.</span>
+</span>
+</a>
+<button class="signal-menu" aria-expanded="false" aria-controls="signal-navigation" aria-label="Ouvrir le menu" data-menu>Menu<span aria-hidden="true">+</span>
+</button>
+<div class="signal-navigation" id="signal-navigation">
+<nav aria-label="Navigation principale">
+<a href="expertises.html">Expertises</a>
+<a href="ia-souverainete.html" aria-current="page">IA & souveraineté</a>
+<a href="ai-guard.html">AI Guard</a>
+<a href="cabinet.html">Le cabinet</a>
+</nav>
+<div class="signal-header-actions">
+<div class="signal-language" aria-label="Langue">
+<span aria-current="true">FR</span>
+<a href="en/ai-sovereignty.html" hreflang="en" lang="en">EN</a>
+</div>
+<a class="btn btn--primary" href="contact.html">Parlons-en<span aria-hidden="true">↗</span>
+</a>
+</div>
+</div>
+</div>
 </header>
 <!-- nav:end -->
-
-<main id="main">
-
-  <!-- ===================== EN-TÊTE ===================== -->
-  <section class="page-head page-head--visual">
-    <div class="wrap page-head__inner">
-      <p class="eyebrow" data-num="—">IA &amp; Souveraineté</p>
-      <h1 class="t-h1" data-split>L'IA avance vite.<br>Les fondations, <span class="em">pas assez</span>.</h1>
-      <hr class="rule">
-      <p class="lead">Chaque organisation se précipite vers l'intelligence artificielle. Mais
-      derrière chaque modèle, il y a une infrastructure. Derrière chaque infrastructure, il y a
-      une décision. Notre métier : vous aider à comprendre ce qu'il y a dessous — pour déployer
-      l'IA sans en perdre le contrôle.</p>
-      <div class="hero__actions" style="margin-top:var(--sp-8)">
-        <a class="btn btn--primary" href="contact.html">
-          Parler de votre projet IA
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        </a>
-        <a class="btn btn--ghost" href="expertises.html">Toutes nos expertises</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===================== LE CONSTAT ===================== -->
-  <section class="section" aria-labelledby="stakes-title">
-    <div class="wrap split">
-      <div class="reveal">
-        <p class="eyebrow" data-num="01">Le constat</p>
-        <h2 class="t-h2" id="stakes-title" style="margin-top:var(--sp-4)">L'IA ne doit pas créer de dépendance <span class="em">invisible</span></h2>
-        <hr class="rule" style="max-width:180px">
-        <p>Trop de déploiements produisent une dépendance subie : fournisseurs étrangers, modèles
-        opaques, coûts qui dérivent, infrastructures hors de portée des équipes internes. Le
-        système fonctionne — jusqu'au jour où il faut le comprendre, le corriger ou le quitter.</p>
-        <p style="margin-top:var(--sp-4)">Notre valeur ajoutée n'est pas de faire de l'IA à votre
-        place. C'est de vous permettre de rester maîtres de ce que vous mettez en production.</p>
-
-        <blockquote class="quote" style="margin-top:var(--sp-8)">
-          <p>L'IA sans infrastructure maîtrisée, c'est de la puissance sans contrôle.</p>
-        </blockquote>
-      </div>
-
-      <div class="reveal" data-delay="1">
-        <h3 class="t-h3" style="margin-bottom:var(--sp-6)">Ce que nous regardons et que les autres survolent</h3>
-        <ol class="numbered">
-          <li>
-            <span class="numbered__n">01</span>
-            <div>
-              <h3>L'infrastructure physique</h3>
-              <p>Datacenters, parcs GPU, consommation énergétique, refroidissement, Green IT.
-              La réalité matérielle de l'IA — celle qui apparaît sur la facture et dans le
-              bilan carbone.</p>
-            </div>
-          </li>
-          <li>
-            <span class="numbered__n">02</span>
-            <div>
-              <h3>La chaîne de la donnée</h3>
-              <p>D'où viennent vos données, comment elles sont transformées, qui y accède,
-              ce qu'il en reste après traitement. La traçabilité de bout en bout.</p>
-            </div>
-          </li>
-          <li>
-            <span class="numbered__n">03</span>
-            <div>
-              <h3>La dérive des modèles</h3>
-              <p>Un modèle en production se dégrade, dérive, peut être manipulé. Il doit être
-              surveillé comme n'importe quel système critique — avec des seuils et des alertes.</p>
-            </div>
-          </li>
-          <li>
-            <span class="numbered__n">04</span>
-            <div>
-              <h3>La capacité de vos équipes</h3>
-              <p>Un système que personne ne sait maintenir est une dette, pas un actif. La
-              montée en compétence fait partie du livrable.</p>
-            </div>
-          </li>
-        </ol>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===================== SCHÉMA : COUCHES SOUVERAINES ===================== -->
-  <section class="section section--tight" aria-labelledby="stack-title">
-    <div class="wrap">
-      <div class="sec-head reveal">
-        <p class="eyebrow" data-num="02">L'architecture visée</p>
-        <h2 class="t-h2" id="stack-title" data-split>Quatre couches, une seule <span class="em">maîtrise</span></h2>
-        <hr class="rule">
-        <p class="lead">La souveraineté ne se décrète pas au niveau du modèle : elle se construit
-        de bas en haut. Une seule couche hors de contrôle suffit à la rendre théorique.</p>
-      </div>
-
-      <div class="diagram-wrap reveal" data-delay="1">
-        <svg class="diagram" viewBox="0 0 900 330" role="img" aria-labelledby="stack-desc" data-diagram>
-          <title id="stack-desc">Pile d'architecture IA souveraine en quatre couches, de l'infrastructure à la gouvernance</title>
-
-          <!-- Couche 04 — Gouvernance -->
-          <g class="dg-fade dg-s4">
-            <rect class="dg-node dg-node--hot" x="60" y="16" width="700" height="62" rx="4"/>
-            <text class="dg-text" x="86" y="43">Gouvernance &amp; conformité</text>
-            <text class="dg-sub" x="86" y="62">AI ACT · DORA · NIS2 · AUDIT INDÉPENDANT</text>
-            <text class="dg-tag" x="800" y="52">COUCHE 04</text>
-          </g>
-
-          <!-- Couche 03 — Modèles -->
-          <g class="dg-fade dg-s3">
-            <rect class="dg-node" x="60" y="94" width="700" height="62" rx="4"/>
-            <text class="dg-text" x="86" y="121">Modèles &amp; pipelines</text>
-            <text class="dg-sub" x="86" y="140">MLOPS · VERSIONNAGE · PORTABILITÉ · ZÉRO VERROU</text>
-            <text class="dg-tag" x="800" y="130">COUCHE 03</text>
-          </g>
-
-          <!-- Couche 02 — Données -->
-          <g class="dg-fade dg-s2">
-            <rect class="dg-node" x="60" y="172" width="700" height="62" rx="4"/>
-            <text class="dg-text" x="86" y="199">Données</text>
-            <text class="dg-sub" x="86" y="218">LIGNAGE · QUALIFICATION · RGPD · CONTRÔLE D'ACCÈS</text>
-            <text class="dg-tag" x="800" y="208">COUCHE 02</text>
-          </g>
-
-          <!-- Couche 01 — Infrastructure -->
-          <g class="dg-fade dg-s1">
-            <rect class="dg-node dg-node--hot" x="60" y="250" width="700" height="62" rx="4"/>
-            <text class="dg-text" x="86" y="277">Infrastructure souveraine</text>
-            <text class="dg-sub" x="86" y="296">SECNUMCLOUD · ON-PREMISE · GPU · RÉSEAU · ÉNERGIE</text>
-            <text class="dg-tag" x="800" y="286">COUCHE 01</text>
-          </g>
-
-          <!-- Axe de maîtrise, dessiné de bas en haut -->
-          <path class="dg-line--hot dg-draw" d="M34 306 L34 30" stroke-width="1.5"/>
-          <path class="dg-line--hot dg-fade dg-s4" d="M34 22 L29 34 L39 34 Z" fill="currentColor" stroke="none" style="fill:var(--copper)"/>
-          <text class="dg-tag dg-fade dg-s5" x="410" y="328" text-anchor="middle">MAÎTRISE CONSTRUITE DE BAS EN HAUT — INFRASTRUCTURES CRITIQUES DEPUIS 2007</text>
-        </svg>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===================== LES TROIS PROMESSES ===================== -->
-  <section class="section section--light" aria-labelledby="promises-title">
-    <div class="wrap">
-      <div class="sec-head sec-head--center reveal">
-        <p class="eyebrow" data-num="03">Notre engagement</p>
-        <h2 class="t-h2" id="promises-title">Trois exigences, jamais l'une au détriment des <span class="em">autres</span></h2>
-        <hr class="rule">
-        <p class="lead">Chaque intervention est conçue pour les satisfaire simultanément. Un
-        système souverain mais inexploitable, ou serein mais vulnérable, n'a pas de valeur.</p>
-      </div>
-
-      <div class="grid grid-3">
-        <article class="card reveal" data-delay="1">
-          <span class="card__num">Promesse 01</span>
-          <h3 class="t-h3">Sérénité</h3>
-          <p>L'IA doit être un levier de confiance, pas une source d'anxiété. Vos équipes
-          comprennent ce qu'elles pilotent et peuvent intervenir à tout moment.</p>
-          <ul class="checklist" style="margin-top:var(--sp-6);gap:var(--sp-3)">
-            <li><span class="checklist__mark" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2"><polyline points="20 6 9 17 4 12"/></svg></span><div><span>Supervision continue des systèmes IA</span></div></li>
-            <li><span class="checklist__mark" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2"><polyline points="20 6 9 17 4 12"/></svg></span><div><span>Documentation opérationnelle exploitable</span></div></li>
-            <li><span class="checklist__mark" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2"><polyline points="20 6 9 17 4 12"/></svg></span><div><span>Transfert de compétences aux équipes internes</span></div></li>
-            <li><span class="checklist__mark" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2"><polyline points="20 6 9 17 4 12"/></svg></span><div><span>Plans de continuité adaptés aux systèmes IA</span></div></li>
-          </ul>
-        </article>
-
-        <article class="card reveal" data-delay="2">
-          <span class="card__num">Promesse 02</span>
-          <h3 class="t-h3">Sécurité</h3>
-          <p>Les pipelines IA sont des surfaces d'attaque. Les modèles peuvent être empoisonnés,
-          les données peuvent fuir. Nous les traitons comme un réseau opérateur critique.</p>
-          <ul class="checklist" style="margin-top:var(--sp-6);gap:var(--sp-3)">
-            <li><span class="checklist__mark" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2"><polyline points="20 6 9 17 4 12"/></svg></span><div><span>Sécurisation des pipelines de données sensibles</span></div></li>
-            <li><span class="checklist__mark" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2"><polyline points="20 6 9 17 4 12"/></svg></span><div><span>Protection contre l'empoisonnement de modèles</span></div></li>
-            <li><span class="checklist__mark" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2"><polyline points="20 6 9 17 4 12"/></svg></span><div><span>Conformité AI Act, DORA et NIS2</span></div></li>
-            <li><span class="checklist__mark" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2"><polyline points="20 6 9 17 4 12"/></svg></span><div><span>Tests de résilience et audit indépendant</span></div></li>
-          </ul>
-        </article>
-
-        <article class="card reveal" data-delay="3">
-          <span class="card__num">Promesse 03</span>
-          <h3 class="t-h3">Souveraineté</h3>
-          <p>Qui détient vos données détient votre IA. Qui héberge vos modèles peut les éteindre.
-          La souveraineté n'est pas un concept politique : c'est une décision d'architecture.</p>
-          <ul class="checklist" style="margin-top:var(--sp-6);gap:var(--sp-3)">
-            <li><span class="checklist__mark" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2"><polyline points="20 6 9 17 4 12"/></svg></span><div><span>Hébergement souverain — SecNumCloud, on-premise</span></div></li>
-            <li><span class="checklist__mark" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2"><polyline points="20 6 9 17 4 12"/></svg></span><div><span>Aucun verrouillage fournisseur sur les modèles</span></div></li>
-            <li><span class="checklist__mark" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2"><polyline points="20 6 9 17 4 12"/></svg></span><div><span>Portabilité des données et des pipelines</span></div></li>
-            <li><span class="checklist__mark" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2"><polyline points="20 6 9 17 4 12"/></svg></span><div><span>Traçabilité des décisions algorithmiques</span></div></li>
-          </ul>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===================== LES TROIS LEVIERS ===================== -->
-  <section class="section" aria-labelledby="levers-title">
-    <div class="wrap">
-      <div class="sec-head reveal">
-        <p class="eyebrow" data-num="04">Notre offre</p>
-        <h2 class="t-h2" id="levers-title">De la matière brute à l'intelligence en <span class="em">production</span></h2>
-        <hr class="rule">
-        <p class="lead">Trois leviers activables séparément ou en séquence complète, selon votre
-        point de départ.</p>
-      </div>
-
-      <div class="diagram-wrap reveal" style="margin-bottom:var(--sp-8)">
-        <span class="label">La chaîne complète, du système source au scoring en production</span>
-        <svg class="diagram" viewBox="0 0 900 232" role="img" aria-labelledby="chain-desc" data-diagram>
-          <title id="chain-desc">Chaîne de traitement : sources, pipeline de données, modèle, production, le tout sous supervision continue</title>
-
-          <!-- Étape 01 — Sources -->
-          <g class="dg-fade dg-s1">
-            <text class="dg-tag" x="108" y="26" text-anchor="middle">01</text>
-            <rect class="dg-node" x="20" y="38" width="176" height="76" rx="4"/>
-            <text class="dg-text" x="108" y="70" text-anchor="middle">Sources</text>
-            <text class="dg-sub" x="108" y="90" text-anchor="middle">MULTI-SYSTÈMES</text>
-          </g>
-          <path class="dg-line dg-draw dg-s1" d="M200 76 L236 76" stroke-width="1.5"/>
-          <path class="dg-arrow dg-fade dg-s2" d="M236 71 L245 76 L236 81 Z"/>
-
-          <!-- Étape 02 — Pipeline -->
-          <g class="dg-fade dg-s2">
-            <text class="dg-tag" x="336" y="26" text-anchor="middle">02</text>
-            <rect class="dg-node" x="248" y="38" width="176" height="76" rx="4"/>
-            <text class="dg-text" x="336" y="70" text-anchor="middle">Pipeline</text>
-            <text class="dg-sub" x="336" y="90" text-anchor="middle">QUALIFICATION</text>
-          </g>
-          <path class="dg-line dg-draw dg-s2" d="M428 76 L464 76" stroke-width="1.5"/>
-          <path class="dg-arrow dg-fade dg-s3" d="M464 71 L473 76 L464 81 Z"/>
-
-          <!-- Étape 03 — Modèle -->
-          <g class="dg-fade dg-s3">
-            <text class="dg-tag" x="564" y="26" text-anchor="middle">03</text>
-            <rect class="dg-node" x="476" y="38" width="176" height="76" rx="4"/>
-            <text class="dg-text" x="564" y="70" text-anchor="middle">Modèle</text>
-            <text class="dg-sub" x="564" y="90" text-anchor="middle">ENTRAÎNEMENT</text>
-          </g>
-          <path class="dg-line dg-draw dg-s3" d="M656 76 L692 76" stroke-width="1.5"/>
-          <path class="dg-arrow dg-fade dg-s4" d="M692 71 L701 76 L692 81 Z"/>
-
-          <!-- Étape 04 — Production -->
-          <g class="dg-fade dg-s4">
-            <text class="dg-tag" x="792" y="26" text-anchor="middle">04</text>
-            <rect class="dg-node dg-node--hot" x="704" y="38" width="176" height="76" rx="4"/>
-            <text class="dg-text" x="792" y="70" text-anchor="middle">Production</text>
-            <text class="dg-sub" x="792" y="90" text-anchor="middle">SCORING &amp; API</text>
-          </g>
-
-          <!-- Boucle de supervision : c'est elle qui fait tenir l'ensemble dans le temps -->
-          <path class="dg-line--hot dg-draw dg-s5" d="M336 114 L336 168 L792 168 L792 114" stroke-width="1.5" stroke-dasharray="0"/>
-          <path class="dg-line--hot dg-draw dg-s5" d="M564 114 L564 168" stroke-width="1.5"/>
-          <text class="dg-tag dg-fade dg-s5" x="564" y="200" text-anchor="middle">SUPERVISION CONTINUE — DÉRIVE · COÛTS · SÉCURITÉ · CONFORMITÉ</text>
-        </svg>
-      </div>
-
-      <div class="stack stack-6">
-        <article class="card reveal" data-delay="1">
-          <div class="split" style="gap:var(--sp-8);align-items:start">
-            <div>
-              <span class="card__num">Levier 01 · Donnée</span>
-              <h3 class="t-h3">Data engineering &amp; valorisation</h3>
-              <p>Vos données sont votre capital. Nous les collectons, structurons, qualifions et
-              enrichissons pour qu'elles alimentent des modèles fiables — pas des approximations
-              statistiques.</p>
-            </div>
-            <table class="spec">
-              <tbody>
-                <tr><th scope="row">Ingestion</th><td>Collecte multi-sources et normalisation</td></tr>
-                <tr><th scope="row">Qualification</th><td>Déduplication, enrichissement, contrôle qualité</td></tr>
-                <tr><th scope="row">Préparation</th><td>Feature engineering et pipelines reproductibles</td></tr>
-                <tr><th scope="row">Gouvernance</th><td>Catalogage, traçabilité, conformité RGPD</td></tr>
-              </tbody>
-            </table>
-          </div>
-        </article>
-
-        <article class="card reveal" data-delay="2">
-          <div class="split" style="gap:var(--sp-8);align-items:start">
-            <div>
-              <span class="card__num">Levier 02 · Automatisation</span>
-              <h3 class="t-h3">IA appliquée &amp; industrialisation</h3>
-              <p>Nous déployons des modèles intégrés à vos opérations, pas des démonstrateurs. De
-              la détection d'anomalies au scoring prédictif, chaque solution est conçue pour durer
-              et évoluer sans nous.</p>
-            </div>
-            <table class="spec">
-              <tbody>
-                <tr><th scope="row">Modélisation</th><td>Apprentissage supervisé et non supervisé</td></tr>
-                <tr><th scope="row">Intégration</th><td>APIs de scoring et branchement métier</td></tr>
-                <tr><th scope="row">MLOps</th><td>CI/CD des modèles, réentraînement, versionnage</td></tr>
-                <tr><th scope="row">Processus</th><td>Automatisation métier assistée par IA</td></tr>
-              </tbody>
-            </table>
-          </div>
-        </article>
-
-        <article class="card reveal" data-delay="3">
-          <div class="split" style="gap:var(--sp-8);align-items:start">
-            <div>
-              <span class="card__num">Levier 03 · Contrôle</span>
-              <h3 class="t-h3">Infrastructure, sécurité &amp; conformité</h3>
-              <p>La couche qui décide si tout le reste tient. Dimensionnement, supervision,
-              maîtrise des coûts, sécurisation et conformité réglementaire — traités ensemble,
-              parce qu'ils se contraignent mutuellement.</p>
-            </div>
-            <table class="spec">
-              <tbody>
-                <tr><th scope="row">Infrastructure</th><td>Dimensionnement GPU, datacenter, Green IT</td></tr>
-                <tr><th scope="row">Observabilité</th><td>Supervision full-stack et pratiques AIOps</td></tr>
-                <tr><th scope="row">FinOps</th><td>Maîtrise et prévision des coûts d'inférence</td></tr>
-                <tr><th scope="row">Conformité</th><td>AI Act, DORA, NIS2, audit indépendant</td></tr>
-              </tbody>
-            </table>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===================== CADRES ===================== -->
-  <section class="section section--tight" aria-labelledby="frameworks-title">
-    <div class="wrap">
-      <hr class="rule rule--full">
-      <div class="reveal" style="margin-top:var(--sp-12)">
-        <h2 class="t-h3" id="frameworks-title" style="margin-bottom:var(--sp-6)">Cadres réglementaires et techniques que nous portons</h2>
-        <ul class="tags">
-          <li class="tag tag--accent">AI Act</li>
-          <li class="tag tag--accent">DORA</li>
-          <li class="tag tag--accent">NIS2</li>
-          <li class="tag tag--accent">LPM</li>
-          <li class="tag tag--accent">RGPD</li>
-          <li class="tag">SecNumCloud</li>
-          <li class="tag">ISO 27001</li>
-          <li class="tag">Cloud de confiance</li>
-          <li class="tag">Green IT</li>
-          <li class="tag">MLOps</li>
-          <li class="tag">AIOps</li>
-          <li class="tag">FinOps</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===================== CTA ===================== -->
-  <!-- ===================== NOTRE OUTIL ===================== -->
-  <section class="section section--tight" aria-labelledby="guard-title">
-    <div class="wrap split">
-      <div>
-        <p class="eyebrow" data-num="—">Notre outil</p>
-        <h2 class="t-h2" id="guard-title" style="margin-top:var(--sp-4)">xSOM <span class="em">AI&nbsp;Guard</span></h2>
-      </div>
-      <div>
-        <p>Le conseil dit ce qu'il faut contrôler. Encore faut-il pouvoir le tenir. Nous
-        développons un point de contrôle qui se place entre vos agents IA et leurs outils :
-        politique d'autorisation lisible, approbation humaine avant toute action irréversible,
-        journal d'audit inaltérable.</p>
-        <p style="margin-top:var(--sp-6)">
-          <a class="link-arrow" href="ai-guard.html">
-            Découvrir xSOM AI Guard
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </a>
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <section class="section cta-band">
-    <div class="wrap wrap--narrow cta-band__inner reveal">
-      <p class="eyebrow" data-num="→" style="justify-content:center">Prochaine étape</p>
-      <h2 class="t-h2" style="margin-top:var(--sp-6)">Où en êtes-vous <span class="em">réellement</span> ?</h2>
-      <p class="lead">Cadrage initial, seconde lecture d'une architecture existante, audit d'un
-      pipeline en production : dites-nous d'où vous partez, nous vous dirons ce qui manque.</p>
-      <div class="row">
-        <a class="btn btn--primary" href="contact.html">
-          Nous écrire
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        </a>
-        <a class="btn btn--ghost" href="cabinet.html">Découvrir le cabinet</a>
-      </div>
-    </div>
-  </section>
-
+<main id="main" tabindex="-1">
+<section class="site-hero site-hero--split ">
+<div class="wrap">
+<div class="site-hero-copy">
+<p class="site-kicker">
+<span>xSOM / Conseil</span>IA & souveraineté</p>
+<h1>Savoir où. <br>Décider qui.</h1>
+<p class="site-lead">Où tournent les modèles. Qui garde les clés. Quoi logger.</p>
+</div>
+<div class="site-instrument ">
+<div class="site-instrument-label">
+<span>La chaîne de responsabilité</span>
+<span aria-hidden="true">[ xSOM ]</span>
+</div>
+<signal-sovereignty lang="fr" >Données, modèles, clés, journaux : chaque couche a une résidence et un responsable.</signal-sovereignty>
+</div>
+</div>
+</section>
+<section class="site-section wrap">
+<div class="site-section-head">
+<p class="site-kicker">
+<span>01</span>Architecture de maîtrise</p>
+<h2>Quatre couches. <br>Aucun angle mort.</h2>
+</div>
+<div class="site-layer-list">
+<article>
+<span class="site-cell-index">01</span>
+<h3>Calcul</h3>
+<code>GPU / Datacenter</code>
+<p>Capacité, latence, énergie. Dimensionner avant de réserver.</p>
+</article>
+<article>
+<span class="site-cell-index">02</span>
+<h3>Données</h3>
+<code>Residency / Keys</code>
+<p>Localisation, accès, chiffrement. Les clés ont un propriétaire.</p>
+</article>
+<article>
+<span class="site-cell-index">03</span>
+<h3>Modèles</h3>
+<code>Inference / Drift</code>
+<p>Version, évaluation, dérive. Le comportement se mesure.</p>
+</article>
+<article>
+<span class="site-cell-index">04</span>
+<h3>Usages</h3>
+<code>Policy / Audit</code>
+<p>Actions permises, responsabilité humaine, trace exploitable.</p>
+</article>
+</div>
+</section>
+    <section class="site-section site-section--ruled wrap">
+<div class="site-section-head">
+<p class="site-kicker">
+<span>02</span>Pas une étiquette</p>
+<h2>La souveraineté <br>se vérifie.</h2>
+</div>
+<div class="site-dual">
+<div>
+<h3>Résidence ≠ maîtrise.</h3>
+<p>Un datacenter européen ne dit pas qui accède aux données, où passent les appels ou qui peut récupérer les clés.</p>
+</div>
+<div>
+<ul class="site-tags">
+<li>Droits d’accès</li>
+<li>Réversibilité</li>
+<li>Clés</li>
+<li>Journaux</li>
+<li>Coûts</li>
+</ul>
+<p>Nous rendons ces choix explicites, puis nous les traduisons en architecture et en procédures.</p>
+</div>
+</div>
+</section>
+    <section class="site-section wrap">
+<div class="site-section-head">
+<p class="site-kicker">
+<span>03</span>Trajectoire</p>
+<h2>Du cadrage <br>au run.</h2>
+</div>
+<signal-timeline lang="fr" >Cadrage → Build → Production → Run. Une responsabilité continue.</signal-timeline>
+</section>
+<section class="site-bridge wrap">
+<div>
+<p class="site-kicker">
+<span>xSOM / PRODUCT</span>AI Guard</p>
+<h2>La maîtrise descend <br>jusqu’à l’action.</h2>
+<a class="btn btn--primary" href="ai-guard.html">Voir AI Guard<span aria-hidden="true">↗</span>
+</a>
+</div>
+<signal-flow lang="fr" mode="demo" verdict="hitl" interactive>Agent → Guard → Policy → décision auto, notification, validation humaine ou refus → outil.</signal-flow>
+</section>
+<section class="site-closing wrap">
+<p class="site-kicker">
+<span>→</span>Prochaine étape</p>
+<div>
+<h2>Parlons du système réel.</h2>
+<a class="btn btn--primary" href="contact.html">Ouvrir la discussion<span aria-hidden="true">↗</span>
+</a>
+</div>
+<p>Le premier échange porte sur votre contexte. Pas sur une présentation commerciale.</p>
+</section>
 </main>
-
 <!-- footer:start -->
-<footer class="site-footer">
-  <div class="wrap">
-    <div class="site-footer__top">
-      <div>
-        <a class="brand" href="index.html">
-          <img src="assets/logo/moderne-dark.svg" alt="" width="42" height="42">
-          <span><span class="brand__name">xSOM Consulting</span></span>
-        </a>
-        <p>Cabinet de conseil indépendant en systèmes d'information. Gouvernance,
-        cybersécurité, infrastructures IA et data science.</p>
-      </div>
-
-      <div>
-        <h2 class="footer-title">Expertises</h2>
-        <ul>
-          <li><a href="expertises.html">Toutes nos expertises</a></li>
-          <li><a href="expertises.html#pole-cyber">Télécom &amp; cybersécurité</a></li>
-          <li><a href="ia-souverainete.html">IA &amp; souveraineté</a></li>
-          <li><a href="expertises.html#pole-data">Data science &amp; MLOps</a></li>
-        </ul>
-      </div>
-
-      <div>
-        <h2 class="footer-title">Cabinet</h2>
-        <ul>
-          <li><a href="cabinet.html">Qui nous sommes</a></li>
-          <li><a href="carrieres.html">Carrières</a></li>
-          <li><a href="contact.html">Contact</a></li>
-          <li><a href="en/ai-sovereignty.html" hreflang="en" lang="en">English</a></li>
-        </ul>
-      </div>
-
-      <div>
-        <h2 class="footer-title">Nous joindre</h2>
-        <ul>
-          <li><a href="mailto:jean-philippe.talou@xsom.fr">jean-philippe.talou@xsom.fr</a></li>
-          <li><a href="https://www.linkedin.com/company/xsom-consulting/" target="_blank" rel="noopener">LinkedIn</a></li>
-          <li><a href="mentions-legales.html">Mentions légales</a></li>
-          <li><a href="cookies.html">Cookies</a></li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="site-footer__bottom">
-      <span>© <span data-year>2026</span> xSOM Consulting — Tous droits réservés</span>
-      <span>Bordeaux · France · États-Unis</span>
-    </div>
-  </div>
+<footer class="signal-footer">
+<div class="wrap">
+<div class="signal-footer-main">
+<div>
+<a class="brand signal-brand" href="index.html">
+<img src="design-system/assets/mark.svg" alt="" width="44" height="44">
+<span class="brand__name">xSOM Consulting</span>
+</a>
+<p>Indépendants depuis 2007. <br>Responsables jusqu’à la production.</p>
+</div>
+<nav aria-label="Le cabinet et ses pages">
+<a href="expertises.html">Expertises</a>
+<a href="ia-souverainete.html">IA & souveraineté</a>
+<a href="ai-guard.html">AI Guard</a>
+<a href="cabinet.html">Le cabinet</a>
+<a href="vision.html">Vision</a>
+<a href="carrieres.html">Carrières</a>
+<a href="contact.html">Contact</a>
+</nav>
+<div class="signal-footer-contact">
+<a href="mailto:jean-philippe.talou@xsom.fr">jean-philippe.talou@xsom.fr</a>
+<span>Arcachon · France · USA</span>
+<a href="https://www.linkedin.com/company/xsom-consulting/" target="_blank" rel="noopener">LinkedIn ↗</a>
+</div>
+</div>
+<div class="signal-footer-preferences">
+<span>Votre environnement de lecture</span>
+<signal-preferences lang="fr">Thème et animations suivent les préférences de votre navigateur.</signal-preferences>
+</div>
+<div class="signal-footer-bottom">
+<span>© <span data-year>2026</span> xSOM Consulting</span>
+<div>
+<a href="mentions-legales.html">Mentions légales</a>
+<a href="cookies.html">Confidentialité</a>
+<a href="en/ai-sovereignty.html" hreflang="en" lang="en">English</a>
+</div>
+</div>
+</div>
 </footer>
 <!-- footer:end -->
-
-<script src="assets/js/site.js" defer></script>
-<script src="assets/js/ui.js" defer></script>
-<script src="assets/js/motion.js" defer></script>
+<div class="signal-reading-progress" aria-hidden="true">
+</div>
+<script src="assets/js/signal-site.js" defer>
+</script>
+<script type="module" src="design-system/signal.js">
+</script>
 </body>
 </html>

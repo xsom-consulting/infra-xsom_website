@@ -1,5 +1,15 @@
 # Logo « flèches entrelacées »
 
+## xSOM Signal — active identity
+
+The current site and console use `design-system/assets/mark.svg`: the exact original
+three-arrow geometry, mechanically recolored in copper, bronze and a neutral accent.
+`design-system/assets/mark-source.svg` preserves the original drawing; the shared
+build command checks the derivation. The existing variants below remain historical
+source assets. Active header/footer and favicon use the same shared SVG. The PNG kit
+and bilingual OG covers were rerendered from that identity. `tools/render-signal-kit.mjs`
+reproduces them from the local component/OG pages.
+
 Triangle récursif de trois flèches coudées qui s'emboîtent. Tous les fichiers
 sont détourés, fond transparent. **Le SVG est la source** : net à toute taille,
 2,4 Ko pièce. Les PNG ne servent qu'aux cas qui exigent du bitmap.

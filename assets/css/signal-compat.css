@@ -1,0 +1,44 @@
+/* Retained HTML contracts only: brand, buttons, contact and legal content.
+ * Replaces the retired 41 KB legacy component sheet on Signal pages.
+ * New compositions and shared mechanisms live in signal-site / design-system.
+ */
+.brand { display: flex; align-items: center; gap: var(--sp-3); flex-shrink: 0; }
+.brand img { object-fit: contain; flex-shrink: 0; }
+.brand__name { font-family: var(--font-display); line-height: 1.1; letter-spacing: -.004em; }
+.brand__tag { display: block; font-family: var(--font-mono); font-weight: 500; }
+.btn { display: inline-flex; align-items: center; justify-content: center; font-family: var(--font-body); font-weight: 600; border: var(--signal-border) solid transparent; cursor: pointer; white-space: nowrap; }
+.btn--ghost { color: var(--text-hi); border-color: var(--border-mid); }
+.btn--ghost:hover { border-color: var(--signal-line-strong); background: var(--signal-accent-wash); }
+.btn[aria-busy="true"] { pointer-events: none; }
+.tags { display: flex; flex-wrap: wrap; gap: var(--sp-2); }
+.tag { padding: var(--sp-1) var(--sp-3); font-family: var(--font-mono); font-size: var(--fs-label); font-weight: 500; letter-spacing: .06em; color: var(--text-low); border: var(--signal-border) solid var(--border); border-radius: var(--r-sm); }
+
+.form { display: flex; flex-direction: column; gap: var(--sp-6); }
+.form__row { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-6); }
+@media (max-width: 640px) { .form__row { grid-template-columns: 1fr; } }
+.field { display: flex; flex-direction: column; gap: var(--sp-2); }
+.field label { font-family: var(--font-mono); font-size: var(--fs-label); font-weight: 500; letter-spacing: .12em; text-transform: uppercase; color: var(--text-low); }
+.field label .req { color: var(--copper); }
+.field input, .field textarea, .field select { width: 100%; min-width: 0; font-size: var(--fs-body); transition: border-color var(--t-fast) var(--ease); }
+.field textarea { resize: vertical; min-height: 130px; line-height: 1.6; }
+.field input::placeholder, .field textarea::placeholder { color: var(--text-faint); }
+.field select { cursor: pointer; }
+.field select option { background: var(--ink-800); color: var(--text-hi); }
+.field__error { font-size: var(--fs-xs); color: var(--danger); min-height: 1.2em; }
+.consent { display: flex; gap: var(--sp-3); align-items: flex-start; }
+.consent input[type="checkbox"] { flex-shrink: 0; accent-color: var(--copper); cursor: pointer; }
+.consent label { font-size: var(--fs-xs); color: var(--text-low); line-height: 1.5; text-transform: none; letter-spacing: 0; font-family: var(--font-body); }
+.hp { position: absolute; left: -9999px; opacity: 0; pointer-events: none; }
+.form__status { padding: var(--sp-4); font-size: var(--fs-sm); display: none; }
+.form__status.is-success, .form__status.is-error { display: block; border: var(--signal-border) solid; }
+.form__status a { text-decoration: underline; font-weight: 600; }
+
+.spec { width: 100%; border-collapse: collapse; font-size: var(--fs-sm); }
+.spec th, .spec td { padding: var(--sp-4) var(--sp-4) var(--sp-4) 0; text-align: left; border-bottom: var(--signal-border) solid var(--border); vertical-align: top; }
+.spec th { font-family: var(--font-mono); font-size: var(--fs-label); font-weight: 500; letter-spacing: .12em; text-transform: uppercase; color: var(--copper-text); }
+.spec td { color: var(--text-mid); }
+.page-head { position: relative; padding-bottom: clamp(2rem, 4vw, 3rem); overflow: hidden; }
+.page-head + .section { padding-top: clamp(1.5rem, 3vw, 2.5rem); }
+.page-head__inner { position: relative; z-index: 1; }
+.page-head .lead { margin-top: var(--sp-6); }
+.page-head .rule { max-width: 200px; margin-block: var(--sp-4) var(--sp-6); }

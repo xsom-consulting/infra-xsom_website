@@ -39,8 +39,9 @@ const PAGES = {
       { file: 'index.html',             nav: 'index.html',            alt: 'en/index.html' },
       { file: 'expertises.html',        nav: 'expertises.html',       alt: 'en/expertise.html' },
       { file: 'ia-souverainete.html',   nav: 'ia-souverainete.html',  alt: 'en/ai-sovereignty.html' },
-      { file: 'ai-guard.html',          nav: null,                    alt: 'en/ai-guard.html' },
+      { file: 'ai-guard.html',          nav: 'ai-guard.html',         alt: 'en/ai-guard.html' },
       { file: 'cabinet.html',           nav: 'cabinet.html',          alt: 'en/firm.html' },
+      { file: 'vision.html',            nav: null,                    alt: 'en/vision.html' },
       { file: 'carrieres.html',         nav: 'carrieres.html',        alt: 'en/careers.html' },
       { file: 'contact.html',           nav: 'contact.html',          alt: 'en/contact.html' },
       { file: 'mentions-legales.html',  nav: null,                    alt: 'en/legal-notice.html' },
@@ -53,8 +54,9 @@ const PAGES = {
       { file: 'en/index.html',          nav: 'index.html',            alt: '../index.html' },
       { file: 'en/expertise.html',      nav: 'expertise.html',        alt: '../expertises.html' },
       { file: 'en/ai-sovereignty.html', nav: 'ai-sovereignty.html',   alt: '../ia-souverainete.html' },
-      { file: 'en/ai-guard.html',       nav: null,                    alt: '../ai-guard.html' },
+      { file: 'en/ai-guard.html',       nav: 'ai-guard.html',         alt: '../ai-guard.html' },
       { file: 'en/firm.html',           nav: 'firm.html',             alt: '../cabinet.html' },
+      { file: 'en/vision.html',         nav: null,                    alt: '../vision.html' },
       { file: 'en/careers.html',        nav: 'careers.html',          alt: '../carrieres.html' },
       { file: 'en/contact.html',        nav: 'contact.html',          alt: '../contact.html' },
       { file: 'en/legal-notice.html',   nav: null,                    alt: '../mentions-legales.html' },
@@ -96,7 +98,7 @@ function setActiveNav(block, navTarget) {
   let done = false;
 
   return out.replace(/<a\b[^>]*>/g, function (tag) {
-    if (done || /class="brand"/.test(tag) || !reHref.test(tag)) return tag;
+    if (done || /class="[^"]*\bbrand\b[^"]*"/.test(tag) || !reHref.test(tag)) return tag;
     done = true;
     return tag.replace(/>$/, ' aria-current="page">');
   });
