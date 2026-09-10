@@ -51,6 +51,11 @@ node tools/render-signal-pages.mjs
 node tools/sync-partials.js --check
 ```
 
+Rerun the renderer after changing any page CSS or JavaScript. It versions every
+generated runtime URL with the first 12 hex characters of that file's SHA-256,
+so existing visitors receive matching HTML and assets without clearing their
+browser cache. Unchanged assets retain the same URL.
+
 The recovery option `--restore-original-copy` is deliberately explicit: it
 restores the approved `a9dfd3c` text before applying the design, replacing later
 copy edits. Normal maintenance must not use that option.
