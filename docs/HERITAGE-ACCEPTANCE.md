@@ -27,3 +27,10 @@ The browser review still covers 390, 768 and 1440 pixels, both themes, menu
 keyboard interaction, motion preferences, no-JavaScript content, and contact
 form validation. Contact success/failure requests must always be mocked;
 never submit synthetic email through the production service.
+
+Local verification on 2026-09-10 passed all 23 static checks. An independent
+browser pass also verified menu keyboard focus, infrastructure focus on/off,
+practice and SVG-layer selection, light default, persistent dark choice and
+OS-priority reduced motion. Both contact forms rejected five invalid required
+fields, then accepted mocked POST responses and reset. No message was delivered,
+no JavaScript error occurred and no external runtime request was observed.
