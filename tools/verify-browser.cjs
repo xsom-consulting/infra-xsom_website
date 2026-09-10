@@ -6,7 +6,7 @@ const path = require('node:path');
 const { chromium } = require(process.env.PLAYWRIGHT_MODULE || '@playwright/test');
 const base = process.env.SITE_URL || 'http://127.0.0.1:4173';
 const output = process.env.SITE_QA_OUTPUT || '/tmp/xsom-site-qa';
-const pages = ['index.html','expertises.html','ia-souverainete.html','ai-guard.html','cabinet.html','vision.html','carrieres.html','contact.html','mentions-legales.html','cookies.html','404.html','en/index.html','en/expertise.html','en/ai-sovereignty.html','en/ai-guard.html','en/firm.html','en/vision.html','en/careers.html','en/contact.html','en/legal-notice.html','en/cookies.html','en/404.html'];
+const pages = ['index.html','expertises.html','ia-souverainete.html','cabinet.html','carrieres.html','contact.html','mentions-legales.html','cookies.html','404.html','en/index.html','en/expertise.html','en/ai-sovereignty.html','en/firm.html','en/careers.html','en/contact.html','en/legal-notice.html','en/cookies.html','en/404.html'];
 
 (async () => {
   fs.mkdirSync(output, { recursive: true });
@@ -50,7 +50,7 @@ const pages = ['index.html','expertises.html','ia-souverainete.html','ai-guard.h
   // Keyboard navigation and per-field contact feedback.
   await page.setViewportSize({width:390,height:900});
   await page.goto(`${base}/index.html`);
-  const menu = page.locator('[data-menu]');
+  const menu = page.locator('[data-nav-toggle]');
   await menu.focus(); await page.keyboard.press('Enter');
   assert.equal(await menu.getAttribute('aria-expanded'), 'true');
   await page.keyboard.press('Escape');
@@ -95,8 +95,8 @@ const pages = ['index.html','expertises.html','ia-souverainete.html','ai-guard.h
   const noScript = await browser.newContext({javaScriptEnabled:false,viewport:{width:390,height:900}});
   const fallback = await noScript.newPage();
   await fallback.goto(base);
-  assert.ok(await fallback.locator('.signal-navigation').isVisible());
-  assert.match(await fallback.locator('signal-poles').textContent(),/Télécom/);
+  assert.ok(await fallback.locator('#nav-panel').isVisible());
+  assert.match(await fallback.locator('[data-heritage-poles]').textContent(),/Télécom/);
   await noScript.close();
   fs.writeFileSync(path.join(output,'report.json'),JSON.stringify({failures,observations,pages:pages.length,layouts:pages.length*6,contact:'mocked-success-and-failure',externalRuntimeRequests:requests.filter(url=>!url.startsWith('https://api.web3forms.com/'))},null,2));
   await browser.close();

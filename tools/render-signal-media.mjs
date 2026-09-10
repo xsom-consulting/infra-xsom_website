@@ -4,6 +4,7 @@ import {resolve} from 'node:path';
 import {execFileSync} from 'node:child_process';
 const site=resolve(process.argv[2]);
 const frontend=resolve(process.argv[3]);
+const base=process.env.SITE_URL || 'http://127.0.0.1:4173';
 const require=createRequire(resolve(frontend,'package.json'));
 const {chromium}=require('@playwright/test');
 const capture=resolve(site,'../media-capture');
@@ -13,7 +14,7 @@ const browser=await chromium.launch();
 for(const variant of ['guarded','unguarded']){
   const context=await browser.newContext({viewport:{width:960,height:540},deviceScaleFactor:1,recordVideo:{dir:capture,size:{width:960,height:540}}});
   const page=await context.newPage();
-  await page.goto('http://localhost:4173/design-system/preview.html');
+  await page.goto(`${base}/design-system/preview.html`);
   await page.waitForFunction(()=>!!customElements.get('signal-flow'));
   await page.evaluate(variant=>{
     document.body.innerHTML=`<main class="signal-capture"><header><img src="/design-system/assets/mark.svg" width="48" height="48"><span>xSOM <b>AI Guard</b></span><small>ILLUSTRATIVE SEQUENCE / ${variant.toUpperCase()}</small></header><signal-flow lang="fr" mode="demo" interactive verdict="hitl">Agent → Guard → Policy → Outil.</signal-flow><footer>CONTROL THE ACTION. KEEP THE EVIDENCE.</footer></main>`;

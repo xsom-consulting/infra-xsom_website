@@ -1,14 +1,13 @@
 # Logo « flèches entrelacées »
 
-## xSOM Signal — active identity
+## Original blue identity — active
 
-The current site and console use `design-system/assets/mark.svg`: the exact original
-three-arrow geometry, mechanically recolored in copper, bronze and a neutral accent.
-`design-system/assets/mark-source.svg` preserves the original drawing; the shared
-build command checks the derivation. The existing variants below remain historical
-source assets. Active header/footer and favicon use the same shared SVG. The PNG kit
-and bilingual OG covers were rerendered from that identity. `tools/render-signal-kit.mjs`
-reproduces them from the local component/OG pages.
+The site and console preserve the original artwork and colors, without recoloring.
+`design-system/assets/mark.svg` and `mark-source.svg` are byte-identical copies of
+`moderne-dark.svg`. `mark-light.svg` is an unchanged copy of `gradient.svg` for light
+surfaces. Theme-aware headers use these two original variants. The shared build
+checks the exact source; `tools/render-signal-kit.mjs` reproduces the PNG kit and
+bilingual OG covers from the local logo and typography.
 
 Triangle récursif de trois flèches coudées qui s'emboîtent. Tous les fichiers
 sont détourés, fond transparent. **Le SVG est la source** : net à toute taille,
@@ -29,20 +28,13 @@ sont détourés, fond transparent. **Le SVG est la source** : net à toute taill
 
 | Emplacement | Fichier | Raison |
 |-------------|---------|--------|
-| En-tête et pied de page, 34 px | `moderne-dark.svg` | Le site est sombre partout où le logo apparaît. |
-| Hero, ~180 px | `moderne-dark.svg` | Même fichier : une seule requête mise en cache pour tout le site. |
-| Favicon | `cuivre.svg` + `favicon-32.png` | Voir ci-dessous. |
+| En-tête et pied de page | `gradient.svg` ou `moderne-dark.svg` | Variante d'origine adaptée au fond clair ou sombre. |
+| Favicon | `moderne-dark.svg` + `favicon-32.png` | Les bleus et le gris d'origine restent inchangés. |
 | Écran d'accueil iOS | `apple-touch-icon.png` | iOS compose la transparence sur du noir, ce qui est précisément le fond prévu pour `moderne-dark`. |
-| JSON-LD `Organization.logo` | `logo-512.png` | Google n'accepte pas le SVG pour le logo d'une organisation, et l'affiche sur fond blanc — d'où la variante `gradient`. |
+| JSON-LD `Organization.logo` | `logo-512.png` | Export de la variante `gradient` pour un fond clair. |
 
-### Pourquoi le cuivre en favicon
-
-La barre d'onglets suit le thème du système : claire ou sombre selon la
-machine. `gradient` perd sa flèche graphite en mode sombre, `moderne-dark`
-perd sa flèche gris clair en mode clair. Le cuivre a la luminance
-intermédiaire qui tient des deux côtés — vérifié en rendu réel à 32 px, pas
-estimé. C'est accessoirement le seul endroit où le logo rejoint l'accent du
-site.
+Les variantes cuivre et monochromes restent des sources historiques disponibles ;
+elles ne remplacent pas l'identité bleue actuellement publiée.
 
 ## Palette
 
@@ -53,14 +45,13 @@ site.
 - Gris clair, version fond sombre : `#cad2dc`
 - Noir aplat `#14181d` · Blanc aplat `#ffffff`
 
-L'accent du site est le cuivre `#e2603a`, défini dans `assets/css/tokens.css`.
-Le logo reste bleu : les deux cohabitent volontairement, le cuivre continue de
-piloter boutons, titres et liens.
+L'accent principal du site est bleu. Le cuivre n'est qu'un accent secondaire
+disponible dans `design-system/design/tokens.json`, jamais une recoloration du logo.
 
 ## Remplacer ou ajouter une variante
 
 Poser le `.svg` dans ce dossier et changer la référence dans les pages. Les
-blocs d'en-tête et de pied de page sont dupliqués dans les 22 pages ; utiliser
+blocs d'en-tête et de pied de page sont partagés entre les pages ; utiliser
 `node tools/sync-partials.js` pour les propager depuis `index.html`.
 
 Le kit d'origine contenait aussi une échelle de PNG (32 à 1024 px pour chaque

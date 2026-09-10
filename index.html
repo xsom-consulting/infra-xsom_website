@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="fr" data-theme="dark">
+<html lang="fr" data-theme="light">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>xSOM Consulting — Conseil en systèmes d'information, cybersécurité et IA</title>
 <meta name="description" content="Cabinet de conseil indépendant depuis 2007. Gouvernance des SI, cybersécurité, infrastructures IA et cloud souverain, data science. Du cadrage à la mise en production.">
+
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="xSOM Consulting">
 <meta property="og:locale" content="fr_FR">
@@ -17,9 +18,11 @@
 <meta name="twitter:title" content="xSOM Consulting — Le conseil qui tient jusqu'à la production">
 <meta name="twitter:description" content="Gouvernance des SI, cybersécurité et infrastructures IA. Cabinet indépendant depuis 2007.">
 <meta name="twitter:image" content="https://www.xsom.fr/assets/images/og-cover.jpg">
-<link rel="icon" href="design-system/assets/mark.svg" type="image/svg+xml">
+
+<link rel="icon" href="assets/logo/moderne-dark.svg" type="image/svg+xml">
 <link rel="icon" href="assets/logo/favicon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="assets/logo/apple-touch-icon.png">
+
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -65,235 +68,372 @@
   }
 }
 </script>
+
 <link rel="canonical" href="https://www.xsom.fr/index.html">
 <link rel="alternate" hreflang="fr" href="https://www.xsom.fr/index.html">
 <link rel="alternate" hreflang="en" href="https://www.xsom.fr/en/index.html">
 <link rel="alternate" hreflang="x-default" href="https://www.xsom.fr/index.html">
-<link rel="preload" href="design-system/assets/saira-600-800.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="design-system/assets/inter-400.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="design-system/assets/jetbrains-mono-500.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="design-system/assets/manrope-latin-variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="design-system/assets/source-sans-3-latin-variable.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="design-system/fonts.css">
 <link rel="stylesheet" href="assets/css/tokens.css">
 <link rel="stylesheet" href="assets/css/base.css">
-<link rel="stylesheet" href="assets/css/signal-compat.css">
+<link rel="stylesheet" href="assets/css/components.css">
 <link rel="stylesheet" href="design-system/tokens.css">
 <link rel="stylesheet" href="design-system/components.css">
-<link rel="stylesheet" href="assets/css/signal-site.css">
-<script src="assets/js/signal-preferences-init.js">
-</script>
+<link rel="stylesheet" href="assets/css/heritage-site.css">
+<script src="assets/js/signal-preferences-init.js"></script>
 </head>
-<body class="signal-site" data-page="home">
+<body class="heritage-site" data-page="index">
+
 <a class="skip-link" href="#main">Aller au contenu</a>
+
 <!-- nav:start -->
-<header class="signal-header">
-<div class="wrap signal-header-inner">
-<a class="brand signal-brand" href="index.html">
-<img src="design-system/assets/mark.svg" alt="" width="44" height="44">
-<span>
-<span class="brand__name">xSOM<span class="signal-brand-divider">/</span>Consulting</span>
-<span class="brand__tag">Jusqu’à la production.</span>
-</span>
-</a>
-<button class="signal-menu" aria-expanded="false" aria-controls="signal-navigation" aria-label="Ouvrir le menu" data-menu>Menu<span aria-hidden="true">+</span>
-</button>
-<div class="signal-navigation" id="signal-navigation">
-<nav aria-label="Navigation principale">
-<a href="expertises.html">Expertises</a>
-<a href="ia-souverainete.html">IA & souveraineté</a>
-<a href="ai-guard.html">AI Guard</a>
-<a href="cabinet.html">Le cabinet</a>
-</nav>
-<div class="signal-header-actions">
-<div class="signal-language" aria-label="Langue">
-<span aria-current="true">FR</span>
-<a href="en/index.html" hreflang="en" lang="en">EN</a>
-</div>
-<a class="btn btn--primary" href="contact.html">Parlons-en<span aria-hidden="true">↗</span>
-</a>
-</div>
-</div>
-</div>
+<header class="site-header">
+  <div class="wrap site-header__inner">
+    <a class="brand" href="index.html">
+      <img src="assets/logo/moderne-dark.svg" alt="" width="42" height="42">
+      <span>
+        <span class="brand__name">xSOM Consulting</span>
+        <span class="brand__tag">Conseil en systèmes d'information</span>
+      </span>
+    </a>
+
+    <div class="nav-panel" id="nav-panel">
+      <nav class="nav" aria-label="Navigation principale">
+        <a href="index.html" aria-current="page">Accueil</a>
+        <a href="expertises.html">Expertises</a>
+        <a href="ia-souverainete.html">IA &amp; Souveraineté</a>
+        <a href="cabinet.html">Le cabinet</a>
+        <a href="carrieres.html">Carrières</a>
+      </nav>
+      <div class="header-actions">
+        <p class="lang">
+          <span aria-current="true">FR</span>
+          <span aria-hidden="true">/</span>
+          <a href="en/index.html" hreflang="en" lang="en">EN</a>
+        </p>
+        <a class="btn btn--primary btn--sm" href="contact.html">Nous contacter</a>
+      </div>
+    </div>
+
+    <button class="nav-toggle" data-nav-toggle aria-expanded="false" aria-controls="nav-panel"
+            aria-label="Ouvrir le menu" data-label-open="Ouvrir le menu" data-label-close="Fermer le menu">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/></svg>
+    </button>
+  </div>
 </header>
 <!-- nav:end -->
+
 <main id="main" tabindex="-1">
-<section class="site-home-hero wrap">
-<div class="site-hero-copy">
-<p class="site-kicker">
-<span>DEPUIS 2007</span>Conseil indépendant</p>
-<h1>Le conseil qui tient <br>jusqu’à la <em>production.</em>
-</h1>
-<p class="site-lead">Réseau. Cybersécurité. IA. Data. <br>Nous cadrons les décisions. Nous construisons la suite.</p>
-<div class="site-actions">
-<a class="btn btn--primary" href="expertises.html">Explorer les expertises<span aria-hidden="true">↗</span>
-</a>
-<a class="signal-link" href="contact.html">Parler de votre projet<span aria-hidden="true">↗</span>
-</a>
-</div>
-</div>
-<div class="site-instrument site-hero-instrument">
-<div class="site-instrument-label">
-<span>01 — Un programme. Trois pôles.</span>
-<span aria-hidden="true">[ xSOM ]</span>
-</div>
-<signal-poles lang="fr" >Télécom & cybersécurité · Infrastructures IA · Data science. Activez les expertises selon le programme.</signal-poles>
-</div>
-</section>
-    <section class="site-facts wrap" aria-label="Le cabinet en faits">
-<div>
-<strong>2007</strong>
-<span>Année de création</span>
-</div>
-<div>
-<strong>3</strong>
-<span>Pôles activables ensemble</span>
-</div>
-<div>
-<strong>100<span>%</span>
-</strong>
-<span>Indépendant</span>
-</div>
-<div>
-<strong>France · USA</strong>
-<span>Ancrage, sans frontières</span>
-</div>
-</section>
-    <section class="site-references wrap" aria-labelledby="references-title">
-<h2 id="references-title">Ils nous font confiance</h2>
-<div>
-<img src="assets/images/partenaires/Credit-Agricole-logo.png" alt="Crédit Agricole" width="160" height="56" loading="lazy">
-<img src="assets/images/partenaires/EDF.png" alt="EDF" width="160" height="56" loading="lazy">
-<img src="assets/images/partenaires/LA-POSTE-BANQUE-POSTALE.png" alt="La Banque Postale" width="160" height="56" loading="lazy">
-<img src="assets/images/partenaires/logo-siplec_eleclerc_H_RVB_OK.png" alt="Siplec — E.Leclerc" width="160" height="56" loading="lazy">
-</div>
-</section>
-    <section class="site-section wrap">
-<div class="site-section-head">
-<p class="site-kicker">
-<span>01</span>Ce que nous construisons</p>
-<h2>Trois métiers. <br>Un même terrain.</h2>
-</div>
-<div class="site-bento">
-    <article class="site-bento-cell site-bento-cell--wide" data-reveal>
-<span class="site-cell-index">01 / NETWORK</span>
-<h3>L’infrastructure <br>qui tient.</h3>
-<p>Télécom, réseau & cybersécurité. Les dépendances sont visibles. La continuité se prépare.</p>
-<ul class="site-tags">
-<li>DORA</li>
-<li>NIS2</li>
-<li>PCA / PRA</li>
-</ul>
-<a class="signal-link" href="expertises.html">Du réseau à la résilience<span aria-hidden="true">↗</span>
-</a>
-</article>
-    <article class="site-bento-cell" data-reveal>
-<span class="site-cell-index">02 / COMPUTE</span>
-<h3>L’IA, chez <br>vous.</h3>
-<p>Où tournent les modèles. Qui garde les clés. Quoi logger.</p>
-<ul class="site-tags">
-<li>GPU</li>
-<li>Cloud</li>
-<li>FinOps</li>
-</ul>
-<a class="signal-link" href="ia-souverainete.html">Garder la maîtrise<span aria-hidden="true">↗</span>
-</a>
-</article>
-    <article class="site-bento-cell" data-reveal>
-<span class="site-cell-index">03 / DATA</span>
-<h3>La donnée <br>qui agit.</h3>
-<p>Pipelines, modèles, APIs. Du signal exploitable à l’usage en production.</p>
-<ul class="site-tags">
-<li>ML</li>
-<li>MLOps</li>
-<li>API</li>
-</ul>
-<a class="signal-link" href="expertises.html">Industrialiser la donnée<span aria-hidden="true">↗</span>
-</a>
-</article>
-</div>
-</section>
-    <section class="site-section site-section--ruled wrap">
-<div class="site-section-head">
-<p class="site-kicker">
-<span>02</span>Jusqu’à la production</p>
-<h2>La suite fait partie <br>de la mission.</h2>
-</div>
-<signal-timeline lang="fr" >Cadrage → Build → Production → Run. Une responsabilité continue.</signal-timeline>
-</section>
-    <section class="site-bridge wrap" data-reveal>
-<div>
-<p class="site-kicker">
-<span>xSOM / PRODUCT</span>AI Guard</p>
-<h2>On contrôle l’action. <br>Pas le prompt.</h2>
-<p>L’agent propose. La policy décide. L’humain tranche ce qui est irréversible.</p>
-<a class="btn btn--primary" href="ai-guard.html">Entrer dans AI Guard<span aria-hidden="true">↗</span>
-</a>
-</div>
-<div class="site-instrument ">
-<div class="site-instrument-label">
-<span>Flux illustratif · pas de système connecté</span>
-<span aria-hidden="true">[ xSOM ]</span>
-</div>
-<signal-flow lang="fr" mode="demo" verdict="hitl" interactive>Agent → Guard → Policy → décision auto, notification, validation humaine ou refus → outil.</signal-flow>
-</div>
-</section>
-    <!-- Verified engagement case studies can be published here once approved. No invented case metrics. -->
-<section class="site-closing wrap">
-<p class="site-kicker">
-<span>→</span>Prochaine étape</p>
-<div>
-<h2>Parlons du système réel.</h2>
-<a class="btn btn--primary" href="contact.html">Ouvrir la discussion<span aria-hidden="true">↗</span>
-</a>
-</div>
-<p>Le premier échange porte sur votre contexte. Pas sur une présentation commerciale.</p>
-</section>
+
+  <!-- ===================== HERO ===================== -->
+  <section class="hero">
+    <div class="wrap hero__inner">
+      <div class="hero__text">
+        <p class="eyebrow" data-num="2007">Cabinet de conseil indépendant</p>
+
+        <h1 class="t-display">Le conseil qui tient jusqu'à la <span class="em">production</span></h1>
+
+        <p class="lead">Gouvernance des systèmes d'information, cybersécurité et infrastructures
+        d'intelligence artificielle. Depuis 2007, nous accompagnons les DSI de grands comptes sur
+        leurs systèmes les plus critiques — du cadrage stratégique jusqu'à la mise en production.</p>
+
+        <div class="hero__actions">
+          <a class="btn btn--primary" href="expertises.html">
+            Découvrir nos expertises
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a class="btn btn--ghost" href="contact.html">Parler de votre projet</a>
+        </div>
+
+        <div class="hero__meta">
+          <div><strong>2007</strong>Année de création</div>
+          <div><strong>3 pôles</strong>Expertises intégrées</div>
+          <div><strong>France · USA</strong>Présence bi-continentale</div>
+        </div>
+      </div>
+
+      <figure class="hero__viz heritage-hero-art" data-infrastructure>
+        <div class="heritage-art-stage"><picture><source srcset="assets/images/infrastructure-hero.webp" type="image/webp"><img src="assets/images/infrastructure-hero.jpg" width="1536" height="1024" fetchpriority="high" alt="Illustration d’infrastructures réseau, cybersécurité et données interconnectées."></picture>
+          <div class="heritage-explorer heritage-art-points">
+            <svg class="heritage-art-routes" viewBox="0 0 1536 1024" fill="none" aria-hidden="true"><path data-route="network" d="M320 550 L490 610 L760 440"/><path data-route="cyber" d="M320 550 L490 610 L760 440 L1040 575 L1240 525"/><path data-route="data" d="M760 440 L1040 575 L1240 525"/></svg>
+            <button class="heritage-hotspot heritage-hotspot--network" type="button" data-infrastructure-focus="network" aria-pressed="false" aria-label="Architecture réseau">01</button>
+            <button class="heritage-hotspot heritage-hotspot--cyber" type="button" data-infrastructure-focus="cyber" aria-pressed="false" aria-label="Cybersécurité">02</button>
+            <button class="heritage-hotspot heritage-hotspot--data" type="button" data-infrastructure-focus="data" aria-pressed="false" aria-label="Data science">03</button>
+          </div>
+        </div>
+        <div class="heritage-explorer heritage-hero-controls" aria-label="Explorer les infrastructures">
+          <button type="button" data-infrastructure-focus="network" aria-pressed="true">Architecture réseau</button>
+          <button type="button" data-infrastructure-focus="cyber" aria-pressed="false">Cybersécurité</button>
+          <button type="button" data-infrastructure-focus="data" aria-pressed="false">Data science</button>
+        </div>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ===================== RÉFÉRENCES ===================== -->
+  <section class="clients section--light" aria-labelledby="clients-title">
+    <div class="wrap">
+      <h2 class="clients__title" id="clients-title">Ils nous font confiance</h2>
+    </div>
+    <div class="clients__viewport">
+      <div class="clients__track">
+        <img src="assets/images/partenaires/Credit-Agricole-logo.png" alt="Crédit Agricole" height="40" loading="lazy">
+        <img src="assets/images/partenaires/EDF.png" alt="EDF" height="40" loading="lazy">
+        <img src="assets/images/partenaires/LA-POSTE-BANQUE-POSTALE.png" alt="La Banque Postale" height="40" loading="lazy">
+        <img src="assets/images/partenaires/logo-siplec_eleclerc_H_RVB_OK.png" alt="Siplec — E.Leclerc" height="40" loading="lazy">
+        <img src="assets/images/partenaires/Credit-Agricole-logo.png" alt="" aria-hidden="true" height="40" loading="lazy">
+        <img src="assets/images/partenaires/EDF.png" alt="" aria-hidden="true" height="40" loading="lazy">
+        <img src="assets/images/partenaires/LA-POSTE-BANQUE-POSTALE.png" alt="" aria-hidden="true" height="40" loading="lazy">
+        <img src="assets/images/partenaires/logo-siplec_eleclerc_H_RVB_OK.png" alt="" aria-hidden="true" height="40" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== TROIS PÔLES ===================== -->
+  <section class="section" aria-labelledby="offer-title" data-heritage-poles>
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <p class="eyebrow" data-num="01">Notre offre</p>
+        <h2 class="t-h2" id="offer-title">Trois pôles, une même exigence d'<span class="em">exécution</span></h2>
+        <hr class="rule">
+        <p class="lead">Chaque pôle couvre la chaîne complète : diagnostic, architecture, pilotage,
+        mise en production et transfert aux équipes. Les trois se combinent sur les programmes
+        où l'infrastructure, la sécurité et la donnée ne peuvent pas être traitées séparément.</p>
+      </div>
+
+      <div class="grid grid-3">
+        <a class="card card--link reveal" data-delay="1" href="expertises.html#pole-cyber">
+          <span class="card__icon" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2l8 4v6c0 5-3.2 9-8 10-4.8-1-8-5-8-10V6l8-4z"/></svg>
+          </span>
+          <span class="card__num">Pôle 01</span>
+          <h3 class="t-h3">Télécom, réseau &amp; cybersécurité</h3>
+          <p>Gouvernance des infrastructures réseau, programmes de conformité réglementaire et
+          résilience opérationnelle des systèmes critiques.</p>
+          <ul class="tags" style="margin-top:var(--sp-6)">
+            <li class="tag">Architecture réseau</li>
+            <li class="tag">DORA · NIS2 · LPM</li>
+            <li class="tag">PCA / PRA</li>
+            <li class="tag">Audit</li>
+          </ul>
+        </a>
+
+        <a class="card card--link reveal" data-delay="2" href="ia-souverainete.html">
+          <span class="card__icon" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2.5" y="3.5" width="19" height="13" rx="1.5"/><path d="M8 21h8M12 16.5V21"/></svg>
+          </span>
+          <span class="card__num">Pôle 02</span>
+          <h3 class="t-h3">Infrastructures IA &amp; cloud souverain</h3>
+          <p>Architectures souveraines, dimensionnement GPU, observabilité full-stack, maîtrise des
+          coûts et conformité AI Act.</p>
+          <ul class="tags" style="margin-top:var(--sp-6)">
+            <li class="tag">Cloud souverain</li>
+            <li class="tag">GPU &amp; datacenter</li>
+            <li class="tag">FinOps · AIOps</li>
+            <li class="tag">Green IT</li>
+          </ul>
+        </a>
+
+        <a class="card card--link reveal" data-delay="3" href="expertises.html#pole-data">
+          <span class="card__icon" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><ellipse cx="12" cy="5.5" rx="7.5" ry="3"/><path d="M4.5 5.5v13c0 1.7 3.4 3 7.5 3s7.5-1.3 7.5-3v-13"/><path d="M4.5 12c0 1.7 3.4 3 7.5 3s7.5-1.3 7.5-3"/></svg>
+          </span>
+          <span class="card__num">Pôle 03</span>
+          <h3 class="t-h3">Data science, ML &amp; automatisation</h3>
+          <p>Pipelines de données, modélisation, MLOps et industrialisation de solutions IA
+          réellement déployées en production.</p>
+          <ul class="tags" style="margin-top:var(--sp-6)">
+            <li class="tag">Feature engineering</li>
+            <li class="tag">APIs de scoring</li>
+            <li class="tag">MLOps · CI/CD</li>
+            <li class="tag">Gouvernance</li>
+          </ul>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CHIFFRES ===================== -->
+  <section class="section section--tight" aria-label="Chiffres clés">
+    <div class="wrap">
+      <hr class="rule rule--full">
+      <div class="metrics reveal" style="margin-top:var(--sp-12)">
+        <div class="metric">
+          <div class="metric__value"><span data-since="2007" data-suffix=" ans">19 ans</span></div>
+          <p class="metric__label">d'interventions sur des infrastructures critiques</p>
+        </div>
+        <div class="metric">
+          <div class="metric__value"><span data-count="6">6</span></div>
+          <p class="metric__label">secteurs couverts, du service public à l'industrie</p>
+        </div>
+        <div class="metric">
+          <div class="metric__value"><span data-count="3">3</span></div>
+          <p class="metric__label">pôles d'expertise activables ensemble</p>
+        </div>
+        <div class="metric">
+          <div class="metric__value">100&nbsp;%</div>
+          <p class="metric__label">indépendant — aucune affiliation éditeur</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== APPROCHE ===================== -->
+  <section class="section section--light" aria-labelledby="approach-title">
+    <div class="wrap split">
+      <div>
+        <div class="sec-head reveal" style="margin-bottom:var(--sp-8)">
+          <p class="eyebrow" data-num="02">Notre approche</p>
+          <h2 class="t-h2" id="approach-title">Un conseil proche du terrain, orienté <span class="em">résultats</span></h2>
+          <hr class="rule">
+        </div>
+        <ul class="checklist reveal" data-delay="1">
+          <li>
+            <span class="checklist__mark" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2"><polyline points="20 6 9 17 4 12"/></svg></span>
+            <div><strong>Co-construction</strong><span>Nos consultants travaillent aux côtés de vos équipes, dans vos instances, sur vos outils.</span></div>
+          </li>
+          <li>
+            <span class="checklist__mark" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2"><polyline points="20 6 9 17 4 12"/></svg></span>
+            <div><strong>Pragmatisme</strong><span>Les contraintes budgétaires, humaines et calendaires sont intégrées dès le cadrage, pas découvertes en cours de route.</span></div>
+          </li>
+          <li>
+            <span class="checklist__mark" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2"><polyline points="20 6 9 17 4 12"/></svg></span>
+            <div><strong>Transparence</strong><span>Nous nommons les risques et les arbitrages, y compris quand la conclusion n'est pas celle attendue.</span></div>
+          </li>
+          <li>
+            <span class="checklist__mark" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2"><polyline points="20 6 9 17 4 12"/></svg></span>
+            <div><strong>Livrables exploitables</strong><span>Des documents que vos équipes reprennent et font vivre après notre départ — pas des rapports qui s'archivent.</span></div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="stack stack-6 reveal" data-delay="2">
+        <div class="card">
+          <h3 class="t-h3" style="margin-bottom:var(--sp-6)">Secteurs d'intervention</h3>
+          <ul class="tags">
+            <li class="tag">Secteur public</li>
+            <li class="tag">Énergie &amp; utilities</li>
+            <li class="tag">Banque, finance &amp; assurance</li>
+            <li class="tag">Télécommunications</li>
+            <li class="tag">Grande distribution</li>
+            <li class="tag">Industrie</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3 class="t-h3" style="margin-bottom:var(--sp-6)">Types de mission</h3>
+          <table class="spec">
+            <tbody>
+              <tr><th scope="row">Audit</th><td>Diagnostic et cadrage stratégique</td></tr>
+              <tr><th scope="row">AMOA</th><td>Expression de besoin, appels d'offres, pilotage</td></tr>
+              <tr><th scope="row">AMOE</th><td>Supervision technique jusqu'à la mise en production</td></tr>
+              <tr><th scope="row">Programme</th><td>Accompagnement long terme et transfert</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== RÉALISATIONS =====================
+       Section prête à recevoir 3 à 5 missions anonymisées.
+       Retirer l'attribut data-requires-content pour l'activer.
+       Format attendu par fiche : contexte → intervention → résultat mesurable.
+  -->
+  <section class="section" aria-labelledby="cases-title" data-requires-content>
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <p class="eyebrow" data-num="03">Réalisations</p>
+        <h2 class="t-h2" id="cases-title">Ce que nous avons <span class="em">livré</span></h2>
+        <hr class="rule">
+      </div>
+      <div class="grid grid-3">
+        <article class="card reveal" data-delay="1">
+          <span class="card__num">Secteur — Année</span>
+          <h3 class="t-h3">Titre de la mission</h3>
+          <p><strong>Contexte.</strong> Situation de départ du client.</p>
+          <p style="margin-top:var(--sp-3)"><strong>Intervention.</strong> Ce que xSOM a fait.</p>
+          <p style="margin-top:var(--sp-3)"><strong>Résultat.</strong> Effet mesurable obtenu.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CTA ===================== -->
+  <section class="section cta-band">
+    <div class="wrap wrap--narrow cta-band__inner reveal">
+      <p class="eyebrow" data-num="→" style="justify-content:center">Prochaine étape</p>
+      <h2 class="t-h2" style="margin-top:var(--sp-6)">Un programme à cadrer, une architecture à <span class="em">challenger</span> ?</h2>
+      <p class="lead">Décrivez votre situation en quelques lignes. Vous obtenez une réponse d'un
+      consultant sous 48 heures — pas d'un commercial.</p>
+      <div class="row">
+        <a class="btn btn--primary" href="contact.html">
+          Nous écrire
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a class="btn btn--ghost" href="carrieres.html">Rejoindre l'équipe</a>
+      </div>
+    </div>
+  </section>
+
 </main>
+
 <!-- footer:start -->
-<footer class="signal-footer">
-<div class="wrap">
-<div class="signal-footer-main">
-<div>
-<a class="brand signal-brand" href="index.html">
-<img src="design-system/assets/mark.svg" alt="" width="44" height="44">
-<span class="brand__name">xSOM Consulting</span>
-</a>
-<p>Indépendants depuis 2007. <br>Responsables jusqu’à la production.</p>
-</div>
-<nav aria-label="Le cabinet et ses pages">
-<a href="expertises.html">Expertises</a>
-<a href="ia-souverainete.html">IA & souveraineté</a>
-<a href="ai-guard.html">AI Guard</a>
-<a href="cabinet.html">Le cabinet</a>
-<a href="vision.html">Vision</a>
-<a href="carrieres.html">Carrières</a>
-<a href="contact.html">Contact</a>
-</nav>
-<div class="signal-footer-contact">
-<a href="mailto:jean-philippe.talou@xsom.fr">jean-philippe.talou@xsom.fr</a>
-<span>Arcachon · France · USA</span>
-<a href="https://www.linkedin.com/company/xsom-consulting/" target="_blank" rel="noopener">LinkedIn ↗</a>
-</div>
-</div>
-<div class="signal-footer-preferences">
-<span>Votre environnement de lecture</span>
-<signal-preferences lang="fr">Thème et animations suivent les préférences de votre navigateur.</signal-preferences>
-</div>
-<div class="signal-footer-bottom">
-<span>© <span data-year>2026</span> xSOM Consulting</span>
-<div>
-<a href="mentions-legales.html">Mentions légales</a>
-<a href="cookies.html">Confidentialité</a>
-<a href="en/index.html" hreflang="en" lang="en">English</a>
-</div>
-</div>
-</div>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="site-footer__top">
+      <div>
+        <a class="brand" href="index.html">
+          <img src="assets/logo/moderne-dark.svg" alt="" width="42" height="42">
+          <span><span class="brand__name">xSOM Consulting</span></span>
+        </a>
+        <p>Cabinet de conseil indépendant en systèmes d'information. Gouvernance,
+        cybersécurité, infrastructures IA et data science.</p>
+      </div>
+
+      <div>
+        <h2 class="footer-title">Expertises</h2>
+        <ul>
+          <li><a href="expertises.html">Toutes nos expertises</a></li>
+          <li><a href="expertises.html#pole-cyber">Télécom &amp; cybersécurité</a></li>
+          <li><a href="ia-souverainete.html">IA &amp; souveraineté</a></li>
+          <li><a href="expertises.html#pole-data">Data science &amp; MLOps</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="footer-title">Cabinet</h2>
+        <ul>
+          <li><a href="cabinet.html">Qui nous sommes</a></li>
+          <li><a href="carrieres.html">Carrières</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="en/index.html" hreflang="en" lang="en">English</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="footer-title">Nous joindre</h2>
+        <ul>
+          <li><a href="mailto:jean-philippe.talou@xsom.fr">jean-philippe.talou@xsom.fr</a></li>
+          <li><a href="https://www.linkedin.com/company/xsom-consulting/" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="mentions-legales.html">Mentions légales</a></li>
+          <li><a href="cookies.html">Cookies</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="site-footer__bottom">
+      <span>© <span data-year>2026</span> xSOM Consulting — Tous droits réservés</span>
+      <span>Bordeaux · France · États-Unis</span>
+    </div>
+  </div>
+<div class="heritage-preferences"><signal-preferences lang="fr">Le thème et les animations suivent les préférences de votre navigateur.</signal-preferences></div>
 </footer>
 <!-- footer:end -->
-<div class="signal-reading-progress" aria-hidden="true">
-</div>
-<script src="assets/js/signal-site.js" defer>
-</script>
-<script type="module" src="design-system/signal.js">
-</script>
+
+<script src="assets/js/heritage-site.js" defer></script>
+<script type="module" src="design-system/signal.js"></script>
 </body>
 </html>

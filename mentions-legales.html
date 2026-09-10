@@ -1,78 +1,88 @@
 <!DOCTYPE html>
-<html lang="fr" data-theme="dark">
+<html lang="fr" data-theme="light">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Mentions légales | xSOM Consulting</title>
 <meta name="description" content="Mentions légales du site xsom.fr — éditeur, hébergement, propriété intellectuelle et traitement des données personnelles.">
 <meta name="robots" content="index, follow">
-<link rel="icon" href="design-system/assets/mark.svg" type="image/svg+xml">
+
+<link rel="icon" href="assets/logo/moderne-dark.svg" type="image/svg+xml">
 <link rel="icon" href="assets/logo/favicon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="assets/logo/apple-touch-icon.png">
+
 <link rel="canonical" href="https://www.xsom.fr/mentions-legales.html">
 <link rel="alternate" hreflang="fr" href="https://www.xsom.fr/mentions-legales.html">
 <link rel="alternate" hreflang="en" href="https://www.xsom.fr/en/legal-notice.html">
 <link rel="alternate" hreflang="x-default" href="https://www.xsom.fr/mentions-legales.html">
-<link rel="preload" href="design-system/assets/saira-600-800.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="design-system/assets/inter-400.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="design-system/assets/jetbrains-mono-500.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="design-system/assets/manrope-latin-variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="design-system/assets/source-sans-3-latin-variable.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="design-system/fonts.css">
 <link rel="stylesheet" href="assets/css/tokens.css">
 <link rel="stylesheet" href="assets/css/base.css">
-<link rel="stylesheet" href="assets/css/signal-compat.css">
+<link rel="stylesheet" href="assets/css/components.css">
 <link rel="stylesheet" href="design-system/tokens.css">
 <link rel="stylesheet" href="design-system/components.css">
-<link rel="stylesheet" href="assets/css/signal-site.css">
-<script src="assets/js/signal-preferences-init.js">
-</script>
+<link rel="stylesheet" href="assets/css/heritage-site.css">
+<script src="assets/js/signal-preferences-init.js"></script>
 </head>
-<body class="signal-site" data-page="legal">
+<body class="heritage-site" data-page="mentions-legales">
+
 <a class="skip-link" href="#main">Aller au contenu</a>
+
 <!-- nav:start -->
-<header class="signal-header">
-<div class="wrap signal-header-inner">
-<a class="brand signal-brand" href="index.html">
-<img src="design-system/assets/mark.svg" alt="" width="44" height="44">
-<span>
-<span class="brand__name">xSOM<span class="signal-brand-divider">/</span>Consulting</span>
-<span class="brand__tag">Jusqu’à la production.</span>
-</span>
-</a>
-<button class="signal-menu" aria-expanded="false" aria-controls="signal-navigation" aria-label="Ouvrir le menu" data-menu>Menu<span aria-hidden="true">+</span>
-</button>
-<div class="signal-navigation" id="signal-navigation">
-<nav aria-label="Navigation principale">
-<a href="expertises.html">Expertises</a>
-<a href="ia-souverainete.html">IA & souveraineté</a>
-<a href="ai-guard.html">AI Guard</a>
-<a href="cabinet.html">Le cabinet</a>
-</nav>
-<div class="signal-header-actions">
-<div class="signal-language" aria-label="Langue">
-<span aria-current="true">FR</span>
-<a href="en/legal-notice.html" hreflang="en" lang="en">EN</a>
-</div>
-<a class="btn btn--primary" href="contact.html">Parlons-en<span aria-hidden="true">↗</span>
-</a>
-</div>
-</div>
-</div>
+<header class="site-header">
+  <div class="wrap site-header__inner">
+    <a class="brand" href="index.html">
+      <img src="assets/logo/moderne-dark.svg" alt="" width="42" height="42">
+      <span>
+        <span class="brand__name">xSOM Consulting</span>
+        <span class="brand__tag">Conseil en systèmes d'information</span>
+      </span>
+    </a>
+
+    <div class="nav-panel" id="nav-panel">
+      <nav class="nav" aria-label="Navigation principale">
+        <a href="index.html">Accueil</a>
+        <a href="expertises.html">Expertises</a>
+        <a href="ia-souverainete.html">IA &amp; Souveraineté</a>
+        <a href="cabinet.html">Le cabinet</a>
+        <a href="carrieres.html">Carrières</a>
+      </nav>
+      <div class="header-actions">
+        <p class="lang">
+          <span aria-current="true">FR</span>
+          <span aria-hidden="true">/</span>
+          <a href="en/legal-notice.html" hreflang="en" lang="en">EN</a>
+        </p>
+        <a class="btn btn--primary btn--sm" href="contact.html">Nous contacter</a>
+      </div>
+    </div>
+
+    <button class="nav-toggle" data-nav-toggle aria-expanded="false" aria-controls="nav-panel"
+            aria-label="Ouvrir le menu" data-label-open="Ouvrir le menu" data-label-close="Fermer le menu">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/></svg>
+    </button>
+  </div>
 </header>
 <!-- nav:end -->
+
 <main id="main" tabindex="-1">
+
   <section class="page-head">
     <div class="wrap wrap--narrow page-head__inner">
       <p class="eyebrow" data-num="—">Informations légales</p>
-      <h1 class="t-h1">Mentions <span class="em">légales</span>
-</h1>
+      <h1 class="t-h1">Mentions <span class="em">légales</span></h1>
       <hr class="rule">
       <p class="lead">Informations relatives à l'éditeur du site, à son hébergement et au
       traitement des données personnelles, conformément à la loi pour la confiance dans
       l'économie numérique et au RGPD.</p>
     </div>
   </section>
+
   <section class="section section--tight">
     <div class="wrap wrap--narrow stack stack-8">
+
       <!--
         Données issues du registre du commerce : API Recherche Entreprises
         (data.gouv.fr) et annonces BODACC du 21 juin 2026, qui actent le
@@ -85,68 +95,29 @@
         <h2 class="t-h3" style="margin-bottom:var(--sp-6)">Éditeur du site</h2>
         <table class="spec">
           <tbody>
-            <tr>
-<th scope="row">Raison sociale</th>
-<td>XSOM CONSULTING</td>
-</tr>
-            <tr>
-<th scope="row">Forme juridique</th>
-<td>Société par actions simplifiée (SAS)</td>
-</tr>
-            <tr>
-<th scope="row">Capital social</th>
-<td>6 000 €</td>
-</tr>
-            <tr>
-<th scope="row">Siège social</th>
-<td>2 allée Pierre Latécoère, 33120 Arcachon, France</td>
-</tr>
-            <tr>
-<th scope="row">SIREN</th>
-<td>498 029 289</td>
-</tr>
-            <tr>
-<th scope="row">SIRET (siège)</th>
-<td>498 029 289 00036</td>
-</tr>
-            <tr>
-<th scope="row">RCS</th>
-<td>Bordeaux — 498 029 289</td>
-</tr>
-            <tr>
-<th scope="row">TVA intracommunautaire</th>
-<td>FR80 498 029 289</td>
-</tr>
-            <tr>
-<th scope="row">Code APE</th>
-<td>70.22Z — Conseil pour les affaires et autres conseils de gestion</td>
-</tr>
-            <tr>
-<th scope="row">Président</th>
-<td>holdSOM</td>
-</tr>
-            <tr>
-<th scope="row">Directeur général</th>
-<td>Julian Talou</td>
-</tr>
-            <tr>
-<th scope="row">Directeur de publication</th>
-<td>Julian Talou</td>
-</tr>
-            <tr>
-<th scope="row">Contact</th>
-<td>
-<a href="mailto:jean-philippe.talou@xsom.fr">jean-philippe.talou@xsom.fr</a>
-</td>
-</tr>
+            <tr><th scope="row">Raison sociale</th><td>XSOM CONSULTING</td></tr>
+            <tr><th scope="row">Forme juridique</th><td>Société par actions simplifiée (SAS)</td></tr>
+            <tr><th scope="row">Capital social</th><td>6 000 €</td></tr>
+            <tr><th scope="row">Siège social</th><td>2 allée Pierre Latécoère, 33120 Arcachon, France</td></tr>
+            <tr><th scope="row">SIREN</th><td>498 029 289</td></tr>
+            <tr><th scope="row">SIRET (siège)</th><td>498 029 289 00036</td></tr>
+            <tr><th scope="row">RCS</th><td>Bordeaux — 498 029 289</td></tr>
+            <tr><th scope="row">TVA intracommunautaire</th><td>FR80 498 029 289</td></tr>
+            <tr><th scope="row">Code APE</th><td>70.22Z — Conseil pour les affaires et autres conseils de gestion</td></tr>
+            <tr><th scope="row">Président</th><td>holdSOM</td></tr>
+            <tr><th scope="row">Directeur général</th><td>Julian Talou</td></tr>
+            <tr><th scope="row">Directeur de publication</th><td>Julian Talou</td></tr>
+            <tr><th scope="row">Contact</th><td><a href="mailto:jean-philippe.talou@xsom.fr">jean-philippe.talou@xsom.fr</a></td></tr>
           </tbody>
         </table>
       </div>
+
       <div>
         <h2 class="t-h3" style="margin-bottom:var(--sp-6)">Hébergement</h2>
         <p>Le site est hébergé par GitHub Pages, service fourni par GitHub Inc., 88 Colin P.
         Kelly Jr. Street, San Francisco, CA 94107, États-Unis.</p>
       </div>
+
       <div>
         <h2 class="t-h3" style="margin-bottom:var(--sp-6)">Propriété intellectuelle</h2>
         <p>L'ensemble des contenus de ce site — textes, structure, éléments graphiques et
@@ -157,36 +128,19 @@
         référence appartiennent à leurs titulaires respectifs et sont affichés avec leur
         autorisation.</p>
       </div>
+
       <div>
         <h2 class="t-h3" style="margin-bottom:var(--sp-6)">Données personnelles</h2>
         <p>Les informations transmises via le formulaire de contact — nom, organisation, adresse
         email et contenu du message — sont utilisées uniquement pour traiter votre demande.</p>
         <table class="spec" style="margin-top:var(--sp-6)">
           <tbody>
-            <tr>
-<th scope="row">Finalité</th>
-<td>Réponse à votre demande de contact ou candidature</td>
-</tr>
-            <tr>
-<th scope="row">Base légale</th>
-<td>Consentement (article 6.1.a du RGPD)</td>
-</tr>
-            <tr>
-<th scope="row">Destinataires</th>
-<td>Consultants de xSOM Consulting concernés par la demande</td>
-</tr>
-            <tr>
-<th scope="row">Sous-traitant</th>
-<td>Web3Forms, pour l'acheminement technique des messages</td>
-</tr>
-            <tr>
-<th scope="row">Conservation</th>
-<td>36 mois à compter du dernier échange</td>
-</tr>
-            <tr>
-<th scope="row">Transfert hors UE</th>
-<td>Aucun transfert à des fins commerciales</td>
-</tr>
+            <tr><th scope="row">Finalité</th><td>Réponse à votre demande de contact ou candidature</td></tr>
+            <tr><th scope="row">Base légale</th><td>Consentement (article 6.1.a du RGPD)</td></tr>
+            <tr><th scope="row">Destinataires</th><td>Consultants de xSOM Consulting concernés par la demande</td></tr>
+            <tr><th scope="row">Sous-traitant</th><td>Web3Forms, pour l'acheminement technique des messages</td></tr>
+            <tr><th scope="row">Conservation</th><td>36 mois à compter du dernier échange</td></tr>
+            <tr><th scope="row">Transfert hors UE</th><td>Aucun transfert à des fins commerciales</td></tr>
           </tbody>
         </table>
         <p style="margin-top:var(--sp-6)">Conformément au RGPD, vous disposez d'un droit d'accès,
@@ -194,11 +148,13 @@
         l'exercer, écrivez à <a href="mailto:jean-philippe.talou@xsom.fr" style="text-decoration:underline">jean-philippe.talou@xsom.fr</a>.
         Vous pouvez également introduire une réclamation auprès de la CNIL.</p>
       </div>
+
       <div>
         <h2 class="t-h3" style="margin-bottom:var(--sp-6)">Cookies et mesure d'audience</h2>
         <p>Ce site ne dépose aucun cookie de suivi, de publicité ou de mesure d'audience.
         Voir la <a href="cookies.html" style="text-decoration:underline">page dédiée</a> pour le détail.</p>
       </div>
+
       <div>
         <h2 class="t-h3" style="margin-bottom:var(--sp-6)">Responsabilité</h2>
         <p>xSOM Consulting s'efforce d'assurer l'exactitude des informations publiées sur ce
@@ -206,61 +162,74 @@
         informations présentées ont une valeur informative et ne constituent pas un engagement
         contractuel.</p>
       </div>
+
       <div>
         <h2 class="t-h3" style="margin-bottom:var(--sp-6)">Droit applicable</h2>
         <p>Les présentes mentions légales sont régies par le droit français. Tout litige relatif
         à l'utilisation de ce site relève de la compétence des tribunaux français.</p>
       </div>
+
       <p class="small muted">Dernière mise à jour : juillet 2026.</p>
+
     </div>
   </section>
+
 </main>
+
 <!-- footer:start -->
-<footer class="signal-footer">
-<div class="wrap">
-<div class="signal-footer-main">
-<div>
-<a class="brand signal-brand" href="index.html">
-<img src="design-system/assets/mark.svg" alt="" width="44" height="44">
-<span class="brand__name">xSOM Consulting</span>
-</a>
-<p>Indépendants depuis 2007. <br>Responsables jusqu’à la production.</p>
-</div>
-<nav aria-label="Le cabinet et ses pages">
-<a href="expertises.html">Expertises</a>
-<a href="ia-souverainete.html">IA & souveraineté</a>
-<a href="ai-guard.html">AI Guard</a>
-<a href="cabinet.html">Le cabinet</a>
-<a href="vision.html">Vision</a>
-<a href="carrieres.html">Carrières</a>
-<a href="contact.html">Contact</a>
-</nav>
-<div class="signal-footer-contact">
-<a href="mailto:jean-philippe.talou@xsom.fr">jean-philippe.talou@xsom.fr</a>
-<span>Arcachon · France · USA</span>
-<a href="https://www.linkedin.com/company/xsom-consulting/" target="_blank" rel="noopener">LinkedIn ↗</a>
-</div>
-</div>
-<div class="signal-footer-preferences">
-<span>Votre environnement de lecture</span>
-<signal-preferences lang="fr">Thème et animations suivent les préférences de votre navigateur.</signal-preferences>
-</div>
-<div class="signal-footer-bottom">
-<span>© <span data-year>2026</span> xSOM Consulting</span>
-<div>
-<a href="mentions-legales.html">Mentions légales</a>
-<a href="cookies.html">Confidentialité</a>
-<a href="en/legal-notice.html" hreflang="en" lang="en">English</a>
-</div>
-</div>
-</div>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="site-footer__top">
+      <div>
+        <a class="brand" href="index.html">
+          <img src="assets/logo/moderne-dark.svg" alt="" width="42" height="42">
+          <span><span class="brand__name">xSOM Consulting</span></span>
+        </a>
+        <p>Cabinet de conseil indépendant en systèmes d'information. Gouvernance,
+        cybersécurité, infrastructures IA et data science.</p>
+      </div>
+
+      <div>
+        <h2 class="footer-title">Expertises</h2>
+        <ul>
+          <li><a href="expertises.html">Toutes nos expertises</a></li>
+          <li><a href="expertises.html#pole-cyber">Télécom &amp; cybersécurité</a></li>
+          <li><a href="ia-souverainete.html">IA &amp; souveraineté</a></li>
+          <li><a href="expertises.html#pole-data">Data science &amp; MLOps</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="footer-title">Cabinet</h2>
+        <ul>
+          <li><a href="cabinet.html">Qui nous sommes</a></li>
+          <li><a href="carrieres.html">Carrières</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="en/legal-notice.html" hreflang="en" lang="en">English</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="footer-title">Nous joindre</h2>
+        <ul>
+          <li><a href="mailto:jean-philippe.talou@xsom.fr">jean-philippe.talou@xsom.fr</a></li>
+          <li><a href="https://www.linkedin.com/company/xsom-consulting/" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="mentions-legales.html">Mentions légales</a></li>
+          <li><a href="cookies.html">Cookies</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="site-footer__bottom">
+      <span>© <span data-year>2026</span> xSOM Consulting — Tous droits réservés</span>
+      <span>Bordeaux · France · États-Unis</span>
+    </div>
+  </div>
+<div class="heritage-preferences"><signal-preferences lang="fr">Le thème et les animations suivent les préférences de votre navigateur.</signal-preferences></div>
 </footer>
 <!-- footer:end -->
-<div class="signal-reading-progress" aria-hidden="true">
-</div>
-<script src="assets/js/signal-site.js" defer>
-</script>
-<script type="module" src="design-system/signal.js">
-</script>
+
+<script src="assets/js/heritage-site.js" defer></script>
+<script type="module" src="design-system/signal.js"></script>
 </body>
 </html>

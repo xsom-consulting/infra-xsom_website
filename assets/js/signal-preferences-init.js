@@ -3,6 +3,7 @@
   'use strict';
   var html = document.documentElement;
   html.classList.add('signal-js');
+  html.dataset.theme = 'light';
   try {
     var saved = JSON.parse(localStorage.getItem('xsom-signal-preferences') || '{}');
     if (saved.theme === 'light' || saved.theme === 'dark') html.dataset.theme = saved.theme;

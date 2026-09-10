@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" data-theme="light">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -7,15 +7,22 @@
 <title>Page déplacée — xSOM Consulting</title>
 <meta name="robots" content="noindex, follow">
 <link rel="canonical" href="https://www.xsom.fr/ia-souverainete.html">
-<link rel="icon" href="assets/logo/cuivre.svg" type="image/svg+xml">
+<link rel="icon" href="assets/logo/moderne-dark.svg" type="image/svg+xml">
 <link rel="icon" href="assets/logo/favicon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="assets/logo/apple-touch-icon.png">
-<link rel="stylesheet" href="assets/css/fonts.css">
+
+<link rel="preload" href="design-system/assets/manrope-latin-variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="design-system/assets/source-sans-3-latin-variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="design-system/fonts.css">
 <link rel="stylesheet" href="assets/css/tokens.css">
 <link rel="stylesheet" href="assets/css/base.css">
 <link rel="stylesheet" href="assets/css/components.css">
+<link rel="stylesheet" href="design-system/tokens.css">
+<link rel="stylesheet" href="design-system/components.css">
+<link rel="stylesheet" href="assets/css/heritage-site.css">
+<script src="assets/js/signal-preferences-init.js"></script>
 </head>
-<body>
+<body class="heritage-site" data-page="redirect">
 <!--
   Redirection d'une ancienne URL. GitHub Pages ne permet pas de renvoyer un
   code HTTP 301 : on utilise un meta refresh, complété par une balise
@@ -32,7 +39,10 @@
       </a>
     </p>
   </div>
+<div class="heritage-preferences"><signal-preferences lang="fr">Le thème et les animations suivent les préférences de votre navigateur.</signal-preferences></div>
 </main>
-<script src="assets/js/site.js" defer></script>
+
+<script src="assets/js/heritage-site.js" defer></script>
+<script type="module" src="design-system/signal.js"></script>
 </body>
 </html>
