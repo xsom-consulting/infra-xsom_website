@@ -75,6 +75,8 @@
 <link rel="alternate" hreflang="x-default" href="https://www.xsom.fr/index.html">
 <link rel="preload" href="design-system/assets/manrope-latin-variable.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="design-system/assets/source-sans-3-latin-variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" as="image" href="assets/media/xsom-film-desktop.jpg?v=2143168f8474" media="(min-width: 700px)">
+<link rel="preload" as="image" href="assets/media/xsom-film-mobile.jpg?v=9fcaf467742a" media="(max-width: 699px)">
 <link rel="stylesheet" href="design-system/fonts.css?v=1e9e9bfcedc4">
 <link rel="stylesheet" href="assets/css/tokens.css?v=2b61236e7507">
 <link rel="stylesheet" href="assets/css/base.css?v=77d8677fe59d">
@@ -82,9 +84,11 @@
 <link rel="stylesheet" href="design-system/tokens.css?v=d3f9c8183253">
 <link rel="stylesheet" href="design-system/components.css?v=58339a992fc9">
 <link rel="stylesheet" href="assets/css/heritage-site.css?v=c84750f72401">
+<link rel="stylesheet" href="assets/css/home-film-tokens.css?v=e894af8cd1f4">
+<link rel="stylesheet" href="assets/css/home-film.css?v=1b32e9334b6c">
 <script src="assets/js/signal-preferences-init.js?v=df27c76a85ce"></script>
 </head>
-<body class="heritage-site" data-page="index">
+<body class="heritage-site home-film-page" data-page="index">
 
 <a class="skip-link" href="#main">Aller au contenu</a>
 
@@ -128,7 +132,21 @@
 <main id="main" tabindex="-1">
 
   <!-- ===================== HERO ===================== -->
-  <section class="hero">
+  <section class="hero home-film" data-home-film data-film-state="poster">
+    <!-- home-film:media -->
+    <div class="film-media" aria-hidden="true">
+      <picture class="film-poster">
+        <source media="(max-width: 699px)" srcset="assets/media/xsom-film-mobile.jpg?v=9fcaf467742a">
+        <img src="assets/media/xsom-film-desktop.jpg?v=2143168f8474" width="1920" height="1080" fetchpriority="high" alt="">
+      </picture>
+      <video class="film-video" muted autoplay loop playsinline preload="none" tabindex="-1" aria-hidden="true"
+        poster="assets/media/xsom-film-desktop.jpg?v=2143168f8474" data-desktop="assets/media/xsom-film-desktop.mp4?v=9dea911c104a" data-mobile="assets/media/xsom-film-mobile.mp4?v=be7d0dc343c5"
+        data-desktop-poster="assets/media/xsom-film-desktop.jpg?v=2143168f8474" data-mobile-poster="assets/media/xsom-film-mobile.jpg?v=9fcaf467742a"></video>
+    </div>
+    <div class="heritage-explorer film-controls">
+      <button class="film-toggle" data-film-toggle type="button" hidden>Lire la vidéo</button>
+    </div>
+    <!-- home-film:end -->
     <div class="wrap hero__inner">
       <div class="hero__text">
         <p class="eyebrow" data-num="2007">Cabinet de conseil indépendant</p>
@@ -154,20 +172,6 @@
         </div>
       </div>
 
-      <figure class="hero__viz heritage-hero-art" data-hero-mark>
-        <div class="heritage-explorer heritage-mark-map" aria-label="Les trois pôles xSOM">
-          <img class="heritage-mark" src="assets/logo/gradient.svg" width="374" height="374" fetchpriority="high" alt="Logo original xSOM : trois flèches bleues et grise entrelacées.">
-          <svg class="heritage-mark-routes" viewBox="0 0 600 600" fill="none" aria-hidden="true">
-            <path data-mark-route="1" d="M280 157 L280 114 L320 114 L320 90"/>
-            <path data-mark-route="2" d="M456 412 L504 412 L504 486"/>
-            <path data-mark-route="3" d="M146 438 L96 438 L96 486"/>
-            <circle cx="280" cy="157" r="5"/><circle cx="456" cy="412" r="5"/><circle cx="146" cy="438" r="5"/>
-          </svg>
-          <a class="heritage-mark-link heritage-mark-link--1" data-mark-practice="1" href="expertises.html#pole-cyber"><span class="heritage-mark-number" aria-hidden="true">01</span><span>Télécom, réseau &amp; cybersécurité</span><span class="heritage-mark-arrow" aria-hidden="true">↗</span></a>
-          <a class="heritage-mark-link heritage-mark-link--2" data-mark-practice="2" href="ia-souverainete.html"><span class="heritage-mark-number" aria-hidden="true">02</span><span>Infrastructures IA &amp; cloud souverain</span><span class="heritage-mark-arrow" aria-hidden="true">↗</span></a>
-          <a class="heritage-mark-link heritage-mark-link--3" data-mark-practice="3" href="expertises.html#pole-data"><span class="heritage-mark-number" aria-hidden="true">03</span><span>Data science, ML &amp; automatisation</span><span class="heritage-mark-arrow" aria-hidden="true">↗</span></a>
-        </div>
-      </figure>
     </div>
   </section>
 
@@ -193,6 +197,7 @@
   <!-- ===================== TROIS PÔLES ===================== -->
   <section class="section" aria-labelledby="offer-title" data-heritage-poles>
     <div class="wrap">
+      <div class="film-expertise-intro">
       <div class="sec-head reveal">
         <p class="eyebrow" data-num="01">Notre offre</p>
         <h2 class="t-h2" id="offer-title">Trois pôles, une même exigence d'<span class="em">exécution</span></h2>
@@ -200,6 +205,21 @@
         <p class="lead">Chaque pôle couvre la chaîne complète : diagnostic, architecture, pilotage,
         mise en production et transfert aux équipes. Les trois se combinent sur les programmes
         où l'infrastructure, la sécurité et la donnée ne peuvent pas être traitées séparément.</p>
+      </div>
+<figure class="hero__viz heritage-hero-art" data-hero-mark>
+        <div class="heritage-explorer heritage-mark-map" aria-label="Les trois pôles xSOM">
+          <img class="heritage-mark" src="assets/logo/gradient.svg" width="374" height="374" fetchpriority="high" alt="Logo original xSOM : trois flèches bleues et grise entrelacées.">
+          <svg class="heritage-mark-routes" viewBox="0 0 600 600" fill="none" aria-hidden="true">
+            <path data-mark-route="1" d="M280 157 L280 114 L320 114 L320 90"/>
+            <path data-mark-route="2" d="M456 412 L504 412 L504 486"/>
+            <path data-mark-route="3" d="M146 438 L96 438 L96 486"/>
+            <circle cx="280" cy="157" r="5"/><circle cx="456" cy="412" r="5"/><circle cx="146" cy="438" r="5"/>
+          </svg>
+          <a class="heritage-mark-link heritage-mark-link--1" data-mark-practice="1" href="expertises.html#pole-cyber"><span class="heritage-mark-number" aria-hidden="true">01</span><span>Télécom, réseau &amp; cybersécurité</span><span class="heritage-mark-arrow" aria-hidden="true">↗</span></a>
+          <a class="heritage-mark-link heritage-mark-link--2" data-mark-practice="2" href="ia-souverainete.html"><span class="heritage-mark-number" aria-hidden="true">02</span><span>Infrastructures IA &amp; cloud souverain</span><span class="heritage-mark-arrow" aria-hidden="true">↗</span></a>
+          <a class="heritage-mark-link heritage-mark-link--3" data-mark-practice="3" href="expertises.html#pole-data"><span class="heritage-mark-number" aria-hidden="true">03</span><span>Data science, ML &amp; automatisation</span><span class="heritage-mark-arrow" aria-hidden="true">↗</span></a>
+        </div>
+      </figure>
       </div>
 
       <div class="grid grid-3">
@@ -433,6 +453,7 @@
 <!-- footer:end -->
 
 <script src="assets/js/heritage-site.js?v=0279419aef40" defer></script>
+<script src="assets/js/home-film.js?v=7ab2dbc22a6a" defer></script>
 <script type="module" src="design-system/signal.js?v=76f290b9cea8"></script>
 </body>
 </html>

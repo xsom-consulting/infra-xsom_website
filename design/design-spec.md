@@ -26,13 +26,25 @@ diagram labels, not every navigation item. Local WOFF2 only, with redistribution
 licences retained. Semantic state colours stay distinct from brand colours.
 
 ## Current visual mechanisms
-The corporate hero is anchored by the unchanged original blue/grey three-arrow
-logo. Each arrow connects to one existing practice label and its real destination:
+The corporate homepage opens with the user's 30-second documentary-style film,
+edge to edge and full viewport height. The original headline, lead and calls to
+action remain semantic HTML within the left 45% on desktop. A restrained navy
+scrim protects contrast. The film contains no added typography and no audio track.
+The smaller portrait export uses a right-anchored crop of the same footage.
+An eagerly loaded still is always available, including without JavaScript,
+when autoplay fails, during loading and when reduced motion is requested.
+A visible pause/play control supplements the existing motion preferences.
+Playback stops outside the viewport and while the document is hidden.
+
+The unchanged original blue/grey three-arrow logo moves into the expertise
+introduction. Each arrow connects to one existing practice and its real destination:
 telecom/network/cybersecurity, AI infrastructure/sovereign cloud, and data science/
 ML/automation. The links work without JavaScript. Focus and hover illuminate only
-the separate connector, never recolour or distort the logo. At 736 CSS pixels the
-mark remains beside the headline; on narrow phones it follows the headline.
-The generated 3D infrastructure illustration is reserved for the POC, not this hero.
+the separate connector, never recolour or distort the logo. It sits beside the
+expertise introduction on desktop and follows it on phones. No corporate copy
+or ordering of editorial paragraphs changes. User-provided Grok footage is
+illustrative, not presented as footage of actual clients or xSOM premises.
+AI Guard video is a future, separate task; its current frontend is unchanged.
 
 The POC landing is independently reworked around concrete usage: developers,
 employees in large organisations, confidential documents, OpenAI/Claude services
@@ -71,7 +83,13 @@ Shared: Button, Toggle, VerdictBadge, Card/Bento, Table, Tabs, Toast, Modal, Inp
 Corporate: editorial hero, asymmetric expertise bento, evidence strip, contact form. Console: topbar + sidebar + canvas, Inspector narrative strip, approval queue, filtered audit, policy YAML + readable decisions, tenant administration, risk and settings.
 
 ## Motion and accessibility
-OS reduced-motion always wins; an explicit visible control may reduce further. No perpetual resting animation. Pointer motion has keyboard equivalents. Focus and 44px targets, text labels for every verdict, no color-only meaning. Sound starts off and is synthesized locally only after consent. All illustrative data is visibly labeled demonstration. No UI claims cryptographic verification without server evidence.
+OS reduced-motion always wins; an explicit visible control may reduce further.
+The user-authorized homepage film loops silently when motion is enabled, with a
+visible pause control. Other animations remain user-triggered. Pointer motion
+has keyboard equivalents. Focus and 44px targets, text labels for every verdict,
+no color-only meaning. Sound starts off and is synthesized locally only after
+consent. All illustrative data is visibly labeled demonstration. No UI claims
+cryptographic verification without server evidence.
 
 ## Delivery checks
 Capture 390/768/1440 widths in dark/light, critique then correct and recapture. Check keyboard, loading, empty, error and dense states; essential live-action contracts; FR/EN; local assets; SEO and contact; existing test suite. Preserve API auth, tenant/role and server authority. Merge only after proportionate checks and review.

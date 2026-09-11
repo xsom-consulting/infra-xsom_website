@@ -31,11 +31,14 @@ exception; a changed or removed service paragraph fails the test.
   JetBrains Mono. Licences accompany the font files.
 - Light default, deliberate navy diagram surfaces, and a full
   dark theme. Existing saved preferences remain respected.
-- The hero uses the unchanged original three-arrow logo. Each arrow connects
-  to an existing practice label and its real destination, with keyboard focus.
-  The mark stays beside the headline from 700 CSS pixels, including the user's
-  736px window, and follows the headline on phones. No JavaScript is required
-  to see the logo or follow a practice link.
+- The homepage hero plays the user's silent 30-second film across the viewport.
+  The original headline, lead and CTAs remain HTML in the desktop's left 45%.
+  A portrait export serves phones. A visible pause control, static poster and
+  OS/saved reduced-motion behavior are built in. No video downloads without JS
+  or with reduced motion. Offscreen and background-tab playback stops.
+- The unchanged three-arrow logo sits beside the expertise introduction and
+  follows it on phones. Each arrow links to its original practice, with keyboard
+  focus and no JavaScript required for navigation.
 - Existing practice descriptions and sovereignty diagrams gain selectable
   paths. User-triggered movement stops at rest; reduced motion is respected.
 
@@ -51,7 +54,7 @@ node tools/render-signal-pages.mjs
 node tools/sync-partials.js --check
 ```
 
-Rerun the renderer after changing any page CSS or JavaScript. It versions every
+Rerun the renderer after changing any page CSS, JavaScript or homepage media. It versions every
 generated runtime URL with the first 12 hex characters of that file's SHA-256,
 so existing visitors receive matching HTML and assets without clearing their
 browser cache. Unchanged assets retain the same URL.
@@ -66,6 +69,12 @@ Site-specific implementation:
 - `assets/js/heritage-site.js`: navigation, original-logo theme selection,
   practice connector focus and interactive existing diagrams.
 - `assets/js/contact-form.js`: the preserved secure contact contract.
+- `assets/css/home-film.css`, `assets/js/home-film.js`: homepage film only.
+- `design/home-film.tokens.json`: corporate-only film layout tokens, emitted to
+  `assets/css/home-film-tokens.css` by the page renderer; shared branding is unchanged.
+- `tools/build-home-film.mjs /path/to/approved-edit.mp4`: local FFmpeg exports
+  and matching posters. Source provenance and editorial decisions are recorded
+  in `design/home-film-qa.md`. Keep the original masters outside Git.
 - `tools/render-signal-pages.mjs`: idempotent design application, hero markup,
   language metadata, old-route redirects and sitemap.
 
@@ -86,12 +95,16 @@ PLAYWRIGHT_MODULE=/absolute/path/to/poc-AI_guard/frontend/node_modules/@playwrig
   node tools/verify-browser.cjs
 PLAYWRIGHT_MODULE=/absolute/path/to/poc-AI_guard/frontend/node_modules/@playwright/test \
   node tools/verify-hero-mark.cjs
+PLAYWRIGHT_MODULE=/absolute/path/to/poc-AI_guard/frontend/node_modules/@playwright/test \
+  SITE_URL=http://127.0.0.1:4173 node tools/verify-home-film.cjs
 ```
 
 The browser suite exercises 18 pages at 390/768/1440 in both themes, native
 fallback, keyboard navigation, preferences, and mocked contact success/failure.
 The scoped hero guard checks both homepages at 390/736/768/1440 in both themes,
-logo loading and placement in the first viewport, the exact original variants,
+logo loading and placement in the expertise introduction, the exact original variants,
 six real keyboard destinations, reduced motion and JavaScript-free navigation.
 Never submit real contact messages during tests. Visual critique and the latest
-evidence location are recorded in `design/visual-qa.md`.
+evidence location are recorded in `design/visual-qa.md` and `design/home-film-qa.md`.
+The film check additionally exercises actual muted playback, pause/resume,
+responsive source selection, reduced motion, no-JS and media/autoplay failures.
