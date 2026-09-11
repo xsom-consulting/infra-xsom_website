@@ -8,7 +8,8 @@
   --film-mobile-height: max(100svh, 52rem);
   --film-control-layer: 3;
   --film-poster-position: 78% center;
-  --film-scrim: linear-gradient(90deg, color-mix(in srgb, var(--signal-hero-bg) 76%, transparent), color-mix(in srgb, var(--signal-hero-bg) 48%, transparent) 42%, transparent 75%);
+  --film-scrim: linear-gradient(90deg, color-mix(in srgb, var(--signal-hero-bg) 90%, transparent), color-mix(in srgb, var(--signal-hero-bg) 78%, transparent) 45%, transparent 75%);
+  --film-scrim-tablet: linear-gradient(90deg, color-mix(in srgb, var(--signal-hero-bg) 90%, transparent), color-mix(in srgb, var(--signal-hero-bg) 78%, transparent) 60%, transparent 95%);
   --film-scrim-mobile: linear-gradient(180deg, color-mix(in srgb, var(--signal-hero-bg) 16%, transparent), color-mix(in srgb, var(--signal-hero-bg) 56%, transparent) 40%, var(--signal-hero-bg) 92%);
   --film-header-bg: color-mix(in srgb, var(--signal-hero-bg) 65%, transparent);
   --film-control-bg: color-mix(in srgb, var(--signal-hero-bg) 88%, transparent);
