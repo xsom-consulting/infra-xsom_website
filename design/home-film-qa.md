@@ -15,6 +15,8 @@ background imagery, not product screenshots. No title, caption, logo, subtitle,
 audio or watermark is added by this pipeline. The film carries no audio stream.
 The original stills were inspected; a frame from the approved edit is used as the
 poster to match the first video frame without a jump in exposure or framing.
+The compact play/pause symbols use the Lucide `Play` and `Pause` geometry (ISC);
+their accessible French and English names remain in HTML attributes.
 
 ## Output
 

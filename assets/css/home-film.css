@@ -26,8 +26,11 @@
 .home-film-page .home-film .hero__meta strong { color: var(--signal-hero-text); font-size: var(--fs-body); }
 .home-film-page .home-film .hero__meta div { color: var(--signal-hero-muted); font-size: var(--fs-xs); }
 .home-film-page .film-controls { position: absolute; right: var(--gutter); bottom: var(--sp-8); z-index: var(--film-control-layer); }
-.home-film-page .film-toggle { display: inline-flex; align-items: center; gap: var(--sp-3); min-height: var(--signal-touch); padding: var(--sp-3) var(--sp-4); border: var(--signal-border) solid var(--film-border); border-radius: var(--r-md); color: var(--signal-hero-text); background: var(--film-control-bg); font: 500 var(--fs-sm) var(--signal-font-body); cursor: pointer; }
-.home-film-page .film-toggle:hover { background: var(--signal-hero-bg); }
+.home-film-page .film-toggle { display: inline-flex; align-items: center; justify-content: center; width: var(--signal-touch); min-width: var(--signal-touch); height: var(--signal-touch); min-height: var(--signal-touch); padding: 0; border: var(--signal-border) solid var(--film-border); border-radius: var(--r-md); color: var(--signal-hero-text); background: var(--film-control-bg); opacity: var(--film-control-opacity); cursor: pointer; transition: opacity var(--signal-normal) var(--signal-ease), background var(--signal-normal) var(--signal-ease); }
+.home-film-page .film-toggle:hover, .home-film-page .film-toggle:focus-visible { background: var(--signal-hero-bg); opacity: var(--film-control-opacity-active); }
+.home-film-page .film-icon { width: var(--sp-4); height: var(--sp-4); fill: currentColor; }
+.home-film-page .film-toggle[data-film-action=play] .film-icon--pause,
+.home-film-page .film-toggle[data-film-action=pause] .film-icon--play { display: none; }
 .home-film-page .home-film :focus-visible, .home-film-page .site-header :focus-visible { outline-color: var(--signal-hero-text); }
 .home-film-page .film-expertise-intro { display: grid; grid-template-columns: var(--film-expertise-columns); gap: var(--sp-12); align-items: center; margin-bottom: var(--sp-8); }
 .home-film-page .film-expertise-intro .sec-head { margin: 0; }

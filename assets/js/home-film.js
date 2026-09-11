@@ -18,7 +18,11 @@
   }
   function allowed() { return !reduced() && !userPaused && !failed && inView && !document.hidden; }
   function label() {
-    toggle.textContent = video.paused ? (en ? 'Play video' : 'Lire la vidéo') : (en ? 'Pause video' : 'Mettre en pause');
+    var action = video.paused ? 'play' : 'pause';
+    var text = action === 'play' ? (en ? 'Play video' : 'Lire la vidéo') : (en ? 'Pause video' : 'Mettre en pause');
+    toggle.dataset.filmAction = action;
+    toggle.setAttribute('aria-label', text);
+    toggle.title = text;
   }
   function sync() {
     toggle.hidden = reduced();
