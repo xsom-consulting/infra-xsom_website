@@ -13,6 +13,8 @@
   --film-scrim-mobile: linear-gradient(180deg, color-mix(in srgb, var(--signal-hero-bg) 16%, transparent), color-mix(in srgb, var(--signal-hero-bg) 56%, transparent) 40%, var(--signal-hero-bg) 92%);
   --film-header-bg: color-mix(in srgb, var(--signal-hero-bg) 65%, transparent);
   --film-control-bg: color-mix(in srgb, var(--signal-hero-bg) 88%, transparent);
+  --film-control-opacity: 0.72;
+  --film-control-opacity-active: 1;
   --film-border: color-mix(in srgb, var(--signal-hero-text) 32%, transparent);
   --film-expertise-columns: minmax(0, 1fr) minmax(0, 1fr);
   --film-expertise-width: 32rem;

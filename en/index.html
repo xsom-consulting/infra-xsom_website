@@ -75,8 +75,8 @@
 <link rel="stylesheet" href="../design-system/tokens.css?v=d3f9c8183253">
 <link rel="stylesheet" href="../design-system/components.css?v=58339a992fc9">
 <link rel="stylesheet" href="../assets/css/heritage-site.css?v=c84750f72401">
-<link rel="stylesheet" href="../assets/css/home-film-tokens.css?v=629808861d58">
-<link rel="stylesheet" href="../assets/css/home-film.css?v=3a7d79a844af">
+<link rel="stylesheet" href="../assets/css/home-film-tokens.css?v=b2fac7e2ebb5">
+<link rel="stylesheet" href="../assets/css/home-film.css?v=aceb3fba702d">
 <script src="../assets/js/signal-preferences-init.js?v=df27c76a85ce"></script>
 </head>
 <body class="heritage-site home-film-page" data-page="index">
@@ -135,7 +135,10 @@
         data-desktop-poster="../assets/media/xsom-film-desktop.jpg?v=2143168f8474" data-mobile-poster="../assets/media/xsom-film-mobile.jpg?v=9fcaf467742a"></video>
     </div>
     <div class="heritage-explorer film-controls">
-      <button class="film-toggle" data-film-toggle type="button" hidden>Play video</button>
+      <button class="film-toggle" data-film-toggle data-film-action="pause" type="button" aria-label="Pause video" title="Pause video" hidden>
+        <svg class="film-icon film-icon--play" viewBox="0 0 24 24" aria-hidden="true"><polygon points="6 3 20 12 6 21 6 3"/></svg>
+        <svg class="film-icon film-icon--pause" viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg>
+      </button>
     </div>
     <!-- home-film:end -->
     <div class="wrap hero__inner">
@@ -443,7 +446,7 @@
 <!-- footer:end -->
 
 <script src="../assets/js/heritage-site.js?v=0279419aef40" defer></script>
-<script src="../assets/js/home-film.js?v=7ab2dbc22a6a" defer></script>
+<script src="../assets/js/home-film.js?v=dcd2f608764f" defer></script>
 <script type="module" src="../design-system/signal.js?v=76f290b9cea8"></script>
 </body>
 </html>

@@ -32,12 +32,14 @@ const output = process.env.SITE_QA_OUTPUT || '/tmp/xsom-home-film';
             return { width: innerWidth, height: innerHeight, scrollWidth: document.documentElement.scrollWidth,
               theme: document.documentElement.dataset.theme, source: video.currentSrc, playing: !video.paused,
               muted: video.muted, inline: video.playsInline, loop: video.loop, duration: video.duration,
+              toggleAction: hero.querySelector('[data-film-toggle]').dataset.filmAction,
               hero: hero.getBoundingClientRect().toJSON(), text: text.toJSON(), pause: pause.toJSON(), links,
               imagesLoaded: [...hero.querySelectorAll('img')].every(i => i.complete && i.naturalWidth > 0) };
           });
           assert.equal(result.scrollWidth, width);
           assert.equal(result.theme, theme);
           assert.ok(result.playing && result.muted && result.inline && result.loop && result.imagesLoaded);
+          assert.equal(result.toggleAction, 'pause');
           assert.ok(Math.abs(result.duration - 30) < .1);
           assert.match(result.source, width < 700 ? /film-mobile\.mp4/ : /film-desktop\.mp4/);
           assert.ok(result.hero.height >= result.height);
@@ -58,12 +60,19 @@ const output = process.env.SITE_QA_OUTPUT || '/tmp/xsom-home-film';
     await toggle.focus();
     await page.keyboard.press('Enter');
     assert.equal(await video.evaluate(v => v.paused), true);
-    assert.equal(await toggle.textContent(), 'Lire la vidéo');
+    assert.equal(await toggle.getAttribute('aria-label'), 'Lire la vidéo');
+    assert.equal(await toggle.getAttribute('data-film-action'), 'play');
     await page.locator('#offer-title').scrollIntoViewIfNeeded();
     await page.locator('h1').scrollIntoViewIfNeeded();
     assert.equal(await video.evaluate(v => v.paused), true, 'User pause survives scroll');
     await toggle.click();
-    await page.waitForFunction(() => !document.querySelector('video').paused);
+    await page.waitForFunction(() => {
+      const video = document.querySelector('video');
+      const toggle = document.querySelector('[data-film-toggle]');
+      return !video.paused && toggle.dataset.filmAction === 'pause';
+    });
+    assert.equal(await toggle.getAttribute('aria-label'), 'Mettre en pause');
+    assert.equal(await toggle.getAttribute('data-film-action'), 'pause');
     await page.locator('footer').scrollIntoViewIfNeeded();
     await page.waitForFunction(() => document.querySelector('video').paused);
     await page.locator('h1').scrollIntoViewIfNeeded();

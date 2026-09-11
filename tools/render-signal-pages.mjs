@@ -75,7 +75,10 @@ function homeFilm(html, prefix, en) {
         data-desktop-poster="${poster}" data-mobile-poster="${mobilePoster}"></video>
     </div>
     <div class="heritage-explorer film-controls">
-      <button class="film-toggle" data-film-toggle type="button" hidden>${en ? 'Play video' : 'Lire la vidéo'}</button>
+      <button class="film-toggle" data-film-toggle data-film-action="pause" type="button" aria-label="${en ? 'Pause video' : 'Mettre en pause'}" title="${en ? 'Pause video' : 'Mettre en pause'}" hidden>
+        <svg class="film-icon film-icon--play" viewBox="0 0 24 24" aria-hidden="true"><polygon points="6 3 20 12 6 21 6 3"/></svg>
+        <svg class="film-icon film-icon--pause" viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg>
+      </button>
     </div>
     <!-- home-film:end -->`);
   });
