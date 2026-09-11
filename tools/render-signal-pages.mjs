@@ -18,6 +18,8 @@ const pairs = [
 ];
 const read = file => restore ? execFileSync('git', ['show', `a9dfd3c:${file}`], { cwd: root, encoding: 'utf8' }) : fs.readFileSync(path.join(root, file), 'utf8');
 const write = (file, content) => fs.writeFileSync(path.join(root, file), content.replace(/[ \t]+$/gm, '').trim() + '\n');
+const filmTokens = JSON.parse(fs.readFileSync(path.join(root, 'design/home-film.tokens.json'), 'utf8'));
+write('assets/css/home-film-tokens.css', `/* Generated from design/home-film.tokens.json. */\n:root {\n${Object.entries(filmTokens).map(([name, value]) => `  --${name}: ${value};`).join('\n')}\n}`);
 const styles = ['design-system/fonts.css', 'assets/css/tokens.css', 'assets/css/base.css', 'assets/css/components.css', 'design-system/tokens.css', 'design-system/components.css', 'assets/css/heritage-site.css'];
 // HTML can change before cached runtime files expire. Content-derived versions
 // refresh only changed assets and keep repeated generation deterministic.
@@ -53,9 +55,41 @@ ${practices.map(([label, href], index) => `          <a class="heritage-mark-lin
       </figure>`;
 }
 
+function homeFilm(html, prefix, en) {
+  const desktop = runtimeAsset('assets/media/xsom-film-desktop.mp4', prefix);
+  const mobile = runtimeAsset('assets/media/xsom-film-mobile.mp4', prefix);
+  const poster = runtimeAsset('assets/media/xsom-film-desktop.jpg', prefix);
+  const mobilePoster = runtimeAsset('assets/media/xsom-film-mobile.jpg', prefix);
+  html = html.replace(/<section class="hero(?: home-film)?"[^>]*>[\s\S]*?<\/section>/, section => {
+    section = section.replace(/<figure class="hero__viz heritage-hero-art"[\s\S]*?<\/figure>/, '');
+    section = section.replace(/\s*<!-- home-film:media -->[\s\S]*?<!-- home-film:end -->/, '');
+    return section.replace(/<section[^>]*>/, `<section class="hero home-film" data-home-film data-film-state="poster">
+    <!-- home-film:media -->
+    <div class="film-media" aria-hidden="true">
+      <picture class="film-poster">
+        <source media="(max-width: 699px)" srcset="${mobilePoster}">
+        <img src="${poster}" width="1920" height="1080" fetchpriority="high" alt="">
+      </picture>
+      <video class="film-video" muted autoplay loop playsinline preload="none" tabindex="-1" aria-hidden="true"
+        poster="${poster}" data-desktop="${desktop}" data-mobile="${mobile}"
+        data-desktop-poster="${poster}" data-mobile-poster="${mobilePoster}"></video>
+    </div>
+    <div class="heritage-explorer film-controls">
+      <button class="film-toggle" data-film-toggle type="button" hidden>${en ? 'Play video' : 'Lire la vidéo'}</button>
+    </div>
+    <!-- home-film:end -->`);
+  });
+  if (!html.includes('class="film-expertise-intro"')) {
+    html = html.replace(/(<section\b[^>]*data-heritage-poles>[\s\S]*?<div class="wrap">)\s*(<div class="sec-head reveal">[\s\S]*?<\/div>)/,
+      `$1\n      <div class="film-expertise-intro">\n      $2\n${heroArt(prefix, en)}\n      </div>`);
+  }
+  return html;
+}
+
 function decorate(file, source, pair) {
   const en = file.startsWith('en/');
   const prefix = file.endsWith('404.html') ? '/' : en ? '../' : '';
+  const isHome = file === 'index.html' || file === 'en/index.html';
   let html = source;
   // User exception: this experimental product is not part of the corporate offer.
   html = html.replace(/\s*<section\b[^>]*aria-labelledby="guard-title"[\s\S]*?<\/section>/g, '');
@@ -63,7 +97,7 @@ function decorate(file, source, pair) {
   html = html.replace(/<script(?![^>]*application\/ld\+json)[^>]*>[\s\S]*?<\/script>/g, '');
   html = html.replace(/<link\b[^>]*\brel="(?:stylesheet|preload)"[^>]*>/g, '');
   html = html.replace(/<html\b[^>]*>/, `<html lang="${en ? 'en' : 'fr'}" data-theme="light">`);
-  html = html.replace(/<body\b[^>]*>/, `<body class="heritage-site" data-page="${source.includes('http-equiv="refresh"') ? 'redirect' : path.basename(file, '.html')}">`);
+  html = html.replace(/<body\b[^>]*>/, `<body class="heritage-site${isHome ? ' home-film-page' : ''}" data-page="${source.includes('http-equiv="refresh"') ? 'redirect' : path.basename(file, '.html')}">`);
   html = html.replace(/assets\/logo\/(?:cuivre|blanc|noir)\.svg/g, 'assets/logo/moderne-dark.svg');
   html = html.replace(/design-system\/assets\/mark\.svg/g, 'assets/logo/moderne-dark.svg');
   html = html.replace(/\sdata-split\b/g, '');
@@ -72,6 +106,7 @@ function decorate(file, source, pair) {
   html = html.replace(/<div class="hero__viz">[\s\S]*?(?=\n {4}<\/div>\n {2}<\/section>)/, heroArt(prefix, en));
   html = html.replace(/<figure class="hero__viz heritage-hero-art"[\s\S]*?<\/figure>/, heroArt(prefix, en));
   if (file.endsWith('index.html')) html = html.replace(/aria-labelledby="offer-title"(?! data-heritage-poles)/, 'aria-labelledby="offer-title" data-heritage-poles');
+  if (isHome) html = homeFilm(html, prefix, en);
   if (file.endsWith('cookies.html')) {
     // Approved technical exception: never restore the obsolete remote-font claim.
     html = html.replace(/<tr>\s*<th scope="row">Google Fonts<\/th>[\s\S]*?<\/tr>/, '<tr class="heritage-privacy-update"><th scope="row">Polices locales</th><td>Les polices WOFF2 sont servies depuis ce domaine. Aucune connexion à Google Fonts ou à un CDN de polices.</td></tr>');
@@ -87,12 +122,14 @@ function decorate(file, source, pair) {
     html = html.replace('</head>', `<link rel="canonical" href="https://www.xsom.fr/${file}">\n<link rel="alternate" hreflang="fr" href="https://www.xsom.fr/${pair[0]}">\n<link rel="alternate" hreflang="en" href="https://www.xsom.fr/${pair[1]}">\n<link rel="alternate" hreflang="x-default" href="https://www.xsom.fr/${pair[0]}">\n</head>`);
   }
   const fonts = ['manrope-latin-variable', 'source-sans-3-latin-variable'].map(name => `<link rel="preload" href="${prefix}design-system/assets/${name}.woff2" as="font" type="font/woff2" crossorigin>`).join('\n');
-  html = html.replace('</head>', `${fonts}\n${styles.map(css => `<link rel="stylesheet" href="${runtimeAsset(css, prefix)}">`).join('\n')}\n<script src="${runtimeAsset('assets/js/signal-preferences-init.js', prefix)}"></script>\n</head>`);
+  const pageStyles = isHome ? [...styles, 'assets/css/home-film-tokens.css', 'assets/css/home-film.css'] : styles;
+  const posterPreloads = isHome ? ['desktop', 'mobile'].map(variant => `<link rel="preload" as="image" href="${runtimeAsset(`assets/media/xsom-film-${variant}.jpg`, prefix)}" media="(${variant === 'mobile' ? 'max-width: 699px' : 'min-width: 700px'})">`).join('\n') : '';
+  html = html.replace('</head>', `${fonts}\n${posterPreloads ? `${posterPreloads}\n` : ''}${pageStyles.map(css => `<link rel="stylesheet" href="${runtimeAsset(css, prefix)}">`).join('\n')}\n<script src="${runtimeAsset('assets/js/signal-preferences-init.js', prefix)}"></script>\n</head>`);
   if (!html.includes('<signal-preferences')) {
     const preferences = `<div class="heritage-preferences"><signal-preferences lang="${en ? 'en' : 'fr'}">${en ? 'Theme and motion respect your browser preferences.' : 'Le thème et les animations suivent les préférences de votre navigateur.'}</signal-preferences></div>`;
     html = html.includes('</footer>') ? html.replace('</footer>', `${preferences}\n</footer>`) : html.replace('</main>', `${preferences}\n</main>`);
   }
-  html = html.replace('</body>', `<script src="${runtimeAsset('assets/js/heritage-site.js', prefix)}" defer></script>\n<script type="module" src="${runtimeAsset('design-system/signal.js', prefix)}"></script>${file.endsWith('contact.html') ? `\n<script src="${runtimeAsset('assets/js/contact-form.js', prefix)}" defer></script>` : ''}\n</body>`);
+  html = html.replace('</body>', `<script src="${runtimeAsset('assets/js/heritage-site.js', prefix)}" defer></script>${isHome ? `\n<script src="${runtimeAsset('assets/js/home-film.js', prefix)}" defer></script>` : ''}\n<script type="module" src="${runtimeAsset('design-system/signal.js', prefix)}"></script>${file.endsWith('contact.html') ? `\n<script src="${runtimeAsset('assets/js/contact-form.js', prefix)}" defer></script>` : ''}\n</body>`);
   return html.replace(/\n[ \t]*\n(?:[ \t]*\n)+/g, '\n\n');
 }
 
