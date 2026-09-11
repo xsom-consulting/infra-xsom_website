@@ -39,7 +39,7 @@ phones so it is available without scrolling. Reduce the mobile minimum height.
 ## Acceptance
 
 Run `tools/verify-home-film.cjs` against the preview. It verifies real playback,
-12 FR/EN/theme/width combinations, keyboard pause/resume, preserved user pause,
+16 FR/EN/theme/width combinations, keyboard pause/resume, preserved user pause,
 offscreen pause, live reduced-motion changes, no download with OS/saved reduced
 motion or JavaScript disabled, and visible posters after network or autoplay
 failure. `tools/verify-hero-mark.cjs` verifies the relocated original logo and
@@ -52,8 +52,13 @@ the navigation and the mobile title, lead, calls to action and evidence strip fi
 the 390×844 viewport. Desktop text ends at the left 45% boundary. The expertise
 mark remains legible beside its introduction and stacks cleanly on phones.
 
-All 12 film layouts and the six playback/fallback scenarios pass, with no page
+All 16 film layouts and the six playback/fallback scenarios pass, with no page
 errors. All 16 original-mark layouts and six keyboard destinations pass. The
 28 existing copy, runtime, brand and SEO contracts and partial synchronization
 pass. A real in-app browser click pauses playback. Both exports have exactly one
 video stream and no audio or subtitle stream. No actual contact form was sent.
+
+The production check at 736×734 also inspected the brighter cyber shot. Its
+screens required a stronger navy scrim across the tablet text column. The final
+desktop/tablet scrim keeps at least 78% navy behind body copy, then clears toward
+the right-hand subject. This change affects the HTML overlay, not the film grade.

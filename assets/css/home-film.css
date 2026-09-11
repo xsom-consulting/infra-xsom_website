@@ -34,6 +34,7 @@
 .home-film-page .film-expertise-intro .heritage-hero-art { padding: 0; max-width: var(--film-expertise-width); align-self: center; }
 .home-film-page .film-expertise-intro .heritage-mark { object-fit: contain; }
 @media (max-width: 1100px) {
+  .home-film-page .film-media::after { background: var(--film-scrim-tablet); }
   .home-film-page .site-header .nav-panel { background: var(--signal-hero-bg); border-color: var(--film-border); }
   .home-film-page .home-film .hero__text { width: 60%; }
   .home-film-page .home-film .t-display { font-size: var(--film-title-tablet); }

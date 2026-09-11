@@ -17,8 +17,8 @@ const output = process.env.SITE_QA_OUTPUT || '/tmp/xsom-home-film';
     await page.goto(base);
     for (const theme of ['light', 'dark']) {
       await page.evaluate(theme => localStorage.setItem('xsom-signal-preferences', JSON.stringify({ theme })), theme);
-      for (const width of [1440, 768, 390]) {
-        await page.setViewportSize({ width, height: width === 390 ? 844 : 900 });
+      for (const width of [1440, 768, 736, 390]) {
+        await page.setViewportSize({ width, height: width === 390 ? 844 : width === 736 ? 734 : 900 });
         for (const file of ['index.html', 'en/index.html']) {
           await page.goto(`${base}/${file}`, { waitUntil: 'domcontentloaded' });
           await page.evaluate(() => document.fonts.ready);
