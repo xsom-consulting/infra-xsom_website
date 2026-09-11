@@ -1,7 +1,7 @@
 /* Homepage only. Layout values: design/home-film.tokens.json. Brand: shared package. */
 .home-film-page .site-header { position: absolute; inset: 0 0 auto; background: var(--film-header-bg); border-color: var(--film-border); }
 .home-film-page .site-header .brand__name, .home-film-page .site-header .nav a,
-.home-film-page .site-header .lang, .home-film-page .site-header .lang a,
+.home-film-page .site-header .lang, .home-film-page .site-header .lang a, .home-film-page .site-header .lang [aria-current],
 .home-film-page .site-header .nav-toggle { color: var(--signal-hero-text); }
 .home-film-page .site-header .brand__tag { color: var(--signal-hero-muted); }
 .home-film-page .site-header .nav a:hover, .home-film-page .site-header .nav a[aria-current=page] { color: var(--signal-hero-text); }
