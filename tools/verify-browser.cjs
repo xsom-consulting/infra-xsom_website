@@ -26,7 +26,8 @@ const pages = ['index.html','expertises.html','ia-souverainete.html','cabinet.ht
       for (const file of pages) {
         await page.goto(`${base}/${file}`, {waitUntil:'domcontentloaded'});
         await page.evaluate(() => document.fonts.ready);
-        await page.waitForFunction(() => !!document.querySelector('signal-preferences button'));
+        // The film homepages carry no preferences panel (user request, 2026-09-26).
+        if (!file.endsWith('index.html')) await page.waitForFunction(() => !!document.querySelector('signal-preferences button'));
         // Full-page captures must include assets below the initial viewport.
         await page.evaluate(async () => {
           for (const image of document.images) image.loading = 'eager';
@@ -56,6 +57,7 @@ const pages = ['index.html','expertises.html','ia-souverainete.html','cabinet.ht
   await page.keyboard.press('Escape');
   assert.equal(await menu.getAttribute('aria-expanded'), 'false');
   assert.equal(await menu.evaluate(el=>el===document.activeElement), true);
+  await page.goto(`${base}/expertises.html`);
   await page.locator('signal-preferences [data-action=theme]').click();
   assert.equal(await page.locator('html').getAttribute('data-theme'),'dark');
   await page.reload();
@@ -96,7 +98,8 @@ const pages = ['index.html','expertises.html','ia-souverainete.html','cabinet.ht
   const fallback = await noScript.newPage();
   await fallback.goto(base);
   assert.ok(await fallback.locator('#nav-panel').isVisible());
-  assert.match(await fallback.locator('[data-heritage-poles]').textContent(),/Télécom/);
+  // Without JavaScript the film homepage keeps its static copy.
+  assert.match(await fallback.locator('h1').textContent(),/Cabinet de conseil SI, cybersécurité et IA/);
   await noScript.close();
   fs.writeFileSync(path.join(output,'report.json'),JSON.stringify({failures,observations,pages:pages.length,layouts:pages.length*6,contact:'mocked-success-and-failure',externalRuntimeRequests:requests.filter(url=>!url.startsWith('https://api.web3forms.com/'))},null,2));
   await browser.close();

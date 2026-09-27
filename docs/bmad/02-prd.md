@@ -109,7 +109,7 @@ casser les liens entrants et les résultats déjà indexés.
 - **FR-8.1** Chaque page FR a son équivalent EN sous `/en/`.
 - **FR-8.2** Balises `<link rel="alternate" hreflang>` réciproques sur chaque page, plus `x-default` vers la version FR.
 - **FR-8.3** `<html lang>` correct sur chaque page.
-- **FR-8.4** Traduction rédigée, pas littérale : l'anglais s'adresse au marché américain.
+- **FR-8.4** Traduction rédigée, pas littérale : l'anglais s'adresse à un lectorat international.
 
 ### FR-9 — SEO et partage
 - **FR-9.1** `<title>` et `<meta description>` uniques par page et par langue.

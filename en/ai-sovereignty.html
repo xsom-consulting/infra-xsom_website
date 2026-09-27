@@ -28,16 +28,21 @@
 <link rel="alternate" hreflang="x-default" href="https://www.xsom.fr/ia-souverainete.html">
 <link rel="preload" href="../design-system/assets/manrope-latin-variable.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../design-system/assets/source-sans-3-latin-variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" as="image" href="../assets/media/xsom-sovereignty-desktop.jpg?v=fa16d5892c99" media="(min-width: 700px)">
+<link rel="preload" as="image" href="../assets/media/xsom-sovereignty-mobile.jpg?v=00c370091ca9" media="(max-width: 699px)">
 <link rel="stylesheet" href="../design-system/fonts.css?v=1e9e9bfcedc4">
 <link rel="stylesheet" href="../assets/css/tokens.css?v=2b61236e7507">
 <link rel="stylesheet" href="../assets/css/base.css?v=77d8677fe59d">
 <link rel="stylesheet" href="../assets/css/components.css?v=25e04e80bea9">
 <link rel="stylesheet" href="../design-system/tokens.css?v=d3f9c8183253">
 <link rel="stylesheet" href="../design-system/components.css?v=58339a992fc9">
-<link rel="stylesheet" href="../assets/css/heritage-site.css?v=c84750f72401">
+<link rel="stylesheet" href="../assets/css/heritage-site.css?v=a08f806ca6a1">
+<link rel="stylesheet" href="../assets/css/home-film-tokens.css?v=70d0fa854d66">
+<link rel="stylesheet" href="../assets/css/film-titles.css?v=1b91261ed463">
+<link rel="stylesheet" href="../assets/css/story.css?v=18a34436035b">
 <script src="../assets/js/signal-preferences-init.js?v=df27c76a85ce"></script>
 </head>
-<body class="heritage-site" data-page="ai-sovereignty">
+<body class="heritage-site story-page" data-page="ai-sovereignty">
 
 <a class="skip-link" href="#main">Skip to content</a>
 
@@ -48,7 +53,7 @@
       <img src="../assets/logo/moderne-dark.svg" alt="" width="42" height="42">
       <span>
         <span class="brand__name">xSOM Consulting</span>
-        <span class="brand__tag">IT consulting</span>
+        <span class="brand__tag">Consulting firm</span>
       </span>
     </a>
 
@@ -57,8 +62,7 @@
         <a href="index.html">Home</a>
         <a href="expertise.html">Expertise</a>
         <a href="ai-sovereignty.html" aria-current="page">AI &amp; Sovereignty</a>
-        <a href="firm.html">The firm</a>
-        <a href="careers.html">Careers</a>
+        <a href="firm.html">Firm &amp; careers</a>
       </nav>
       <div class="header-actions">
         <p class="lang">
@@ -66,13 +70,13 @@
           <span aria-hidden="true">/</span>
           <span aria-current="true">EN</span>
         </p>
-        <a class="btn btn--primary btn--sm" href="contact.html">Get in touch</a>
+        <a class="header-cta" href="contact.html">Get in touch</a>
       </div>
     </div>
 
     <button class="nav-toggle" data-nav-toggle aria-expanded="false" aria-controls="nav-panel"
             aria-label="Open menu" data-label-open="Open menu" data-label-close="Close menu">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/></svg>
+      <span class="nav-toggle__open" aria-hidden="true">Menu</span><span class="nav-toggle__close" aria-hidden="true">Close</span>
     </button>
   </div>
 </header>
@@ -80,345 +84,177 @@
 
 <main id="main" tabindex="-1">
 
-  <section class="page-head page-head--visual">
-    <div class="wrap page-head__inner">
-      <p class="eyebrow" data-num="—">AI &amp; Sovereignty</p>
-      <h1 class="t-h1">AI is moving fast.<br>The foundations <span class="em">are not</span>.</h1>
-      <hr class="rule">
-      <p class="lead">Every organisation is rushing towards artificial intelligence. But behind
-      every model there is infrastructure. Behind every infrastructure there is a decision. Our
-      job: help you understand what sits underneath — so you can deploy AI without losing control
-      of it.</p>
-      <div class="hero__actions" style="margin-top:var(--sp-8)">
-        <a class="btn btn--primary" href="contact.html">
-          Discuss your AI project
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        </a>
-        <a class="btn btn--ghost" href="expertise.html">All our expertise</a>
+  <section class="page-film" data-home-film data-film-state="poster" aria-labelledby="page-film-title">
+    <div class="film-media" aria-hidden="true">
+      <picture class="film-poster">
+        <source media="(max-width: 699px)" srcset="../assets/media/xsom-sovereignty-mobile.jpg?v=00c370091ca9">
+        <img src="../assets/media/xsom-sovereignty-desktop.jpg?v=fa16d5892c99" width="1920" height="1080" fetchpriority="high" alt="">
+      </picture>
+      <video class="film-video" muted autoplay loop playsinline preload="none" tabindex="-1" aria-hidden="true"
+        poster="../assets/media/xsom-sovereignty-desktop.jpg?v=fa16d5892c99" data-desktop="../assets/media/xsom-sovereignty-desktop.mp4?v=8040e6d166ac" data-mobile="../assets/media/xsom-sovereignty-mobile.mp4?v=c9dfb0ae8a38"
+        data-desktop-poster="../assets/media/xsom-sovereignty-desktop.jpg?v=fa16d5892c99" data-mobile-poster="../assets/media/xsom-sovereignty-mobile.jpg?v=00c370091ca9"></video>
+    </div>
+    <div class="wrap page-film__inner">
+      <div class="page-film__copy film-static">
+        <p class="page-film__overline">AI &amp; Sovereignty</p>
+        <h1 id="page-film-title">AI is moving fast.<br>The foundations are <span class="em">not</span>.</h1>
+        <p class="page-film__lead">Our job: help you understand what sits underneath — so you can deploy AI without losing control of it.</p>
       </div>
     </div>
+    <div class="film-titles" aria-hidden="true" data-end="18">
+      <div class="film-beat film-beat--practice" data-shot="0">
+        <div class="film-scrim" data-in="0.1" data-out="5.5"></div>
+        <div class="film-stack">
+          <p class="film-line film-number" data-in="0.3" data-out="5.3"><span>01 / 03</span></p>
+          <p class="film-line film-title" data-in="0.45" data-out="5.3"><span>Operational confidence</span></p>
+          <p class="film-line film-sub" data-in="1.2" data-out="5.36"><span>Your teams understand what they operate.</span></p>
+        </div>
+      </div>
+      <div class="film-beat film-beat--practice" data-shot="1">
+        <div class="film-scrim" data-in="6.1" data-out="11.5"></div>
+        <div class="film-stack">
+          <p class="film-line film-number" data-in="6.3" data-out="11.3"><span>02 / 03</span></p>
+          <p class="film-line film-title" data-in="6.45" data-out="11.3"><span>Security</span></p>
+          <p class="film-line film-sub" data-in="7.2" data-out="11.36"><span>AI pipelines are attack surfaces.</span></p>
+        </div>
+      </div>
+      <div class="film-beat film-beat--practice" data-shot="2">
+        <div class="film-scrim" data-in="12.1" data-out="17.5"></div>
+        <div class="film-stack">
+          <p class="film-line film-number" data-in="12.3" data-out="17.3"><span><svg class="film-flag" viewBox="0 0 30 20" aria-hidden="true"><rect width="10" height="20" fill="#002654"/><rect x="10" width="10" height="20" fill="#fff"/><rect x="20" width="10" height="20" fill="#ce1126"/></svg> 03 / 03</span></p>
+          <p class="film-line film-title" data-in="12.45" data-out="17.3"><span>Sovereignty</span></p>
+          <p class="film-line film-sub" data-in="13.2" data-out="17.36"><span>Whoever hosts your models can switch them off.</span></p>
+        </div>
+      </div>
+      <div class="film-veil"></div>
+    </div>
+    <!-- film-bar:start #architecture -->
+    <a class="film-next" href="#architecture">
+      <span>Discover</span>
+      <svg class="film-chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="m4 9 8 7 8-7"/></svg>
+    </a>
+    <div class="heritage-explorer film-controls">
+      <button class="film-toggle" data-film-toggle data-film-action="pause" type="button" aria-label="Pause video" title="Pause video" hidden>
+        <svg class="film-icon film-icon--play" viewBox="0 0 24 24" aria-hidden="true"><polygon points="6 3 20 12 6 21 6 3"/></svg>
+        <svg class="film-icon film-icon--pause" viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg>
+      </button>
+      <button class="film-toggle film-sound" data-film-sound="off" type="button" aria-label="Turn sound on" title="Turn sound on" hidden>
+        <svg class="film-icon film-icon--line film-icon--muted" viewBox="0 0 24 24" aria-hidden="true"><path d="M11 4.702a.705.705 0 0 0-1.203-.498L6.413 7.587A1.4 1.4 0 0 1 5.416 8H3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h2.416a1.4 1.4 0 0 1 .997.413l3.383 3.384A.705.705 0 0 0 11 19.298z"/><path d="m22 9-6 6M16 9l6 6"/></svg>
+        <svg class="film-icon film-icon--line film-icon--sound" viewBox="0 0 24 24" aria-hidden="true"><path d="M11 4.702a.705.705 0 0 0-1.203-.498L6.413 7.587A1.4 1.4 0 0 1 5.416 8H3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h2.416a1.4 1.4 0 0 1 .997.413l3.383 3.384A.705.705 0 0 0 11 19.298z"/><path d="M16 9a5 5 0 0 1 0 6M19.364 18.364a9 9 0 0 0 0-12.728"/></svg>
+      </button>
+    </div>
+
+    <!-- film-bar:end -->
   </section>
 
-  <!-- ===================== THE PROBLEM ===================== -->
-  <section class="section" aria-labelledby="stakes-title">
-    <div class="wrap split">
-      <div class="reveal">
-        <p class="eyebrow" data-num="01">The problem</p>
-        <h2 class="t-h2" id="stakes-title" style="margin-top:var(--sp-4)">AI must not create <span class="em">invisible</span> dependency</h2>
-        <hr class="rule" style="max-width:180px">
-        <p>Too many deployments create dependency by default: foreign providers, opaque models,
-        costs that drift, infrastructure beyond the reach of internal teams. The system works —
-        until the day someone has to understand it, fix it, or leave it.</p>
-        <p style="margin-top:var(--sp-4)">Our value is not doing AI on your behalf. It is making
-        sure you remain in control of what you put into production.</p>
-
-        <blockquote class="quote" style="margin-top:var(--sp-8)">
-          <p>AI without mastered infrastructure is power without control.</p>
-        </blockquote>
+  <!-- ===================== ARCHITECTURE ===================== -->
+  <section class="story-section" id="architecture" aria-labelledby="stack-title">
+    <div class="wrap story-split">
+      <div class="story-head">
+        <p class="eyebrow" data-num="01">The target architecture</p>
+        <h2 class="t-h2" id="stack-title">Four layers, one line of control</h2>
+        <p class="story-line">A single layer outside your control is enough to make sovereignty theoretical.</p>
       </div>
-
-      <div class="reveal" data-delay="1">
-        <h3 class="t-h3" style="margin-bottom:var(--sp-6)">What we look at and others skim over</h3>
-        <ol class="numbered">
-          <li>
-            <span class="numbered__n">01</span>
-            <div>
-              <h3>The physical infrastructure</h3>
-              <p>Data centres, GPU fleets, power draw, cooling, Green IT. The material reality of
-              AI — the part that shows up on the invoice and in the carbon report.</p>
-            </div>
+      <figure class="story-stack" data-reveal>
+        <ol class="story-stack__layers" reversed>
+          <li class="story-stack__layer" data-layer="4" style="--i: 3">
+            <span class="story-stack__num">Layer 04</span>
+            <strong class="story-stack__name">Governance &amp; compliance</strong>
+            <ul class="story-tags"><li>AI Act</li><li>DORA</li><li>NIS2</li><li>Independent audit</li></ul>
           </li>
-          <li>
-            <span class="numbered__n">02</span>
-            <div>
-              <h3>The data chain</h3>
-              <p>Where your data comes from, how it is transformed, who can reach it, what
-              remains of it after processing. End-to-end lineage.</p>
-            </div>
+          <li class="story-stack__layer" data-layer="3" style="--i: 2">
+            <span class="story-stack__num">Layer 03</span>
+            <strong class="story-stack__name">Models &amp; pipelines</strong>
+            <ul class="story-tags"><li>MLOps</li><li>Versioning</li><li>Portability</li><li>No lock-in</li></ul>
           </li>
-          <li>
-            <span class="numbered__n">03</span>
-            <div>
-              <h3>Model drift</h3>
-              <p>A model in production degrades, drifts, and can be manipulated. It has to be
-              monitored like any other critical system — with thresholds and alerts.</p>
-            </div>
+          <li class="story-stack__layer" data-layer="2" style="--i: 1">
+            <span class="story-stack__num">Layer 02</span>
+            <strong class="story-stack__name">Data</strong>
+            <ul class="story-tags"><li>Lineage</li><li>Qualification</li><li>GDPR</li><li>Access control</li></ul>
           </li>
-          <li>
-            <span class="numbered__n">04</span>
-            <div>
-              <h3>Your teams' capability</h3>
-              <p>A system nobody can maintain is a liability, not an asset. Upskilling is part of
-              the deliverable.</p>
-            </div>
+          <li class="story-stack__layer" data-layer="1" style="--i: 0">
+            <span class="story-stack__num">Layer 01</span>
+            <strong class="story-stack__name">Sovereign infrastructure</strong>
+            <ul class="story-tags"><li>Certified cloud</li><li>On-premise</li><li>GPU</li><li>Network</li><li>Power</li></ul>
           </li>
         </ol>
-      </div>
+        <figcaption class="story-stack__base">Control built from the ground up — critical infrastructure since 2007</figcaption>
+      </figure>
     </div>
   </section>
 
-  <!-- ===================== DIAGRAM: SOVEREIGN STACK ===================== -->
-  <section class="section section--tight" aria-labelledby="stack-title">
+  <!-- ===================== COMMITMENT ===================== -->
+  <section class="story-section story-section--tint" aria-labelledby="promises-title">
     <div class="wrap">
-      <div class="sec-head reveal">
-        <p class="eyebrow" data-num="02">The target architecture</p>
-        <h2 class="t-h2" id="stack-title">Four layers, one line of <span class="em">control</span></h2>
-        <hr class="rule">
-        <p class="lead">Sovereignty is not decided at the model layer: it is built from the
-        ground up. A single layer outside your control is enough to make it theoretical.</p>
+      <div class="story-head">
+        <p class="eyebrow" data-num="02">Our commitment</p>
+        <h2 class="t-h2" id="promises-title">Three requirements, never one at the expense of the others</h2>
       </div>
-
-      <div class="diagram-wrap reveal" data-delay="1">
-        <svg class="diagram" viewBox="0 0 900 330" role="img" aria-labelledby="stack-desc" data-diagram>
-          <title id="stack-desc">Sovereign AI architecture stack, four layers from infrastructure to governance</title>
-
-          <g class="dg-fade dg-s4">
-            <rect class="dg-node dg-node--hot" x="60" y="16" width="700" height="62" rx="4"/>
-            <text class="dg-text" x="86" y="43">Governance &amp; compliance</text>
-            <text class="dg-sub" x="86" y="62">EU AI ACT · DORA · NIS2 · INDEPENDENT AUDIT</text>
-            <text class="dg-tag" x="800" y="52">LAYER 04</text>
-          </g>
-
-          <g class="dg-fade dg-s3">
-            <rect class="dg-node" x="60" y="94" width="700" height="62" rx="4"/>
-            <text class="dg-text" x="86" y="121">Models &amp; pipelines</text>
-            <text class="dg-sub" x="86" y="140">MLOPS · VERSIONING · PORTABILITY · NO LOCK-IN</text>
-            <text class="dg-tag" x="800" y="130">LAYER 03</text>
-          </g>
-
-          <g class="dg-fade dg-s2">
-            <rect class="dg-node" x="60" y="172" width="700" height="62" rx="4"/>
-            <text class="dg-text" x="86" y="199">Data</text>
-            <text class="dg-sub" x="86" y="218">LINEAGE · QUALIFICATION · GDPR · ACCESS CONTROL</text>
-            <text class="dg-tag" x="800" y="208">LAYER 02</text>
-          </g>
-
-          <g class="dg-fade dg-s1">
-            <rect class="dg-node dg-node--hot" x="60" y="250" width="700" height="62" rx="4"/>
-            <text class="dg-text" x="86" y="277">Sovereign infrastructure</text>
-            <text class="dg-sub" x="86" y="296">CERTIFIED CLOUD · ON-PREMISE · GPU · NETWORK · POWER</text>
-            <text class="dg-tag" x="800" y="286">LAYER 01</text>
-          </g>
-
-          <path class="dg-line--hot dg-draw" d="M34 306 L34 30" stroke-width="1.5"/>
-          <path class="dg-line--hot dg-fade dg-s4" d="M34 22 L29 34 L39 34 Z" stroke="none" style="fill:var(--copper)"/>
-          <text class="dg-tag dg-fade dg-s5" x="410" y="328" text-anchor="middle">CONTROL BUILT FROM THE GROUND UP — CRITICAL INFRASTRUCTURE SINCE 2007</text>
-        </svg>
-      </div>
+      <ul class="story-cards" data-reveal>
+        <li class="story-card" style="--i: 0">
+          <svg class="story-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2"/></svg>
+          <h3 class="story-card__title">Operational confidence</h3>
+          <p>Your teams understand what they operate.</p>
+          <ul class="story-tags"><li>Continuous monitoring</li><li>Operational documentation</li><li>Knowledge transfer</li><li>Continuity plans</li></ul>
+        </li>
+        <li class="story-card" style="--i: 1">
+          <svg class="story-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>
+          <h3 class="story-card__title">Security</h3>
+          <p>AI pipelines are attack surfaces.</p>
+          <ul class="story-tags"><li>Sensitive data pipelines</li><li>Model poisoning</li><li>AI Act · DORA · NIS2</li><li>Resilience testing</li></ul>
+        </li>
+        <li class="story-card" style="--i: 2">
+          <svg class="story-icon story-icon--flag" viewBox="0 0 30 20" role="img" aria-label="French flag"><rect width="10" height="20" fill="#002654"/><rect x="10" width="10" height="20" fill="#fff"/><rect x="20" width="10" height="20" fill="#ce1126"/><rect x=".5" y=".5" width="29" height="19" fill="none" stroke="currentColor" stroke-opacity=".2"/></svg>
+          <h3 class="story-card__title">Sovereignty</h3>
+          <p>Whoever hosts your models can switch them off.</p>
+          <ul class="story-tags"><li>Certified cloud, on-premise</li><li>No vendor lock-in</li><li>Portability of data</li><li>Traceability of decisions</li></ul>
+        </li>
+      </ul>
     </div>
   </section>
 
-  <!-- ===================== THREE COMMITMENTS ===================== -->
-  <section class="section section--light" aria-labelledby="promises-title">
+  <!-- ===================== OFFERING ===================== -->
+  <section class="story-section" aria-labelledby="levers-title">
     <div class="wrap">
-      <div class="sec-head sec-head--center reveal">
-        <p class="eyebrow" data-num="03">Our commitment</p>
-        <h2 class="t-h2" id="promises-title">Three requirements, never one at the expense of the <span class="em">others</span></h2>
-        <hr class="rule">
-        <p class="lead">Every engagement is designed to satisfy all three at once. A system that
-        is sovereign but unusable, or reassuring but exposed, has no value.</p>
+      <div class="story-head">
+        <p class="eyebrow" data-num="03">Our offering</p>
+        <h2 class="t-h2" id="levers-title">From raw material to intelligence in production</h2>
       </div>
-
-      <div class="grid grid-3">
-        <article class="card reveal" data-delay="1">
-          <span class="card__num">Commitment 01</span>
-          <h3 class="t-h3">Operational confidence</h3>
-          <p>AI should build confidence, not anxiety. Your teams understand what they operate and
-          can intervene at any point.</p>
-          <ul class="checklist" style="margin-top:var(--sp-6);gap:var(--sp-3)">
-            <li><span class="checklist__mark" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2"><polyline points="20 6 9 17 4 12"/></svg></span><div><span>Continuous monitoring of AI systems</span></div></li>
-            <li><span class="checklist__mark" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2"><polyline points="20 6 9 17 4 12"/></svg></span><div><span>Operational documentation people actually use</span></div></li>
-            <li><span class="checklist__mark" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2"><polyline points="20 6 9 17 4 12"/></svg></span><div><span>Knowledge transfer to internal teams</span></div></li>
-            <li><span class="checklist__mark" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2"><polyline points="20 6 9 17 4 12"/></svg></span><div><span>Continuity plans adapted to AI systems</span></div></li>
-          </ul>
-        </article>
-
-        <article class="card reveal" data-delay="2">
-          <span class="card__num">Commitment 02</span>
-          <h3 class="t-h3">Security</h3>
-          <p>AI pipelines are attack surfaces. Models can be poisoned, data can leak. We treat
-          them like a critical carrier network.</p>
-          <ul class="checklist" style="margin-top:var(--sp-6);gap:var(--sp-3)">
-            <li><span class="checklist__mark" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2"><polyline points="20 6 9 17 4 12"/></svg></span><div><span>Hardening of sensitive data pipelines</span></div></li>
-            <li><span class="checklist__mark" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2"><polyline points="20 6 9 17 4 12"/></svg></span><div><span>Protection against model poisoning</span></div></li>
-            <li><span class="checklist__mark" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2"><polyline points="20 6 9 17 4 12"/></svg></span><div><span>EU AI Act, DORA and NIS2 compliance</span></div></li>
-            <li><span class="checklist__mark" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2"><polyline points="20 6 9 17 4 12"/></svg></span><div><span>Resilience testing and independent audit</span></div></li>
-          </ul>
-        </article>
-
-        <article class="card reveal" data-delay="3">
-          <span class="card__num">Commitment 03</span>
-          <h3 class="t-h3">Sovereignty</h3>
-          <p>Whoever holds your data holds your AI. Whoever hosts your models can switch them off.
-          Sovereignty is not a political concept — it is an architecture decision.</p>
-          <ul class="checklist" style="margin-top:var(--sp-6);gap:var(--sp-3)">
-            <li><span class="checklist__mark" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2"><polyline points="20 6 9 17 4 12"/></svg></span><div><span>Sovereign hosting — certified cloud or on-premise</span></div></li>
-            <li><span class="checklist__mark" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2"><polyline points="20 6 9 17 4 12"/></svg></span><div><span>No vendor lock-in on models</span></div></li>
-            <li><span class="checklist__mark" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2"><polyline points="20 6 9 17 4 12"/></svg></span><div><span>Full portability of data and pipelines</span></div></li>
-            <li><span class="checklist__mark" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2"><polyline points="20 6 9 17 4 12"/></svg></span><div><span>Traceability of algorithmic decisions</span></div></li>
-          </ul>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===================== THREE LEVERS ===================== -->
-  <section class="section" aria-labelledby="levers-title">
-    <div class="wrap">
-      <div class="sec-head reveal">
-        <p class="eyebrow" data-num="04">Our offering</p>
-        <h2 class="t-h2" id="levers-title">From raw material to intelligence in <span class="em">production</span></h2>
-        <hr class="rule">
-        <p class="lead">Three levers, available separately or as a full sequence, depending on
-        where you are starting from.</p>
-      </div>
-
-      <div class="diagram-wrap reveal" style="margin-bottom:var(--sp-8)">
-        <span class="label">The full chain, from source system to production scoring</span>
-        <svg class="diagram" viewBox="0 0 900 232" role="img" aria-labelledby="chain-desc" data-diagram>
-          <title id="chain-desc">Processing chain: sources, data pipeline, model, production — all under continuous monitoring</title>
-
-          <g class="dg-fade dg-s1">
-            <text class="dg-tag" x="108" y="26" text-anchor="middle">01</text>
-            <rect class="dg-node" x="20" y="38" width="176" height="76" rx="4"/>
-            <text class="dg-text" x="108" y="70" text-anchor="middle">Sources</text>
-            <text class="dg-sub" x="108" y="90" text-anchor="middle">MULTI-SYSTEM</text>
-          </g>
-          <path class="dg-line dg-draw dg-s1" d="M200 76 L236 76" stroke-width="1.5"/>
-          <path class="dg-arrow dg-fade dg-s2" d="M236 71 L245 76 L236 81 Z"/>
-
-          <g class="dg-fade dg-s2">
-            <text class="dg-tag" x="336" y="26" text-anchor="middle">02</text>
-            <rect class="dg-node" x="248" y="38" width="176" height="76" rx="4"/>
-            <text class="dg-text" x="336" y="70" text-anchor="middle">Pipeline</text>
-            <text class="dg-sub" x="336" y="90" text-anchor="middle">QUALIFICATION</text>
-          </g>
-          <path class="dg-line dg-draw dg-s2" d="M428 76 L464 76" stroke-width="1.5"/>
-          <path class="dg-arrow dg-fade dg-s3" d="M464 71 L473 76 L464 81 Z"/>
-
-          <g class="dg-fade dg-s3">
-            <text class="dg-tag" x="564" y="26" text-anchor="middle">03</text>
-            <rect class="dg-node" x="476" y="38" width="176" height="76" rx="4"/>
-            <text class="dg-text" x="564" y="70" text-anchor="middle">Model</text>
-            <text class="dg-sub" x="564" y="90" text-anchor="middle">TRAINING</text>
-          </g>
-          <path class="dg-line dg-draw dg-s3" d="M656 76 L692 76" stroke-width="1.5"/>
-          <path class="dg-arrow dg-fade dg-s4" d="M692 71 L701 76 L692 81 Z"/>
-
-          <g class="dg-fade dg-s4">
-            <text class="dg-tag" x="792" y="26" text-anchor="middle">04</text>
-            <rect class="dg-node dg-node--hot" x="704" y="38" width="176" height="76" rx="4"/>
-            <text class="dg-text" x="792" y="70" text-anchor="middle">Production</text>
-            <text class="dg-sub" x="792" y="90" text-anchor="middle">SCORING &amp; API</text>
-          </g>
-
-          <path class="dg-line--hot dg-draw dg-s5" d="M336 114 L336 168 L792 168 L792 114" stroke-width="1.5"/>
-          <path class="dg-line--hot dg-draw dg-s5" d="M564 114 L564 168" stroke-width="1.5"/>
-          <text class="dg-tag dg-fade dg-s5" x="564" y="200" text-anchor="middle">CONTINUOUS MONITORING — DRIFT · COST · SECURITY · COMPLIANCE</text>
-        </svg>
-      </div>
-
-      <div class="stack stack-6">
-        <article class="card reveal" data-delay="1">
-          <div class="split" style="gap:var(--sp-8);align-items:start">
-            <div>
-              <span class="card__num">Lever 01 · Data</span>
-              <h3 class="t-h3">Data engineering &amp; enrichment</h3>
-              <p>Your data is your capital. We collect, structure, qualify and enrich it so that
-              it feeds reliable models — not statistical approximations.</p>
-            </div>
-            <table class="spec">
-              <tbody>
-                <tr><th scope="row">Ingestion</th><td>Multi-source collection and normalisation</td></tr>
-                <tr><th scope="row">Qualification</th><td>Deduplication, enrichment, quality control</td></tr>
-                <tr><th scope="row">Preparation</th><td>Feature engineering and reproducible pipelines</td></tr>
-                <tr><th scope="row">Governance</th><td>Cataloguing, lineage, GDPR compliance</td></tr>
-              </tbody>
-            </table>
-          </div>
-        </article>
-
-        <article class="card reveal" data-delay="2">
-          <div class="split" style="gap:var(--sp-8);align-items:start">
-            <div>
-              <span class="card__num">Lever 02 · Automation</span>
-              <h3 class="t-h3">Applied AI &amp; industrialisation</h3>
-              <p>We deploy models embedded in your operations, not demonstrators. From anomaly
-              detection to predictive scoring, each solution is built to last and evolve without
-              us.</p>
-            </div>
-            <table class="spec">
-              <tbody>
-                <tr><th scope="row">Modelling</th><td>Supervised and unsupervised learning</td></tr>
-                <tr><th scope="row">Integration</th><td>Scoring APIs and business system wiring</td></tr>
-                <tr><th scope="row">MLOps</th><td>Model CI/CD, retraining, versioning</td></tr>
-                <tr><th scope="row">Process</th><td>AI-assisted business process automation</td></tr>
-              </tbody>
-            </table>
-          </div>
-        </article>
-
-        <article class="card reveal" data-delay="3">
-          <div class="split" style="gap:var(--sp-8);align-items:start">
-            <div>
-              <span class="card__num">Lever 03 · Control</span>
-              <h3 class="t-h3">Infrastructure, security &amp; compliance</h3>
-              <p>The layer that decides whether everything else holds. Capacity, monitoring, cost
-              control, hardening and regulatory compliance — handled together, because they
-              constrain one another.</p>
-            </div>
-            <table class="spec">
-              <tbody>
-                <tr><th scope="row">Infrastructure</th><td>GPU capacity, data centre, Green IT</td></tr>
-                <tr><th scope="row">Observability</th><td>Full-stack monitoring and AIOps practices</td></tr>
-                <tr><th scope="row">FinOps</th><td>Inference cost control and forecasting</td></tr>
-                <tr><th scope="row">Compliance</th><td>EU AI Act, DORA, NIS2, independent audit</td></tr>
-              </tbody>
-            </table>
-          </div>
-        </article>
-      </div>
+      <figure class="story-flow" data-reveal>
+        <ol class="story-flow__chain">
+            <li class="story-flow__node" style="--i: 0"><span class="story-flow__num">01</span><strong>Sources</strong><span class="story-flow__hint">Multi-system</span></li>
+            <li class="story-flow__node" style="--i: 1"><span class="story-flow__num">02</span><strong>Pipeline</strong><span class="story-flow__hint">Qualification</span></li>
+            <li class="story-flow__node" style="--i: 2"><span class="story-flow__num">03</span><strong>Model</strong><span class="story-flow__hint">Training</span></li>
+            <li class="story-flow__node" style="--i: 3"><span class="story-flow__num">04</span><strong>Production</strong><span class="story-flow__hint">Scoring &amp; API</span></li>
+        </ol>
+        <div class="story-flow__levers">
+          <div class="story-flow__lever story-flow__lever--data"><span class="story-flow__label">Lever 01 · Data</span><ul class="story-tags"><li>Ingestion</li><li>Qualification</li><li>Preparation</li><li>Governance</li></ul></div>
+          <div class="story-flow__lever story-flow__lever--auto"><span class="story-flow__label">Lever 02 · Automation</span><ul class="story-tags"><li>Modelling</li><li>Integration</li><li>MLOps</li><li>Process</li></ul></div>
+          <div class="story-flow__lever story-flow__lever--control"><span class="story-flow__label">Lever 03 · Control — continuous monitoring</span><ul class="story-tags"><li>Drift</li><li>Cost</li><li>Security</li><li>Compliance</li></ul></div>
+        </div>
+      </figure>
     </div>
   </section>
 
   <!-- ===================== FRAMEWORKS ===================== -->
-  <section class="section section--tight" aria-labelledby="frameworks-title">
+  <section class="story-section story-section--tight" aria-labelledby="frameworks-title">
     <div class="wrap">
-      <hr class="rule rule--full">
-      <div class="reveal" style="margin-top:var(--sp-12)">
-        <h2 class="t-h3" id="frameworks-title" style="margin-bottom:var(--sp-6)">Regulatory and technical frameworks we work within</h2>
-        <ul class="tags">
-          <li class="tag tag--accent">EU AI Act</li>
-          <li class="tag tag--accent">DORA</li>
-          <li class="tag tag--accent">NIS2</li>
-          <li class="tag tag--accent">GDPR</li>
-          <li class="tag">SecNumCloud</li>
-          <li class="tag">ISO 27001</li>
-          <li class="tag">Trusted cloud</li>
-          <li class="tag">Green IT</li>
-          <li class="tag">MLOps</li>
-          <li class="tag">AIOps</li>
-          <li class="tag">FinOps</li>
-        </ul>
-      </div>
+      <h2 class="story-label" id="frameworks-title">Regulatory and technical frameworks we work within</h2>
+    </div>
+    <div class="story-marquee">
+      <ul class="story-chips"><li>EU AI Act</li><li>DORA</li><li>NIS2</li><li>GDPR</li><li>SecNumCloud</li><li>ISO 27001</li><li>Trusted cloud</li><li>Cloud HPC</li><li>Green IT</li><li>MLOps</li><li>AIOps</li><li>FinOps</li></ul>
+      <ul class="story-chips" aria-hidden="true"><li>EU AI Act</li><li>DORA</li><li>NIS2</li><li>GDPR</li><li>SecNumCloud</li><li>ISO 27001</li><li>Trusted cloud</li><li>Cloud HPC</li><li>Green IT</li><li>MLOps</li><li>AIOps</li><li>FinOps</li></ul>
     </div>
   </section>
 
-  <!-- ===================== CTA ===================== -->
-
-  <section class="section cta-band">
-    <div class="wrap wrap--narrow cta-band__inner reveal">
-      <p class="eyebrow" data-num="→" style="justify-content:center">Next step</p>
-      <h2 class="t-h2" style="margin-top:var(--sp-6)">Where do you <span class="em">actually</span> stand?</h2>
-      <p class="lead">Initial framing, second opinion on an existing architecture, audit of a
-      production pipeline: tell us where you are starting from and we will tell you what is
-      missing.</p>
-      <div class="row">
-        <a class="btn btn--primary" href="contact.html">
-          Get in touch
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        </a>
-        <a class="btn btn--ghost" href="firm.html">About the firm</a>
+  <!-- ===================== CONTACT ===================== -->
+  <section class="home-cta" aria-labelledby="page-cta-title">
+    <div class="home-cta__mark" aria-hidden="true"><svg class="offer-mark" viewBox="74.98 34.18 374.18 374.18" aria-hidden="true"><defs><mask id="cta-mask-a" maskUnits="userSpaceOnUse" x="74.98" y="34.18" width="374.18" height="374.18"><rect x="74.98" y="34.18" width="374.18" height="374.18" fill="#fff"/><path data-draw style="--delay: 0.3s" pathLength="1" d="M 255.53 178.81 L 167.67 331.00 L 366.15 331.00" fill="none" stroke="#000" stroke-width="44" stroke-linejoin="miter"/><polygon data-head style="--delay: 0.95s" points="366.15 361.00 414.15 331.00 366.15 301.00" fill="#000" stroke="#000" stroke-width="16" stroke-linejoin="miter"/></mask><mask id="cta-mask-b" maskUnits="userSpaceOnUse" x="74.98" y="34.18" width="374.18" height="374.18"><rect x="74.98" y="34.18" width="374.18" height="374.18" fill="#fff"/><path data-draw style="--delay: 0.6s" pathLength="1" d="M 323.08 294.19 L 235.22 142.00 L 135.97 313.89" fill="none" stroke="#000" stroke-width="44" stroke-linejoin="miter"/><polygon data-head style="--delay: 1.25s" points="109.99 298.89 111.97 355.46 161.95 328.89" fill="#000" stroke="#000" stroke-width="16" stroke-linejoin="miter"/></mask><mask id="cta-mask-c" maskUnits="userSpaceOnUse" x="74.98" y="34.18" width="374.18" height="374.18"><rect x="74.98" y="34.18" width="374.18" height="374.18" fill="#fff"/><path data-draw style="--delay: 0s" pathLength="1" d="M 189.39 295.00 L 365.12 295.00 L 265.88 123.11" fill="none" stroke="#000" stroke-width="44" stroke-linejoin="miter"/><polygon data-head style="--delay: 0.65s" points="291.86 108.11 241.88 81.54 239.89 138.11" fill="#000" stroke="#000" stroke-width="16" stroke-linejoin="miter"/></mask></defs><g data-arrow="a" mask="url(#cta-mask-a)"><path data-draw style="--delay: 0s" pathLength="1" d="M 189.39 295.00 L 365.12 295.00 L 265.88 123.11" fill="none" stroke-width="28" stroke-linejoin="miter"/><polygon data-head style="--delay: 0.65s" points="291.86 108.11 241.88 81.54 239.89 138.11"/></g><g data-arrow="b" mask="url(#cta-mask-b)"><path data-draw style="--delay: 0.3s" pathLength="1" d="M 255.53 178.81 L 167.67 331.00 L 366.15 331.00" fill="none" stroke-width="28" stroke-linejoin="miter"/><polygon data-head style="--delay: 0.95s" points="366.15 361.00 414.15 331.00 366.15 301.00"/></g><g data-arrow="c" mask="url(#cta-mask-c)"><path data-draw style="--delay: 0.6s" pathLength="1" d="M 323.08 294.19 L 235.22 142.00 L 135.97 313.89" fill="none" stroke-width="28" stroke-linejoin="miter"/><polygon data-head style="--delay: 1.25s" points="109.99 298.89 111.97 355.46 161.95 328.89"/></g></svg></div>
+    <div class="wrap home-cta__inner">
+      <h2 class="home-cta__title" id="page-cta-title">Where do you actually stand?</h2>
+      <div class="home-cta__actions">
+        <a class="btn btn--primary" href="contact.html">Get in touch</a>
+        <a class="btn btn--ghost home-cta__linkedin" href="https://www.linkedin.com/company/xsom-consulting" target="_blank" rel="noopener">Follow us on LinkedIn <span aria-hidden="true">↗</span></a>
       </div>
     </div>
   </section>
@@ -471,14 +307,17 @@
 
     <div class="site-footer__bottom">
       <span>© <span data-year>2026</span> xSOM Consulting — All rights reserved</span>
-      <span>Bordeaux · France · United States</span>
+      <span>Bordeaux · France</span>
     </div>
   </div>
 <div class="heritage-preferences"><signal-preferences lang="en">Theme and motion respect your browser preferences.</signal-preferences></div>
 </footer>
 <!-- footer:end -->
 
-<script src="../assets/js/heritage-site.js?v=0279419aef40" defer></script>
+<script src="../assets/js/heritage-site.js?v=2e2fb0a3889b" defer></script>
+<script src="../assets/js/home-film.js?v=eab2fd2a7aef" defer></script>
+<script src="../assets/js/film-titles.js?v=89bba17a4ada" defer></script>
+<script src="../assets/js/story.js?v=ed3efe3f4dff" defer></script>
 <script type="module" src="../design-system/signal.js?v=76f290b9cea8"></script>
 </body>
 </html>

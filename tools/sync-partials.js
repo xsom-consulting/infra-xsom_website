@@ -20,7 +20,7 @@
        node tools/sync-partials.js            # applique les modifications
        node tools/sync-partials.js --check    # signale les écarts sans écrire
 
-   Références : index.html pour le français, en/index.html pour l'anglais.
+   Références : accueil pour la navigation, expertises pour le pied de page.
    ========================================================================== */
 
 'use strict';
@@ -31,16 +31,18 @@ const path = require('path');
 const ROOT = path.resolve(__dirname, '..');
 const CHECK_ONLY = process.argv.includes('--check');
 
-/* Correspondance FR ↔ EN, et lien de navigation actif par page. */
+/* Correspondance FR ↔ EN, et lien de navigation actif par page.
+   Le cabinet et les carrières partagent une seule entrée de menu. */
 const PAGES = {
   fr: {
     reference: 'index.html',
+    footerReference: 'expertises.html',
     items: [
       { file: 'index.html',             nav: 'index.html',            alt: 'en/index.html' },
       { file: 'expertises.html',        nav: 'expertises.html',       alt: 'en/expertise.html' },
       { file: 'ia-souverainete.html',   nav: 'ia-souverainete.html',  alt: 'en/ai-sovereignty.html' },
       { file: 'cabinet.html',           nav: 'cabinet.html',          alt: 'en/firm.html' },
-      { file: 'carrieres.html',         nav: 'carrieres.html',        alt: 'en/careers.html' },
+      { file: 'carrieres.html',         nav: 'cabinet.html',          alt: 'en/careers.html' },
       { file: 'contact.html',           nav: 'contact.html',          alt: 'en/contact.html' },
       { file: 'mentions-legales.html',  nav: null,                    alt: 'en/legal-notice.html' },
       { file: 'cookies.html',           nav: null,                    alt: 'en/cookies.html' }
@@ -48,12 +50,13 @@ const PAGES = {
   },
   en: {
     reference: 'en/index.html',
+    footerReference: 'en/expertise.html',
     items: [
       { file: 'en/index.html',          nav: 'index.html',            alt: '../index.html' },
       { file: 'en/expertise.html',      nav: 'expertise.html',        alt: '../expertises.html' },
       { file: 'en/ai-sovereignty.html', nav: 'ai-sovereignty.html',   alt: '../ia-souverainete.html' },
       { file: 'en/firm.html',           nav: 'firm.html',             alt: '../cabinet.html' },
-      { file: 'en/careers.html',        nav: 'careers.html',          alt: '../carrieres.html' },
+      { file: 'en/careers.html',        nav: 'firm.html',             alt: '../carrieres.html' },
       { file: 'en/contact.html',        nav: 'contact.html',          alt: '../contact.html' },
       { file: 'en/legal-notice.html',   nav: null,                    alt: '../mentions-legales.html' },
       { file: 'en/cookies.html',        nav: null,                    alt: '../cookies.html' }
@@ -122,7 +125,7 @@ for (const lang of Object.keys(PAGES)) {
   const group = PAGES[lang];
   const referenceHtml = read(group.reference);
   const source = {};
-  for (const name of BLOCKS) source[name] = extract(referenceHtml, name);
+  for (const name of BLOCKS) source[name] = extract(name === 'footer' ? read(group.footerReference) : referenceHtml, name);
 
   for (const item of group.items) {
     const full = path.join(ROOT, item.file);

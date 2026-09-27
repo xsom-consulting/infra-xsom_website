@@ -3,19 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Expertises — Gouvernance SI, cybersécurité, infrastructures IA | xSOM Consulting</title>
-<meta name="description" content="Nos expertises : gouvernance et urbanisation du SI, programmes de conformité cyber (DORA, NIS2, LPM), infrastructures IA et cloud souverain, data science et MLOps.">
+<title>Expertises — Cybersécurité, infrastructures IA et données | xSOM Consulting</title>
+<meta name="description" content="Réseaux et cybersécurité, infrastructures IA et cloud HPC, données et MLOps : trois expertises reliées à la production.">
 
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="xSOM Consulting">
 <meta property="og:locale" content="fr_FR">
 <meta property="og:url" content="https://www.xsom.fr/expertises.html">
 <meta property="og:title" content="Expertises — xSOM Consulting">
-<meta property="og:description" content="Gouvernance et urbanisation du SI, conformité cyber, infrastructures IA et cloud souverain, data science et MLOps.">
+<meta property="og:description" content="Réseaux, cybersécurité, infrastructures IA, cloud HPC et MLOps. Trois expertises reliées à la production.">
 <meta property="og:image" content="https://www.xsom.fr/assets/images/og-cover.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Expertises — xSOM Consulting">
-<meta name="twitter:description" content="Gouvernance SI, cybersécurité, infrastructures IA, data science.">
+<meta name="twitter:description" content="Réseaux, cybersécurité, cloud HPC et MLOps.">
 <meta name="twitter:image" content="https://www.xsom.fr/assets/images/og-cover.jpg">
 
 <link rel="icon" href="assets/logo/moderne-dark.svg" type="image/svg+xml">
@@ -28,16 +28,21 @@
 <link rel="alternate" hreflang="x-default" href="https://www.xsom.fr/expertises.html">
 <link rel="preload" href="design-system/assets/manrope-latin-variable.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="design-system/assets/source-sans-3-latin-variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" as="image" href="assets/media/xsom-expertise-desktop.jpg?v=d9f2a30e569c" media="(min-width: 700px)">
+<link rel="preload" as="image" href="assets/media/xsom-expertise-mobile.jpg?v=9ba241fc9588" media="(max-width: 699px)">
 <link rel="stylesheet" href="design-system/fonts.css?v=1e9e9bfcedc4">
 <link rel="stylesheet" href="assets/css/tokens.css?v=2b61236e7507">
 <link rel="stylesheet" href="assets/css/base.css?v=77d8677fe59d">
 <link rel="stylesheet" href="assets/css/components.css?v=25e04e80bea9">
 <link rel="stylesheet" href="design-system/tokens.css?v=d3f9c8183253">
 <link rel="stylesheet" href="design-system/components.css?v=58339a992fc9">
-<link rel="stylesheet" href="assets/css/heritage-site.css?v=c84750f72401">
+<link rel="stylesheet" href="assets/css/heritage-site.css?v=a08f806ca6a1">
+<link rel="stylesheet" href="assets/css/home-film-tokens.css?v=70d0fa854d66">
+<link rel="stylesheet" href="assets/css/film-titles.css?v=1b91261ed463">
+<link rel="stylesheet" href="assets/css/expertise-story.css?v=303f23b4b9a2">
 <script src="assets/js/signal-preferences-init.js?v=df27c76a85ce"></script>
 </head>
-<body class="heritage-site" data-page="expertises">
+<body class="heritage-site expertise-page" data-page="expertises">
 
 <a class="skip-link" href="#main">Aller au contenu</a>
 
@@ -48,7 +53,7 @@
       <img src="assets/logo/moderne-dark.svg" alt="" width="42" height="42">
       <span>
         <span class="brand__name">xSOM Consulting</span>
-        <span class="brand__tag">Conseil en systèmes d'information</span>
+        <span class="brand__tag">Cabinet de conseil</span>
       </span>
     </a>
 
@@ -57,8 +62,7 @@
         <a href="index.html">Accueil</a>
         <a href="expertises.html" aria-current="page">Expertises</a>
         <a href="ia-souverainete.html">IA &amp; Souveraineté</a>
-        <a href="cabinet.html">Le cabinet</a>
-        <a href="carrieres.html">Carrières</a>
+        <a href="cabinet.html">Cabinet &amp; carrières</a>
       </nav>
       <div class="header-actions">
         <p class="lang">
@@ -66,325 +70,167 @@
           <span aria-hidden="true">/</span>
           <a href="en/expertise.html" hreflang="en" lang="en">EN</a>
         </p>
-        <a class="btn btn--primary btn--sm" href="contact.html">Nous contacter</a>
+        <a class="header-cta" href="contact.html">Nous contacter</a>
       </div>
     </div>
 
     <button class="nav-toggle" data-nav-toggle aria-expanded="false" aria-controls="nav-panel"
             aria-label="Ouvrir le menu" data-label-open="Ouvrir le menu" data-label-close="Fermer le menu">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/></svg>
+      <span class="nav-toggle__open" aria-hidden="true">Menu</span><span class="nav-toggle__close" aria-hidden="true">Fermer</span>
     </button>
   </div>
 </header>
 <!-- nav:end -->
 
 <main id="main" tabindex="-1">
-
-  <!-- ===================== EN-TÊTE ===================== -->
-  <section class="page-head page-head--visual">
-    <div class="wrap page-head__inner">
-      <p class="eyebrow" data-num="—">Expertises</p>
-      <h1 class="t-h1">De la stratégie du SI à la mise en <span class="em">production</span></h1>
-      <hr class="rule">
-      <p class="lead">Trois pôles complémentaires, activables séparément ou ensemble. Sur les
-      programmes complexes, c'est justement la capacité à tenir l'infrastructure, la sécurité et
-      la donnée dans un même raisonnement qui fait la différence.</p>
+  <section class="expertise-hero" data-home-film data-film-state="poster" aria-labelledby="expertise-title">
+    <div class="film-media" aria-hidden="true">
+      <picture class="film-poster">
+        <source media="(max-width: 699px)" srcset="assets/media/xsom-expertise-mobile.jpg?v=9ba241fc9588">
+        <img src="assets/media/xsom-expertise-desktop.jpg?v=d9f2a30e569c" width="1920" height="1080" fetchpriority="high" alt="">
+      </picture>
+      <video class="film-video" muted autoplay loop playsinline preload="none" tabindex="-1" aria-hidden="true"
+        poster="assets/media/xsom-expertise-desktop.jpg?v=d9f2a30e569c" data-desktop="assets/media/xsom-expertise-desktop.mp4?v=271d51891b18" data-mobile="assets/media/xsom-expertise-mobile.mp4?v=c21861c1266d"
+        data-desktop-poster="assets/media/xsom-expertise-desktop.jpg?v=d9f2a30e569c" data-mobile-poster="assets/media/xsom-expertise-mobile.jpg?v=9ba241fc9588"></video>
     </div>
+    <div class="wrap expertise-hero__inner">
+      <div class="expertise-hero__copy film-static">
+        <p class="expertise-overline">Nos expertises</p>
+        <h1 id="expertise-title">Réseaux. Cybersécurité.<br>Infrastructures IA. Données.</h1>
+        <p class="expertise-hero__lead">De l’architecture à l’exploitation des systèmes critiques.</p>
+      </div>
+      <nav class="expertise-hero__index" aria-label="Explorer les expertises"><a href="#pole-cyber"><span>01</span>Réseaux &amp; cyber<i class="film-progress" data-in="0" data-out="6"></i></a><a href="#pole-ia"><span>02</span>Infrastructures IA<i class="film-progress" data-in="6" data-out="12"></i></a><a href="#pole-data"><span>03</span>Données &amp; MLOps<i class="film-progress" data-in="12" data-out="18"></i></a></nav>
+    </div>
+    <div class="film-titles" aria-hidden="true" data-end="18">
+      <div class="film-beat film-beat--practice" data-shot="0">
+        <div class="film-scrim" data-in="0.1" data-out="5.5"></div>
+        <div class="film-stack">
+          <p class="film-line film-number" data-in="0.3" data-out="5.3"><span>01 / 03</span></p>
+          <p class="film-line film-title" data-in="0.45" data-out="5.3"><span>Réseaux &amp; cybersécurité</span></p>
+          <div class="film-steps">
+            <p class="film-line film-step" data-in="1.3" data-out="5.36"><span>Réseau</span></p>
+            <p class="film-line film-step" data-in="1.6" data-out="5.4"><span>Contrôles</span></p>
+            <p class="film-line film-step" data-in="1.9" data-out="5.44"><span>Résilience</span></p>
+          </div>
+        </div>
+      </div>
+      <div class="film-beat film-beat--practice" data-shot="1">
+        <div class="film-scrim" data-in="6.1" data-out="11.5"></div>
+        <div class="film-stack">
+          <p class="film-line film-number" data-in="6.3" data-out="11.3"><span>02 / 03</span></p>
+          <p class="film-line film-title" data-in="6.45" data-out="11.3"><span>Infrastructures IA &amp; cloud HPC</span></p>
+          <div class="film-steps">
+            <p class="film-line film-step" data-in="7.3" data-out="11.36"><span>Capacité</span></p>
+            <p class="film-line film-step" data-in="7.6" data-out="11.4"><span>Hébergement</span></p>
+            <p class="film-line film-step" data-in="7.9" data-out="11.44"><span>Observabilité</span></p>
+          </div>
+        </div>
+      </div>
+      <div class="film-beat film-beat--practice" data-shot="2">
+        <div class="film-scrim" data-in="12.1" data-out="17.5"></div>
+        <div class="film-stack">
+          <p class="film-line film-number" data-in="12.3" data-out="17.3"><span>03 / 03</span></p>
+          <p class="film-line film-title" data-in="12.45" data-out="17.3"><span>Données &amp; MLOps</span></p>
+          <div class="film-steps">
+            <p class="film-line film-step" data-in="13.3" data-out="17.36"><span>Données</span></p>
+            <p class="film-line film-step" data-in="13.6" data-out="17.4"><span>Modèles</span></p>
+            <p class="film-line film-step" data-in="13.9" data-out="17.44"><span>Production</span></p>
+          </div>
+        </div>
+      </div>
+      <div class="film-veil"></div>
+    </div>
+    <!-- film-bar:start #practice-map -->
+    <a class="film-next" href="#practice-map">
+      <span>Découvrir</span>
+      <svg class="film-chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="m4 9 8 7 8-7"/></svg>
+    </a>
+    <div class="heritage-explorer film-controls">
+      <button class="film-toggle" data-film-toggle data-film-action="pause" type="button" aria-label="Mettre en pause" title="Mettre en pause" hidden>
+        <svg class="film-icon film-icon--play" viewBox="0 0 24 24" aria-hidden="true"><polygon points="6 3 20 12 6 21 6 3"/></svg>
+        <svg class="film-icon film-icon--pause" viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg>
+      </button>
+      <button class="film-toggle film-sound" data-film-sound="off" type="button" aria-label="Activer le son" title="Activer le son" hidden>
+        <svg class="film-icon film-icon--line film-icon--muted" viewBox="0 0 24 24" aria-hidden="true"><path d="M11 4.702a.705.705 0 0 0-1.203-.498L6.413 7.587A1.4 1.4 0 0 1 5.416 8H3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h2.416a1.4 1.4 0 0 1 .997.413l3.383 3.384A.705.705 0 0 0 11 19.298z"/><path d="m22 9-6 6M16 9l6 6"/></svg>
+        <svg class="film-icon film-icon--line film-icon--sound" viewBox="0 0 24 24" aria-hidden="true"><path d="M11 4.702a.705.705 0 0 0-1.203-.498L6.413 7.587A1.4 1.4 0 0 1 5.416 8H3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h2.416a1.4 1.4 0 0 1 .997.413l3.383 3.384A.705.705 0 0 0 11 19.298z"/><path d="M16 9a5 5 0 0 1 0 6M19.364 18.364a9 9 0 0 0 0-12.728"/></svg>
+      </button>
+    </div>
+
+    <!-- film-bar:end -->
   </section>
 
-  <!-- ===================== PÔLE 01 ===================== -->
-  <section class="section" id="pole-cyber" aria-labelledby="pole-cyber-title" style="scroll-margin-top:calc(var(--header-h) + 2rem)">
-    <div class="wrap split split--sticky">
-      <div class="reveal">
-        <p class="eyebrow" data-num="01">Pôle 01</p>
-        <h2 class="t-h2" id="pole-cyber-title" style="margin-top:var(--sp-4)">Télécom, réseau &amp; <span class="em">cybersécurité</span></h2>
-        <hr class="rule" style="max-width:180px">
-        <p>Notre socle historique. Depuis 2007, nous concevons, opérons et sécurisons des
-        réseaux opérateurs et des infrastructures industrielles — les environnements où une
-        interruption se compte en pertes réelles, pas en points de satisfaction.</p>
-        <p style="margin-top:var(--sp-4)">Cette expérience nous permet d'intervenir sur des
-        programmes de conformité sans les réduire à un exercice documentaire : nous savons ce
-        qu'un plan de reprise implique le jour où il est déclenché.</p>
-      </div>
-
-      <div class="stack stack-4 reveal" data-delay="1">
-        <article class="card">
-          <h3 class="t-h3">Architecture &amp; gouvernance réseau</h3>
-          <p>Cartographie des flux, architecture cible, urbanisation, trajectoires de migration
-          et infrastructures haut débit.</p>
-        </article>
-        <article class="card">
-          <h3 class="t-h3">Programmes de conformité</h3>
-          <p>Direction de programmes réglementaires : DORA pour le secteur financier, NIS2, LPM
-          pour les opérateurs d'importance vitale, et référentiels sectoriels.</p>
-        </article>
-        <article class="card">
-          <h3 class="t-h3">Continuité &amp; résilience</h3>
-          <p>Plans de continuité et de reprise d'activité, tests de bascule, sécurisation des
-          opérations critiques.</p>
-        </article>
-        <article class="card">
-          <h3 class="t-h3">Audit &amp; décommissionnement</h3>
-          <p>Audits d'infrastructure, gestion de l'obsolescence, déménagement de salles
-          informatiques et migration de systèmes critiques.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===================== PÔLE 02 ===================== -->
-  <section class="section section--light" id="pole-ia" aria-labelledby="pole-ia-title" style="scroll-margin-top:calc(var(--header-h) + 2rem)">
-    <div class="wrap split split--sticky">
-      <div class="reveal">
-        <p class="eyebrow" data-num="02">Pôle 02</p>
-        <h2 class="t-h2" id="pole-ia-title" style="margin-top:var(--sp-4)">Infrastructures IA &amp; cloud <span class="em">souverain</span></h2>
-        <hr class="rule" style="max-width:180px">
-        <p>Derrière chaque modèle, il y a une infrastructure : des serveurs qui consomment, des
-        réseaux qui transportent, des datacenters qui chauffent, des règlements qui évoluent.
-        C'est la couche dont personne ne parle et dont tout dépend.</p>
-        <p style="margin-top:var(--sp-4)">Nous appliquons à l'IA la rigueur que nous appliquons
-        aux réseaux opérateurs — parce que la promesse de l'intelligence artificielle ne se
-        réalise que si les fondations tiennent.</p>
-        <p style="margin-top:var(--sp-6)">
-          <a class="link-arrow" href="ia-souverainete.html">
-            Voir l'offre IA &amp; souveraineté en détail
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </a>
-        </p>
-      </div>
-
-      <div class="stack stack-4 reveal" data-delay="1">
-        <article class="card">
-          <h3 class="t-h3">Architectures souveraines</h3>
-          <p>Stratégie de localisation des données, hébergement SecNumCloud, cloud privé,
-          on-premise, architectures hybrides pour l'entraînement intensif.</p>
-        </article>
-        <article class="card">
-          <h3 class="t-h3">Datacenter &amp; Green IT</h3>
-          <p>Dimensionnement GPU, optimisation énergétique, refroidissement, stratégies de
-          sobriété numérique et réduction de l'empreinte.</p>
-        </article>
-        <article class="card">
-          <h3 class="t-h3">Observabilité &amp; FinOps</h3>
-          <p>Supervision unifiée de la performance applicative et de l'infrastructure, maîtrise
-          des coûts GPU, pratiques AIOps.</p>
-        </article>
-        <article class="card">
-          <h3 class="t-h3">Conformité AI Act</h3>
-          <p>Classification des systèmes, documentation réglementaire, gouvernance algorithmique
-          et audit indépendant des pipelines en production.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===================== PÔLE 03 ===================== -->
-  <section class="section" id="pole-data" aria-labelledby="pole-data-title" style="scroll-margin-top:calc(var(--header-h) + 2rem)">
-    <div class="wrap split split--sticky">
-      <div class="reveal">
-        <p class="eyebrow" data-num="03">Pôle 03</p>
-        <h2 class="t-h2" id="pole-data-title" style="margin-top:var(--sp-4)">Data science, ML &amp; <span class="em">automatisation</span></h2>
-        <hr class="rule" style="max-width:180px">
-        <p>Un modèle qui n'atteint pas la production ne produit aucune valeur. Notre engagement
-        porte sur la chaîne complète — de l'ingestion des données jusqu'au réentraînement en
-        conditions réelles.</p>
-        <p style="margin-top:var(--sp-4)">Nous ne livrons pas de preuves de concept. Nous livrons
-        des systèmes que vos équipes exploitent, surveillent et font évoluer sans nous.</p>
-      </div>
-
-      <div class="stack stack-4 reveal" data-delay="1">
-        <article class="card">
-          <h3 class="t-h3">Data engineering</h3>
-          <p>Ingestion multi-sources, normalisation, qualification, déduplication,
-          enrichissement et catalogage.</p>
-        </article>
-        <article class="card">
-          <h3 class="t-h3">Modélisation</h3>
-          <p>Apprentissage supervisé et non supervisé, feature engineering, détection d'anomalies,
-          scoring prédictif.</p>
-        </article>
-        <article class="card">
-          <h3 class="t-h3">MLOps &amp; industrialisation</h3>
-          <p>APIs de scoring, intégration aux processus métier, CI/CD des modèles, surveillance
-          de la dérive et réentraînement.</p>
-        </article>
-        <article class="card">
-          <h3 class="t-h3">Gouvernance de la donnée</h3>
-          <p>Traçabilité de bout en bout, gestion des accès, conformité RGPD, documentation des
-          décisions algorithmiques.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===================== EXPERTISES TRANSVERSES ===================== -->
-  <section class="section" aria-labelledby="cross-title">
+  <section class="expertise-map" id="practice-map" aria-labelledby="practice-map-title">
     <div class="wrap">
-      <div class="sec-head reveal">
-        <p class="eyebrow" data-num="04">Transverse</p>
-        <h2 class="t-h2" id="cross-title">Ce que nous portons sur <span class="em">tous</span> les programmes</h2>
-        <hr class="rule">
-        <p class="lead">Indépendamment du pôle mobilisé, ces compétences structurent chacune de
-        nos interventions.</p>
-      </div>
-
-      <div class="grid grid-3">
-        <article class="card reveal" data-delay="1">
-          <span class="card__num">Stratégie</span>
-          <h3 class="t-h3">Gouvernance du SI</h3>
-          <p>Schémas directeurs, alignement stratégique, priorisation du portefeuille projets,
-          structuration des instances de décision.</p>
-        </article>
-        <article class="card reveal" data-delay="2">
-          <span class="card__num">Pilotage</span>
-          <h3 class="t-h3">Direction de programme</h3>
-          <p>Gouvernance de programmes d'intégration complexes, coordination multi-acteurs,
-          arbitrage, tenue des jalons.</p>
-        </article>
-        <article class="card reveal" data-delay="3">
-          <span class="card__num">Direction</span>
-          <h3 class="t-h3">Accompagnement CTO</h3>
-          <p>Appui aux directions techniques, stratégie technologique, structuration et montée en
-          maturité des équipes IT.</p>
-        </article>
-        <article class="card reveal" data-delay="1">
-          <span class="card__num">Maîtrise d'ouvrage</span>
-          <h3 class="t-h3">Assistance MOA</h3>
-          <p>Expression de besoin, cadrage fonctionnel, rédaction et dépouillement d'appels
-          d'offres, suivi de réalisation.</p>
-        </article>
-        <article class="card reveal" data-delay="2">
-          <span class="card__num">Maîtrise d'œuvre</span>
-          <h3 class="t-h3">Assistance MOE</h3>
-          <p>Support technique, supervision de la réalisation, validation des livrables, conduite
-          jusqu'à la mise en service.</p>
-        </article>
-        <article class="card reveal" data-delay="3">
-          <span class="card__num">Transmission</span>
-          <h3 class="t-h3">Formation &amp; montée en compétence</h3>
-          <p>ITIL, CMMI, Prince2, agilité, DevOps. Transfert de savoir-faire intégré à chaque
-          mission, jamais vendu séparément.</p>
-        </article>
+      <p class="expertise-overline">La chaîne xSOM</p>
+      <div class="expertise-section-heading"><h2 id="practice-map-title">Trois expertises. Une seule continuité.</h2><p>Chaque pôle peut intervenir seul ou en combinaison. Tous visent le même résultat : un système exploitable.</p></div>
+      <div class="expertise-flow" aria-label="Trois expertises. Une seule continuité.">
+        <div class="expertise-flow__lanes"><a href="#pole-cyber"><span>01</span><strong>Réseaux &amp; cyber</strong><span aria-hidden="true">↗</span></a><a href="#pole-ia"><span>02</span><strong>Infrastructures IA</strong><span aria-hidden="true">↗</span></a><a href="#pole-data"><span>03</span><strong>Données &amp; MLOps</strong><span aria-hidden="true">↗</span></a></div>
+        <div class="expertise-flow__outcome"><span class="expertise-flow__pulse" aria-hidden="true"></span><strong>Production</strong></div>
       </div>
     </div>
   </section>
 
-  <!-- ===================== SECTEURS ===================== -->
-  <section class="section" aria-labelledby="sectors-title">
+  <section class="expertise-practices" aria-label="Nos expertises">
+  <article class="expertise-panel" id="pole-cyber" aria-labelledby="pole-cyber-title">
+    <div class="expertise-panel__copy">
+      <span class="expertise-panel__number">01 / 03</span>
+      <h2 id="pole-cyber-title">Réseaux &amp; cybersécurité</h2>
+      <p>Concevoir et protéger les infrastructures qui ne peuvent pas s’arrêter.</p>
+      <ul class="expertise-panel__tags"><li>Architecture réseau</li><li>DORA · NIS2 · LPM</li><li>PCA / PRA</li><li>Audit</li></ul>
+      <a class="expertise-panel__link" href="contact.html">Échanger sur le réseau <span aria-hidden="true">↗</span></a>
+    </div>
+    <figure class="expertise-panel__visual expertise-panel__visual--network">
+      <svg viewBox="0 0 600 300" fill="none" aria-hidden="true"><rect class="visual-frame" x="36" y="30" width="528" height="240" rx="24"/><path class="visual-path" d="M93 150H184L244 82H353L410 150H507M184 150l60 68h109l57-68M244 82v136M353 82v136"/><circle class="visual-node" cx="93" cy="150" r="13"/><circle class="visual-node" cx="244" cy="82" r="13"/><circle class="visual-node" cx="244" cy="218" r="13"/><circle class="visual-node" cx="353" cy="82" r="13"/><circle class="visual-node" cx="353" cy="218" r="13"/><circle class="visual-node visual-node--hot" cx="507" cy="150" r="19"/><path class="visual-shield" d="M410 150c0-60 42-94 97-108 55 14 97 48 97 108"/></svg>
+      <figcaption><span>Réseau</span><span>Contrôles</span><span>Résilience</span></figcaption>
+    </figure>
+  </article>
+  <article class="expertise-panel" id="pole-ia" aria-labelledby="pole-ia-title">
+    <div class="expertise-panel__copy">
+      <span class="expertise-panel__number">02 / 03</span>
+      <h2 id="pole-ia-title">Infrastructures IA &amp; cloud HPC</h2>
+      <p>Dimensionner, héberger et exploiter les charges IA sous contrôle.</p>
+      <ul class="expertise-panel__tags"><li>Cloud souverain</li><li>GPU &amp; datacenter</li><li>Cloud HPC</li><li>FinOps · AIOps</li><li>Green IT</li></ul>
+      <a class="expertise-panel__link" href="ia-souverainete.html">Voir l’offre IA <span aria-hidden="true">↗</span></a>
+    </div>
+    <figure class="expertise-panel__visual expertise-panel__visual--compute">
+      <svg viewBox="0 0 600 300" fill="none" aria-hidden="true"><rect class="visual-frame" x="36" y="30" width="528" height="240" rx="24"/><path class="visual-path" d="M80 150H175M425 150h95M300 48v38M300 214v38"/><rect class="visual-chip" x="175" y="86" width="250" height="128" rx="18"/><rect class="visual-chip-core" x="218" y="116" width="164" height="68" rx="10"/><path class="visual-pin" d="M205 70v16m46-16v16m49-16v16m49-16v16m46-16v16M205 214v16m46-16v16m49-16v16m49-16v16m46-16v16"/><path class="visual-pulse" d="M236 150h35l18-17 21 34 18-17h36"/></svg>
+      <figcaption><span>Capacité</span><span>Hébergement</span><span>Observabilité</span></figcaption>
+    </figure>
+  </article>
+  <article class="expertise-panel" id="pole-data" aria-labelledby="pole-data-title">
+    <div class="expertise-panel__copy">
+      <span class="expertise-panel__number">03 / 03</span>
+      <h2 id="pole-data-title">Données &amp; MLOps</h2>
+      <p>Faire passer les modèles du prototype à un service suivi en production.</p>
+      <ul class="expertise-panel__tags"><li>Data engineering</li><li>ML &amp; automatisation</li><li>MLOps</li><li>Gouvernance</li></ul>
+      <a class="expertise-panel__link" href="contact.html">Échanger sur la donnée <span aria-hidden="true">↗</span></a>
+    </div>
+    <figure class="expertise-panel__visual expertise-panel__visual--data">
+      <svg viewBox="0 0 600 300" fill="none" aria-hidden="true"><rect class="visual-frame" x="36" y="30" width="528" height="240" rx="24"/><path class="visual-path" d="M70 85h125l65 65h80l65-65h125M70 150h460M70 215h125l65-65h80l65 65h125"/><circle class="visual-node" cx="95" cy="85" r="10"/><circle class="visual-node" cx="95" cy="150" r="10"/><circle class="visual-node" cx="95" cy="215" r="10"/><circle class="visual-node" cx="300" cy="150" r="23"/><circle class="visual-node visual-node--hot" cx="510" cy="150" r="17"/><path class="visual-pulse" d="M276 150h18l8-11 8 22 8-11h11"/></svg>
+      <figcaption><span>Données</span><span>Modèles</span><span>Production</span></figcaption>
+    </figure>
+  </article>
+  </section>
+
+  <section class="expertise-method" aria-labelledby="expertise-method-title">
     <div class="wrap">
-      <div class="sec-head sec-head--center reveal">
-        <p class="eyebrow" data-num="05">Secteurs</p>
-        <h2 class="t-h2" id="sectors-title">Six secteurs à forte <span class="em">exigence</span></h2>
-        <hr class="rule">
-        <p class="lead">Nos consultants interviennent auprès de grands comptes et d'organisations
-        publiques dont les systèmes ne tolèrent pas l'approximation.</p>
-      </div>
-
-      <div class="sectors">
-        <article class="sector reveal" data-delay="1">
-          <div class="sector__media">
-            <img src="assets/images/secteurs/public.jpg" alt="" width="900" height="600" loading="lazy" data-parallax>
-            <span class="sector__tint"></span>
-            <span class="sector__scrim"></span>
-          </div>
-          <div class="sector__body">
-            <span class="sector__num">01</span>
-            <h3 class="t-h3">Secteur public</h3>
-            <p>Souveraineté des données, marchés publics, continuité de service, modernisation du
-            patrimoine applicatif.</p>
-          </div>
-        </article>
-
-        <article class="sector reveal" data-delay="2">
-          <div class="sector__media">
-            <img src="assets/images/secteurs/energie.jpg" alt="" width="900" height="600" loading="lazy" data-parallax>
-            <span class="sector__tint"></span>
-            <span class="sector__scrim"></span>
-          </div>
-          <div class="sector__body">
-            <span class="sector__num">02</span>
-            <h3 class="t-h3">Énergie &amp; utilities</h3>
-            <p>Systèmes industriels, réseaux de supervision, résilience des infrastructures
-            d'importance vitale.</p>
-          </div>
-        </article>
-
-        <article class="sector reveal" data-delay="3">
-          <div class="sector__media">
-            <img src="assets/images/secteurs/bank.jpg" alt="" width="900" height="600" loading="lazy" data-parallax>
-            <span class="sector__tint"></span>
-            <span class="sector__scrim"></span>
-          </div>
-          <div class="sector__body">
-            <span class="sector__num">03</span>
-            <h3 class="t-h3">Banque, finance &amp; assurance</h3>
-            <p>Conformité DORA, résilience opérationnelle numérique, gouvernance des modèles et des
-            données.</p>
-          </div>
-        </article>
-
-        <article class="sector reveal" data-delay="1">
-          <div class="sector__media">
-            <img src="assets/images/secteurs/telecom.jpg" alt="" width="900" height="600" loading="lazy" data-parallax>
-            <span class="sector__tint"></span>
-            <span class="sector__scrim"></span>
-          </div>
-          <div class="sector__body">
-            <span class="sector__num">04</span>
-            <h3 class="t-h3">Télécommunications</h3>
-            <p>Architecture réseau, cœur de réseau, exploitation, transformation des systèmes
-            d'information opérateurs.</p>
-          </div>
-        </article>
-
-        <article class="sector reveal" data-delay="2">
-          <div class="sector__media">
-            <img src="assets/images/secteurs/distribution.jpg" alt="" width="900" height="600" loading="lazy" data-parallax>
-            <span class="sector__tint"></span>
-            <span class="sector__scrim"></span>
-          </div>
-          <div class="sector__body">
-            <span class="sector__num">05</span>
-            <h3 class="t-h3">Grande distribution</h3>
-            <p>Chaîne logistique, données clients, intégration omnicanale, industrialisation
-            d'usages IA.</p>
-          </div>
-        </article>
-
-        <article class="sector reveal" data-delay="3">
-          <div class="sector__media">
-            <img src="assets/images/secteurs/industrie.jpg" alt="" width="900" height="600" loading="lazy" data-parallax>
-            <span class="sector__tint"></span>
-            <span class="sector__scrim"></span>
-          </div>
-          <div class="sector__body">
-            <span class="sector__num">06</span>
-            <h3 class="t-h3">Industrie</h3>
-            <p>Convergence IT/OT, dette technique, maintenance prédictive, sécurisation des
-            environnements de production.</p>
-          </div>
-        </article>
-      </div>
+      <p class="expertise-overline">Notre méthode</p>
+      <h2 id="expertise-method-title">Une progression lisible, du cadrage au relais.</h2>
+      <ol class="expertise-method__steps"><li><span>01</span><strong>Cadrer</strong><small>Besoins, risques, choix.</small></li><li><span>02</span><strong>Architecturer</strong><small>Infrastructure et contrôles.</small></li><li><span>03</span><strong>Déployer</strong><small>Intégration et observabilité.</small></li><li><span>04</span><strong>Transmettre</strong><small>Équipes autonomes.</small></li></ol>
     </div>
   </section>
 
-  <!-- ===================== CTA ===================== -->
-  <section class="section cta-band">
-    <div class="wrap wrap--narrow cta-band__inner reveal">
-      <p class="eyebrow" data-num="→" style="justify-content:center">Prochaine étape</p>
-      <h2 class="t-h2" style="margin-top:var(--sp-6)">Chaque programme est <span class="em">différent</span></h2>
-      <p class="lead">Nous combinons conseil stratégique, accompagnement opérationnel et transfert
-      de compétences selon vos enjeux réels — pas selon un catalogue.</p>
-      <div class="row">
-        <a class="btn btn--primary" href="contact.html">
-          Discuter de votre projet
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        </a>
-        <a class="btn btn--ghost" href="cabinet.html">Découvrir le cabinet</a>
-      </div>
+  <section class="expertise-sectors" aria-labelledby="sectors-title">
+    <div class="wrap">
+      <p class="expertise-overline">Terrains d’intervention</p>
+      <h2 id="sectors-title">Six secteurs. Des contraintes réelles.</h2>
+      <ul class="expertise-sectors__grid"><li><img src="assets/images/secteurs/public.webp" alt="" width="900" height="600" loading="lazy"><span>Secteur public</span></li><li><img src="assets/images/secteurs/energie.webp" alt="" width="900" height="600" loading="lazy"><span>Énergie</span></li><li><img src="assets/images/secteurs/bank.webp" alt="" width="900" height="600" loading="lazy"><span>Banque &amp; assurance</span></li><li><img src="assets/images/secteurs/telecom.webp" alt="" width="900" height="600" loading="lazy"><span>Télécoms</span></li><li><img src="assets/images/secteurs/distribution.webp" alt="" width="900" height="600" loading="lazy"><span>Distribution</span></li><li><img src="assets/images/secteurs/industrie.webp" alt="" width="900" height="600" loading="lazy"><span>Industrie</span></li></ul>
     </div>
   </section>
 
+  <section class="expertise-contact" aria-labelledby="expertise-contact-title">
+    <div class="wrap"><h2 id="expertise-contact-title">Un système critique à faire évoluer ?</h2><a href="contact.html">Parlons de votre projet<span aria-hidden="true">↗</span></a></div>
+  </section>
 </main>
 
 <!-- footer:start -->
@@ -433,14 +279,16 @@
 
     <div class="site-footer__bottom">
       <span>© <span data-year>2026</span> xSOM Consulting — Tous droits réservés</span>
-      <span>Bordeaux · France · États-Unis</span>
+      <span>Bordeaux · France</span>
     </div>
   </div>
 <div class="heritage-preferences"><signal-preferences lang="fr">Le thème et les animations suivent les préférences de votre navigateur.</signal-preferences></div>
 </footer>
 <!-- footer:end -->
 
-<script src="assets/js/heritage-site.js?v=0279419aef40" defer></script>
+<script src="assets/js/heritage-site.js?v=2e2fb0a3889b" defer></script>
+<script src="assets/js/home-film.js?v=eab2fd2a7aef" defer></script>
+<script src="assets/js/film-titles.js?v=89bba17a4ada" defer></script>
 <script type="module" src="design-system/signal.js?v=76f290b9cea8"></script>
 </body>
 </html>

@@ -28,16 +28,21 @@
 <link rel="alternate" hreflang="x-default" href="https://www.xsom.fr/carrieres.html">
 <link rel="preload" href="../design-system/assets/manrope-latin-variable.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../design-system/assets/source-sans-3-latin-variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" as="image" href="../assets/media/xsom-careers-desktop.jpg?v=c0aecc04c4f1" media="(min-width: 700px)">
+<link rel="preload" as="image" href="../assets/media/xsom-careers-mobile.jpg?v=63bfba995297" media="(max-width: 699px)">
 <link rel="stylesheet" href="../design-system/fonts.css?v=1e9e9bfcedc4">
 <link rel="stylesheet" href="../assets/css/tokens.css?v=2b61236e7507">
 <link rel="stylesheet" href="../assets/css/base.css?v=77d8677fe59d">
 <link rel="stylesheet" href="../assets/css/components.css?v=25e04e80bea9">
 <link rel="stylesheet" href="../design-system/tokens.css?v=d3f9c8183253">
 <link rel="stylesheet" href="../design-system/components.css?v=58339a992fc9">
-<link rel="stylesheet" href="../assets/css/heritage-site.css?v=c84750f72401">
+<link rel="stylesheet" href="../assets/css/heritage-site.css?v=a08f806ca6a1">
+<link rel="stylesheet" href="../assets/css/home-film-tokens.css?v=70d0fa854d66">
+<link rel="stylesheet" href="../assets/css/film-titles.css?v=1b91261ed463">
+<link rel="stylesheet" href="../assets/css/story.css?v=18a34436035b">
 <script src="../assets/js/signal-preferences-init.js?v=df27c76a85ce"></script>
 </head>
-<body class="heritage-site" data-page="careers">
+<body class="heritage-site story-page" data-page="careers">
 
 <a class="skip-link" href="#main">Skip to content</a>
 
@@ -48,7 +53,7 @@
       <img src="../assets/logo/moderne-dark.svg" alt="" width="42" height="42">
       <span>
         <span class="brand__name">xSOM Consulting</span>
-        <span class="brand__tag">IT consulting</span>
+        <span class="brand__tag">Consulting firm</span>
       </span>
     </a>
 
@@ -57,8 +62,7 @@
         <a href="index.html">Home</a>
         <a href="expertise.html">Expertise</a>
         <a href="ai-sovereignty.html">AI &amp; Sovereignty</a>
-        <a href="firm.html">The firm</a>
-        <a href="careers.html" aria-current="page">Careers</a>
+        <a href="firm.html" aria-current="page">Firm &amp; careers</a>
       </nav>
       <div class="header-actions">
         <p class="lang">
@@ -66,13 +70,13 @@
           <span aria-hidden="true">/</span>
           <span aria-current="true">EN</span>
         </p>
-        <a class="btn btn--primary btn--sm" href="contact.html">Get in touch</a>
+        <a class="header-cta" href="contact.html">Get in touch</a>
       </div>
     </div>
 
     <button class="nav-toggle" data-nav-toggle aria-expanded="false" aria-controls="nav-panel"
             aria-label="Open menu" data-label-open="Open menu" data-label-close="Close menu">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/></svg>
+      <span class="nav-toggle__open" aria-hidden="true">Menu</span><span class="nav-toggle__close" aria-hidden="true">Close</span>
     </button>
   </div>
 </header>
@@ -80,193 +84,145 @@
 
 <main id="main" tabindex="-1">
 
-  <section class="page-head page-head--visual">
-    <div class="wrap page-head__inner">
-      <p class="eyebrow" data-num="—">Careers</p>
-      <h1 class="t-h1">A firm where your work is <span class="em">visible</span></h1>
-      <hr class="rule">
-      <p class="lead">Here, every consultant is named, heard and exposed. You bring the expertise
-      — we offer high-impact work, direct access to decision-makers and the freedom to speak
-      plainly on technical matters.</p>
-      <div class="hero__actions" style="margin-top:var(--sp-8)">
-        <a class="btn btn--primary" href="mailto:jean-philippe.talou@xsom.fr?subject=Application%20%E2%80%94%20xSOM%20Consulting">
-          Send your application
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        </a>
-        <a class="btn btn--ghost" href="firm.html">About the firm</a>
+  <section class="page-film" data-home-film data-film-state="poster" aria-labelledby="page-film-title">
+    <div class="film-media" aria-hidden="true">
+      <picture class="film-poster">
+        <source media="(max-width: 699px)" srcset="../assets/media/xsom-careers-mobile.jpg?v=63bfba995297">
+        <img src="../assets/media/xsom-careers-desktop.jpg?v=c0aecc04c4f1" width="1920" height="1080" fetchpriority="high" alt="">
+      </picture>
+      <video class="film-video" muted autoplay loop playsinline preload="none" tabindex="-1" aria-hidden="true"
+        poster="../assets/media/xsom-careers-desktop.jpg?v=c0aecc04c4f1" data-desktop="../assets/media/xsom-careers-desktop.mp4?v=6bfd8c08e950" data-mobile="../assets/media/xsom-careers-mobile.mp4?v=84ec8095d1d4"
+        data-desktop-poster="../assets/media/xsom-careers-desktop.jpg?v=c0aecc04c4f1" data-mobile-poster="../assets/media/xsom-careers-mobile.jpg?v=63bfba995297"></video>
+    </div>
+    <div class="wrap page-film__inner">
+      <div class="page-film__copy film-static">
+        <p class="page-film__overline">Careers</p>
+        <h1 id="page-film-title">A firm where your work is <span class="em">visible</span></h1>
+        <p class="page-film__lead">High-impact work, direct access to decision-makers and the freedom to speak plainly on technical matters.</p>
       </div>
+    </div>
+    <div class="film-titles" aria-hidden="true" data-end="18">
+      <div class="film-beat film-beat--practice" data-shot="0">
+        <div class="film-scrim" data-in="0.1" data-out="5.5"></div>
+        <div class="film-stack">
+          <p class="film-line film-number" data-in="0.3" data-out="5.3"><span>01 / 03</span></p>
+          <p class="film-line film-title" data-in="0.45" data-out="5.3"><span>Work that matters</span></p>
+          <p class="film-line film-sub" data-in="1.2" data-out="5.36"><span>Audits, framing, architecture, programme leadership.</span></p>
+        </div>
+      </div>
+      <div class="film-beat film-beat--practice" data-shot="1">
+        <div class="film-scrim" data-in="6.1" data-out="11.5"></div>
+        <div class="film-stack">
+          <p class="film-line film-number" data-in="6.3" data-out="11.3"><span>02 / 03</span></p>
+          <p class="film-line film-title" data-in="6.45" data-out="11.3"><span>Close to decision-makers</span></p>
+          <p class="film-line film-sub" data-in="7.2" data-out="11.36"><span>CIOs and executive teams, with no intermediate layer.</span></p>
+        </div>
+      </div>
+      <div class="film-beat film-beat--practice" data-shot="2">
+        <div class="film-scrim" data-in="12.1" data-out="17.5"></div>
+        <div class="film-stack">
+          <p class="film-line film-number" data-in="12.3" data-out="17.3"><span>03 / 03</span></p>
+          <p class="film-line film-title" data-in="12.45" data-out="17.3"><span>Learning and passing it on</span></p>
+          <p class="film-line film-sub" data-in="13.2" data-out="17.36"><span>You progress, and you help others progress.</span></p>
+        </div>
+      </div>
+      <div class="film-veil"></div>
+    </div>
+    <!-- film-bar:start #roles -->
+    <a class="film-next" href="#roles">
+      <span>Discover</span>
+      <svg class="film-chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="m4 9 8 7 8-7"/></svg>
+    </a>
+    <div class="heritage-explorer film-controls">
+      <button class="film-toggle" data-film-toggle data-film-action="pause" type="button" aria-label="Pause video" title="Pause video" hidden>
+        <svg class="film-icon film-icon--play" viewBox="0 0 24 24" aria-hidden="true"><polygon points="6 3 20 12 6 21 6 3"/></svg>
+        <svg class="film-icon film-icon--pause" viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg>
+      </button>
+      <button class="film-toggle film-sound" data-film-sound="off" type="button" aria-label="Turn sound on" title="Turn sound on" hidden>
+        <svg class="film-icon film-icon--line film-icon--muted" viewBox="0 0 24 24" aria-hidden="true"><path d="M11 4.702a.705.705 0 0 0-1.203-.498L6.413 7.587A1.4 1.4 0 0 1 5.416 8H3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h2.416a1.4 1.4 0 0 1 .997.413l3.383 3.384A.705.705 0 0 0 11 19.298z"/><path d="m22 9-6 6M16 9l6 6"/></svg>
+        <svg class="film-icon film-icon--line film-icon--sound" viewBox="0 0 24 24" aria-hidden="true"><path d="M11 4.702a.705.705 0 0 0-1.203-.498L6.413 7.587A1.4 1.4 0 0 1 5.416 8H3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h2.416a1.4 1.4 0 0 1 .997.413l3.383 3.384A.705.705 0 0 0 11 19.298z"/><path d="M16 9a5 5 0 0 1 0 6M19.364 18.364a9 9 0 0 0 0-12.728"/></svg>
+      </button>
+    </div>
+
+    <!-- film-bar:end -->
+  </section>
+
+  <!-- ===================== ROLES ===================== -->
+  <section class="story-band" id="roles" aria-labelledby="openings-title">
+    <div class="wrap story-band__inner">
+      <h2 class="story-band__title" id="openings-title">No posted vacancies. We are still hiring.</h2>
+      <a class="btn btn--primary" href="mailto:jean-philippe.talou@xsom.fr?subject=Application%20%E2%80%94%20xSOM%20Consulting">Send a speculative application</a>
     </div>
   </section>
 
-  <section class="section section--tight" aria-labelledby="openings-title">
+  <!-- ===================== WHY ===================== -->
+  <section class="story-section" aria-labelledby="why-title">
     <div class="wrap">
-      <div class="notice reveal">
-        <p class="label" style="margin-bottom:var(--sp-3)">Open roles</p>
-        <h2 class="t-h3" id="openings-title">No posted vacancies right now — and we are still hiring</h2>
-        <p>We do not systematically publish our needs. If your profile matches the areas below,
-        write to us: the best matches rarely come through a job board.</p>
-        <p style="margin-top:var(--sp-6)">
-          <a class="link-arrow" href="mailto:jean-philippe.talou@xsom.fr?subject=Application%20%E2%80%94%20xSOM%20Consulting">
-            Send a speculative application
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </a>
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" aria-labelledby="why-title">
-    <div class="wrap">
-      <div class="sec-head reveal">
+      <div class="story-head">
         <p class="eyebrow" data-num="01">Why join us</p>
-        <h2 class="t-h2" id="why-title">What xSOM <span class="em">actually</span> offers</h2>
-        <hr class="rule">
-        <p class="lead">Not perks listed on a job description. Realities you can verify from your
-        first engagement.</p>
+        <h2 class="t-h2" id="why-title">What xSOM offers</h2>
       </div>
-
-      <div class="grid grid-3">
-        <article class="card reveal" data-delay="1">
-          <span class="card__num">01</span>
-          <h3 class="t-h3">You genuinely matter</h3>
-          <p>A tight structure means every consultant has a visible role, a voice that is heard
-          and a direct impact on both projects and the firm.</p>
-        </article>
-        <article class="card reveal" data-delay="2">
-          <span class="card__num">02</span>
-          <h3 class="t-h3">Work that matters</h3>
-          <p>Audits, framing, architecture, programme leadership. Complex subjects, demanding
-          clients, a contribution you can see and measure.</p>
-        </article>
-        <article class="card reveal" data-delay="3">
-          <span class="card__num">03</span>
-          <h3 class="t-h3">Close to decision-makers</h3>
-          <p>You work directly with CIOs, executive teams and business leaders, with no
-          intermediate layer and real influence on trade-offs.</p>
-        </article>
-        <article class="card reveal" data-delay="1">
-          <span class="card__num">04</span>
-          <h3 class="t-h3">Learning and passing it on</h3>
-          <p>Learning and teaching are part of the job. You progress, and you help others
-          progress — it is built into how we work.</p>
-        </article>
-        <article class="card reveal" data-delay="2">
-          <span class="card__num">05</span>
-          <h3 class="t-h3">Leading-edge subjects</h3>
-          <p>AI infrastructure, digital sovereignty, cybersecurity, critical networks. You work
-          on what will define enterprise IT over the coming decade.</p>
-        </article>
-        <article class="card reveal" data-delay="3">
-          <span class="card__num">06</span>
-          <h3 class="t-h3">International exposure</h3>
-          <p>A presence in France and the United States: engagements exposed to multicultural
-          environments and global standards.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section class="section section--light" aria-labelledby="profile-title">
-    <div class="wrap split">
-      <div class="reveal">
-        <p class="eyebrow" data-num="02">Who we look for</p>
-        <h2 class="t-h2" id="profile-title" style="margin-top:var(--sp-4)">Curious. Self-directed. <span class="em">Committed</span>.</h2>
-        <hr class="rule" style="max-width:180px">
-        <p>We are not looking for people who execute instructions. We are looking for consultants
-        who ask the right questions, who work well with client teams and who want to understand
-        the business stakes behind the technical work.</p>
-        <p style="margin-top:var(--sp-4)">Years of experience matter less than rigour, curiosity
-        and the desire to do things properly.</p>
-
-        <h3 class="t-h3" style="margin:var(--sp-8) 0 var(--sp-4)">Areas we recruit in</h3>
-        <ul class="tags">
-          <li class="tag">Telecom &amp; network</li>
-          <li class="tag">Enterprise architecture</li>
-          <li class="tag">Cybersecurity</li>
-          <li class="tag">Data science</li>
-          <li class="tag">MLOps</li>
-          <li class="tag">Business analysis / PMO</li>
-          <li class="tag">Cloud &amp; infrastructure</li>
-          <li class="tag">IT governance</li>
-        </ul>
-      </div>
-
-      <ul class="checklist reveal" data-delay="1">
-        <li>
-          <span class="checklist__mark" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2"><polyline points="20 6 9 17 4 12"/></svg></span>
-          <div><strong>Autonomy and ownership</strong><span>You run your engagement end to end — with the team behind you, never on your own.</span></div>
-        </li>
-        <li>
-          <span class="checklist__mark" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2"><polyline points="20 6 9 17 4 12"/></svg></span>
-          <div><strong>Comfortable with people</strong><span>You listen, you persuade, and you explain complex things without dumbing them down.</span></div>
-        </li>
-        <li>
-          <span class="checklist__mark" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2"><polyline points="20 6 9 17 4 12"/></svg></span>
-          <div><strong>Technical and business curiosity</strong><span>The business stakes interest you as much as the technical solutions.</span></div>
-        </li>
-        <li>
-          <span class="checklist__mark" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2"><polyline points="20 6 9 17 4 12"/></svg></span>
-          <div><strong>Willingness to pass things on</strong><span>You document, you share, you help the people around you grow.</span></div>
-        </li>
+      <ul class="story-tiles" data-reveal>
+        <li class="story-tile" style="--i: 0"><svg class="story-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 0 0-16 0"/></svg><h3 class="story-tile__title">You genuinely matter</h3><p>A visible role, a voice that is heard.</p></li>
+        <li class="story-tile" style="--i: 1"><svg class="story-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg><h3 class="story-tile__title">Work that matters</h3><p>Audits, framing, architecture, programme leadership.</p></li>
+        <li class="story-tile" style="--i: 2"><svg class="story-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg><h3 class="story-tile__title">Close to decision-makers</h3><p>CIOs and executive teams, with no intermediate layer.</p></li>
+        <li class="story-tile" style="--i: 3"><svg class="story-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z"/><path d="M22 10v6M6 12.5V16a6 3 0 0 0 12 0v-3.5"/></svg><h3 class="story-tile__title">Learning and passing it on</h3><p>You progress, and you help others progress.</p></li>
+        <li class="story-tile" style="--i: 4"><svg class="story-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6" rx="1"/><path d="M15 2v2M15 20v2M2 15h2M2 9h2M20 15h2M20 9h2M9 2v2M9 20v2"/></svg><h3 class="story-tile__title">Leading-edge subjects</h3><p>AI infrastructure, digital sovereignty, cybersecurity, critical networks.</p></li>
+        <li class="story-tile" style="--i: 5"><svg class="story-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20M2 12h20"/></svg><h3 class="story-tile__title">International exposure</h3><p>France, Africa, the Indian Ocean.</p></li>
       </ul>
     </div>
   </section>
 
-  <section class="section" aria-labelledby="apply-title">
-    <div class="wrap split">
-      <div class="reveal">
-        <p class="eyebrow" data-num="03">Applying</p>
-        <h2 class="t-h2" id="apply-title" style="margin-top:var(--sp-4)">Send us your <span class="em">profile</span></h2>
-        <hr class="rule" style="max-width:180px">
-        <p>No lengthy form, no intermediate platform. An email with your CV and a few lines about
-        what you are looking for is enough to start a conversation.</p>
-        <p style="margin-top:var(--sp-4)">We read every application. If your profile matches a
-        current or upcoming need, we come back to you.</p>
-        <div class="row" style="margin-top:var(--sp-8)">
-          <a class="btn btn--primary" href="mailto:jean-philippe.talou@xsom.fr?subject=Application%20%E2%80%94%20xSOM%20Consulting">
-            Send your application
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </a>
-          <a class="btn btn--ghost" href="contact.html">Ask a question</a>
-        </div>
+  <!-- ===================== PROFILE ===================== -->
+  <section class="story-section story-section--tint" aria-labelledby="profile-title">
+    <div class="wrap story-split">
+      <div class="story-head">
+        <p class="eyebrow" data-num="02">Who we look for</p>
+        <h2 class="t-h2" id="profile-title">Curious. Self-directed. <span class="em">Committed</span>.</h2>
       </div>
-
-      <div class="card reveal" data-delay="1">
-        <h3 class="t-h3" style="margin-bottom:var(--sp-6)">What we expect in your email</h3>
-        <ol class="numbered">
-          <li>
-            <span class="numbered__n">01</span>
-            <div><h3>Your CV</h3><p>Attached, in whichever format you prefer.</p></div>
-          </li>
-          <li>
-            <span class="numbered__n">02</span>
-            <div><h3>Your background in a few lines</h3><p>Areas of expertise and the sectors you have worked in.</p></div>
-          </li>
-          <li>
-            <span class="numbered__n">03</span>
-            <div><h3>What you are looking for</h3><p>Type of engagement, availability, any constraints.</p></div>
-          </li>
-          <li>
-            <span class="numbered__n">04</span>
-            <div><h3>Why xSOM</h3><p>What specifically interests you about us.</p></div>
-          </li>
-        </ol>
-      </div>
+      <figure class="story-orbit" data-reveal>
+        <div class="story-orbit__mark" aria-hidden="true"><svg class="offer-mark" viewBox="74.98 34.18 374.18 374.18" aria-hidden="true"><defs><mask id="orbit-mask-a" maskUnits="userSpaceOnUse" x="74.98" y="34.18" width="374.18" height="374.18"><rect x="74.98" y="34.18" width="374.18" height="374.18" fill="#fff"/><path data-draw style="--delay: 0.3s" pathLength="1" d="M 255.53 178.81 L 167.67 331.00 L 366.15 331.00" fill="none" stroke="#000" stroke-width="44" stroke-linejoin="miter"/><polygon data-head style="--delay: 0.95s" points="366.15 361.00 414.15 331.00 366.15 301.00" fill="#000" stroke="#000" stroke-width="16" stroke-linejoin="miter"/></mask><mask id="orbit-mask-b" maskUnits="userSpaceOnUse" x="74.98" y="34.18" width="374.18" height="374.18"><rect x="74.98" y="34.18" width="374.18" height="374.18" fill="#fff"/><path data-draw style="--delay: 0.6s" pathLength="1" d="M 323.08 294.19 L 235.22 142.00 L 135.97 313.89" fill="none" stroke="#000" stroke-width="44" stroke-linejoin="miter"/><polygon data-head style="--delay: 1.25s" points="109.99 298.89 111.97 355.46 161.95 328.89" fill="#000" stroke="#000" stroke-width="16" stroke-linejoin="miter"/></mask><mask id="orbit-mask-c" maskUnits="userSpaceOnUse" x="74.98" y="34.18" width="374.18" height="374.18"><rect x="74.98" y="34.18" width="374.18" height="374.18" fill="#fff"/><path data-draw style="--delay: 0s" pathLength="1" d="M 189.39 295.00 L 365.12 295.00 L 265.88 123.11" fill="none" stroke="#000" stroke-width="44" stroke-linejoin="miter"/><polygon data-head style="--delay: 0.65s" points="291.86 108.11 241.88 81.54 239.89 138.11" fill="#000" stroke="#000" stroke-width="16" stroke-linejoin="miter"/></mask></defs><g data-arrow="a" mask="url(#orbit-mask-a)"><path data-draw style="--delay: 0s" pathLength="1" d="M 189.39 295.00 L 365.12 295.00 L 265.88 123.11" fill="none" stroke-width="28" stroke-linejoin="miter"/><polygon data-head style="--delay: 0.65s" points="291.86 108.11 241.88 81.54 239.89 138.11"/></g><g data-arrow="b" mask="url(#orbit-mask-b)"><path data-draw style="--delay: 0.3s" pathLength="1" d="M 255.53 178.81 L 167.67 331.00 L 366.15 331.00" fill="none" stroke-width="28" stroke-linejoin="miter"/><polygon data-head style="--delay: 0.95s" points="366.15 361.00 414.15 331.00 366.15 301.00"/></g><g data-arrow="c" mask="url(#orbit-mask-c)"><path data-draw style="--delay: 0.6s" pathLength="1" d="M 323.08 294.19 L 235.22 142.00 L 135.97 313.89" fill="none" stroke-width="28" stroke-linejoin="miter"/><polygon data-head style="--delay: 1.25s" points="109.99 298.89 111.97 355.46 161.95 328.89"/></g></svg></div>
+        <ul class="story-orbit__items" aria-label="Areas we recruit in">
+          <li class="story-orbit__item" style="--i: 0">Telecom &amp; network</li>
+          <li class="story-orbit__item" style="--i: 1">Enterprise architecture</li>
+          <li class="story-orbit__item" style="--i: 2">Cybersecurity</li>
+          <li class="story-orbit__item" style="--i: 3">Data science</li>
+          <li class="story-orbit__item" style="--i: 4">MLOps</li>
+          <li class="story-orbit__item" style="--i: 5">Business analysis / PMO</li>
+          <li class="story-orbit__item" style="--i: 6">Cloud &amp; infrastructure</li>
+          <li class="story-orbit__item" style="--i: 7">IT governance</li>
+        </ul>
+        <figcaption><ul class="story-tags"><li>Autonomy and ownership</li><li>Comfortable with people</li><li>Technical and business curiosity</li><li>Willingness to pass things on</li></ul></figcaption>
+      </figure>
     </div>
   </section>
 
-  <section class="section cta-band">
-    <div class="wrap wrap--narrow cta-band__inner reveal">
-      <p class="eyebrow" data-num="→" style="justify-content:center">Join us</p>
-      <h2 class="t-h2" style="margin-top:var(--sp-6)">A firm where you leave a <span class="em">mark</span></h2>
-      <p class="lead">What you build here lasts — for the clients, for the team, for your own
-      track record.</p>
-      <div class="row">
-        <a class="btn btn--primary" href="mailto:jean-philippe.talou@xsom.fr?subject=Application%20%E2%80%94%20xSOM%20Consulting">
-          Send your application
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        </a>
-        <a class="btn btn--ghost" href="https://www.linkedin.com/company/xsom-consulting/" target="_blank" rel="noopener">Follow us on LinkedIn</a>
+  <!-- ===================== APPLYING ===================== -->
+  <section class="story-section" aria-labelledby="apply-title">
+    <div class="wrap">
+      <div class="story-head">
+        <p class="eyebrow" data-num="03">Applying</p>
+        <h2 class="t-h2" id="apply-title">Send us your profile</h2>
+        <p class="story-line">We read every application.</p>
+      </div>
+      <ol class="story-steps" data-reveal>
+        <li class="story-steps__step" style="--i: 0"><span class="story-steps__num">01</span><strong>Your CV</strong><span>Attached, in whichever format you prefer.</span></li>
+        <li class="story-steps__step" style="--i: 1"><span class="story-steps__num">02</span><strong>Your background</strong><span>Areas of expertise, sectors.</span></li>
+        <li class="story-steps__step" style="--i: 2"><span class="story-steps__num">03</span><strong>What you are looking for</strong><span>Type of engagement, availability.</span></li>
+        <li class="story-steps__step" style="--i: 3"><span class="story-steps__num">04</span><strong>Why xSOM</strong><span>What interests you about us.</span></li>
+      </ol>
+      <div class="story-actions"><a class="btn btn--primary" href="mailto:jean-philippe.talou@xsom.fr?subject=Application%20%E2%80%94%20xSOM%20Consulting">Send your application</a><a class="btn btn--ghost" href="contact.html">Ask a question</a></div>
+    </div>
+  </section>
+
+  <!-- ===================== CONTACT ===================== -->
+  <section class="home-cta" aria-labelledby="page-cta-title">
+    <div class="home-cta__mark" aria-hidden="true"><svg class="offer-mark" viewBox="74.98 34.18 374.18 374.18" aria-hidden="true"><defs><mask id="cta-mask-a" maskUnits="userSpaceOnUse" x="74.98" y="34.18" width="374.18" height="374.18"><rect x="74.98" y="34.18" width="374.18" height="374.18" fill="#fff"/><path data-draw style="--delay: 0.3s" pathLength="1" d="M 255.53 178.81 L 167.67 331.00 L 366.15 331.00" fill="none" stroke="#000" stroke-width="44" stroke-linejoin="miter"/><polygon data-head style="--delay: 0.95s" points="366.15 361.00 414.15 331.00 366.15 301.00" fill="#000" stroke="#000" stroke-width="16" stroke-linejoin="miter"/></mask><mask id="cta-mask-b" maskUnits="userSpaceOnUse" x="74.98" y="34.18" width="374.18" height="374.18"><rect x="74.98" y="34.18" width="374.18" height="374.18" fill="#fff"/><path data-draw style="--delay: 0.6s" pathLength="1" d="M 323.08 294.19 L 235.22 142.00 L 135.97 313.89" fill="none" stroke="#000" stroke-width="44" stroke-linejoin="miter"/><polygon data-head style="--delay: 1.25s" points="109.99 298.89 111.97 355.46 161.95 328.89" fill="#000" stroke="#000" stroke-width="16" stroke-linejoin="miter"/></mask><mask id="cta-mask-c" maskUnits="userSpaceOnUse" x="74.98" y="34.18" width="374.18" height="374.18"><rect x="74.98" y="34.18" width="374.18" height="374.18" fill="#fff"/><path data-draw style="--delay: 0s" pathLength="1" d="M 189.39 295.00 L 365.12 295.00 L 265.88 123.11" fill="none" stroke="#000" stroke-width="44" stroke-linejoin="miter"/><polygon data-head style="--delay: 0.65s" points="291.86 108.11 241.88 81.54 239.89 138.11" fill="#000" stroke="#000" stroke-width="16" stroke-linejoin="miter"/></mask></defs><g data-arrow="a" mask="url(#cta-mask-a)"><path data-draw style="--delay: 0s" pathLength="1" d="M 189.39 295.00 L 365.12 295.00 L 265.88 123.11" fill="none" stroke-width="28" stroke-linejoin="miter"/><polygon data-head style="--delay: 0.65s" points="291.86 108.11 241.88 81.54 239.89 138.11"/></g><g data-arrow="b" mask="url(#cta-mask-b)"><path data-draw style="--delay: 0.3s" pathLength="1" d="M 255.53 178.81 L 167.67 331.00 L 366.15 331.00" fill="none" stroke-width="28" stroke-linejoin="miter"/><polygon data-head style="--delay: 0.95s" points="366.15 361.00 414.15 331.00 366.15 301.00"/></g><g data-arrow="c" mask="url(#cta-mask-c)"><path data-draw style="--delay: 0.6s" pathLength="1" d="M 323.08 294.19 L 235.22 142.00 L 135.97 313.89" fill="none" stroke-width="28" stroke-linejoin="miter"/><polygon data-head style="--delay: 1.25s" points="109.99 298.89 111.97 355.46 161.95 328.89"/></g></svg></div>
+    <div class="wrap home-cta__inner">
+      <h2 class="home-cta__title" id="page-cta-title">Join us</h2>
+      <div class="home-cta__actions">
+        <a class="btn btn--primary" href="mailto:jean-philippe.talou@xsom.fr?subject=Application%20%E2%80%94%20xSOM%20Consulting">Send your application</a>
+        <a class="btn btn--ghost home-cta__linkedin" href="https://www.linkedin.com/company/xsom-consulting" target="_blank" rel="noopener">Follow us on LinkedIn <span aria-hidden="true">↗</span></a>
       </div>
     </div>
   </section>
@@ -319,14 +275,17 @@
 
     <div class="site-footer__bottom">
       <span>© <span data-year>2026</span> xSOM Consulting — All rights reserved</span>
-      <span>Bordeaux · France · United States</span>
+      <span>Bordeaux · France</span>
     </div>
   </div>
 <div class="heritage-preferences"><signal-preferences lang="en">Theme and motion respect your browser preferences.</signal-preferences></div>
 </footer>
 <!-- footer:end -->
 
-<script src="../assets/js/heritage-site.js?v=0279419aef40" defer></script>
+<script src="../assets/js/heritage-site.js?v=2e2fb0a3889b" defer></script>
+<script src="../assets/js/home-film.js?v=eab2fd2a7aef" defer></script>
+<script src="../assets/js/film-titles.js?v=89bba17a4ada" defer></script>
+<script src="../assets/js/story.js?v=ed3efe3f4dff" defer></script>
 <script type="module" src="../design-system/signal.js?v=76f290b9cea8"></script>
 </body>
 </html>

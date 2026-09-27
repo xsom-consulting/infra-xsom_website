@@ -28,16 +28,21 @@
 <link rel="alternate" hreflang="x-default" href="https://www.xsom.fr/ia-souverainete.html">
 <link rel="preload" href="design-system/assets/manrope-latin-variable.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="design-system/assets/source-sans-3-latin-variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" as="image" href="assets/media/xsom-sovereignty-desktop.jpg?v=fa16d5892c99" media="(min-width: 700px)">
+<link rel="preload" as="image" href="assets/media/xsom-sovereignty-mobile.jpg?v=00c370091ca9" media="(max-width: 699px)">
 <link rel="stylesheet" href="design-system/fonts.css?v=1e9e9bfcedc4">
 <link rel="stylesheet" href="assets/css/tokens.css?v=2b61236e7507">
 <link rel="stylesheet" href="assets/css/base.css?v=77d8677fe59d">
 <link rel="stylesheet" href="assets/css/components.css?v=25e04e80bea9">
 <link rel="stylesheet" href="design-system/tokens.css?v=d3f9c8183253">
 <link rel="stylesheet" href="design-system/components.css?v=58339a992fc9">
-<link rel="stylesheet" href="assets/css/heritage-site.css?v=c84750f72401">
+<link rel="stylesheet" href="assets/css/heritage-site.css?v=a08f806ca6a1">
+<link rel="stylesheet" href="assets/css/home-film-tokens.css?v=70d0fa854d66">
+<link rel="stylesheet" href="assets/css/film-titles.css?v=1b91261ed463">
+<link rel="stylesheet" href="assets/css/story.css?v=18a34436035b">
 <script src="assets/js/signal-preferences-init.js?v=df27c76a85ce"></script>
 </head>
-<body class="heritage-site" data-page="ia-souverainete">
+<body class="heritage-site story-page" data-page="ia-souverainete">
 
 <a class="skip-link" href="#main">Aller au contenu</a>
 
@@ -48,7 +53,7 @@
       <img src="assets/logo/moderne-dark.svg" alt="" width="42" height="42">
       <span>
         <span class="brand__name">xSOM Consulting</span>
-        <span class="brand__tag">Conseil en systèmes d'information</span>
+        <span class="brand__tag">Cabinet de conseil</span>
       </span>
     </a>
 
@@ -57,8 +62,7 @@
         <a href="index.html">Accueil</a>
         <a href="expertises.html">Expertises</a>
         <a href="ia-souverainete.html" aria-current="page">IA &amp; Souveraineté</a>
-        <a href="cabinet.html">Le cabinet</a>
-        <a href="carrieres.html">Carrières</a>
+        <a href="cabinet.html">Cabinet &amp; carrières</a>
       </nav>
       <div class="header-actions">
         <p class="lang">
@@ -66,13 +70,13 @@
           <span aria-hidden="true">/</span>
           <a href="en/ai-sovereignty.html" hreflang="en" lang="en">EN</a>
         </p>
-        <a class="btn btn--primary btn--sm" href="contact.html">Nous contacter</a>
+        <a class="header-cta" href="contact.html">Nous contacter</a>
       </div>
     </div>
 
     <button class="nav-toggle" data-nav-toggle aria-expanded="false" aria-controls="nav-panel"
             aria-label="Ouvrir le menu" data-label-open="Ouvrir le menu" data-label-close="Fermer le menu">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/></svg>
+      <span class="nav-toggle__open" aria-hidden="true">Menu</span><span class="nav-toggle__close" aria-hidden="true">Fermer</span>
     </button>
   </div>
 </header>
@@ -81,357 +85,177 @@
 <main id="main" tabindex="-1">
 
   <!-- ===================== EN-TÊTE ===================== -->
-  <section class="page-head page-head--visual">
-    <div class="wrap page-head__inner">
-      <p class="eyebrow" data-num="—">IA &amp; Souveraineté</p>
-      <h1 class="t-h1">L'IA avance vite.<br>Les fondations, <span class="em">pas assez</span>.</h1>
-      <hr class="rule">
-      <p class="lead">Chaque organisation se précipite vers l'intelligence artificielle. Mais
-      derrière chaque modèle, il y a une infrastructure. Derrière chaque infrastructure, il y a
-      une décision. Notre métier : vous aider à comprendre ce qu'il y a dessous — pour déployer
-      l'IA sans en perdre le contrôle.</p>
-      <div class="hero__actions" style="margin-top:var(--sp-8)">
-        <a class="btn btn--primary" href="contact.html">
-          Parler de votre projet IA
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        </a>
-        <a class="btn btn--ghost" href="expertises.html">Toutes nos expertises</a>
+  <section class="page-film" data-home-film data-film-state="poster" aria-labelledby="page-film-title">
+    <div class="film-media" aria-hidden="true">
+      <picture class="film-poster">
+        <source media="(max-width: 699px)" srcset="assets/media/xsom-sovereignty-mobile.jpg?v=00c370091ca9">
+        <img src="assets/media/xsom-sovereignty-desktop.jpg?v=fa16d5892c99" width="1920" height="1080" fetchpriority="high" alt="">
+      </picture>
+      <video class="film-video" muted autoplay loop playsinline preload="none" tabindex="-1" aria-hidden="true"
+        poster="assets/media/xsom-sovereignty-desktop.jpg?v=fa16d5892c99" data-desktop="assets/media/xsom-sovereignty-desktop.mp4?v=8040e6d166ac" data-mobile="assets/media/xsom-sovereignty-mobile.mp4?v=c9dfb0ae8a38"
+        data-desktop-poster="assets/media/xsom-sovereignty-desktop.jpg?v=fa16d5892c99" data-mobile-poster="assets/media/xsom-sovereignty-mobile.jpg?v=00c370091ca9"></video>
+    </div>
+    <div class="wrap page-film__inner">
+      <div class="page-film__copy film-static">
+        <p class="page-film__overline">IA &amp; Souveraineté</p>
+        <h1 id="page-film-title">L’IA avance vite.<br>Les fondations, <span class="em">pas assez</span>.</h1>
+        <p class="page-film__lead">Notre métier : vous aider à comprendre ce qu’il y a dessous — pour déployer l’IA sans en perdre le contrôle.</p>
       </div>
     </div>
+    <div class="film-titles" aria-hidden="true" data-end="18">
+      <div class="film-beat film-beat--practice" data-shot="0">
+        <div class="film-scrim" data-in="0.1" data-out="5.5"></div>
+        <div class="film-stack">
+          <p class="film-line film-number" data-in="0.3" data-out="5.3"><span>01 / 03</span></p>
+          <p class="film-line film-title" data-in="0.45" data-out="5.3"><span>Sérénité</span></p>
+          <p class="film-line film-sub" data-in="1.2" data-out="5.36"><span>Vos équipes comprennent ce qu’elles pilotent.</span></p>
+        </div>
+      </div>
+      <div class="film-beat film-beat--practice" data-shot="1">
+        <div class="film-scrim" data-in="6.1" data-out="11.5"></div>
+        <div class="film-stack">
+          <p class="film-line film-number" data-in="6.3" data-out="11.3"><span>02 / 03</span></p>
+          <p class="film-line film-title" data-in="6.45" data-out="11.3"><span>Sécurité</span></p>
+          <p class="film-line film-sub" data-in="7.2" data-out="11.36"><span>Les pipelines IA sont des surfaces d’attaque.</span></p>
+        </div>
+      </div>
+      <div class="film-beat film-beat--practice" data-shot="2">
+        <div class="film-scrim" data-in="12.1" data-out="17.5"></div>
+        <div class="film-stack">
+          <p class="film-line film-number" data-in="12.3" data-out="17.3"><span><svg class="film-flag" viewBox="0 0 30 20" aria-hidden="true"><rect width="10" height="20" fill="#002654"/><rect x="10" width="10" height="20" fill="#fff"/><rect x="20" width="10" height="20" fill="#ce1126"/></svg> 03 / 03</span></p>
+          <p class="film-line film-title" data-in="12.45" data-out="17.3"><span>Souveraineté</span></p>
+          <p class="film-line film-sub" data-in="13.2" data-out="17.36"><span>Qui héberge vos modèles peut les éteindre.</span></p>
+        </div>
+      </div>
+      <div class="film-veil"></div>
+    </div>
+    <!-- film-bar:start #architecture -->
+    <a class="film-next" href="#architecture">
+      <span>Découvrir</span>
+      <svg class="film-chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="m4 9 8 7 8-7"/></svg>
+    </a>
+    <div class="heritage-explorer film-controls">
+      <button class="film-toggle" data-film-toggle data-film-action="pause" type="button" aria-label="Mettre en pause" title="Mettre en pause" hidden>
+        <svg class="film-icon film-icon--play" viewBox="0 0 24 24" aria-hidden="true"><polygon points="6 3 20 12 6 21 6 3"/></svg>
+        <svg class="film-icon film-icon--pause" viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg>
+      </button>
+      <button class="film-toggle film-sound" data-film-sound="off" type="button" aria-label="Activer le son" title="Activer le son" hidden>
+        <svg class="film-icon film-icon--line film-icon--muted" viewBox="0 0 24 24" aria-hidden="true"><path d="M11 4.702a.705.705 0 0 0-1.203-.498L6.413 7.587A1.4 1.4 0 0 1 5.416 8H3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h2.416a1.4 1.4 0 0 1 .997.413l3.383 3.384A.705.705 0 0 0 11 19.298z"/><path d="m22 9-6 6M16 9l6 6"/></svg>
+        <svg class="film-icon film-icon--line film-icon--sound" viewBox="0 0 24 24" aria-hidden="true"><path d="M11 4.702a.705.705 0 0 0-1.203-.498L6.413 7.587A1.4 1.4 0 0 1 5.416 8H3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h2.416a1.4 1.4 0 0 1 .997.413l3.383 3.384A.705.705 0 0 0 11 19.298z"/><path d="M16 9a5 5 0 0 1 0 6M19.364 18.364a9 9 0 0 0 0-12.728"/></svg>
+      </button>
+    </div>
+
+    <!-- film-bar:end -->
   </section>
 
-  <!-- ===================== LE CONSTAT ===================== -->
-  <section class="section" aria-labelledby="stakes-title">
-    <div class="wrap split">
-      <div class="reveal">
-        <p class="eyebrow" data-num="01">Le constat</p>
-        <h2 class="t-h2" id="stakes-title" style="margin-top:var(--sp-4)">L'IA ne doit pas créer de dépendance <span class="em">invisible</span></h2>
-        <hr class="rule" style="max-width:180px">
-        <p>Trop de déploiements produisent une dépendance subie : fournisseurs étrangers, modèles
-        opaques, coûts qui dérivent, infrastructures hors de portée des équipes internes. Le
-        système fonctionne — jusqu'au jour où il faut le comprendre, le corriger ou le quitter.</p>
-        <p style="margin-top:var(--sp-4)">Notre valeur ajoutée n'est pas de faire de l'IA à votre
-        place. C'est de vous permettre de rester maîtres de ce que vous mettez en production.</p>
-
-        <blockquote class="quote" style="margin-top:var(--sp-8)">
-          <p>L'IA sans infrastructure maîtrisée, c'est de la puissance sans contrôle.</p>
-        </blockquote>
+  <!-- ===================== ARCHITECTURE ===================== -->
+  <section class="story-section" id="architecture" aria-labelledby="stack-title">
+    <div class="wrap story-split">
+      <div class="story-head">
+        <p class="eyebrow" data-num="01">L’architecture visée</p>
+        <h2 class="t-h2" id="stack-title">Quatre couches, une seule maîtrise</h2>
+        <p class="story-line">Une seule couche hors de contrôle suffit à rendre la souveraineté théorique.</p>
       </div>
-
-      <div class="reveal" data-delay="1">
-        <h3 class="t-h3" style="margin-bottom:var(--sp-6)">Ce que nous regardons et que les autres survolent</h3>
-        <ol class="numbered">
-          <li>
-            <span class="numbered__n">01</span>
-            <div>
-              <h3>L'infrastructure physique</h3>
-              <p>Datacenters, parcs GPU, consommation énergétique, refroidissement, Green IT.
-              La réalité matérielle de l'IA — celle qui apparaît sur la facture et dans le
-              bilan carbone.</p>
-            </div>
+      <figure class="story-stack" data-reveal>
+        <ol class="story-stack__layers" reversed>
+          <li class="story-stack__layer" data-layer="4" style="--i: 3">
+            <span class="story-stack__num">Couche 04</span>
+            <strong class="story-stack__name">Gouvernance &amp; conformité</strong>
+            <ul class="story-tags"><li>AI Act</li><li>DORA</li><li>NIS2</li><li>Audit indépendant</li></ul>
           </li>
-          <li>
-            <span class="numbered__n">02</span>
-            <div>
-              <h3>La chaîne de la donnée</h3>
-              <p>D'où viennent vos données, comment elles sont transformées, qui y accède,
-              ce qu'il en reste après traitement. La traçabilité de bout en bout.</p>
-            </div>
+          <li class="story-stack__layer" data-layer="3" style="--i: 2">
+            <span class="story-stack__num">Couche 03</span>
+            <strong class="story-stack__name">Modèles &amp; pipelines</strong>
+            <ul class="story-tags"><li>MLOps</li><li>Versionnage</li><li>Portabilité</li><li>Zéro verrou</li></ul>
           </li>
-          <li>
-            <span class="numbered__n">03</span>
-            <div>
-              <h3>La dérive des modèles</h3>
-              <p>Un modèle en production se dégrade, dérive, peut être manipulé. Il doit être
-              surveillé comme n'importe quel système critique — avec des seuils et des alertes.</p>
-            </div>
+          <li class="story-stack__layer" data-layer="2" style="--i: 1">
+            <span class="story-stack__num">Couche 02</span>
+            <strong class="story-stack__name">Données</strong>
+            <ul class="story-tags"><li>Lignage</li><li>Qualification</li><li>RGPD</li><li>Contrôle d’accès</li></ul>
           </li>
-          <li>
-            <span class="numbered__n">04</span>
-            <div>
-              <h3>La capacité de vos équipes</h3>
-              <p>Un système que personne ne sait maintenir est une dette, pas un actif. La
-              montée en compétence fait partie du livrable.</p>
-            </div>
+          <li class="story-stack__layer" data-layer="1" style="--i: 0">
+            <span class="story-stack__num">Couche 01</span>
+            <strong class="story-stack__name">Infrastructure souveraine</strong>
+            <ul class="story-tags"><li>SecNumCloud</li><li>On-premise</li><li>GPU</li><li>Réseau</li><li>Énergie</li></ul>
           </li>
         </ol>
-      </div>
+        <figcaption class="story-stack__base">Maîtrise construite de bas en haut — infrastructures critiques depuis 2007</figcaption>
+      </figure>
     </div>
   </section>
 
-  <!-- ===================== SCHÉMA : COUCHES SOUVERAINES ===================== -->
-  <section class="section section--tight" aria-labelledby="stack-title">
+  <!-- ===================== ENGAGEMENT ===================== -->
+  <section class="story-section story-section--tint" aria-labelledby="promises-title">
     <div class="wrap">
-      <div class="sec-head reveal">
-        <p class="eyebrow" data-num="02">L'architecture visée</p>
-        <h2 class="t-h2" id="stack-title">Quatre couches, une seule <span class="em">maîtrise</span></h2>
-        <hr class="rule">
-        <p class="lead">La souveraineté ne se décrète pas au niveau du modèle : elle se construit
-        de bas en haut. Une seule couche hors de contrôle suffit à la rendre théorique.</p>
+      <div class="story-head">
+        <p class="eyebrow" data-num="02">Notre engagement</p>
+        <h2 class="t-h2" id="promises-title">Trois exigences, jamais l’une au détriment des autres</h2>
       </div>
-
-      <div class="diagram-wrap reveal" data-delay="1">
-        <svg class="diagram" viewBox="0 0 900 330" role="img" aria-labelledby="stack-desc" data-diagram>
-          <title id="stack-desc">Pile d'architecture IA souveraine en quatre couches, de l'infrastructure à la gouvernance</title>
-
-          <!-- Couche 04 — Gouvernance -->
-          <g class="dg-fade dg-s4">
-            <rect class="dg-node dg-node--hot" x="60" y="16" width="700" height="62" rx="4"/>
-            <text class="dg-text" x="86" y="43">Gouvernance &amp; conformité</text>
-            <text class="dg-sub" x="86" y="62">AI ACT · DORA · NIS2 · AUDIT INDÉPENDANT</text>
-            <text class="dg-tag" x="800" y="52">COUCHE 04</text>
-          </g>
-
-          <!-- Couche 03 — Modèles -->
-          <g class="dg-fade dg-s3">
-            <rect class="dg-node" x="60" y="94" width="700" height="62" rx="4"/>
-            <text class="dg-text" x="86" y="121">Modèles &amp; pipelines</text>
-            <text class="dg-sub" x="86" y="140">MLOPS · VERSIONNAGE · PORTABILITÉ · ZÉRO VERROU</text>
-            <text class="dg-tag" x="800" y="130">COUCHE 03</text>
-          </g>
-
-          <!-- Couche 02 — Données -->
-          <g class="dg-fade dg-s2">
-            <rect class="dg-node" x="60" y="172" width="700" height="62" rx="4"/>
-            <text class="dg-text" x="86" y="199">Données</text>
-            <text class="dg-sub" x="86" y="218">LIGNAGE · QUALIFICATION · RGPD · CONTRÔLE D'ACCÈS</text>
-            <text class="dg-tag" x="800" y="208">COUCHE 02</text>
-          </g>
-
-          <!-- Couche 01 — Infrastructure -->
-          <g class="dg-fade dg-s1">
-            <rect class="dg-node dg-node--hot" x="60" y="250" width="700" height="62" rx="4"/>
-            <text class="dg-text" x="86" y="277">Infrastructure souveraine</text>
-            <text class="dg-sub" x="86" y="296">SECNUMCLOUD · ON-PREMISE · GPU · RÉSEAU · ÉNERGIE</text>
-            <text class="dg-tag" x="800" y="286">COUCHE 01</text>
-          </g>
-
-          <!-- Axe de maîtrise, dessiné de bas en haut -->
-          <path class="dg-line--hot dg-draw" d="M34 306 L34 30" stroke-width="1.5"/>
-          <path class="dg-line--hot dg-fade dg-s4" d="M34 22 L29 34 L39 34 Z" fill="currentColor" stroke="none" style="fill:var(--copper)"/>
-          <text class="dg-tag dg-fade dg-s5" x="410" y="328" text-anchor="middle">MAÎTRISE CONSTRUITE DE BAS EN HAUT — INFRASTRUCTURES CRITIQUES DEPUIS 2007</text>
-        </svg>
-      </div>
+      <ul class="story-cards" data-reveal>
+        <li class="story-card" style="--i: 0">
+          <svg class="story-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2"/></svg>
+          <h3 class="story-card__title">Sérénité</h3>
+          <p>Vos équipes comprennent ce qu’elles pilotent.</p>
+          <ul class="story-tags"><li>Supervision continue</li><li>Documentation opérationnelle</li><li>Transfert de compétences</li><li>Plans de continuité</li></ul>
+        </li>
+        <li class="story-card" style="--i: 1">
+          <svg class="story-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>
+          <h3 class="story-card__title">Sécurité</h3>
+          <p>Les pipelines IA sont des surfaces d’attaque.</p>
+          <ul class="story-tags"><li>Pipelines de données sensibles</li><li>Empoisonnement de modèles</li><li>AI Act · DORA · NIS2</li><li>Tests de résilience</li></ul>
+        </li>
+        <li class="story-card" style="--i: 2">
+          <svg class="story-icon story-icon--flag" viewBox="0 0 30 20" role="img" aria-label="Drapeau français"><rect width="10" height="20" fill="#002654"/><rect x="10" width="10" height="20" fill="#fff"/><rect x="20" width="10" height="20" fill="#ce1126"/><rect x=".5" y=".5" width="29" height="19" fill="none" stroke="currentColor" stroke-opacity=".2"/></svg>
+          <h3 class="story-card__title">Souveraineté</h3>
+          <p>Qui héberge vos modèles peut les éteindre.</p>
+          <ul class="story-tags"><li>SecNumCloud, on-premise</li><li>Aucun verrouillage fournisseur</li><li>Portabilité des données</li><li>Traçabilité des décisions</li></ul>
+        </li>
+      </ul>
     </div>
   </section>
 
-  <!-- ===================== LES TROIS PROMESSES ===================== -->
-  <section class="section section--light" aria-labelledby="promises-title">
+  <!-- ===================== OFFRE ===================== -->
+  <section class="story-section" aria-labelledby="levers-title">
     <div class="wrap">
-      <div class="sec-head sec-head--center reveal">
-        <p class="eyebrow" data-num="03">Notre engagement</p>
-        <h2 class="t-h2" id="promises-title">Trois exigences, jamais l'une au détriment des <span class="em">autres</span></h2>
-        <hr class="rule">
-        <p class="lead">Chaque intervention est conçue pour les satisfaire simultanément. Un
-        système souverain mais inexploitable, ou serein mais vulnérable, n'a pas de valeur.</p>
+      <div class="story-head">
+        <p class="eyebrow" data-num="03">Notre offre</p>
+        <h2 class="t-h2" id="levers-title">De la matière brute à l’intelligence en production</h2>
       </div>
-
-      <div class="grid grid-3">
-        <article class="card reveal" data-delay="1">
-          <span class="card__num">Promesse 01</span>
-          <h3 class="t-h3">Sérénité</h3>
-          <p>L'IA doit être un levier de confiance, pas une source d'anxiété. Vos équipes
-          comprennent ce qu'elles pilotent et peuvent intervenir à tout moment.</p>
-          <ul class="checklist" style="margin-top:var(--sp-6);gap:var(--sp-3)">
-            <li><span class="checklist__mark" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2"><polyline points="20 6 9 17 4 12"/></svg></span><div><span>Supervision continue des systèmes IA</span></div></li>
-            <li><span class="checklist__mark" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2"><polyline points="20 6 9 17 4 12"/></svg></span><div><span>Documentation opérationnelle exploitable</span></div></li>
-            <li><span class="checklist__mark" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2"><polyline points="20 6 9 17 4 12"/></svg></span><div><span>Transfert de compétences aux équipes internes</span></div></li>
-            <li><span class="checklist__mark" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2"><polyline points="20 6 9 17 4 12"/></svg></span><div><span>Plans de continuité adaptés aux systèmes IA</span></div></li>
-          </ul>
-        </article>
-
-        <article class="card reveal" data-delay="2">
-          <span class="card__num">Promesse 02</span>
-          <h3 class="t-h3">Sécurité</h3>
-          <p>Les pipelines IA sont des surfaces d'attaque. Les modèles peuvent être empoisonnés,
-          les données peuvent fuir. Nous les traitons comme un réseau opérateur critique.</p>
-          <ul class="checklist" style="margin-top:var(--sp-6);gap:var(--sp-3)">
-            <li><span class="checklist__mark" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2"><polyline points="20 6 9 17 4 12"/></svg></span><div><span>Sécurisation des pipelines de données sensibles</span></div></li>
-            <li><span class="checklist__mark" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2"><polyline points="20 6 9 17 4 12"/></svg></span><div><span>Protection contre l'empoisonnement de modèles</span></div></li>
-            <li><span class="checklist__mark" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2"><polyline points="20 6 9 17 4 12"/></svg></span><div><span>Conformité AI Act, DORA et NIS2</span></div></li>
-            <li><span class="checklist__mark" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2"><polyline points="20 6 9 17 4 12"/></svg></span><div><span>Tests de résilience et audit indépendant</span></div></li>
-          </ul>
-        </article>
-
-        <article class="card reveal" data-delay="3">
-          <span class="card__num">Promesse 03</span>
-          <h3 class="t-h3">Souveraineté</h3>
-          <p>Qui détient vos données détient votre IA. Qui héberge vos modèles peut les éteindre.
-          La souveraineté n'est pas un concept politique : c'est une décision d'architecture.</p>
-          <ul class="checklist" style="margin-top:var(--sp-6);gap:var(--sp-3)">
-            <li><span class="checklist__mark" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2"><polyline points="20 6 9 17 4 12"/></svg></span><div><span>Hébergement souverain — SecNumCloud, on-premise</span></div></li>
-            <li><span class="checklist__mark" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2"><polyline points="20 6 9 17 4 12"/></svg></span><div><span>Aucun verrouillage fournisseur sur les modèles</span></div></li>
-            <li><span class="checklist__mark" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2"><polyline points="20 6 9 17 4 12"/></svg></span><div><span>Portabilité des données et des pipelines</span></div></li>
-            <li><span class="checklist__mark" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2"><polyline points="20 6 9 17 4 12"/></svg></span><div><span>Traçabilité des décisions algorithmiques</span></div></li>
-          </ul>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===================== LES TROIS LEVIERS ===================== -->
-  <section class="section" aria-labelledby="levers-title">
-    <div class="wrap">
-      <div class="sec-head reveal">
-        <p class="eyebrow" data-num="04">Notre offre</p>
-        <h2 class="t-h2" id="levers-title">De la matière brute à l'intelligence en <span class="em">production</span></h2>
-        <hr class="rule">
-        <p class="lead">Trois leviers activables séparément ou en séquence complète, selon votre
-        point de départ.</p>
-      </div>
-
-      <div class="diagram-wrap reveal" style="margin-bottom:var(--sp-8)">
-        <span class="label">La chaîne complète, du système source au scoring en production</span>
-        <svg class="diagram" viewBox="0 0 900 232" role="img" aria-labelledby="chain-desc" data-diagram>
-          <title id="chain-desc">Chaîne de traitement : sources, pipeline de données, modèle, production, le tout sous supervision continue</title>
-
-          <!-- Étape 01 — Sources -->
-          <g class="dg-fade dg-s1">
-            <text class="dg-tag" x="108" y="26" text-anchor="middle">01</text>
-            <rect class="dg-node" x="20" y="38" width="176" height="76" rx="4"/>
-            <text class="dg-text" x="108" y="70" text-anchor="middle">Sources</text>
-            <text class="dg-sub" x="108" y="90" text-anchor="middle">MULTI-SYSTÈMES</text>
-          </g>
-          <path class="dg-line dg-draw dg-s1" d="M200 76 L236 76" stroke-width="1.5"/>
-          <path class="dg-arrow dg-fade dg-s2" d="M236 71 L245 76 L236 81 Z"/>
-
-          <!-- Étape 02 — Pipeline -->
-          <g class="dg-fade dg-s2">
-            <text class="dg-tag" x="336" y="26" text-anchor="middle">02</text>
-            <rect class="dg-node" x="248" y="38" width="176" height="76" rx="4"/>
-            <text class="dg-text" x="336" y="70" text-anchor="middle">Pipeline</text>
-            <text class="dg-sub" x="336" y="90" text-anchor="middle">QUALIFICATION</text>
-          </g>
-          <path class="dg-line dg-draw dg-s2" d="M428 76 L464 76" stroke-width="1.5"/>
-          <path class="dg-arrow dg-fade dg-s3" d="M464 71 L473 76 L464 81 Z"/>
-
-          <!-- Étape 03 — Modèle -->
-          <g class="dg-fade dg-s3">
-            <text class="dg-tag" x="564" y="26" text-anchor="middle">03</text>
-            <rect class="dg-node" x="476" y="38" width="176" height="76" rx="4"/>
-            <text class="dg-text" x="564" y="70" text-anchor="middle">Modèle</text>
-            <text class="dg-sub" x="564" y="90" text-anchor="middle">ENTRAÎNEMENT</text>
-          </g>
-          <path class="dg-line dg-draw dg-s3" d="M656 76 L692 76" stroke-width="1.5"/>
-          <path class="dg-arrow dg-fade dg-s4" d="M692 71 L701 76 L692 81 Z"/>
-
-          <!-- Étape 04 — Production -->
-          <g class="dg-fade dg-s4">
-            <text class="dg-tag" x="792" y="26" text-anchor="middle">04</text>
-            <rect class="dg-node dg-node--hot" x="704" y="38" width="176" height="76" rx="4"/>
-            <text class="dg-text" x="792" y="70" text-anchor="middle">Production</text>
-            <text class="dg-sub" x="792" y="90" text-anchor="middle">SCORING &amp; API</text>
-          </g>
-
-          <!-- Boucle de supervision : c'est elle qui fait tenir l'ensemble dans le temps -->
-          <path class="dg-line--hot dg-draw dg-s5" d="M336 114 L336 168 L792 168 L792 114" stroke-width="1.5" stroke-dasharray="0"/>
-          <path class="dg-line--hot dg-draw dg-s5" d="M564 114 L564 168" stroke-width="1.5"/>
-          <text class="dg-tag dg-fade dg-s5" x="564" y="200" text-anchor="middle">SUPERVISION CONTINUE — DÉRIVE · COÛTS · SÉCURITÉ · CONFORMITÉ</text>
-        </svg>
-      </div>
-
-      <div class="stack stack-6">
-        <article class="card reveal" data-delay="1">
-          <div class="split" style="gap:var(--sp-8);align-items:start">
-            <div>
-              <span class="card__num">Levier 01 · Donnée</span>
-              <h3 class="t-h3">Data engineering &amp; valorisation</h3>
-              <p>Vos données sont votre capital. Nous les collectons, structurons, qualifions et
-              enrichissons pour qu'elles alimentent des modèles fiables — pas des approximations
-              statistiques.</p>
-            </div>
-            <table class="spec">
-              <tbody>
-                <tr><th scope="row">Ingestion</th><td>Collecte multi-sources et normalisation</td></tr>
-                <tr><th scope="row">Qualification</th><td>Déduplication, enrichissement, contrôle qualité</td></tr>
-                <tr><th scope="row">Préparation</th><td>Feature engineering et pipelines reproductibles</td></tr>
-                <tr><th scope="row">Gouvernance</th><td>Catalogage, traçabilité, conformité RGPD</td></tr>
-              </tbody>
-            </table>
-          </div>
-        </article>
-
-        <article class="card reveal" data-delay="2">
-          <div class="split" style="gap:var(--sp-8);align-items:start">
-            <div>
-              <span class="card__num">Levier 02 · Automatisation</span>
-              <h3 class="t-h3">IA appliquée &amp; industrialisation</h3>
-              <p>Nous déployons des modèles intégrés à vos opérations, pas des démonstrateurs. De
-              la détection d'anomalies au scoring prédictif, chaque solution est conçue pour durer
-              et évoluer sans nous.</p>
-            </div>
-            <table class="spec">
-              <tbody>
-                <tr><th scope="row">Modélisation</th><td>Apprentissage supervisé et non supervisé</td></tr>
-                <tr><th scope="row">Intégration</th><td>APIs de scoring et branchement métier</td></tr>
-                <tr><th scope="row">MLOps</th><td>CI/CD des modèles, réentraînement, versionnage</td></tr>
-                <tr><th scope="row">Processus</th><td>Automatisation métier assistée par IA</td></tr>
-              </tbody>
-            </table>
-          </div>
-        </article>
-
-        <article class="card reveal" data-delay="3">
-          <div class="split" style="gap:var(--sp-8);align-items:start">
-            <div>
-              <span class="card__num">Levier 03 · Contrôle</span>
-              <h3 class="t-h3">Infrastructure, sécurité &amp; conformité</h3>
-              <p>La couche qui décide si tout le reste tient. Dimensionnement, supervision,
-              maîtrise des coûts, sécurisation et conformité réglementaire — traités ensemble,
-              parce qu'ils se contraignent mutuellement.</p>
-            </div>
-            <table class="spec">
-              <tbody>
-                <tr><th scope="row">Infrastructure</th><td>Dimensionnement GPU, datacenter, Green IT</td></tr>
-                <tr><th scope="row">Observabilité</th><td>Supervision full-stack et pratiques AIOps</td></tr>
-                <tr><th scope="row">FinOps</th><td>Maîtrise et prévision des coûts d'inférence</td></tr>
-                <tr><th scope="row">Conformité</th><td>AI Act, DORA, NIS2, audit indépendant</td></tr>
-              </tbody>
-            </table>
-          </div>
-        </article>
-      </div>
+      <figure class="story-flow" data-reveal>
+        <ol class="story-flow__chain">
+            <li class="story-flow__node" style="--i: 0"><span class="story-flow__num">01</span><strong>Sources</strong><span class="story-flow__hint">Multi-systèmes</span></li>
+            <li class="story-flow__node" style="--i: 1"><span class="story-flow__num">02</span><strong>Pipeline</strong><span class="story-flow__hint">Qualification</span></li>
+            <li class="story-flow__node" style="--i: 2"><span class="story-flow__num">03</span><strong>Modèle</strong><span class="story-flow__hint">Entraînement</span></li>
+            <li class="story-flow__node" style="--i: 3"><span class="story-flow__num">04</span><strong>Production</strong><span class="story-flow__hint">Scoring &amp; API</span></li>
+        </ol>
+        <div class="story-flow__levers">
+          <div class="story-flow__lever story-flow__lever--data"><span class="story-flow__label">Levier 01 · Donnée</span><ul class="story-tags"><li>Ingestion</li><li>Qualification</li><li>Préparation</li><li>Gouvernance</li></ul></div>
+          <div class="story-flow__lever story-flow__lever--auto"><span class="story-flow__label">Levier 02 · Automatisation</span><ul class="story-tags"><li>Modélisation</li><li>Intégration</li><li>MLOps</li><li>Processus</li></ul></div>
+          <div class="story-flow__lever story-flow__lever--control"><span class="story-flow__label">Levier 03 · Contrôle — supervision continue</span><ul class="story-tags"><li>Dérive</li><li>Coûts</li><li>Sécurité</li><li>Conformité</li></ul></div>
+        </div>
+      </figure>
     </div>
   </section>
 
   <!-- ===================== CADRES ===================== -->
-  <section class="section section--tight" aria-labelledby="frameworks-title">
+  <section class="story-section story-section--tight" aria-labelledby="frameworks-title">
     <div class="wrap">
-      <hr class="rule rule--full">
-      <div class="reveal" style="margin-top:var(--sp-12)">
-        <h2 class="t-h3" id="frameworks-title" style="margin-bottom:var(--sp-6)">Cadres réglementaires et techniques que nous portons</h2>
-        <ul class="tags">
-          <li class="tag tag--accent">AI Act</li>
-          <li class="tag tag--accent">DORA</li>
-          <li class="tag tag--accent">NIS2</li>
-          <li class="tag tag--accent">LPM</li>
-          <li class="tag tag--accent">RGPD</li>
-          <li class="tag">SecNumCloud</li>
-          <li class="tag">ISO 27001</li>
-          <li class="tag">Cloud de confiance</li>
-          <li class="tag">Green IT</li>
-          <li class="tag">MLOps</li>
-          <li class="tag">AIOps</li>
-          <li class="tag">FinOps</li>
-        </ul>
-      </div>
+      <h2 class="story-label" id="frameworks-title">Cadres réglementaires et techniques que nous portons</h2>
+    </div>
+    <div class="story-marquee">
+      <ul class="story-chips"><li>AI Act</li><li>DORA</li><li>NIS2</li><li>LPM</li><li>RGPD</li><li>SecNumCloud</li><li>ISO 27001</li><li>Cloud de confiance</li><li>Cloud HPC</li><li>Green IT</li><li>MLOps</li><li>AIOps</li><li>FinOps</li></ul>
+      <ul class="story-chips" aria-hidden="true"><li>AI Act</li><li>DORA</li><li>NIS2</li><li>LPM</li><li>RGPD</li><li>SecNumCloud</li><li>ISO 27001</li><li>Cloud de confiance</li><li>Cloud HPC</li><li>Green IT</li><li>MLOps</li><li>AIOps</li><li>FinOps</li></ul>
     </div>
   </section>
 
-  <!-- ===================== CTA ===================== -->
-
-  <section class="section cta-band">
-    <div class="wrap wrap--narrow cta-band__inner reveal">
-      <p class="eyebrow" data-num="→" style="justify-content:center">Prochaine étape</p>
-      <h2 class="t-h2" style="margin-top:var(--sp-6)">Où en êtes-vous <span class="em">réellement</span> ?</h2>
-      <p class="lead">Cadrage initial, seconde lecture d'une architecture existante, audit d'un
-      pipeline en production : dites-nous d'où vous partez, nous vous dirons ce qui manque.</p>
-      <div class="row">
-        <a class="btn btn--primary" href="contact.html">
-          Nous écrire
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        </a>
-        <a class="btn btn--ghost" href="cabinet.html">Découvrir le cabinet</a>
+  <!-- ===================== CONTACT ===================== -->
+  <section class="home-cta" aria-labelledby="page-cta-title">
+    <div class="home-cta__mark" aria-hidden="true"><svg class="offer-mark" viewBox="74.98 34.18 374.18 374.18" aria-hidden="true"><defs><mask id="cta-mask-a" maskUnits="userSpaceOnUse" x="74.98" y="34.18" width="374.18" height="374.18"><rect x="74.98" y="34.18" width="374.18" height="374.18" fill="#fff"/><path data-draw style="--delay: 0.3s" pathLength="1" d="M 255.53 178.81 L 167.67 331.00 L 366.15 331.00" fill="none" stroke="#000" stroke-width="44" stroke-linejoin="miter"/><polygon data-head style="--delay: 0.95s" points="366.15 361.00 414.15 331.00 366.15 301.00" fill="#000" stroke="#000" stroke-width="16" stroke-linejoin="miter"/></mask><mask id="cta-mask-b" maskUnits="userSpaceOnUse" x="74.98" y="34.18" width="374.18" height="374.18"><rect x="74.98" y="34.18" width="374.18" height="374.18" fill="#fff"/><path data-draw style="--delay: 0.6s" pathLength="1" d="M 323.08 294.19 L 235.22 142.00 L 135.97 313.89" fill="none" stroke="#000" stroke-width="44" stroke-linejoin="miter"/><polygon data-head style="--delay: 1.25s" points="109.99 298.89 111.97 355.46 161.95 328.89" fill="#000" stroke="#000" stroke-width="16" stroke-linejoin="miter"/></mask><mask id="cta-mask-c" maskUnits="userSpaceOnUse" x="74.98" y="34.18" width="374.18" height="374.18"><rect x="74.98" y="34.18" width="374.18" height="374.18" fill="#fff"/><path data-draw style="--delay: 0s" pathLength="1" d="M 189.39 295.00 L 365.12 295.00 L 265.88 123.11" fill="none" stroke="#000" stroke-width="44" stroke-linejoin="miter"/><polygon data-head style="--delay: 0.65s" points="291.86 108.11 241.88 81.54 239.89 138.11" fill="#000" stroke="#000" stroke-width="16" stroke-linejoin="miter"/></mask></defs><g data-arrow="a" mask="url(#cta-mask-a)"><path data-draw style="--delay: 0s" pathLength="1" d="M 189.39 295.00 L 365.12 295.00 L 265.88 123.11" fill="none" stroke-width="28" stroke-linejoin="miter"/><polygon data-head style="--delay: 0.65s" points="291.86 108.11 241.88 81.54 239.89 138.11"/></g><g data-arrow="b" mask="url(#cta-mask-b)"><path data-draw style="--delay: 0.3s" pathLength="1" d="M 255.53 178.81 L 167.67 331.00 L 366.15 331.00" fill="none" stroke-width="28" stroke-linejoin="miter"/><polygon data-head style="--delay: 0.95s" points="366.15 361.00 414.15 331.00 366.15 301.00"/></g><g data-arrow="c" mask="url(#cta-mask-c)"><path data-draw style="--delay: 0.6s" pathLength="1" d="M 323.08 294.19 L 235.22 142.00 L 135.97 313.89" fill="none" stroke-width="28" stroke-linejoin="miter"/><polygon data-head style="--delay: 1.25s" points="109.99 298.89 111.97 355.46 161.95 328.89"/></g></svg></div>
+    <div class="wrap home-cta__inner">
+      <h2 class="home-cta__title" id="page-cta-title">Où en êtes-vous réellement ?</h2>
+      <div class="home-cta__actions">
+        <a class="btn btn--primary" href="contact.html">Nous contacter</a>
+        <a class="btn btn--ghost home-cta__linkedin" href="https://www.linkedin.com/company/xsom-consulting" target="_blank" rel="noopener">Nous suivre sur LinkedIn <span aria-hidden="true">↗</span></a>
       </div>
     </div>
   </section>
@@ -484,14 +308,17 @@
 
     <div class="site-footer__bottom">
       <span>© <span data-year>2026</span> xSOM Consulting — Tous droits réservés</span>
-      <span>Bordeaux · France · États-Unis</span>
+      <span>Bordeaux · France</span>
     </div>
   </div>
 <div class="heritage-preferences"><signal-preferences lang="fr">Le thème et les animations suivent les préférences de votre navigateur.</signal-preferences></div>
 </footer>
 <!-- footer:end -->
 
-<script src="assets/js/heritage-site.js?v=0279419aef40" defer></script>
+<script src="assets/js/heritage-site.js?v=2e2fb0a3889b" defer></script>
+<script src="assets/js/home-film.js?v=eab2fd2a7aef" defer></script>
+<script src="assets/js/film-titles.js?v=89bba17a4ada" defer></script>
+<script src="assets/js/story.js?v=ed3efe3f4dff" defer></script>
 <script type="module" src="design-system/signal.js?v=76f290b9cea8"></script>
 </body>
 </html>
