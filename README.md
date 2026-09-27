@@ -25,8 +25,8 @@ The following approved exceptions are applied:
   returned below the film the same day, reduced to a title, the drawn logo map
   and three illustrated cards (one line and four keywords each). Two closing
   sections follow (2026-09-27): a dotted map of missions (Bordeaux largest,
-  Paris, Toulouse, Dakar, Mayotte; sizes as briefed, no figures) and a call to
-  action (contact, LinkedIn).
+  Paris, Toulouse, Nantes, Marseille, Dakar, Mayotte; sizes as briefed, no figures) and a
+  full-screen call to action (“Un projet, une question ?”: contact, LinkedIn).
 - The expertise pages open with an 18-second edit of the approved xSOM film,
   one shot per practice (cyber, AI infrastructure, production), with live titles
   in the page's own words, a practice index that fills with each shot, and the
@@ -39,6 +39,14 @@ The following approved exceptions are applied:
   on an 18-second film from three Grok clips (Sérénité / Sécurité / Souveraineté
   with a French flag; missions, decision-makers, transmission), with the same
   titles, bar and sound as the homepage (tests/page-films.test.cjs).
+- The AI & sovereignty page stays generalist and hands over to xSOM AI Studio
+  (https://guard.xsom.fr): its second section fills the screen with the footage
+  of that site's opening film (`tools/build-studio-loop.mjs`, silent seamless
+  loop, played only in view and never with reduced motion) under the studio's
+  own line, set large. It has no closing call to action (user request, 2026-09-27).
+- Every page-top film carries its own background music (`tools/film-score.mjs`):
+  synthesised in the repository, so no track licence is involved; one chord per
+  six-second shot, a soft impact on each cut, the clips' sound 8 LU underneath.
 - The obsolete remote-font statement on the French cookie page is corrected,
   and both languages accurately disclose local reading preferences.
 - The contact form retains secure POST/native-validation fallback, per-field

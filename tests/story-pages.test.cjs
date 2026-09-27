@@ -16,8 +16,8 @@ const original = file => strip(execFileSync('git', ['show', `30588d5:${file}`], 
 const siteFacts = ['afrique', 'océan', 'indien', 'africa', 'indian', 'ocean', 'the', 'suivre', 'follow', 'hpc'];
 
 const pages = {
-  'ia-souverainete.html': { kind: 'ai', linkedin: true },
-  'en/ai-sovereignty.html': { kind: 'ai', linkedin: true },
+  'ia-souverainete.html': { kind: 'ai' },
+  'en/ai-sovereignty.html': { kind: 'ai' },
   'carrieres.html': { kind: 'careers', mail: 'mailto:jean-philippe.talou@xsom.fr' },
   'en/careers.html': { kind: 'careers', mail: 'mailto:jean-philippe.talou@xsom.fr' },
 };
@@ -28,8 +28,8 @@ for (const [file, page] of Object.entries(pages)) {
   // The page head keeps its current copy until its film arrives.
   const body = main.slice(main.indexOf('</section>') + '</section>'.length);
   // The AI page hands over to xSOM AI Studio in that site's own words (guard.xsom.fr
-  // tagline, 2026-09-27 request), so the band is checked on its own below.
-  const studio = body.match(/<section class="story-band story-band--studio"[\s\S]*?<\/section>/)?.[0] || '';
+  // tagline, 2026-09-27 request), so that section is checked on its own below.
+  const studio = body.match(/<section class="studio"[\s\S]*?<\/section>/)?.[0] || '';
 
   test(`${file}: the body is cut from the page's own copy, no stock phrases`, () => {
     const allowed = words(original(file));
@@ -44,19 +44,22 @@ for (const [file, page] of Object.entries(pages)) {
   test(`${file}: the page is understood from its schemas`, () => {
     const reveal = [...body.matchAll(/data-reveal/g)].length;
     assert.ok(reveal >= 3, 'At least three animated schemas or groups');
-    const cta = body.match(/<section class="home-cta"[\s\S]*?<\/section>/)[0];
-    assert.match(cta, /href="https:\/\/www\.linkedin\.com\/company\/xsom-consulting" target="_blank" rel="noopener"/);
+    const cta = body.match(/<section class="home-cta"[\s\S]*?<\/section>/)?.[0];
     if (page.kind === 'ai') {
+      // User request (2026-09-27): no closing “Où en êtes-vous réellement ?” on this page;
+      // xSOM AI Studio is its call to action.
+      assert.equal(cta, undefined);
       const layers = [...body.matchAll(/<li class="story-stack__layer" data-layer="(\d)"/g)].map(m => Number(m[1]));
       assert.deepEqual(layers, [4, 3, 2, 1], 'Four layers, drawn from the ground up');
       assert.equal([...body.matchAll(/<li class="story-flow__node"/g)].length, 4);
       assert.equal([...body.matchAll(/<li class="story-card"/g)].length, 3);
-      assert.match(cta, /href="contact.html"/);
-      assert.ok(studio, 'An AI Studio band');
+      assert.ok(studio, 'An AI Studio section');
       assert.equal(body.indexOf('<section'), body.indexOf(studio), 'AI Studio is the second section, right after the film');
-      assert.match(studio, /<a class="btn btn--primary" href="https:\/\/guard\.xsom\.fr" target="_blank" rel="noopener">/);
+      assert.match(studio, /<a class="btn btn--primary studio__cta" href="https:\/\/guard\.xsom\.fr" target="_blank" rel="noopener">/);
       assert.match(strip(studio), /xSOM AI Studio/);
+      assert.match(studio, /<video class="studio__video" muted loop playsinline preload="none" data-desktop="(?:\.\.\/)?assets\/media\/xsom-studio-desktop\.mp4\?v=[a-f0-9]{12}"/);
     } else {
+      assert.match(cta, /href="https:\/\/www\.linkedin\.com\/company\/xsom-consulting" target="_blank" rel="noopener"/);
       assert.equal([...body.matchAll(/<li class="story-tile"/g)].length, 6);
       assert.equal([...body.matchAll(/<li class="story-orbit__item"/g)].length, 8);
       assert.equal([...body.matchAll(/<li class="story-steps__step"/g)].length, 4);

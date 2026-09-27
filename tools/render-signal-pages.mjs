@@ -134,7 +134,7 @@ function presenceMap(en) {
     return `<path class="presence-arc" pathLength="1" d="M${bx} ${by}Q${cx.toFixed(1)} ${cy.toFixed(1)} ${x} ${y}" style="--delay: ${0.9 + index * 0.2}s"/>`;
   }).join('\n            ');
   const marks = points.map(({ city, r, xy: [x, y] }, index) => `<g class="presence-point" data-city="${city}" transform="translate(${x} ${y})" style="--delay: ${index * 0.15}s"><circle class="presence-halo" r="${r * 2}"/><circle class="presence-dot" r="${r}"/></g>`).join('\n            ');
-  const labels = points.map(({ city, side, fr, en: english, xy: [x, y] }) => `<li class="presence-label presence-label--${side}" data-city="${city}" style="left: ${(x / WIDTH * 100).toFixed(2)}%; top: ${(y / HEIGHT * 100).toFixed(2)}%">${en ? english : fr}</li>`).join('\n          ');
+  const labels = points.map(({ city, side, dy, fr, en: english, xy: [x, y] }) => `<li class="presence-label presence-label--${side}" data-city="${city}" style="left: ${(x / WIDTH * 100).toFixed(2)}%; top: ${(y / HEIGHT * 100).toFixed(2)}%${dy ? `; --dy: ${dy}rem` : ''}">${en ? english : fr}</li>`).join('\n          ');
   return `<figure class="presence-map" data-presence-map style="aspect-ratio: ${WIDTH} / ${HEIGHT}">
         <div class="presence-map__land" aria-hidden="true"></div>
         <svg class="presence-map__marks" viewBox="0 0 ${WIDTH} ${HEIGHT}" aria-hidden="true">
@@ -212,7 +212,9 @@ function decorate(file, source, pair) {
   const filmName = isExpertise ? 'xsom-expertise' : isStory ? (file.includes('car') ? 'xsom-careers' : 'xsom-sovereignty') : '';
   if (filmName) {
     html = html.replace(/<!-- film-bar:start ?(#[\w-]+)? -->[\s\S]*?<!-- film-bar:end -->/, (_, next = '#practice-map') => `<!-- film-bar:start ${next} -->\n${filmBar(en, next)}\n    <!-- film-bar:end -->`);
-    html = html.replace(new RegExp(`(?:\\.\\./)?assets/media/(${filmName}-(?:desktop|mobile)\\.(?:jpg|mp4))(?:\\?v=[a-f0-9]{12})?`, 'g'),
+    // The AI page also carries xSOM AI Studio's footage (build-studio-loop.mjs).
+    const media = filmName === 'xsom-sovereignty' ? `${filmName}|xsom-studio` : filmName;
+    html = html.replace(new RegExp(`(?:\\.\\./)?assets/media/((?:${media})-(?:desktop|mobile)\\.(?:jpg|mp4))(?:\\?v=[a-f0-9]{12})?`, 'g'),
       (_, name) => runtimeAsset(`assets/media/${name}`, prefix));
   }
   // User exception: this experimental product is not part of the corporate offer.

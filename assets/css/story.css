@@ -111,9 +111,6 @@ html:not(.signal-js) .story-page .site-header { position: relative; margin-botto
 .story-band { padding-block: var(--sp-10); background: var(--signal-hero-bg); color: var(--signal-hero-text); }
 .story-band__inner { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--sp-6); }
 .story-band .story-band__title { margin: 0; color: var(--signal-hero-text); font: 650 var(--fs-h2) / 1.1 var(--signal-font-display); letter-spacing: -.03em; }
-/* AI page: the band hands the visitor over to xSOM AI Studio (guard.xsom.fr). */
-.story-band__eyebrow { margin: 0 0 var(--sp-2); color: var(--signal-hero-muted); font: 600 var(--fs-label) var(--signal-font-mono); letter-spacing: var(--signal-tracking); text-transform: uppercase; }
-.story-band__line { margin: var(--sp-3) 0 0; max-width: 60ch; color: var(--signal-hero-muted); font-size: var(--fs-lead); }
 /* The mark and its orbit share one grid cell, so the mark sits at the orbit's centre. */
 .story-orbit { display: grid; grid-template-areas: "orbit" "caption"; gap: var(--sp-8); margin: 0; }
 .story-orbit figcaption { grid-area: caption; }
@@ -129,6 +126,36 @@ html:not(.signal-js) .story-page .site-header { position: relative; margin-botto
 .story-steps__num { display: grid; place-items: center; width: 44px; height: 44px; border: 2px solid var(--signal-accent); border-radius: 50%; background: var(--signal-surface); color: var(--signal-accent-text); font: 600 var(--fs-sm) var(--signal-font-mono); }
 .story-steps__step strong { margin-top: var(--sp-2); font: 650 var(--fs-body) / 1.3 var(--signal-font-display); }
 .story-steps__step span:last-child { color: var(--signal-muted); font-size: var(--fs-sm); }
+
+/* ---- AI page: xSOM AI Studio, full height, on guard.xsom.fr's own footage
+   (build-studio-loop.mjs), so the two sites read as one. The video plays in view only
+   (story.js); reduced motion keeps the still. Each line rises from its own mask. */
+.studio { position: relative; isolation: isolate; display: grid; align-items: end; min-height: 100vh; min-height: 100svh; overflow: hidden; background: #07172a; color: var(--signal-hero-text); }
+.studio__media { position: absolute; inset: 0; z-index: -1; }
+.studio__media :is(picture, img, video) { position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: cover; }
+.studio__video { opacity: 0; transition: opacity 1.2s var(--signal-ease); }
+.studio[data-playing] .studio__video { opacity: 1; }
+.studio__media::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(4, 15, 31, .94), rgba(4, 15, 31, .7) 42%, rgba(4, 15, 31, .15) 78%), linear-gradient(0deg, rgba(4, 15, 31, .9), transparent 50%), linear-gradient(180deg, rgba(4, 15, 31, .75), transparent 22%); }
+.studio__inner { padding-block: calc(var(--header-h, 5rem) + var(--sp-16)) var(--sp-20); }
+.studio__rise { display: block; overflow: hidden; }
+.studio__rise > span { display: block; }
+.studio__eyebrow { display: flex; align-items: center; gap: var(--sp-4); margin: 0 0 var(--sp-6); color: var(--signal-hero-muted); font: 600 var(--fs-xs) var(--signal-font-mono); letter-spacing: .18em; text-transform: uppercase; }
+.studio__eyebrow::before { content: ''; flex: none; width: var(--sp-10); height: 2px; background: #3f93ff; transform-origin: left; }
+.studio .studio__title { margin: 0; color: var(--signal-hero-text); font: 750 clamp(3.75rem, 10.5vw, 10rem) / .98 var(--signal-font-display); letter-spacing: -.055em; }
+.studio__title .studio__rise { padding-bottom: .06em; }
+.studio__accent > span { background: linear-gradient(100deg, #9cc8ff, #3f93ff 55%, #7fd0ff); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.studio__claim { max-width: 24ch; margin: var(--sp-8) 0 0; color: var(--signal-hero-text); font: 600 clamp(1.5rem, 3.3vw, 2.875rem) / 1.15 var(--signal-font-display); letter-spacing: -.03em; }
+.studio__foot { display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-4) var(--sp-6); margin-top: var(--sp-12); }
+.studio__tags { display: flex; gap: var(--sp-2); margin: 0; padding: 0; list-style: none; }
+.studio__tags li { display: flex; align-items: center; gap: var(--sp-2); padding: var(--sp-2) var(--sp-4); border: var(--signal-border) solid rgba(233, 242, 255, .3); border-radius: 999px; font: 600 var(--fs-sm) var(--signal-font-body); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); }
+.studio__tags li::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: #3f93ff; box-shadow: 0 0 10px #3f93ff; }
+.studio .studio__cta { padding: var(--sp-4) var(--sp-8); font-size: var(--fs-body); }
+.studio__url { color: var(--signal-hero-muted); font: 500 var(--fs-xs) var(--signal-font-mono); letter-spacing: .08em; }
+
+/* ---- Homepage: the closing question takes the whole screen. */
+.home-film-page .home-cta { display: grid; place-items: center; min-height: 100vh; min-height: 100svh; }
+.home-film-page .home-cta .home-cta__title { margin-bottom: var(--sp-10); font-size: clamp(2.75rem, 8vw, 7.5rem); }
+.home-film-page .home-cta__mark { width: min(96vw, 60rem); }
 
 /* ---- Arrival: each schema plays once (story.js sets data-play). Reduced motion shows all. */
 @media (prefers-reduced-motion: no-preference) {
@@ -150,6 +177,12 @@ html:not(.signal-js) .story-page .site-header { position: relative; margin-botto
   :root:not([data-motion=off]) [data-play=done] .story-flow__lever { transition: opacity .6s var(--signal-ease) .9s; }
   :root:not([data-motion=off]) [data-play=ready] .story-orbit__item { opacity: 0; transform: translate(-50%, -50%) scale(.6); }
   :root:not([data-motion=off]) [data-play=done] .story-orbit__item { transition: opacity .4s var(--signal-ease) calc(1s + var(--i) * .1s), transform .5s cubic-bezier(.2, 1.4, .4, 1) calc(1s + var(--i) * .1s); }
+  :root:not([data-motion=off]) [data-play=ready] .studio__rise > span { transform: translateY(110%); }
+  :root:not([data-motion=off]) [data-play=done] .studio__rise > span { transition: transform 1s cubic-bezier(.2, .8, .2, 1) calc(var(--i) * .12s); }
+  :root:not([data-motion=off]) [data-play=ready] .studio__eyebrow::before { transform: scaleX(0); }
+  :root:not([data-motion=off]) [data-play=done] .studio__eyebrow::before { transition: transform .8s cubic-bezier(.65, 0, .35, 1); }
+  :root:not([data-motion=off]) [data-play=ready] .studio__foot { opacity: 0; transform: translateY(var(--sp-4)); }
+  :root:not([data-motion=off]) [data-play=done] .studio__foot { transition: opacity .7s var(--signal-ease) .75s, transform .7s var(--signal-ease) .75s; }
 }
 @keyframes story-marquee { to { transform: translateX(calc(-50% - var(--sp-3) / 2)); } }
 @keyframes story-pulse {
@@ -172,6 +205,8 @@ html:not(.signal-js) .story-page .site-header { position: relative; margin-botto
 @media (max-width: 699px) {
   .story-section { padding-block: var(--sp-16); }
   .home-cta { padding-block: var(--sp-20); }
+  .studio__inner { padding-bottom: var(--sp-16); }
+  .studio__media::after { background: linear-gradient(0deg, rgba(4, 15, 31, .95), rgba(4, 15, 31, .72) 55%, rgba(4, 15, 31, .35)), linear-gradient(180deg, rgba(4, 15, 31, .75), transparent 22%); }
   .story-cards, .story-tiles, .story-steps { grid-template-columns: minmax(0, 1fr); }
   .story-steps::before { left: 21px; right: auto; top: 0; bottom: 0; width: 2px; height: auto; transform-origin: top; }
   .story-steps__step { grid-template-columns: 44px minmax(0, 1fr); column-gap: var(--sp-4); }

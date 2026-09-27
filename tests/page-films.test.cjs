@@ -62,6 +62,14 @@ test('Page films: 18 seconds each, with sound', { skip: !hasFfprobe() && 'ffprob
   }
 });
 
+test('Every page-top film has its own background music, one chord per six-second shot', async () => {
+  const { pathToFileURL } = require('node:url');
+  const { cues } = await import(pathToFileURL(path.join(root, 'tools/film-score.mjs')));
+  assert.deepEqual(cues, { 'xsom-film': 5, 'xsom-expertise': 3, 'xsom-sovereignty': 3, 'xsom-careers': 3 });
+  const pipeline = read('tools/film-edit.mjs');
+  assert.match(pipeline, /const audio = withMusic\(name, soundtrack\(/, 'Every edit is mixed with its music');
+});
+
 function hasFfprobe() {
   try { execFileSync('ffprobe', ['-version'], { stdio: 'ignore' }); return true; } catch { return false; }
 }

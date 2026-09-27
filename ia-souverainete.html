@@ -39,7 +39,7 @@
 <link rel="stylesheet" href="assets/css/heritage-site.css?v=a08f806ca6a1">
 <link rel="stylesheet" href="assets/css/home-film-tokens.css?v=70d0fa854d66">
 <link rel="stylesheet" href="assets/css/film-titles.css?v=1b91261ed463">
-<link rel="stylesheet" href="assets/css/story.css?v=a2ab0c804316">
+<link rel="stylesheet" href="assets/css/story.css?v=cd9482a2d889">
 <script src="assets/js/signal-preferences-init.js?v=df27c76a85ce"></script>
 </head>
 <body class="heritage-site story-page" data-page="ia-souverainete">
@@ -92,7 +92,7 @@
         <img src="assets/media/xsom-sovereignty-desktop.jpg?v=fa16d5892c99" width="1920" height="1080" fetchpriority="high" alt="">
       </picture>
       <video class="film-video" muted autoplay loop playsinline preload="none" tabindex="-1" aria-hidden="true"
-        poster="assets/media/xsom-sovereignty-desktop.jpg?v=fa16d5892c99" data-desktop="assets/media/xsom-sovereignty-desktop.mp4?v=8040e6d166ac" data-mobile="assets/media/xsom-sovereignty-mobile.mp4?v=c9dfb0ae8a38"
+        poster="assets/media/xsom-sovereignty-desktop.jpg?v=fa16d5892c99" data-desktop="assets/media/xsom-sovereignty-desktop.mp4?v=2a3136c14fd2" data-mobile="assets/media/xsom-sovereignty-mobile.mp4?v=890199753a17"
         data-desktop-poster="assets/media/xsom-sovereignty-desktop.jpg?v=fa16d5892c99" data-mobile-poster="assets/media/xsom-sovereignty-mobile.jpg?v=00c370091ca9"></video>
     </div>
     <div class="wrap page-film__inner">
@@ -149,14 +149,20 @@
   </section>
 
   <!-- ===================== AI STUDIO ===================== -->
-  <section class="story-band story-band--studio" id="ai-studio" aria-labelledby="studio-title">
-    <div class="wrap story-band__inner">
-      <div class="story-band__copy">
-        <p class="story-band__eyebrow">Notre studio IA</p>
-        <h2 class="story-band__title" id="studio-title">xSOM AI Studio</h2>
-        <p class="story-band__line">La couche cybersécurité de vos usages IA. Logiciels et conseil.</p>
+  <section class="studio" id="ai-studio" aria-labelledby="studio-title" data-studio>
+    <div class="studio__media" aria-hidden="true">
+      <picture><source media="(max-width: 699px)" srcset="assets/media/xsom-studio-mobile.jpg?v=e75763cd4ccb"><img class="studio__poster" src="assets/media/xsom-studio-desktop.jpg?v=4e26d1c007b4" alt="" loading="lazy" decoding="async"></picture>
+      <video class="studio__video" muted loop playsinline preload="none" data-desktop="assets/media/xsom-studio-desktop.mp4?v=581e42c5b23a" data-mobile="assets/media/xsom-studio-mobile.mp4?v=c76a1232d323"></video>
+    </div>
+    <div class="wrap studio__inner" data-reveal>
+      <p class="studio__eyebrow"><span class="studio__rise" style="--i: 0"><span>Notre studio IA</span></span></p>
+      <h2 class="studio__title" id="studio-title"><span class="studio__rise" style="--i: 1"><span>xSOM</span></span> <span class="studio__rise studio__accent" style="--i: 2"><span>AI Studio</span></span></h2>
+      <p class="studio__claim"><span class="studio__rise" style="--i: 3"><span>La couche cybersécurité</span></span> <span class="studio__rise" style="--i: 4"><span>de vos usages IA.</span></span></p>
+      <div class="studio__foot">
+        <ul class="studio__tags"><li>Logiciels</li><li>Conseil</li></ul>
+        <a class="btn btn--primary studio__cta" href="https://guard.xsom.fr" target="_blank" rel="noopener">Découvrir AI Studio <span aria-hidden="true">↗</span></a>
+        <span class="studio__url">guard.xsom.fr</span>
       </div>
-      <a class="btn btn--primary" href="https://guard.xsom.fr" target="_blank" rel="noopener">Découvrir AI Studio <span aria-hidden="true">↗</span></a>
     </div>
   </section>
 
@@ -260,18 +266,6 @@
     </div>
   </section>
 
-  <!-- ===================== CONTACT ===================== -->
-  <section class="home-cta" aria-labelledby="page-cta-title">
-    <div class="home-cta__mark" aria-hidden="true"><svg class="offer-mark" viewBox="74.98 34.18 374.18 374.18" aria-hidden="true"><defs><mask id="cta-mask-a" maskUnits="userSpaceOnUse" x="74.98" y="34.18" width="374.18" height="374.18"><rect x="74.98" y="34.18" width="374.18" height="374.18" fill="#fff"/><path data-draw style="--delay: 0.3s" pathLength="1" d="M 255.53 178.81 L 167.67 331.00 L 366.15 331.00" fill="none" stroke="#000" stroke-width="44" stroke-linejoin="miter"/><polygon data-head style="--delay: 0.95s" points="366.15 361.00 414.15 331.00 366.15 301.00" fill="#000" stroke="#000" stroke-width="16" stroke-linejoin="miter"/></mask><mask id="cta-mask-b" maskUnits="userSpaceOnUse" x="74.98" y="34.18" width="374.18" height="374.18"><rect x="74.98" y="34.18" width="374.18" height="374.18" fill="#fff"/><path data-draw style="--delay: 0.6s" pathLength="1" d="M 323.08 294.19 L 235.22 142.00 L 135.97 313.89" fill="none" stroke="#000" stroke-width="44" stroke-linejoin="miter"/><polygon data-head style="--delay: 1.25s" points="109.99 298.89 111.97 355.46 161.95 328.89" fill="#000" stroke="#000" stroke-width="16" stroke-linejoin="miter"/></mask><mask id="cta-mask-c" maskUnits="userSpaceOnUse" x="74.98" y="34.18" width="374.18" height="374.18"><rect x="74.98" y="34.18" width="374.18" height="374.18" fill="#fff"/><path data-draw style="--delay: 0s" pathLength="1" d="M 189.39 295.00 L 365.12 295.00 L 265.88 123.11" fill="none" stroke="#000" stroke-width="44" stroke-linejoin="miter"/><polygon data-head style="--delay: 0.65s" points="291.86 108.11 241.88 81.54 239.89 138.11" fill="#000" stroke="#000" stroke-width="16" stroke-linejoin="miter"/></mask></defs><g data-arrow="a" mask="url(#cta-mask-a)"><path data-draw style="--delay: 0s" pathLength="1" d="M 189.39 295.00 L 365.12 295.00 L 265.88 123.11" fill="none" stroke-width="28" stroke-linejoin="miter"/><polygon data-head style="--delay: 0.65s" points="291.86 108.11 241.88 81.54 239.89 138.11"/></g><g data-arrow="b" mask="url(#cta-mask-b)"><path data-draw style="--delay: 0.3s" pathLength="1" d="M 255.53 178.81 L 167.67 331.00 L 366.15 331.00" fill="none" stroke-width="28" stroke-linejoin="miter"/><polygon data-head style="--delay: 0.95s" points="366.15 361.00 414.15 331.00 366.15 301.00"/></g><g data-arrow="c" mask="url(#cta-mask-c)"><path data-draw style="--delay: 0.6s" pathLength="1" d="M 323.08 294.19 L 235.22 142.00 L 135.97 313.89" fill="none" stroke-width="28" stroke-linejoin="miter"/><polygon data-head style="--delay: 1.25s" points="109.99 298.89 111.97 355.46 161.95 328.89"/></g></svg></div>
-    <div class="wrap home-cta__inner">
-      <h2 class="home-cta__title" id="page-cta-title">Où en êtes-vous réellement ?</h2>
-      <div class="home-cta__actions">
-        <a class="btn btn--primary" href="contact.html">Nous contacter</a>
-        <a class="btn btn--ghost home-cta__linkedin" href="https://www.linkedin.com/company/xsom-consulting" target="_blank" rel="noopener">Nous suivre sur LinkedIn <span aria-hidden="true">↗</span></a>
-      </div>
-    </div>
-  </section>
-
 </main>
 
 <!-- footer:start -->
@@ -330,7 +324,7 @@
 <script src="assets/js/heritage-site.js?v=2e2fb0a3889b" defer></script>
 <script src="assets/js/home-film.js?v=eab2fd2a7aef" defer></script>
 <script src="assets/js/film-titles.js?v=89bba17a4ada" defer></script>
-<script src="assets/js/story.js?v=ed3efe3f4dff" defer></script>
+<script src="assets/js/story.js?v=ff255623d274" defer></script>
 <script type="module" src="design-system/signal.js?v=76f290b9cea8"></script>
 </body>
 </html>
