@@ -101,15 +101,16 @@ for (const [file, copy] of Object.entries(brief)) {
     assert.match(html, /<!-- footer:start -->[\s\S]*mentions-legales\.html|legal-notice\.html/);
   });
 
-  test(`${file}: presence map marks the five missions, Bordeaux largest, with no remote asset`, () => {
+  test(`${file}: presence map marks the seven missions, Bordeaux largest, with no remote asset`, () => {
     const presence = html.match(/<section class="home-presence" id="presence"[\s\S]*?<\/section>/);
     assert.ok(presence, 'Presence section is present');
     assert.ok(html.indexOf(presence[0]) > html.indexOf('class="home-offer"'), 'Presence follows the offer');
     const cities = [...presence[0].matchAll(/<li class="presence-label[^"]*" data-city="(\w+)"/g)].map(m => m[1]);
-    assert.deepEqual(cities, ['bordeaux', 'paris', 'toulouse', 'dakar', 'mayotte']);
+    assert.deepEqual(cities, ['bordeaux', 'paris', 'toulouse', 'nantes', 'marseille', 'dakar', 'mayotte']);
     const radius = Object.fromEntries([...presence[0].matchAll(/<g class="presence-point" data-city="(\w+)"[^>]*>[\s\S]*?<circle class="presence-dot" r="([\d.]+)"/g)].map(m => [m[1], Number(m[2])]));
     assert.ok(radius.bordeaux > radius.paris && radius.paris > radius.toulouse && radius.toulouse > radius.dakar, JSON.stringify(radius));
     assert.equal(radius.dakar, radius.mayotte);
+    assert.ok(radius.nantes === radius.toulouse && radius.marseille === radius.toulouse, 'Nantes and Marseille are medium, like Toulouse');
     assert.doesNotMatch(presence[0], /https?:\/\//, 'The map loads nothing remote');
     assert.ok(fs.existsSync(path.join(root, 'assets/media/xsom-presence-land.svg')));
   });

@@ -19,4 +19,22 @@
     part.dataset.play = 'ready';
     observer.observe(part);
   });
+
+  // AI page: xSOM AI Studio's footage loads on approach and plays only while in view.
+  var phone = matchMedia('(max-width: 699px)');
+  var still = matchMedia('(prefers-reduced-motion: reduce)');
+  document.querySelectorAll('[data-studio]').forEach(function (section) {
+    var video = section.querySelector('video');
+    if (!video) return;
+    video.addEventListener('playing', function () { section.dataset.playing = ''; });
+    new IntersectionObserver(function (entries) {
+      if (!entries[entries.length - 1].isIntersecting || html.dataset.motion === 'off' || still.matches) {
+        video.pause();
+        return;
+      }
+      if (!video.getAttribute('src')) video.src = video.dataset[phone.matches ? 'mobile' : 'desktop'];
+      var playing = video.play();
+      if (playing) playing.catch(function () {});
+    }, { threshold: 0.15 }).observe(section);
+  });
 }());
