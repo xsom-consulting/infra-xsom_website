@@ -111,6 +111,9 @@ html:not(.signal-js) .story-page .site-header { position: relative; margin-botto
 .story-band { padding-block: var(--sp-10); background: var(--signal-hero-bg); color: var(--signal-hero-text); }
 .story-band__inner { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--sp-6); }
 .story-band .story-band__title { margin: 0; color: var(--signal-hero-text); font: 650 var(--fs-h2) / 1.1 var(--signal-font-display); letter-spacing: -.03em; }
+/* AI page: the band hands the visitor over to xSOM AI Studio (guard.xsom.fr). */
+.story-band__eyebrow { margin: 0 0 var(--sp-2); color: var(--signal-hero-muted); font: 600 var(--fs-label) var(--signal-font-mono); letter-spacing: var(--signal-tracking); text-transform: uppercase; }
+.story-band__line { margin: var(--sp-3) 0 0; max-width: 60ch; color: var(--signal-hero-muted); font-size: var(--fs-lead); }
 /* The mark and its orbit share one grid cell, so the mark sits at the orbit's centre. */
 .story-orbit { display: grid; grid-template-areas: "orbit" "caption"; gap: var(--sp-8); margin: 0; }
 .story-orbit figcaption { grid-area: caption; }

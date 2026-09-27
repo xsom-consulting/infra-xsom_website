@@ -27,10 +27,13 @@ for (const [file, page] of Object.entries(pages)) {
   const main = html.slice(html.indexOf('<main'), html.indexOf('</main>'));
   // The page head keeps its current copy until its film arrives.
   const body = main.slice(main.indexOf('</section>') + '</section>'.length);
+  // The AI page hands over to xSOM AI Studio in that site's own words (guard.xsom.fr
+  // tagline, 2026-09-27 request), so the band is checked on its own below.
+  const studio = body.match(/<section class="story-band story-band--studio"[\s\S]*?<\/section>/)?.[0] || '';
 
   test(`${file}: the body is cut from the page's own copy, no stock phrases`, () => {
     const allowed = words(original(file));
-    const extra = [...words(strip(body))].filter(word => !allowed.has(word) && !siteFacts.includes(word));
+    const extra = [...words(strip(body.replace(studio, '')))].filter(word => !allowed.has(word) && !siteFacts.includes(word));
     assert.deepEqual(extra, [], 'Every word comes from the original page');
     assert.doesNotMatch(body, /laisserez une trace|leave a mark|Pas des avantages|Not perks|Le constat|The problem/);
     for (const paragraph of body.match(/<p\b[\s\S]*?<\/p>/g) || []) {
@@ -49,6 +52,10 @@ for (const [file, page] of Object.entries(pages)) {
       assert.equal([...body.matchAll(/<li class="story-flow__node"/g)].length, 4);
       assert.equal([...body.matchAll(/<li class="story-card"/g)].length, 3);
       assert.match(cta, /href="contact.html"/);
+      assert.ok(studio, 'An AI Studio band');
+      assert.equal(body.indexOf('<section'), body.indexOf(studio), 'AI Studio is the second section, right after the film');
+      assert.match(studio, /<a class="btn btn--primary" href="https:\/\/guard\.xsom\.fr" target="_blank" rel="noopener">/);
+      assert.match(strip(studio), /xSOM AI Studio/);
     } else {
       assert.equal([...body.matchAll(/<li class="story-tile"/g)].length, 6);
       assert.equal([...body.matchAll(/<li class="story-orbit__item"/g)].length, 8);

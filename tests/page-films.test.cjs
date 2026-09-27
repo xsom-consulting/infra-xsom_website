@@ -12,8 +12,8 @@ const words = text => new Set(text.toLowerCase().replace(/['’]/g, ' ').match(/
 // Films for the AI & sovereignty and careers pages (Grok clips supplied 2026-09-27):
 // three shots, each carrying one idea already stated on the page.
 const pages = {
-  'ia-souverainete.html': { media: 'xsom-sovereignty', next: ['Découvrir', '#architecture'], beats: ['Sérénité', 'Sécurité', 'Souveraineté'] },
-  'en/ai-sovereignty.html': { media: 'xsom-sovereignty', next: ['Discover', '#architecture'], beats: ['Operational confidence', 'Security', 'Sovereignty'] },
+  'ia-souverainete.html': { media: 'xsom-sovereignty', next: ['Découvrir', '#ai-studio'], beats: ['Sérénité', 'Sécurité', 'Souveraineté'] },
+  'en/ai-sovereignty.html': { media: 'xsom-sovereignty', next: ['Discover', '#ai-studio'], beats: ['Operational confidence', 'Security', 'Sovereignty'] },
   'carrieres.html': { media: 'xsom-careers', next: ['Découvrir', '#roles'], beats: ['Missions à impact', 'Proximité avec les décideurs', 'Transmission & montée en compétence'] },
   'en/careers.html': { media: 'xsom-careers', next: ['Discover', '#roles'], beats: ['Work that matters', 'Close to decision-makers', 'Learning and passing it on'] },
 };
