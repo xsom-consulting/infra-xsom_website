@@ -8,11 +8,12 @@ const root = path.resolve(__dirname, '..');
 // The user's original copy, before the Signal redesign. Never regenerate this
 // reference from the current tree: that would bless the very drift we detect.
 const baseline = 'a9dfd3ca33875f1b0e68a13dd9c15e4ff00ec7c3';
+// The homepages and expertise pages were explicitly rewritten as visual films; the AI &
+// sovereignty and careers pages were explicitly cut down around schemas on 2026-09-27
+// (their own contract: tests/story-pages.test.cjs). Remaining pages keep the original copy.
 const pages = [
-  'index.html', 'expertises.html', 'cabinet.html', 'ia-souverainete.html',
-  'carrieres.html', 'contact.html', 'mentions-legales.html', 'cookies.html',
-  'en/index.html', 'en/expertise.html', 'en/firm.html', 'en/ai-sovereignty.html',
-  'en/careers.html', 'en/contact.html', 'en/legal-notice.html', 'en/cookies.html',
+  'cabinet.html', 'contact.html', 'mentions-legales.html', 'cookies.html',
+  'en/firm.html', 'en/contact.html', 'en/legal-notice.html', 'en/cookies.html',
 ];
 const voidTags = new Set('area base br col embed hr img input link meta param source track wbr'.split(' '));
 const blockTags = new Set('address article aside blockquote br dd div dl dt fieldset figcaption figure footer form h1 h2 h3 h4 h5 h6 header hr li main nav ol p section table tbody td th thead tr ul'.split(' '));
@@ -80,6 +81,17 @@ function exclusions(file, isBaseline) {
       assert.ok(['cookies.html', 'en/cookies.html'].includes(file));
       assert.equal(node.tag, 'tr');
       return true; // Approved technical disclosure only, not marketing copy.
+    }
+    if (!isBaseline && ['ia-souverainete.html', 'en/ai-sovereignty.html'].includes(file)
+      && node.tag === 'li' && classes.includes('tag') && normalize(text(node)) === 'Cloud HPC') {
+      return true; // The requested additional infrastructure term.
+    }
+    if (isBaseline && ['cabinet.html', 'en/firm.html'].includes(file) && classes.includes('metric')
+      && /États-Unis|United States/.test(text(node))) {
+      return true; // User request (2026-09-27): no United States presence anywhere.
+    }
+    if (['contact.html', 'en/contact.html'].includes(file) && node.tag === 'strong' && normalize(text(node)).startsWith('Bordeaux · France')) {
+      return true; // Same request: the address line loses “États-Unis”.
     }
     return isBaseline && file === 'cookies.html' && node.tag === 'tr'
       && normalize(text(node)).startsWith('Google Fonts ');

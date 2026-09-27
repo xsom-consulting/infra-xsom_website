@@ -21,7 +21,7 @@
     matchMedia('(min-width: 1101px)').addEventListener('change', function () { setMenu(false); });
   }
   function syncBrands() {
-    document.querySelectorAll('.brand img, .heritage-mark').forEach(function (img) {
+    document.querySelectorAll('.brand img, img.heritage-mark').forEach(function (img) {
       img.src = img.src.replace(/(?:gradient|moderne-dark)\.svg$/, html.dataset.theme === 'dark' ? 'moderne-dark.svg' : 'gradient.svg');
     });
   }

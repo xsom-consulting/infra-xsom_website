@@ -3,20 +3,20 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>xSOM Consulting — Conseil en systèmes d'information, cybersécurité et IA</title>
-<meta name="description" content="Cabinet de conseil indépendant depuis 2007. Gouvernance des SI, cybersécurité, infrastructures IA et cloud souverain, data science. Du cadrage à la mise en production.">
+<title>xSOM Consulting — Conseil en cybersécurité et infrastructures IA</title>
+<meta name="description" content="Cabinet de conseil. Gouvernance des SI, cybersécurité, infrastructures IA et cloud souverain, data science. Du cadrage à la mise en production.">
 
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="xSOM Consulting">
 <meta property="og:locale" content="fr_FR">
 <meta property="og:locale:alternate" content="en_US">
 <meta property="og:url" content="https://www.xsom.fr/index.html">
-<meta property="og:title" content="xSOM Consulting — Le conseil qui tient jusqu'à la production">
-<meta property="og:description" content="Gouvernance des SI, cybersécurité et infrastructures IA. Depuis 2007, nous accompagnons les DSI de grands comptes sur leurs systèmes les plus critiques.">
+<meta property="og:title" content="xSOM Consulting — Gouvernance des SI, cybersécurité et infrastructures IA">
+<meta property="og:description" content="Gouvernance des SI, cybersécurité et infrastructures IA. Nous accompagnons les DSI de grands comptes sur leurs systèmes les plus critiques.">
 <meta property="og:image" content="https://www.xsom.fr/assets/images/og-cover.jpg">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="xSOM Consulting — Le conseil qui tient jusqu'à la production">
-<meta name="twitter:description" content="Gouvernance des SI, cybersécurité et infrastructures IA. Cabinet indépendant depuis 2007.">
+<meta name="twitter:title" content="xSOM Consulting — Gouvernance des SI, cybersécurité et infrastructures IA">
+<meta name="twitter:description" content="Gouvernance des SI, cybersécurité et infrastructures IA. Cabinet de conseil.">
 <meta name="twitter:image" content="https://www.xsom.fr/assets/images/og-cover.jpg">
 
 <link rel="icon" href="assets/logo/moderne-dark.svg" type="image/svg+xml">
@@ -30,12 +30,10 @@
   "name": "xSOM Consulting",
   "url": "https://www.xsom.fr",
   "logo": "https://www.xsom.fr/assets/logo/logo-512.png",
-  "description": "Cabinet de conseil indépendant en systèmes d'information : gouvernance, cybersécurité, infrastructures IA et cloud souverain, data science et automatisation.",
-  "foundingDate": "2007",
+  "description": "Cabinet de conseil en systèmes d'information : gouvernance, cybersécurité, infrastructures IA et cloud souverain, data science et automatisation.",
   "email": "jean-philippe.talou@xsom.fr",
   "areaServed": [
-    { "@type": "Country", "name": "France" },
-    { "@type": "Country", "name": "United States" }
+    { "@type": "Country", "name": "France" }
   ],
   "legalName": "XSOM CONSULTING",
   "vatID": "FR80498029289",
@@ -54,6 +52,7 @@
     "Conformité DORA, NIS2, LPM, AI Act",
     "Infrastructures d'intelligence artificielle",
     "Cloud souverain",
+    "Cloud HPC",
     "Data science et MLOps",
     "Réseaux et télécommunications"
   ],
@@ -83,9 +82,11 @@
 <link rel="stylesheet" href="assets/css/components.css?v=25e04e80bea9">
 <link rel="stylesheet" href="design-system/tokens.css?v=d3f9c8183253">
 <link rel="stylesheet" href="design-system/components.css?v=58339a992fc9">
-<link rel="stylesheet" href="assets/css/heritage-site.css?v=c84750f72401">
-<link rel="stylesheet" href="assets/css/home-film-tokens.css?v=b2fac7e2ebb5">
-<link rel="stylesheet" href="assets/css/home-film.css?v=aceb3fba702d">
+<link rel="stylesheet" href="assets/css/heritage-site.css?v=a08f806ca6a1">
+<link rel="stylesheet" href="assets/css/home-film-tokens.css?v=70d0fa854d66">
+<link rel="stylesheet" href="assets/css/film-titles.css?v=1b91261ed463">
+<link rel="stylesheet" href="assets/css/story.css?v=18a34436035b">
+<link rel="stylesheet" href="assets/css/home-film.css?v=c11c20daa691">
 <script src="assets/js/signal-preferences-init.js?v=df27c76a85ce"></script>
 </head>
 <body class="heritage-site home-film-page" data-page="index">
@@ -99,7 +100,7 @@
       <img src="assets/logo/moderne-dark.svg" alt="" width="42" height="42">
       <span>
         <span class="brand__name">xSOM Consulting</span>
-        <span class="brand__tag">Conseil en systèmes d'information</span>
+        <span class="brand__tag">Cabinet de conseil</span>
       </span>
     </a>
 
@@ -108,8 +109,7 @@
         <a href="index.html" aria-current="page">Accueil</a>
         <a href="expertises.html">Expertises</a>
         <a href="ia-souverainete.html">IA &amp; Souveraineté</a>
-        <a href="cabinet.html">Le cabinet</a>
-        <a href="carrieres.html">Carrières</a>
+        <a href="cabinet.html">Cabinet &amp; carrières</a>
       </nav>
       <div class="header-actions">
         <p class="lang">
@@ -117,13 +117,13 @@
           <span aria-hidden="true">/</span>
           <a href="en/index.html" hreflang="en" lang="en">EN</a>
         </p>
-        <a class="btn btn--primary btn--sm" href="contact.html">Nous contacter</a>
+        <a class="header-cta" href="contact.html">Nous contacter</a>
       </div>
     </div>
 
     <button class="nav-toggle" data-nav-toggle aria-expanded="false" aria-controls="nav-panel"
             aria-label="Ouvrir le menu" data-label-open="Ouvrir le menu" data-label-close="Fermer le menu">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/></svg>
+      <span class="nav-toggle__open" aria-hidden="true">Menu</span><span class="nav-toggle__close" aria-hidden="true">Fermer</span>
     </button>
   </div>
 </header>
@@ -140,262 +140,173 @@
         <img src="assets/media/xsom-film-desktop.jpg?v=2143168f8474" width="1920" height="1080" fetchpriority="high" alt="">
       </picture>
       <video class="film-video" muted autoplay loop playsinline preload="none" tabindex="-1" aria-hidden="true"
-        poster="assets/media/xsom-film-desktop.jpg?v=2143168f8474" data-desktop="assets/media/xsom-film-desktop.mp4?v=9dea911c104a" data-mobile="assets/media/xsom-film-mobile.mp4?v=be7d0dc343c5"
+        poster="assets/media/xsom-film-desktop.jpg?v=2143168f8474" data-desktop="assets/media/xsom-film-desktop.mp4?v=838f7de62546" data-mobile="assets/media/xsom-film-mobile.mp4?v=ec45f52b233f"
         data-desktop-poster="assets/media/xsom-film-desktop.jpg?v=2143168f8474" data-mobile-poster="assets/media/xsom-film-mobile.jpg?v=9fcaf467742a"></video>
     </div>
+    <a class="film-next" href="#offre">
+      <span>Découvrir</span>
+      <svg class="film-chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="m4 9 8 7 8-7"/></svg>
+    </a>
     <div class="heritage-explorer film-controls">
       <button class="film-toggle" data-film-toggle data-film-action="pause" type="button" aria-label="Mettre en pause" title="Mettre en pause" hidden>
         <svg class="film-icon film-icon--play" viewBox="0 0 24 24" aria-hidden="true"><polygon points="6 3 20 12 6 21 6 3"/></svg>
         <svg class="film-icon film-icon--pause" viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg>
       </button>
+      <button class="film-toggle film-sound" data-film-sound="off" type="button" aria-label="Activer le son" title="Activer le son" hidden>
+        <svg class="film-icon film-icon--line film-icon--muted" viewBox="0 0 24 24" aria-hidden="true"><path d="M11 4.702a.705.705 0 0 0-1.203-.498L6.413 7.587A1.4 1.4 0 0 1 5.416 8H3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h2.416a1.4 1.4 0 0 1 .997.413l3.383 3.384A.705.705 0 0 0 11 19.298z"/><path d="m22 9-6 6M16 9l6 6"/></svg>
+        <svg class="film-icon film-icon--line film-icon--sound" viewBox="0 0 24 24" aria-hidden="true"><path d="M11 4.702a.705.705 0 0 0-1.203-.498L6.413 7.587A1.4 1.4 0 0 1 5.416 8H3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h2.416a1.4 1.4 0 0 1 .997.413l3.383 3.384A.705.705 0 0 0 11 19.298z"/><path d="M16 9a5 5 0 0 1 0 6M19.364 18.364a9 9 0 0 0 0-12.728"/></svg>
+      </button>
     </div>
+
     <!-- home-film:end -->
     <div class="wrap hero__inner">
-      <div class="hero__text">
-        <p class="eyebrow" data-num="2007">Cabinet de conseil indépendant</p>
-
-        <h1 class="t-display">Le conseil qui tient jusqu'à la <span class="em">production</span></h1>
-
-        <p class="lead">Gouvernance des systèmes d'information, cybersécurité et infrastructures
-        d'intelligence artificielle. Depuis 2007, nous accompagnons les DSI de grands comptes sur
-        leurs systèmes les plus critiques — du cadrage stratégique jusqu'à la mise en production.</p>
-
-        <div class="hero__actions">
-          <a class="btn btn--primary" href="expertises.html">
-            Découvrir nos expertises
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </a>
-          <a class="btn btn--ghost" href="contact.html">Parler de votre projet</a>
-        </div>
-
-        <div class="hero__meta">
-          <div><strong>2007</strong>Année de création</div>
-          <div><strong>3 pôles</strong>Expertises intégrées</div>
-          <div><strong>France · USA</strong>Présence bi-continentale</div>
+      <div class="hero__text film-static">
+        <p class="film-kicker">xSOM Consulting</p>
+        <h1 class="t-display">Cabinet de conseil SI, cybersécurité et IA</h1>
+        <p class="lead">Gouvernance des systèmes d’information, cybersécurité et infrastructures d’intelligence artificielle. Depuis 2007, nous accompagnons les DSI de grands comptes sur leurs systèmes les plus critiques — du cadrage stratégique jusqu’à la mise en production.</p>
+      </div>
+    </div>
+    <div class="film-titles" aria-hidden="true">
+      <div class="film-beat film-beat--brand" data-shot="0">
+        <div class="film-scrim" data-in="0.1" data-out="5.5"></div>
+        <div class="film-stack">
+          <span class="film-rule" data-in="0.35" data-out="5.3"></span>
+          <p class="film-line film-display" data-in="0.5" data-out="5.3"><span>xSOM Consulting</span></p>
+          <p class="film-line film-sub" data-in="1.05" data-out="5.36"><span>Cabinet de conseil SI, cybersécurité et IA</span></p>
         </div>
       </div>
-
+      <div class="film-beat film-beat--practices" data-shot="1">
+        <div class="film-scrim" data-in="6.1" data-out="11.5"></div>
+        <div class="film-stack">
+          <p class="film-slam" data-in="6.35" data-dim="7.35" data-out="11.2"><b>Gouvernance</b> <i>des systèmes d’information</i></p>
+          <p class="film-slam" data-in="7.35" data-dim="8.35" data-out="11.26"><b>Cybersécurité</b></p>
+          <p class="film-slam" data-in="8.35" data-out="11.32"><b>Infrastructures</b> <i>d’intelligence artificielle</i></p>
+        </div>
+      </div>
+      <div class="film-beat film-beat--since" data-shot="2">
+        <div class="film-scrim" data-in="12.1" data-out="17.5"></div>
+        <div class="film-stack">
+          <p class="film-line film-year" data-in="12.35" data-out="17.2"><span><i>Depuis</i> <b>2007</b></span></p>
+          <p class="film-line film-sub" data-in="13" data-out="17.26"><span>nous accompagnons les DSI de grands comptes</span></p>
+          <p class="film-line film-sub" data-in="13.2" data-out="17.32"><span>sur leurs systèmes les plus critiques</span></p>
+        </div>
+      </div>
+      <div class="film-beat film-beat--path" data-shot="3">
+        <div class="film-scrim" data-in="18.1" data-out="23.5"></div>
+        <div class="film-stack">
+          <p class="film-line film-sub" data-in="18.35" data-out="23.2"><span>du cadrage stratégique</span></p>
+          <span class="film-path" data-in="18.95" data-out="23.2"></span>
+          <p class="film-line film-title" data-in="19.55" data-out="23.3"><span>jusqu’à la mise en production</span></p>
+        </div>
+      </div>
+      <div class="film-beat film-beat--mark" data-shot="4">
+        <div class="film-scrim film-scrim--center" data-in="24.1"></div>
+        <div class="film-emblem">
+          <span class="film-glow" data-in="24.4"></span>
+          <svg class="film-mark" viewBox="74.98 34.18 374.18 374.18" aria-hidden="true"><defs><mask id="film-mask-a" maskUnits="userSpaceOnUse" x="74.98" y="34.18" width="374.18" height="374.18"><rect x="74.98" y="34.18" width="374.18" height="374.18" fill="#fff"/><path data-draw data-in="24.85" pathLength="1" d="M 255.53 178.81 L 167.67 331.00 L 366.15 331.00" fill="none" stroke="#000" stroke-width="44" stroke-linejoin="miter"/><polygon data-head data-in="25.50" points="366.15 361.00 414.15 331.00 366.15 301.00" fill="#000" stroke="#000" stroke-width="16" stroke-linejoin="miter"/></mask><linearGradient id="film-grad-a" gradientUnits="userSpaceOnUse" x1="189.4" y1="295" x2="241.9" y2="81.5"><stop offset="0" stop-color="#2f86ff"/><stop offset="1" stop-color="#7ab8ff"/></linearGradient><mask id="film-mask-b" maskUnits="userSpaceOnUse" x="74.98" y="34.18" width="374.18" height="374.18"><rect x="74.98" y="34.18" width="374.18" height="374.18" fill="#fff"/><path data-draw data-in="25.15" pathLength="1" d="M 323.08 294.19 L 235.22 142.00 L 135.97 313.89" fill="none" stroke="#000" stroke-width="44" stroke-linejoin="miter"/><polygon data-head data-in="25.80" points="109.99 298.89 111.97 355.46 161.95 328.89" fill="#000" stroke="#000" stroke-width="16" stroke-linejoin="miter"/></mask><linearGradient id="film-grad-b" gradientUnits="userSpaceOnUse" x1="255.5" y1="178.8" x2="414.2" y2="331"><stop offset="0" stop-color="#1450c8"/><stop offset="1" stop-color="#3f93ff"/></linearGradient><mask id="film-mask-c" maskUnits="userSpaceOnUse" x="74.98" y="34.18" width="374.18" height="374.18"><rect x="74.98" y="34.18" width="374.18" height="374.18" fill="#fff"/><path data-draw data-in="24.55" pathLength="1" d="M 189.39 295.00 L 365.12 295.00 L 265.88 123.11" fill="none" stroke="#000" stroke-width="44" stroke-linejoin="miter"/><polygon data-head data-in="25.20" points="291.86 108.11 241.88 81.54 239.89 138.11" fill="#000" stroke="#000" stroke-width="16" stroke-linejoin="miter"/></mask><linearGradient id="film-grad-c" gradientUnits="userSpaceOnUse" x1="323.1" y1="294.2" x2="112" y2="355.5"><stop offset="0" stop-color="#8d97a4"/><stop offset="1" stop-color="#e6ebf1"/></linearGradient></defs><g data-arrow="a" mask="url(#film-mask-a)"><path data-draw data-in="24.55" pathLength="1" d="M 189.39 295.00 L 365.12 295.00 L 265.88 123.11" fill="none" stroke="url(#film-grad-a)" stroke-width="28" stroke-linejoin="miter"/><polygon data-head data-in="25.20" points="291.86 108.11 241.88 81.54 239.89 138.11" fill="url(#film-grad-a)"/></g><g data-arrow="b" mask="url(#film-mask-b)"><path data-draw data-in="24.85" pathLength="1" d="M 255.53 178.81 L 167.67 331.00 L 366.15 331.00" fill="none" stroke="url(#film-grad-b)" stroke-width="28" stroke-linejoin="miter"/><polygon data-head data-in="25.50" points="366.15 361.00 414.15 331.00 366.15 301.00" fill="url(#film-grad-b)"/></g><g data-arrow="c" mask="url(#film-mask-c)"><path data-draw data-in="25.15" pathLength="1" d="M 323.08 294.19 L 235.22 142.00 L 135.97 313.89" fill="none" stroke="url(#film-grad-c)" stroke-width="28" stroke-linejoin="miter"/><polygon data-head data-in="25.80" points="109.99 298.89 111.97 355.46 161.95 328.89" fill="url(#film-grad-c)"/></g></svg>
+          <span class="film-shine" data-in="26.4"></span>
+        </div>
+        <p class="film-line film-wordmark" data-in="26"><span>xSOM Consulting</span></p>
+      </div>
+      <div class="film-veil"></div>
     </div>
   </section>
 
-  <!-- ===================== RÉFÉRENCES ===================== -->
-  <section class="clients section--light" aria-labelledby="clients-title">
-    <div class="wrap">
-      <h2 class="clients__title" id="clients-title">Ils nous font confiance</h2>
-    </div>
-    <div class="clients__viewport">
-      <div class="clients__track">
-        <img src="assets/images/partenaires/Credit-Agricole-logo.png" alt="Crédit Agricole" height="40" loading="lazy">
-        <img src="assets/images/partenaires/EDF.png" alt="EDF" height="40" loading="lazy">
-        <img src="assets/images/partenaires/LA-POSTE-BANQUE-POSTALE.png" alt="La Banque Postale" height="40" loading="lazy">
-        <img src="assets/images/partenaires/logo-siplec_eleclerc_H_RVB_OK.png" alt="Siplec — E.Leclerc" height="40" loading="lazy">
-        <img src="assets/images/partenaires/Credit-Agricole-logo.png" alt="" aria-hidden="true" height="40" loading="lazy">
-        <img src="assets/images/partenaires/EDF.png" alt="" aria-hidden="true" height="40" loading="lazy">
-        <img src="assets/images/partenaires/LA-POSTE-BANQUE-POSTALE.png" alt="" aria-hidden="true" height="40" loading="lazy">
-        <img src="assets/images/partenaires/logo-siplec_eleclerc_H_RVB_OK.png" alt="" aria-hidden="true" height="40" loading="lazy">
-      </div>
-    </div>
-  </section>
-
-  <!-- ===================== TROIS PÔLES ===================== -->
-  <section class="section" aria-labelledby="offer-title" data-heritage-poles>
-    <div class="wrap">
-      <div class="film-expertise-intro">
-      <div class="sec-head reveal">
+  <!-- ===================== OFFRE ===================== -->
+  <section class="home-offer" id="offre" aria-labelledby="home-offer-title">
+    <div class="wrap home-offer__inner">
+      <div class="home-offer__head">
         <p class="eyebrow" data-num="01">Notre offre</p>
-        <h2 class="t-h2" id="offer-title">Trois pôles, une même exigence d'<span class="em">exécution</span></h2>
-        <hr class="rule">
-        <p class="lead">Chaque pôle couvre la chaîne complète : diagnostic, architecture, pilotage,
-        mise en production et transfert aux équipes. Les trois se combinent sur les programmes
-        où l'infrastructure, la sécurité et la donnée ne peuvent pas être traitées séparément.</p>
+        <h2 class="t-h2" id="home-offer-title">Trois pôles, une même exigence d’<span class="em">exécution</span></h2>
       </div>
-<figure class="hero__viz heritage-hero-art" data-hero-mark>
-        <div class="heritage-explorer heritage-mark-map" aria-label="Les trois pôles xSOM">
-          <img class="heritage-mark" src="assets/logo/gradient.svg" width="374" height="374" fetchpriority="high" alt="Logo original xSOM : trois flèches bleues et grise entrelacées.">
+      <figure class="home-offer__map heritage-hero-art" data-hero-mark data-offer-map>
+        <div class="heritage-mark-map" aria-label="Les trois pôles xSOM">
+          <svg class="heritage-mark offer-mark" viewBox="74.98 34.18 374.18 374.18" aria-hidden="true"><defs><mask id="offer-mask-a" maskUnits="userSpaceOnUse" x="74.98" y="34.18" width="374.18" height="374.18"><rect x="74.98" y="34.18" width="374.18" height="374.18" fill="#fff"/><path data-draw style="--delay: 0.3s" pathLength="1" d="M 255.53 178.81 L 167.67 331.00 L 366.15 331.00" fill="none" stroke="#000" stroke-width="44" stroke-linejoin="miter"/><polygon data-head style="--delay: 0.95s" points="366.15 361.00 414.15 331.00 366.15 301.00" fill="#000" stroke="#000" stroke-width="16" stroke-linejoin="miter"/></mask><mask id="offer-mask-b" maskUnits="userSpaceOnUse" x="74.98" y="34.18" width="374.18" height="374.18"><rect x="74.98" y="34.18" width="374.18" height="374.18" fill="#fff"/><path data-draw style="--delay: 0.6s" pathLength="1" d="M 323.08 294.19 L 235.22 142.00 L 135.97 313.89" fill="none" stroke="#000" stroke-width="44" stroke-linejoin="miter"/><polygon data-head style="--delay: 1.25s" points="109.99 298.89 111.97 355.46 161.95 328.89" fill="#000" stroke="#000" stroke-width="16" stroke-linejoin="miter"/></mask><mask id="offer-mask-c" maskUnits="userSpaceOnUse" x="74.98" y="34.18" width="374.18" height="374.18"><rect x="74.98" y="34.18" width="374.18" height="374.18" fill="#fff"/><path data-draw style="--delay: 0s" pathLength="1" d="M 189.39 295.00 L 365.12 295.00 L 265.88 123.11" fill="none" stroke="#000" stroke-width="44" stroke-linejoin="miter"/><polygon data-head style="--delay: 0.65s" points="291.86 108.11 241.88 81.54 239.89 138.11" fill="#000" stroke="#000" stroke-width="16" stroke-linejoin="miter"/></mask></defs><g data-arrow="a" mask="url(#offer-mask-a)"><path data-draw style="--delay: 0s" pathLength="1" d="M 189.39 295.00 L 365.12 295.00 L 265.88 123.11" fill="none" stroke-width="28" stroke-linejoin="miter"/><polygon data-head style="--delay: 0.65s" points="291.86 108.11 241.88 81.54 239.89 138.11"/></g><g data-arrow="b" mask="url(#offer-mask-b)"><path data-draw style="--delay: 0.3s" pathLength="1" d="M 255.53 178.81 L 167.67 331.00 L 366.15 331.00" fill="none" stroke-width="28" stroke-linejoin="miter"/><polygon data-head style="--delay: 0.95s" points="366.15 361.00 414.15 331.00 366.15 301.00"/></g><g data-arrow="c" mask="url(#offer-mask-c)"><path data-draw style="--delay: 0.6s" pathLength="1" d="M 323.08 294.19 L 235.22 142.00 L 135.97 313.89" fill="none" stroke-width="28" stroke-linejoin="miter"/><polygon data-head style="--delay: 1.25s" points="109.99 298.89 111.97 355.46 161.95 328.89"/></g></svg>
           <svg class="heritage-mark-routes" viewBox="0 0 600 600" fill="none" aria-hidden="true">
-            <path data-mark-route="1" d="M280 157 L280 114 L320 114 L320 90"/>
-            <path data-mark-route="2" d="M456 412 L504 412 L504 486"/>
-            <path data-mark-route="3" d="M146 438 L96 438 L96 486"/>
-            <circle cx="280" cy="157" r="5"/><circle cx="456" cy="412" r="5"/><circle cx="146" cy="438" r="5"/>
+            <path data-mark-route="1" pathLength="1" d="M280 157 L280 114 L320 114 L320 90" style="--delay: 1.3s"/>
+            <path data-mark-route="2" pathLength="1" d="M456 412 L504 412 L504 486" style="--delay: 1.45s"/>
+            <path data-mark-route="3" pathLength="1" d="M146 438 L96 438 L96 486" style="--delay: 1.6s"/>
+            <circle cx="280" cy="157" r="5" style="--delay: 1.2s"/><circle cx="456" cy="412" r="5" style="--delay: 1.3499999999999999s"/><circle cx="146" cy="438" r="5" style="--delay: 1.5s"/>
           </svg>
-          <a class="heritage-mark-link heritage-mark-link--1" data-mark-practice="1" href="expertises.html#pole-cyber"><span class="heritage-mark-number" aria-hidden="true">01</span><span>Télécom, réseau &amp; cybersécurité</span><span class="heritage-mark-arrow" aria-hidden="true">↗</span></a>
-          <a class="heritage-mark-link heritage-mark-link--2" data-mark-practice="2" href="ia-souverainete.html"><span class="heritage-mark-number" aria-hidden="true">02</span><span>Infrastructures IA &amp; cloud souverain</span><span class="heritage-mark-arrow" aria-hidden="true">↗</span></a>
-          <a class="heritage-mark-link heritage-mark-link--3" data-mark-practice="3" href="expertises.html#pole-data"><span class="heritage-mark-number" aria-hidden="true">03</span><span>Data science, ML &amp; automatisation</span><span class="heritage-mark-arrow" aria-hidden="true">↗</span></a>
+          <a class="heritage-mark-link heritage-mark-link--1" data-mark-practice="1" href="expertises.html#pole-cyber" style="--delay: 1.6s"><span class="heritage-mark-number" aria-hidden="true">01</span><span>Télécom, réseau &amp; cybersécurité</span><span class="heritage-mark-arrow" aria-hidden="true">↗</span></a>
+          <a class="heritage-mark-link heritage-mark-link--2" data-mark-practice="2" href="ia-souverainete.html" style="--delay: 1.75s"><span class="heritage-mark-number" aria-hidden="true">02</span><span>Infrastructures IA &amp; cloud souverain</span><span class="heritage-mark-arrow" aria-hidden="true">↗</span></a>
+          <a class="heritage-mark-link heritage-mark-link--3" data-mark-practice="3" href="expertises.html#pole-data" style="--delay: 1.9000000000000001s"><span class="heritage-mark-number" aria-hidden="true">03</span><span>Data science, ML &amp; automatisation</span><span class="heritage-mark-arrow" aria-hidden="true">↗</span></a>
         </div>
       </figure>
-      </div>
-
-      <div class="grid grid-3">
-        <a class="card card--link reveal" data-delay="1" href="expertises.html#pole-cyber">
-          <span class="card__icon" aria-hidden="true">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2l8 4v6c0 5-3.2 9-8 10-4.8-1-8-5-8-10V6l8-4z"/></svg>
-          </span>
-          <span class="card__num">Pôle 01</span>
-          <h3 class="t-h3">Télécom, réseau &amp; cybersécurité</h3>
-          <p>Gouvernance des infrastructures réseau, programmes de conformité réglementaire et
-          résilience opérationnelle des systèmes critiques.</p>
-          <ul class="tags" style="margin-top:var(--sp-6)">
-            <li class="tag">Architecture réseau</li>
-            <li class="tag">DORA · NIS2 · LPM</li>
-            <li class="tag">PCA / PRA</li>
-            <li class="tag">Audit</li>
-          </ul>
-        </a>
-
-        <a class="card card--link reveal" data-delay="2" href="ia-souverainete.html">
-          <span class="card__icon" aria-hidden="true">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2.5" y="3.5" width="19" height="13" rx="1.5"/><path d="M8 21h8M12 16.5V21"/></svg>
-          </span>
-          <span class="card__num">Pôle 02</span>
-          <h3 class="t-h3">Infrastructures IA &amp; cloud souverain</h3>
-          <p>Architectures souveraines, dimensionnement GPU, observabilité full-stack, maîtrise des
-          coûts et conformité AI Act.</p>
-          <ul class="tags" style="margin-top:var(--sp-6)">
-            <li class="tag">Cloud souverain</li>
-            <li class="tag">GPU &amp; datacenter</li>
-            <li class="tag">FinOps · AIOps</li>
-            <li class="tag">Green IT</li>
-          </ul>
-        </a>
-
-        <a class="card card--link reveal" data-delay="3" href="expertises.html#pole-data">
-          <span class="card__icon" aria-hidden="true">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><ellipse cx="12" cy="5.5" rx="7.5" ry="3"/><path d="M4.5 5.5v13c0 1.7 3.4 3 7.5 3s7.5-1.3 7.5-3v-13"/><path d="M4.5 12c0 1.7 3.4 3 7.5 3s7.5-1.3 7.5-3"/></svg>
-          </span>
-          <span class="card__num">Pôle 03</span>
-          <h3 class="t-h3">Data science, ML &amp; automatisation</h3>
-          <p>Pipelines de données, modélisation, MLOps et industrialisation de solutions IA
-          réellement déployées en production.</p>
-          <ul class="tags" style="margin-top:var(--sp-6)">
-            <li class="tag">Feature engineering</li>
-            <li class="tag">APIs de scoring</li>
-            <li class="tag">MLOps · CI/CD</li>
-            <li class="tag">Gouvernance</li>
-          </ul>
-        </a>
-      </div>
+      <ul class="offer-cards" role="list">
+        <li>
+          <a class="offer-card" href="expertises.html#pole-cyber">
+            <span class="offer-card__media"><img src="assets/media/xsom-pole-1.jpg" width="1280" height="720" loading="lazy" alt=""></span>
+            <span class="offer-card__num" aria-hidden="true">01</span>
+            <h3 class="offer-card__title">Télécom, réseau &amp; cybersécurité</h3>
+            <p>Réseaux critiques, conformité et résilience opérationnelle.</p>
+            <ul class="offer-card__tags"><li>Architecture réseau</li><li>DORA · NIS2 · LPM</li><li>PCA / PRA</li><li>Audit</li></ul>
+            <span class="offer-card__go" aria-hidden="true">↗</span>
+          </a>
+        </li>
+        <li>
+          <a class="offer-card" href="ia-souverainete.html">
+            <span class="offer-card__media"><img src="assets/media/xsom-pole-2.jpg" width="1280" height="720" loading="lazy" alt=""></span>
+            <span class="offer-card__num" aria-hidden="true">02</span>
+            <h3 class="offer-card__title">Infrastructures IA &amp; cloud souverain</h3>
+            <p>Architectures souveraines, GPU, observabilité et maîtrise des coûts.</p>
+            <ul class="offer-card__tags"><li>Cloud souverain</li><li>GPU &amp; datacenter</li><li>FinOps · AIOps</li><li>Green IT</li></ul>
+            <span class="offer-card__go" aria-hidden="true">↗</span>
+          </a>
+        </li>
+        <li>
+          <a class="offer-card" href="expertises.html#pole-data">
+            <span class="offer-card__media"><img src="assets/media/xsom-pole-3.jpg" width="1280" height="720" loading="lazy" alt=""></span>
+            <span class="offer-card__num" aria-hidden="true">03</span>
+            <h3 class="offer-card__title">Data science, ML &amp; automatisation</h3>
+            <p>Pipelines, modélisation et MLOps jusqu’à la production.</p>
+            <ul class="offer-card__tags"><li>Feature engineering</li><li>APIs de scoring</li><li>MLOps · CI/CD</li><li>Gouvernance</li></ul>
+            <span class="offer-card__go" aria-hidden="true">↗</span>
+          </a>
+        </li>
+      </ul>
     </div>
   </section>
 
-  <!-- ===================== CHIFFRES ===================== -->
-  <section class="section section--tight" aria-label="Chiffres clés">
-    <div class="wrap">
-      <hr class="rule rule--full">
-      <div class="metrics reveal" style="margin-top:var(--sp-12)">
-        <div class="metric">
-          <div class="metric__value"><span data-since="2007" data-suffix=" ans">19 ans</span></div>
-          <p class="metric__label">d'interventions sur des infrastructures critiques</p>
-        </div>
-        <div class="metric">
-          <div class="metric__value"><span data-count="6">6</span></div>
-          <p class="metric__label">secteurs couverts, du service public à l'industrie</p>
-        </div>
-        <div class="metric">
-          <div class="metric__value"><span data-count="3">3</span></div>
-          <p class="metric__label">pôles d'expertise activables ensemble</p>
-        </div>
-        <div class="metric">
-          <div class="metric__value">100&nbsp;%</div>
-          <p class="metric__label">indépendant — aucune affiliation éditeur</p>
-        </div>
+  <!-- ===================== PRÉSENCE ===================== -->
+  <section class="home-presence" id="presence" aria-labelledby="home-presence-title">
+    <div class="wrap home-presence__inner">
+      <div class="home-presence__head">
+        <p class="eyebrow" data-num="02">Présence</p>
+        <h2 class="t-h2" id="home-presence-title">Partout en France, et au-delà</h2>
       </div>
-    </div>
-  </section>
-
-  <!-- ===================== APPROCHE ===================== -->
-  <section class="section section--light" aria-labelledby="approach-title">
-    <div class="wrap split">
-      <div>
-        <div class="sec-head reveal" style="margin-bottom:var(--sp-8)">
-          <p class="eyebrow" data-num="02">Notre approche</p>
-          <h2 class="t-h2" id="approach-title">Un conseil proche du terrain, orienté <span class="em">résultats</span></h2>
-          <hr class="rule">
-        </div>
-        <ul class="checklist reveal" data-delay="1">
-          <li>
-            <span class="checklist__mark" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2"><polyline points="20 6 9 17 4 12"/></svg></span>
-            <div><strong>Co-construction</strong><span>Nos consultants travaillent aux côtés de vos équipes, dans vos instances, sur vos outils.</span></div>
-          </li>
-          <li>
-            <span class="checklist__mark" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2"><polyline points="20 6 9 17 4 12"/></svg></span>
-            <div><strong>Pragmatisme</strong><span>Les contraintes budgétaires, humaines et calendaires sont intégrées dès le cadrage, pas découvertes en cours de route.</span></div>
-          </li>
-          <li>
-            <span class="checklist__mark" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2"><polyline points="20 6 9 17 4 12"/></svg></span>
-            <div><strong>Transparence</strong><span>Nous nommons les risques et les arbitrages, y compris quand la conclusion n'est pas celle attendue.</span></div>
-          </li>
-          <li>
-            <span class="checklist__mark" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2"><polyline points="20 6 9 17 4 12"/></svg></span>
-            <div><strong>Livrables exploitables</strong><span>Des documents que vos équipes reprennent et font vivre après notre départ — pas des rapports qui s'archivent.</span></div>
-          </li>
+      <figure class="presence-map" data-presence-map style="aspect-ratio: 1000 / 1082">
+        <div class="presence-map__land" aria-hidden="true"></div>
+        <svg class="presence-map__marks" viewBox="0 0 1000 1082" aria-hidden="true">
+            <path class="presence-arc" pathLength="1" d="M269.7 180.3Q276.9 141.5 310.4 120.7" style="--delay: 0.9s"/>
+            <path class="presence-arc" pathLength="1" d="M269.7 180.3Q287.8 183.3 297.8 198.7" style="--delay: 1.1s"/>
+            <path class="presence-arc" pathLength="1" d="M269.7 180.3Q250.9 455.4 35.4 627.4" style="--delay: 1.3s"/>
+            <path class="presence-arc" pathLength="1" d="M269.7 180.3Q775.5 468.1 905.1 1035.4" style="--delay: 1.5s"/>
+            <g class="presence-point" data-city="bordeaux" transform="translate(269.7 180.3)" style="--delay: 0s"><circle class="presence-halo" r="32"/><circle class="presence-dot" r="16"/></g>
+            <g class="presence-point" data-city="paris" transform="translate(310.4 120.7)" style="--delay: 0.15s"><circle class="presence-halo" r="26"/><circle class="presence-dot" r="13"/></g>
+            <g class="presence-point" data-city="toulouse" transform="translate(297.8 198.7)" style="--delay: 0.3s"><circle class="presence-halo" r="18"/><circle class="presence-dot" r="9"/></g>
+            <g class="presence-point" data-city="dakar" transform="translate(35.4 627.4)" style="--delay: 0.44999999999999996s"><circle class="presence-halo" r="14"/><circle class="presence-dot" r="7"/></g>
+            <g class="presence-point" data-city="mayotte" transform="translate(905.1 1035.4)" style="--delay: 0.6s"><circle class="presence-halo" r="14"/><circle class="presence-dot" r="7"/></g>
+        </svg>
+        <ul class="presence-map__labels" aria-label="Lieux de mission">
+          <li class="presence-label presence-label--left" data-city="bordeaux" style="left: 26.97%; top: 16.66%">Bordeaux</li>
+          <li class="presence-label presence-label--right" data-city="paris" style="left: 31.04%; top: 11.16%">Paris</li>
+          <li class="presence-label presence-label--right" data-city="toulouse" style="left: 29.78%; top: 18.36%">Toulouse</li>
+          <li class="presence-label presence-label--right" data-city="dakar" style="left: 3.54%; top: 57.99%">Dakar, Sénégal</li>
+          <li class="presence-label presence-label--left" data-city="mayotte" style="left: 90.51%; top: 95.69%">Mayotte</li>
         </ul>
-      </div>
-
-      <div class="stack stack-6 reveal" data-delay="2">
-        <div class="card">
-          <h3 class="t-h3" style="margin-bottom:var(--sp-6)">Secteurs d'intervention</h3>
-          <ul class="tags">
-            <li class="tag">Secteur public</li>
-            <li class="tag">Énergie &amp; utilities</li>
-            <li class="tag">Banque, finance &amp; assurance</li>
-            <li class="tag">Télécommunications</li>
-            <li class="tag">Grande distribution</li>
-            <li class="tag">Industrie</li>
-          </ul>
-        </div>
-
-        <div class="card">
-          <h3 class="t-h3" style="margin-bottom:var(--sp-6)">Types de mission</h3>
-          <table class="spec">
-            <tbody>
-              <tr><th scope="row">Audit</th><td>Diagnostic et cadrage stratégique</td></tr>
-              <tr><th scope="row">AMOA</th><td>Expression de besoin, appels d'offres, pilotage</td></tr>
-              <tr><th scope="row">AMOE</th><td>Supervision technique jusqu'à la mise en production</td></tr>
-              <tr><th scope="row">Programme</th><td>Accompagnement long terme et transfert</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
+      </figure>
     </div>
   </section>
 
-  <!-- ===================== RÉALISATIONS =====================
-       Section prête à recevoir 3 à 5 missions anonymisées.
-       Retirer l'attribut data-requires-content pour l'activer.
-       Format attendu par fiche : contexte → intervention → résultat mesurable.
-  -->
-  <section class="section" aria-labelledby="cases-title" data-requires-content>
-    <div class="wrap">
-      <div class="sec-head reveal">
-        <p class="eyebrow" data-num="03">Réalisations</p>
-        <h2 class="t-h2" id="cases-title">Ce que nous avons <span class="em">livré</span></h2>
-        <hr class="rule">
-      </div>
-      <div class="grid grid-3">
-        <article class="card reveal" data-delay="1">
-          <span class="card__num">Secteur — Année</span>
-          <h3 class="t-h3">Titre de la mission</h3>
-          <p><strong>Contexte.</strong> Situation de départ du client.</p>
-          <p style="margin-top:var(--sp-3)"><strong>Intervention.</strong> Ce que xSOM a fait.</p>
-          <p style="margin-top:var(--sp-3)"><strong>Résultat.</strong> Effet mesurable obtenu.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===================== CTA ===================== -->
-  <section class="section cta-band">
-    <div class="wrap wrap--narrow cta-band__inner reveal">
-      <p class="eyebrow" data-num="→" style="justify-content:center">Prochaine étape</p>
-      <h2 class="t-h2" style="margin-top:var(--sp-6)">Un programme à cadrer, une architecture à <span class="em">challenger</span> ?</h2>
-      <p class="lead">Décrivez votre situation en quelques lignes. Vous obtenez une réponse d'un
-      consultant sous 48 heures — pas d'un commercial.</p>
-      <div class="row">
-        <a class="btn btn--primary" href="contact.html">
-          Nous écrire
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        </a>
-        <a class="btn btn--ghost" href="carrieres.html">Rejoindre l'équipe</a>
+  <!-- ===================== CONTACT ===================== -->
+  <section class="home-cta" aria-labelledby="home-cta-title">
+    <div class="home-cta__mark" aria-hidden="true"><svg class="offer-mark" viewBox="74.98 34.18 374.18 374.18" aria-hidden="true"><defs><mask id="cta-mask-a" maskUnits="userSpaceOnUse" x="74.98" y="34.18" width="374.18" height="374.18"><rect x="74.98" y="34.18" width="374.18" height="374.18" fill="#fff"/><path data-draw style="--delay: 0.3s" pathLength="1" d="M 255.53 178.81 L 167.67 331.00 L 366.15 331.00" fill="none" stroke="#000" stroke-width="44" stroke-linejoin="miter"/><polygon data-head style="--delay: 0.95s" points="366.15 361.00 414.15 331.00 366.15 301.00" fill="#000" stroke="#000" stroke-width="16" stroke-linejoin="miter"/></mask><mask id="cta-mask-b" maskUnits="userSpaceOnUse" x="74.98" y="34.18" width="374.18" height="374.18"><rect x="74.98" y="34.18" width="374.18" height="374.18" fill="#fff"/><path data-draw style="--delay: 0.6s" pathLength="1" d="M 323.08 294.19 L 235.22 142.00 L 135.97 313.89" fill="none" stroke="#000" stroke-width="44" stroke-linejoin="miter"/><polygon data-head style="--delay: 1.25s" points="109.99 298.89 111.97 355.46 161.95 328.89" fill="#000" stroke="#000" stroke-width="16" stroke-linejoin="miter"/></mask><mask id="cta-mask-c" maskUnits="userSpaceOnUse" x="74.98" y="34.18" width="374.18" height="374.18"><rect x="74.98" y="34.18" width="374.18" height="374.18" fill="#fff"/><path data-draw style="--delay: 0s" pathLength="1" d="M 189.39 295.00 L 365.12 295.00 L 265.88 123.11" fill="none" stroke="#000" stroke-width="44" stroke-linejoin="miter"/><polygon data-head style="--delay: 0.65s" points="291.86 108.11 241.88 81.54 239.89 138.11" fill="#000" stroke="#000" stroke-width="16" stroke-linejoin="miter"/></mask></defs><g data-arrow="a" mask="url(#cta-mask-a)"><path data-draw style="--delay: 0s" pathLength="1" d="M 189.39 295.00 L 365.12 295.00 L 265.88 123.11" fill="none" stroke-width="28" stroke-linejoin="miter"/><polygon data-head style="--delay: 0.65s" points="291.86 108.11 241.88 81.54 239.89 138.11"/></g><g data-arrow="b" mask="url(#cta-mask-b)"><path data-draw style="--delay: 0.3s" pathLength="1" d="M 255.53 178.81 L 167.67 331.00 L 366.15 331.00" fill="none" stroke-width="28" stroke-linejoin="miter"/><polygon data-head style="--delay: 0.95s" points="366.15 361.00 414.15 331.00 366.15 301.00"/></g><g data-arrow="c" mask="url(#cta-mask-c)"><path data-draw style="--delay: 0.6s" pathLength="1" d="M 323.08 294.19 L 235.22 142.00 L 135.97 313.89" fill="none" stroke-width="28" stroke-linejoin="miter"/><polygon data-head style="--delay: 1.25s" points="109.99 298.89 111.97 355.46 161.95 328.89"/></g></svg></div>
+    <div class="wrap home-cta__inner">
+      <h2 class="home-cta__title" id="home-cta-title">Un projet, une question ?</h2>
+      <div class="home-cta__actions">
+        <a class="btn btn--primary" href="contact.html">Nous contacter</a>
+        <a class="btn btn--ghost home-cta__linkedin" href="https://www.linkedin.com/company/xsom-consulting" target="_blank" rel="noopener">Nous suivre sur LinkedIn <span aria-hidden="true">↗</span></a>
       </div>
     </div>
   </section>
@@ -448,15 +359,18 @@
 
     <div class="site-footer__bottom">
       <span>© <span data-year>2026</span> xSOM Consulting — Tous droits réservés</span>
-      <span>Bordeaux · France · États-Unis</span>
+      <span>Bordeaux · France</span>
     </div>
   </div>
 <div class="heritage-preferences"><signal-preferences lang="fr">Le thème et les animations suivent les préférences de votre navigateur.</signal-preferences></div>
 </footer>
 <!-- footer:end -->
 
-<script src="assets/js/heritage-site.js?v=0279419aef40" defer></script>
-<script src="assets/js/home-film.js?v=dcd2f608764f" defer></script>
+<script src="assets/js/heritage-site.js?v=2e2fb0a3889b" defer></script>
+<script src="assets/js/home-film.js?v=eab2fd2a7aef" defer></script>
+<script src="assets/js/film-titles.js?v=89bba17a4ada" defer></script>
+<script src="assets/js/home-page.js?v=502bcc22fc8f" defer></script>
+<script src="assets/js/story.js?v=ed3efe3f4dff" defer></script>
 <script type="module" src="design-system/signal.js?v=76f290b9cea8"></script>
 </body>
 </html>

@@ -9,7 +9,7 @@
 ## 1. Contexte
 
 xSOM Consulting est un cabinet de conseil en informatique indépendant, fondé en
-2007, présent en France (Paris) et aux États-Unis. Il intervient sur trois pôles :
+2007, présent en France. Il intervient sur trois pôles :
 télécom / réseau / cybersécurité, infrastructures IA & cloud souverain, et
 data science / ML / automatisation.
 
@@ -91,7 +91,7 @@ Ce que xSOM peut affirmer et que peu de concurrents peuvent revendiquer :
    Agricole, EDF, La Banque Postale, E.Leclerc — usage des marques autorisé.
 4. **Accès direct aux experts.** Pas de couche commerciale, pas de rotation
    d'équipe, pas de délégation.
-5. **Ancrage bi-continental** France / États-Unis.
+5. **Ancrage** France (missions en Afrique et dans l’océan Indien).
 
 ## 7. Contraintes
 

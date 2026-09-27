@@ -27,6 +27,6 @@ French first, English with equal information. Short sentences. Name the action, 
 | Missing evidence | Non fourni par le service. | Not provided by the service. |
 | Illustration | Démonstration · données illustratives. | Demo · illustrative data. |
 
-Never turn an example into a customer claim, local animation into a completed server action, or a drawing into a verified cryptographic proof. No fabricated statistics, logos, portraits or case studies. Keep known source facts: 2007, three practices, France · USA, independence. Counts are computed from actual displayed data and named accordingly.
+Never turn an example into a customer claim, local animation into a completed server action, or a drawing into a verified cryptographic proof. No fabricated statistics, logos, portraits or case studies. Keep known source facts: 2007, three practices, France, independence. Counts are computed from actual displayed data and named accordingly.
 
 Titles: 2–6 words. One idea per sentence. Explain the mechanism with labels and diagrams. Avoid generic consultancy copy and promises of certification. Sound and motion describe actual state changes, not commercial urgency.
