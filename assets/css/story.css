@@ -128,7 +128,7 @@ html:not(.signal-js) .story-page .site-header { position: relative; margin-botto
 .story-steps__step span:last-child { color: var(--signal-muted); font-size: var(--fs-sm); }
 
 /* ---- AI page: xSOM AI Studio, full height, on guard.xsom.fr's own footage
-   (build-studio-loop.mjs), so the two sites read as one. The video plays in view only
+   (film/src/films.tsx, StudioLoop), so the two sites read as one. The video plays in view only
    (story.js); reduced motion keeps the still. Each line rises from its own mask. */
 .studio { position: relative; isolation: isolate; display: grid; align-items: end; min-height: 100vh; min-height: 100svh; overflow: hidden; background: #07172a; color: var(--signal-hero-text); }
 .studio__media { position: absolute; inset: 0; z-index: -1; }

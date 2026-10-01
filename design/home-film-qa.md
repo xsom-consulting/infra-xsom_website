@@ -157,3 +157,60 @@ Outputs: `xsom-sovereignty-*` and `xsom-careers-*`, 18 s, desktop and mobile.
 The shared pipeline (`tools/film-edit.mjs`) rebuilds the homepage and expertise
 films byte for byte. Beats reuse each page's own lines; the sovereignty beat
 carries a French flag.
+
+# Remotion and stock footage — 2026-10-01
+
+## Brief
+
+The user asked for every film of the site to be redone without FFmpeg, in
+Remotion, from stock footage cleared for commercial use (Pexels, Pixabay,
+Wikimedia Commons, Internet Archive), so that the films look more corporate than
+the generated clips. Carte blanche on the shots.
+
+## Sources and licence
+
+All clips come from Pexels: free commercial use and modification, attribution not
+required (Pexels License). Each clip is credited anyway, with its author and page,
+in `film/footage.json`. Pexels covered every beat, the French flag included, so
+the other sources were not used.
+Footage is not committed; `npm run footage` downloads the same 1080p renditions.
+People on screen are stock models, not clients, staff or xSOM premises.
+
+| Film | Shot (6 s each) | Clip | Author |
+|---|---|---|---|
+| Homepage | xSOM Consulting | Paris skyline, La Défense on the horizon (13316516) | Yago Trillo |
+| | Three practices | Supervision room (7255101) | TREEDEO.ST |
+| | Since 2007, CIOs of large accounts | Decision maker at a tower window (8572188) | cottonbro studio |
+| | Strategy to production | Server rack, close (7140928) | MrColo |
+| | Closing logo | Blue network of connections (35008786) | Nicola Narracci |
+| Expertise | 01 Networks & cybersecurity | Blue network cables (1085656) | Dima Krivoy |
+| | 02 AI infrastructure & HPC | Server rack, close (7140928) | MrColo |
+| | 03 Data & MLOps | Analyst at a data wall (8348320) | Kampus Production |
+| AI & sovereignty | Sérénité | A calm look over the city at dusk (4774976) | Pavel Danilyuk |
+| | Sécurité | Code on a monitor (2887463) | Bedrijfsfilmspecialist.nl |
+| | Souveraineté | French flag against the sky (5903290) | Samar Layek |
+| Careers | Missions | Consultant at the whiteboard (7692932) | Yan Krukau |
+| | Decision makers | Two executives in discussion (8348314) | Kampus Production |
+| | Transmission | Mentor and junior at a desk (8004275) | Pavel Danilyuk |
+| AI Studio loop | guard.xsom.fr's opening film | 6803584, 34279721, 1085656, 20670675 | cottonbro studio, Jakub Zerdzicki, Dima Krivoy, Borys Trusevych |
+
+## Edit
+
+`film/src/films.tsx` holds every shot: clip, in-point, level and the focal point
+the 9:16 phone crop keeps (instead of one right-biased crop for every shot). The
+stock shots are daylight offices, far brighter than the generated clips (mean luma
+up to 113): each bright shot gets a midtone gamma and, if needed, a lower exposure,
+measured on stills until it sits at 40–55, against 23–43 before (the former
+pipeline's target was 40). Dark shots are left as they are. Shots stay exactly six seconds long, so the
+live titles (`assets/js/film-titles.js`) are unchanged. `film/src/kit.tsx` adds a
+0.3 s dissolve on each cut, a slow push-in per shot and one house grade shared
+with guard.xsom.fr (navy tone, darker top and bottom under the header and the bar,
+vignette, fine grain). The AI Studio loop dissolves its last second into the
+second before its first frame, so the loop point never shows.
+
+The music is still `tools/film-score.mjs`, now levelled in `film/scripts/render.mjs`
+(about −21 LUFS); the footage is silent, so the clips' own sound is gone. Posters
+are each film's first frame; the offer cards are stills at 9 s and 21 s of the
+homepage film (supervision room, servers) and 15 s of the expertise film (data).
+Exports keep their names, durations, sizes and BT.709 H.264/AAC streams; the page
+renderer gives them new content hashes.

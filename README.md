@@ -27,8 +27,8 @@ The following approved exceptions are applied:
   sections follow (2026-09-27): a dotted map of missions (Bordeaux largest,
   Paris, Toulouse, Nantes, Marseille, Dakar, Mayotte; sizes as briefed, no figures) and a
   full-screen call to action (“Un projet, une question ?”: contact, LinkedIn).
-- The expertise pages open with an 18-second edit of the approved xSOM film,
-  one shot per practice (cyber, AI infrastructure, production), with live titles
+- The expertise pages open with an 18-second film, one shot per practice
+  (networks & cybersecurity, AI infrastructure, data & MLOps), with live titles
   in the page's own words, a practice index that fills with each shot, and the
   homepage bar (Discover, play, sound) (2026-09-27). Three visual practice chapters, an operating path and six sector
   images replace the long-form copy. Diagram labels describe capabilities,
@@ -36,17 +36,19 @@ The following approved exceptions are applied:
 - The AI & sovereignty and careers pages were cut down around schemas on
   2026-09-27 at the user's request: every word comes from their original copy
   (tests/story-pages.test.cjs), one line per block, keywords as tags. Each opens
-  on an 18-second film from three Grok clips (Sérénité / Sécurité / Souveraineté
+  on an 18-second film of three stock shots (Sérénité / Sécurité / Souveraineté
   with a French flag; missions, decision-makers, transmission), with the same
   titles, bar and sound as the homepage (tests/page-films.test.cjs).
 - The AI & sovereignty page stays generalist and hands over to xSOM AI Studio
   (https://guard.xsom.fr): its second section fills the screen with the footage
-  of that site's opening film (`tools/build-studio-loop.mjs`, silent seamless
+  of that site's opening film (`film/`, `StudioLoop`: silent seamless
   loop, played only in view and never with reduced motion) under the studio's
   own line, set large. It has no closing call to action (user request, 2026-09-27).
 - Every page-top film carries its own background music (`tools/film-score.mjs`):
   synthesised in the repository, so no track licence is involved; one chord per
-  six-second shot, a soft impact on each cut, the clips' sound 8 LU underneath.
+  six-second shot, a soft impact on each cut. The stock footage itself is silent.
+- Every film is rendered with Remotion from licensed stock footage (2026-10-01, user
+  request: corporate footage instead of generated clips): see “Films” below.
 - The obsolete remote-font statement on the French cookie page is corrected,
   and both languages accurately disclose local reading preferences.
 - The contact form retains secure POST/native-validation fallback, per-field
@@ -64,8 +66,8 @@ exception; a changed or removed service paragraph fails the test.
   JetBrains Mono. Licences accompany the font files.
 - Light default, deliberate navy diagram surfaces, and a full
   dark theme. Existing saved preferences remain respected.
-- The homepage is the user's 30-second film, filling the viewport, with the
-  five source clips' own sound (off on every visit). Timed titles follow the
+- The homepage is a 30-second film, filling the viewport, with its music (off on
+  every visit). Timed titles follow the
   shots; the same words stay as static HTML for search engines, screen readers,
   reduced motion, no JavaScript and failed or slow playback. The bottom bar
   offers Discover (to the expertise page), play/pause and sound, as on the AI
@@ -114,16 +116,39 @@ Site-specific implementation:
 - `assets/js/home-page.js`: homepage header scroll states, Discover glide, offer map and card reveal.
 - `design/home-film.tokens.json`: corporate-only film layout tokens, emitted to
   `assets/css/home-film-tokens.css` by the page renderer; shared branding is unchanged.
-- `tools/build-page-film.mjs xsom-<page> clip-1.mp4 clip-2.mp4 clip-3.mp4`: a page film from
-  three generated clips (first 6 s each, own sound levelled, brighter shots matched to the
-  site's footage). Both builders share `tools/film-edit.mjs`.
-- `tools/build-home-film.mjs /path/to/approved-edit.mp4 /path/to/source-clips/`: local
-  FFmpeg exports with the clips' levelled sound, and matching posters. Source provenance and editorial decisions are recorded
-  in `design/home-film-qa.md`. Keep the original masters outside Git.
+- `film/`: every film of the site, rendered with Remotion (see “Films” below). Editorial
+  decisions are recorded in `design/home-film-qa.md`.
 - `tools/build-presence-map.mjs /path/to/land-50m.json`: the map's dotted land mask from
   Natural Earth (world-atlas, ISC); `tools/presence-projection.mjs` holds the missions.
 - `tools/render-signal-pages.mjs`: idempotent design application, hero markup,
   language metadata, old-route redirects and sitemap.
+
+## Films
+
+Every video of the site is rendered by the Remotion project in `film/`, from stock
+footage under the [Pexels License](https://www.pexels.com/license/) (free commercial use,
+no attribution required; each clip is credited anyway in `film/footage.json`). Footage
+is never committed; `npm run footage` downloads the exact 1080p clips again.
+
+```sh
+cd film
+npm ci
+npm run footage
+npm run render            # or by film: npm run render -- xsom-film xsom-studio
+node ../tools/render-signal-pages.mjs   # new content hashes in the pages
+```
+
+- `film/src/films.tsx`: each page-top film, shot by shot (clip, in-point, level and the
+  focal point the 9:16 phone crop keeps), and the AI Studio loop.
+- `film/src/kit.tsx`: 0.3 s dissolves, a slow push-in per shot, and the house grade (navy
+  tone, darker edges under the header and the bar, vignette, fine grain).
+- `film/scripts/render.mjs`: levels each film's music (`tools/film-score.mjs`), renders the
+  desktop and phone exports with their first-frame posters, the studio loop and the three
+  homepage offer stills.
+
+Shots stay exactly six seconds long: the pages' live titles are timed to them. Remotion
+is free for individuals and companies of up to three people; larger companies need a
+[company licence](https://www.remotion.dev/license) to render commercially.
 
 ## Preview and verification
 

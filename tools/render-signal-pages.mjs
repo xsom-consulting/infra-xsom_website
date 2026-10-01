@@ -212,7 +212,7 @@ function decorate(file, source, pair) {
   const filmName = isExpertise ? 'xsom-expertise' : isStory ? (file.includes('car') ? 'xsom-careers' : 'xsom-sovereignty') : '';
   if (filmName) {
     html = html.replace(/<!-- film-bar:start ?(#[\w-]+)? -->[\s\S]*?<!-- film-bar:end -->/, (_, next = '#practice-map') => `<!-- film-bar:start ${next} -->\n${filmBar(en, next)}\n    <!-- film-bar:end -->`);
-    // The AI page also carries xSOM AI Studio's footage (build-studio-loop.mjs).
+    // The AI page also carries xSOM AI Studio's footage (film/src/films.tsx, StudioLoop).
     const media = filmName === 'xsom-sovereignty' ? `${filmName}|xsom-studio` : filmName;
     html = html.replace(new RegExp(`(?:\\.\\./)?assets/media/((?:${media})-(?:desktop|mobile)\\.(?:jpg|mp4))(?:\\?v=[a-f0-9]{12})?`, 'g'),
       (_, name) => runtimeAsset(`assets/media/${name}`, prefix));
