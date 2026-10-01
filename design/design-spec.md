@@ -42,8 +42,9 @@ telecom/network/cybersecurity, AI infrastructure/sovereign cloud, and data scien
 ML/automation. The links work without JavaScript. Focus and hover illuminate only
 the separate connector, never recolour or distort the logo. It sits beside the
 expertise introduction on desktop and follows it on phones. No corporate copy
-or ordering of editorial paragraphs changes. User-provided Grok footage is
-illustrative, not presented as footage of actual clients or xSOM premises.
+or ordering of editorial paragraphs changes. Licensed stock footage
+(Pexels, credited in film/footage.json) is illustrative, not presented as footage of
+actual clients, staff or xSOM premises.
 AI Guard video is a future, separate task; its current frontend is unchanged.
 
 The POC landing is independently reworked around concrete usage: developers,

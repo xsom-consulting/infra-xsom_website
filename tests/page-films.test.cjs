@@ -9,7 +9,7 @@ const read = file => fs.readFileSync(path.join(root, file), 'utf8');
 const strip = html => html.replace(/<svg[\s\S]*?<\/svg>/g, ' ').replace(/<[^>]+>/g, ' ').replace(/&amp;/g, '&').replace(/\s+/g, ' ').trim();
 const words = text => new Set(text.toLowerCase().replace(/['’]/g, ' ').match(/[\p{L}\d]+/gu));
 
-// Films for the AI & sovereignty and careers pages (Grok clips supplied 2026-09-27):
+// Films for the AI & sovereignty and careers pages (Remotion, stock footage, 2026-10-01):
 // three shots, each carrying one idea already stated on the page.
 const pages = {
   'ia-souverainete.html': { media: 'xsom-sovereignty', next: ['Découvrir', '#ai-studio'], beats: ['Sérénité', 'Sécurité', 'Souveraineté'] },
@@ -66,8 +66,8 @@ test('Every page-top film has its own background music, one chord per six-second
   const { pathToFileURL } = require('node:url');
   const { cues } = await import(pathToFileURL(path.join(root, 'tools/film-score.mjs')));
   assert.deepEqual(cues, { 'xsom-film': 5, 'xsom-expertise': 3, 'xsom-sovereignty': 3, 'xsom-careers': 3 });
-  const pipeline = read('tools/film-edit.mjs');
-  assert.match(pipeline, /const audio = withMusic\(name, soundtrack\(/, 'Every edit is mixed with its music');
+  const pipeline = read('film/scripts/render.mjs');
+  assert.match(pipeline, /level\(score\(name, /, 'Every film is rendered with its levelled music');
 });
 
 function hasFfprobe() {

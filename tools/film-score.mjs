@@ -1,7 +1,7 @@
 // Background music for the page-top films, synthesised here so every note is ours: no
 // library track, no licence to track. One chord per six-second shot, so the harmony turns
 // on the cuts; a soft impact marks each cut. Deterministic: the same cue always renders
-// the same file. film-edit.mjs levels it and lays the clips' own sound underneath.
+// the same file. film/scripts/render.mjs levels it under the silent stock footage.
 //
 // Layers: a warm pad (three detuned saws per note, low-passed, slowly breathing), a bass,
 // felt-piano plucks arpeggiating the chord at 80 bpm (eight beats per shot) through a
