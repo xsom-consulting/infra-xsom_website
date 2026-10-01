@@ -1,0 +1,4 @@
+# Dependencies, downloaded stock footage and synthesised scores: reinstalled, fetched or
+# rebuilt by the scripts.
+node_modules/
+public/
