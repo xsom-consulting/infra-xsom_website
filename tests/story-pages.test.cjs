@@ -27,8 +27,8 @@ for (const [file, page] of Object.entries(pages)) {
   const main = html.slice(html.indexOf('<main'), html.indexOf('</main>'));
   // The page head keeps its current copy until its film arrives.
   const body = main.slice(main.indexOf('</section>') + '</section>'.length);
-  // The AI page hands over to xSOM AI Studio in that site's own words (guard.xsom.fr
-  // tagline, 2026-09-27 request), so that section is checked on its own below.
+  // The AI page hands over to the xSOM AI division (ai.xsom.fr, 2026-10-13; tagline from the
+  // 2026-09-27 request), so that section is checked on its own below.
   const studio = body.match(/<section class="studio"[\s\S]*?<\/section>/)?.[0] || '';
 
   test(`${file}: the body is cut from the page's own copy, no stock phrases`, () => {
@@ -55,8 +55,8 @@ for (const [file, page] of Object.entries(pages)) {
       assert.equal([...body.matchAll(/<li class="story-card"/g)].length, 3);
       assert.ok(studio, 'An AI Studio section');
       assert.equal(body.indexOf('<section'), body.indexOf(studio), 'AI Studio is the second section, right after the film');
-      assert.match(studio, /<a class="btn btn--primary studio__cta" href="https:\/\/guard\.xsom\.fr" target="_blank" rel="noopener">/);
-      assert.match(strip(studio), /xSOM AI Studio/);
+      assert.match(studio, /<a class="btn btn--primary studio__cta" href="https:\/\/ai\.xsom\.fr" target="_blank" rel="noopener">/);
+      assert.match(strip(studio), /xSOM (?:IA|AI)\b/);
       assert.match(studio, /<video class="studio__video" muted loop playsinline preload="none" data-desktop="(?:\.\.\/)?assets\/media\/xsom-studio-desktop\.mp4\?v=[a-f0-9]{12}"/);
     } else {
       assert.match(cta, /href="https:\/\/www\.linkedin\.com\/company\/xsom-consulting" target="_blank" rel="noopener"/);
