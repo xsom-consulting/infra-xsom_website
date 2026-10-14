@@ -1,0 +1,12 @@
+# Team configuration for this repository. Personal overrides stay untracked.
+[core]
+user_name = "Maintainer"
+project_name = "infra-xsom_website"
+communication_language = "English"
+document_output_language = "English"
+output_folder = "../product-planning/infra-xsom_website/_bmad-output"
+
+[modules.bmm]
+planning_artifacts = "../product-planning/infra-xsom_website/docs/bmad"
+implementation_artifacts = "../product-planning/infra-xsom_website/docs/stories"
+project_knowledge = "."
