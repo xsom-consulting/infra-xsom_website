@@ -71,7 +71,7 @@ test("Both themes meet AAA body and AA semantic/text contrast", () => {
 });
 test("Brand accent, local typography, spacing and readable state names are stable", () => {
   assert.equal(tokens.dark["signal-accent"], "#3f93ff");
-  assert.equal(tokens.light["signal-accent"], "#195dad");
+  assert.equal(tokens.light["signal-accent"], "#1764ac");
   assert.match(tokens.tokens["signal-font-display"], /Manrope/);
   assert.match(tokens.tokens["signal-font-body"], /Source Sans 3/);
   assert.equal(tokens.tokens["signal-touch"], "44px");

@@ -97,9 +97,9 @@ function setActiveNav(block, navTarget) {
   let done = false;
 
   return out.replace(/<a\b[^>]*>/g, function (tag) {
-    if (done || /class="[^"]*\bbrand\b[^"]*"/.test(tag) || !reHref.test(tag)) return tag;
+    if (done || /aria-current="true"/.test(tag) || /class="[^"]*\bbrand\b[^"]*"/.test(tag) || !reHref.test(tag)) return tag;
     done = true;
-    return tag.replace(/>$/, ' aria-current="page">');
+    return tag.replace(/\s+aria-current="[^"]*"/g, '').replace(/>$/, ' aria-current="page">');
   });
 }
 
@@ -111,11 +111,11 @@ function setActiveNav(block, navTarget) {
 function setLanguageLinks(block, lang, altHref) {
   const otherLang = lang === 'fr' ? 'en' : 'fr';
   const labels = lang === 'fr' ? 'EN|English' : 'FR|Français';
-  const reLang = new RegExp(
-    `(<a href=")[^"]*(" hreflang="${otherLang}" lang="${otherLang}">(?:${labels})</a>)`,
-    'g'
-  );
-  return block.replace(reLang, `$1${altHref}$2`);
+  return block.replace(/<a\b[^>]*>[^<]*<\/a>/g, tag => {
+    if (!new RegExp(`hreflang="${otherLang}"`).test(tag)
+        || !new RegExp(`>\\s*(?:${labels})\\s*</a>$`).test(tag)) return tag;
+    return tag.replace(/href="[^"]*"/, `href="${altHref}"`);
+  });
 }
 
 let changed = 0;

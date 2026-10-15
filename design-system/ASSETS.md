@@ -30,9 +30,17 @@ Final generation prompt:
 
 ## Explanatory clips
 
-The Guarded/Unguarded videos are motion-design renders of the shared
-Agent → Guard → Policy → Tool diagram, in the design system's light tokens and
-fonts, by the Remotion project of the AI Guard repository
-(`films/src/SignalSequence.tsx`, `npm --prefix films run render -- signal`).
-WebM, MP4 and a WebP poster on the final decision. All shown events (the call,
-the approval clock, the audit entry) are illustrative.
+The Guarded/Unguarded videos are recordings of actual shared explanatory
+components, regenerated after palette/font changes. WebM/MP4 and WebP posters
+are produced by `tools/render-signal-media.mjs`. All shown events are illustrative.
+
+## Shared architectural illustration (2026-10-15)
+
+`architecture-xsom.webp` is an original illustration generated with the built-in
+image generation tool: blue enamel, brushed metal and porcelain structural frames
+on a pale mineral background. 1536 × 1024, WebP, about 71 KiB. No text, logos or
+product UI are baked into it. It is decorative brand artwork, not a photograph of
+a customer facility, an actual deployment or a product screenshot.
+
+Stored in `frontend/public/signal-media/` on the product sites and
+`assets/images/` on the corporate site. Original xSOM logos remain unchanged.

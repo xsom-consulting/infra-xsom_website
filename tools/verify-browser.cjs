@@ -27,7 +27,7 @@ const pages = ['index.html','expertises.html','ia-souverainete.html','cabinet.ht
         await page.goto(`${base}/${file}`, {waitUntil:'domcontentloaded'});
         await page.evaluate(() => document.fonts.ready);
         // The film homepages carry no preferences panel (user request, 2026-09-26).
-        if (!file.endsWith('index.html')) await page.waitForFunction(() => !!document.querySelector('signal-preferences button'));
+        await page.waitForFunction(() => !!document.querySelector('signal-preferences button'));
         // Full-page captures must include assets below the initial viewport.
         await page.evaluate(async () => {
           for (const image of document.images) image.loading = 'eager';
@@ -44,24 +44,33 @@ const pages = ['index.html','expertises.html','ia-souverainete.html','cabinet.ht
         }));
         if(result.overflow || result.missingImages.length || result.headings!==1 || result.links || result.theme!==theme) failures.push({file,width,theme,...result});
         observations.push({file,width,theme,overflowing:result.overflowing});
-        if (!file.startsWith('en/')) await page.screenshot({path:path.join(output,`${file.replace('.html','')}-${theme}-${width}.png`),fullPage:true});
+        const brokenAnchors = await page.locator('a[href^="#"]').evaluateAll(links => links.map(a=>a.getAttribute('href')).filter(href=>href.length>1 && !document.getElementById(decodeURIComponent(href.slice(1)))));
+        if(brokenAnchors.length) failures.push({file, brokenAnchors});
+        if(file !== '404.html' && file !== 'en/404.html') {
+          const alternate = await page.locator('head link[rel="alternate"][hreflang="'+(file.startsWith('en/')?'fr':'en')+'"]').getAttribute('href');
+          const language = await page.locator('header a[hreflang]').getAttribute('href');
+          assert.equal(new URL(language,page.url()).pathname, new URL(alternate).pathname, file+' language destination');
+        }
+        await page.screenshot({path:path.join(output,`${file.replaceAll('/','-').replace('.html','')}-${theme}-${width}.jpg`),fullPage:true,type:'jpeg',quality:70});
       }
     }
   }
   // Keyboard navigation and per-field contact feedback.
   await page.setViewportSize({width:390,height:900});
   await page.goto(`${base}/index.html`);
-  const menu = page.locator('[data-nav-toggle]');
+  const menu = page.locator('.web-toggle');
   await menu.focus(); await page.keyboard.press('Enter');
   assert.equal(await menu.getAttribute('aria-expanded'), 'true');
   await page.keyboard.press('Escape');
   assert.equal(await menu.getAttribute('aria-expanded'), 'false');
   assert.equal(await menu.evaluate(el=>el===document.activeElement), true);
   await page.goto(`${base}/expertises.html`);
+  await page.getByText('Préférences d’affichage',{exact:true}).click();
   await page.locator('signal-preferences [data-action=theme]').click();
   assert.equal(await page.locator('html').getAttribute('data-theme'),'dark');
   await page.reload();
   assert.equal(await page.locator('html').getAttribute('data-theme'),'dark');
+  await page.getByText('Préférences d’affichage',{exact:true}).click();
   await page.locator('signal-preferences [data-action=motion]').click();
   assert.equal(await page.locator('html').getAttribute('data-motion'),'on');
   await page.emulateMedia({reducedMotion:'reduce'});
@@ -97,9 +106,9 @@ const pages = ['index.html','expertises.html','ia-souverainete.html','cabinet.ht
   const noScript = await browser.newContext({javaScriptEnabled:false,viewport:{width:390,height:900}});
   const fallback = await noScript.newPage();
   await fallback.goto(base);
-  assert.ok(await fallback.locator('#nav-panel').isVisible());
+  assert.ok(await fallback.locator('#home-menu').isVisible());
   // Without JavaScript the film homepage keeps its static copy.
-  assert.match(await fallback.locator('h1').textContent(),/Cabinet de conseil SI, cybersécurité et IA/);
+  assert.match(await fallback.locator('h1').textContent(),/Faire avancer vos systèmes critiques/);
   await noScript.close();
   fs.writeFileSync(path.join(output,'report.json'),JSON.stringify({failures,observations,pages:pages.length,layouts:pages.length*6,contact:'mocked-success-and-failure',externalRuntimeRequests:requests.filter(url=>!url.startsWith('https://api.web3forms.com/'))},null,2));
   await browser.close();

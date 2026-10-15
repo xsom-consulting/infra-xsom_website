@@ -1,127 +1,50 @@
-# xSOM Consulting — heritage blue
+# xSOM Consulting — corporate website
 
-Bilingual corporate site served as checked-in HTML by GitHub Pages at
-`www.xsom.fr`. No production build step. The original corporate copy is retained
-from commit `a9dfd3c` on the remaining internal pages. The homepages and
-expertise pages were redesigned at the user’s request.
+Bilingual static HTML served by GitHub Pages at `www.xsom.fr`. No production
+build step. The corporate site introduces consulting services; `ai.xsom.fr`
+presents AI services and products; `fleet.xsom.fr` presents the Fleet pilot.
 
-## Content boundary
+## Editing and shared identity
 
-Other internal-page headings, paragraphs, services, references and tone remain
-intact. The experimental product is intentionally absent from the corporate
-offer, navigation, metadata and sitemap; its former URLs redirect to the
-appropriate homepage with `noindex`. The old perspective URLs again redirect
-to the sovereignty pages.
+Edit the checked-in HTML. Pages use the same `design-system/web.css`, tokens,
+self-hosted Manrope and Source Sans 3 fonts as the AI and Fleet sites. Original
+logos remain unchanged. The decorative architectural illustration is documented
+in `design-system/ASSETS.md`. Both light and dark preferences remain supported.
 
-The following approved exceptions are applied:
+The public pages are readable immediately, without timed titles or video
+playback. The mobile menu works with a keyboard, closes with Escape, and exposes
+its links without JavaScript. The contact form retains its native POST fallback,
+validation, double-submission protection and input preservation after failure.
 
-- The homepages use a single full-screen film. Its words are live HTML titles,
-  one short idea per shot, closing on the original three-arrow logo: “xSOM
-  Consulting — cabinet de conseil SI, cybersécurité et IA”, the governance,
-  cybersecurity and AI infrastructure statement, “Depuis 2007” and the CIO
-  introduction (user brief, 2026-09-27). The former slogan, metrics, CTAs and
-  lower homepage sections were removed at the user’s request on 2026-09-26;
-  “Depuis 2007” returned in the film on 2026-09-27, and the offer section
-  returned below the film the same day, reduced to a title, the drawn logo map
-  and three illustrated cards (one line and four keywords each). Two closing
-  sections follow (2026-09-27): a dotted map of missions (Bordeaux largest,
-  Paris, Toulouse, Nantes, Marseille, Dakar, Mayotte; sizes as briefed, no figures) and a
-  full-screen call to action (“Un projet, une question ?”: contact, LinkedIn).
-- The expertise pages open with an 18-second film, one shot per practice
-  (networks & cybersecurity, AI infrastructure, data & MLOps), with live titles
-  in the page's own words, a practice index that fills with each shot, and the
-  homepage bar (Discover, play, sound) (2026-09-27). Three visual practice chapters, an operating path and six sector
-  images replace the long-form copy. Diagram labels describe capabilities,
-  without invented performance figures.
-- The AI & sovereignty and careers pages were cut down around schemas on
-  2026-09-27 at the user's request: every word comes from their original copy
-  (tests/story-pages.test.cjs), one line per block, keywords as tags. Each opens
-  on an 18-second film of three stock shots (Sérénité / Sécurité / Souveraineté
-  with a French flag; missions, decision-makers, transmission), with the same
-  titles, bar and sound as the homepage (tests/page-films.test.cjs).
-- The AI & sovereignty page stays generalist and hands over to the xSOM AI division
-  (https://ai.xsom.fr): its second section fills the screen with the footage
-  of that site's opening film (`film/`, `StudioLoop`: silent seamless
-  loop, played only in view and never with reduced motion) under the studio's
-  own line, set large. It has no closing call to action (user request, 2026-09-27).
-- Every page-top film carries its own background music (`tools/film-score.mjs`):
-  synthesised in the repository, so no track licence is involved; one chord per
-  six-second shot, a soft impact on each cut. The stock footage itself is silent.
-- Every film is rendered with Remotion from licensed stock footage (2026-10-01, user
-  request: corporate footage instead of generated clips): see “Films” below.
-- The obsolete remote-font statement on the French cookie page is corrected,
-  and both languages accurately disclose local reading preferences.
-- The contact form retains secure POST/native-validation fallback, per-field
-  feedback, double-submission protection and input preservation on failure.
+Marketing copy describes concrete services. Product availability must stay
+qualified; no invented metrics, clients, certifications or savings. Legal copy
+is preserved by snapshot checks. See `design-system/VOICE.md`. Product planning
+and design decisions are maintained in the private product-planning repository.
 
-`tests/heritage-copy.test.cjs` compares the 12 remaining internal-page texts and heading
-hierarchies with the immutable original snapshot. It names and bounds every
-exception; a changed or removed service paragraph fails the test.
-
-## Design and authoring
-
-- Original blue/grey logo assets, unchanged. `gradient.svg` on light backgrounds,
-  `moderne-dark.svg` on dark backgrounds.
-- Shared self-hosted Manrope and Source Sans 3; small technical labels use
-  JetBrains Mono. Licences accompany the font files.
-- Light default, deliberate navy diagram surfaces, and a full
-  dark theme. Existing saved preferences remain respected.
-- The homepage is a 30-second film, filling the viewport, with its music (off on
-  every visit). Timed titles follow the
-  shots; the same words stay as static HTML for search engines, screen readers,
-  reduced motion, no JavaScript and failed or slow playback. The bottom bar
-  offers Discover (to the expertise page), play/pause and sound, as on the AI
-  Guard film. Navigation and legal links remain available on the film. A
-  portrait export serves phones. No video downloads without JS or with reduced
-  motion.
-- The expertise pages combine a film, a connected diagram, three technical
-  visuals and a four-step delivery path. The film uses the same titles engine,
-  bar, sound, playback and reduced-motion behavior as the homepage.
-- Sovereignty diagrams retain their keyboard-readable controls.
-
-See `design/design-spec.md` for the current authority. Brand tokens, fonts and
-the preference runtime live in the shared `design-system/` package; do not
-recolour logos or patch generated tokens.
-
-The checked-in HTML is the copy source. Edit it directly. The optional command
-below reapplies the design contracts without rewriting editorial content:
+After editing navigation or CSS/JS assets:
 
 ```sh
-node tools/render-signal-pages.mjs
+node tools/sync-partials.js
+node tools/hash-runtime-assets.cjs
 node tools/sync-partials.js --check
+node --test tests/*.test.cjs
+npm --prefix design-system run check
 ```
 
-Rerun the renderer after changing any page CSS, JavaScript or homepage media. It versions every
-generated runtime URL with the first 12 hex characters of that file's SHA-256,
-so existing visitors receive matching HTML and assets without clearing their
-browser cache. Unchanged assets retain the same URL.
+Runtime CSS/JS URLs contain the first 12 hex characters of their SHA-256. The
+legacy `render-signal-pages.mjs` renderer belongs to the previous film layout;
+do not run it over the current pages. Film sources and media remain available
+for separate editorial use. Tests specific to the removed film-first interface
+have been retired; browser acceptance covers the current visitor journeys.
 
-The recovery option `--restore-original-copy` is deliberately explicit: it
-restores the approved `a9dfd3c` text before applying the design, replacing later
-copy edits. Normal maintenance must not use that option.
+## Browser acceptance
 
-Site-specific implementation:
-
-- `assets/css/heritage-site.css`: layout over the retained original HTML.
-- `assets/js/heritage-site.js`: navigation, original-logo theme selection,
-  practice connector focus and interactive existing diagrams.
-- `assets/js/contact-form.js`: the preserved secure contact contract.
-- `assets/css/story.css`, `assets/js/story.js`: schemas that draw themselves on arrival (AI &
-  sovereignty, careers, homepage marks and closing call to action).
-- `assets/css/film-titles.css`: live titles and film bar shared by the homepage and expertise films.
-- `assets/css/home-film.css`: homepage composition.
-- `assets/css/expertise-story.css`: expertise composition and diagrams.
-- `assets/js/home-film.js`: shared playback and sound control for home and expertise films.
-- `assets/js/film-titles.js`: homepage titles, a pure function of the film's current time.
-- `assets/js/home-page.js`: homepage header scroll states, Discover glide, offer map and card reveal.
-- `design/home-film.tokens.json`: corporate-only film layout tokens, emitted to
-  `assets/css/home-film-tokens.css` by the page renderer; shared branding is unchanged.
-- `film/`: every film of the site, rendered with Remotion (see “Films” below). Editorial
-  decisions are recorded in `design/home-film-qa.md`.
-- `tools/build-presence-map.mjs /path/to/land-50m.json`: the map's dotted land mask from
-  Natural Earth (world-atlas, ISC); `tools/presence-projection.mjs` holds the missions.
-- `tools/render-signal-pages.mjs`: idempotent design application, hero markup,
-  language metadata, old-route redirects and sitemap.
+Serve this directory over localhost, then run `tools/verify-browser.cjs` with
+`SITE_URL` pointing at that server. `PLAYWRIGHT_MODULE` may identify an installed
+Playwright package. The script checks 18 pages at 390, 768 and 1440 pixels, in
+both themes, including language links, images, anchors, no-script navigation,
+keyboard menu behaviour and contact success/failure. Contact requests are mocked.
+Set `SITE_QA_OUTPUT` to keep the screenshots and JSON report outside the repository.
 
 ## Films
 

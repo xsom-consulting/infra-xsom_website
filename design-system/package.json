@@ -1,6 +1,6 @@
 {
   "name": "@xsom/signal",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "private": true,
   "type": "module",
   "description": "xSOM shared identity, functional diagrams and accessible interaction primitives",
@@ -8,7 +8,8 @@
     "./react": "./react.tsx",
     "./tokens.css": "./tokens.css",
     "./components.css": "./components.css",
-    "./signal.js": "./signal.js"
+    "./signal.js": "./signal.js",
+    "./web.css": "./web.css"
   },
   "scripts": {
     "build": "node build.mjs",

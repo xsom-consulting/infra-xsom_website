@@ -1,32 +1,25 @@
-# xSOM Signal — voice
+# xSOM — editorial voice
 
-## Current content authority
+French first, with equivalent information in English. Write for the person
+choosing a consulting partner or assessing a product. Name the service, the
+mechanism and the next step. Avoid defensive slogans and unqualified superlatives.
 
-Corporate pages preserve the original copy from commit `a9dfd3c`. This is a visual
-redesign, not a positioning or tone rewrite. The firm remains specialised in
-cybersecurity. Do not shorten, replace or repurpose its original content to suit
-a layout. The explicit exceptions are removal of AI Guard promotion and an
-accurate technical privacy notice about local fonts/preferences.
+## Roles
 
-The separate AI Guard site presents an experimental POC. Introduce user needs
-(employees, developers, confidential data) before integration vocabulary. A
-provider selection is an illustration, not a connection or a protection claim.
-Personal ChatGPT/Claude web use is not automatically covered by the gateway.
+- xSOM Consulting: independent consulting in architecture, cybersecurity, AI
+  infrastructure and data; established in 2007.
+- xSOM IA: AI services, products and practical explanations of AI risks.
+- xSOM Fleet: enterprise AI governance; state the 2026 pilot scope and confirm
+  supported environments during scoping.
+- Secret Guard: the open-source detection engine, with the published licence.
 
-## Operational interface rules
+## Evidence and limits
 
-French first, English with equal information. Short sentences. Name the action, actor and evidence. Labels may retain technical terms (policy, dry-run, HITL) where translating would obscure their meaning.
+Never invent clients, statistics, certifications, guarantees or integrations.
+Distinguish actual invoices from dated API-equivalent estimates; an estimate is
+not a saving. Mark illustrative demonstrations and simulations explicitly.
+Explain which data stays on the workstation. Keep incomplete legal information
+visible until the owner supplies it. Do not infer it from marketing copy.
 
-| Situation | Français | English |
-| --- | --- | --- |
-| Corporate promise | Jusqu’à la production. | Through to production. |
-| Product | On contrôle l’action, pas le prompt. | Control the action, not the prompt. |
-| Approval empty | Rien à signer. Les actions à risque apparaîtront ici. | Nothing to approve. Risky actions will appear here. |
-| Expired | Délai dépassé. L’action reste bloquée. | Deadline passed. The action stays blocked. |
-| Unavailable | Le service ne répond pas. Réessayez. | The service is not responding. Try again. |
-| Missing evidence | Non fourni par le service. | Not provided by the service. |
-| Illustration | Démonstration · données illustratives. | Demo · illustrative data. |
-
-Never turn an example into a customer claim, local animation into a completed server action, or a drawing into a verified cryptographic proof. No fabricated statistics, logos, portraits or case studies. Keep known source facts: 2007, three practices, France, independence. Counts are computed from actual displayed data and named accordingly.
-
-Titles: 2–6 words. One idea per sentence. Explain the mechanism with labels and diagrams. Avoid generic consultancy copy and promises of certification. Sound and motion describe actual state changes, not commercial urgency.
+Preserve original logos, facts and technical privacy statements. Marketing copy
+may evolve with the offer; legal facts require a verified source.

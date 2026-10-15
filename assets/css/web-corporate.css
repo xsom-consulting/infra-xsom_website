@@ -1,0 +1,146 @@
+/* Corporate adapters; the shared composition lives in design-system/web.css. */
+.xweb {
+  margin: 0;
+}
+.xweb .web-header::before,
+.xweb .web-header::after {
+  display: none;
+}
+.xweb .brand img {
+  filter: none;
+}
+.xweb .web-button::after {
+  display: none;
+}
+.xweb .section {
+  padding-block: var(--section-y);
+}
+.xweb .page-head {
+  padding-block: var(--sp-16);
+  background: var(--signal-surface);
+}
+.xweb .page-head h1 {
+  font-size: var(--web-title);
+  max-width: 22ch;
+}
+.xweb .page-head .lead {
+  max-width: var(--web-reading);
+  margin-top: var(--sp-6);
+}
+.xweb .eyebrow {
+  font-family: var(--signal-font-body);
+  font-size: var(--fs-sm);
+  letter-spacing: 0;
+  text-transform: none;
+}
+.xweb .eyebrow::before {
+  display: none;
+}
+.xweb .em {
+  color: inherit;
+}
+.xweb .grid--2 {
+  gap: var(--sp-16);
+}
+.xweb .form {
+  background: var(--signal-surface);
+  border: var(--signal-border) solid var(--signal-line);
+  border-radius: var(--r-lg);
+  padding: var(--sp-8);
+  box-shadow: none;
+}
+.xweb
+  .form
+  :is(input:not([type="checkbox"]):not([type="hidden"]), textarea, select) {
+  min-height: var(--signal-touch);
+  font-family: var(--signal-font-body);
+  font-size: var(--fs-body);
+  border-radius: var(--r-sm);
+}
+.xweb .form textarea {
+  min-height: var(--sp-32);
+}
+.xweb .form .btn {
+  min-height: var(--signal-touch);
+  border-radius: var(--r-sm);
+  box-shadow: none;
+}
+.xweb .contact-item {
+  padding-block: var(--sp-6);
+}
+.xweb .contact-item a {
+  overflow-wrap: anywhere;
+}
+.xweb .card {
+  border-radius: var(--r-lg);
+  box-shadow: none;
+}
+.xweb .legal {
+  max-width: var(--web-reading);
+  margin-inline: auto;
+}
+.xweb .legal h2 {
+  font-size: var(--fs-h3);
+  margin-block: var(--sp-10) var(--sp-4);
+}
+.xweb .legal p {
+  margin-block: var(--sp-4);
+}
+.xweb table {
+  border-collapse: collapse;
+  max-width: 100%;
+}
+.xweb :is(th, td) {
+  overflow-wrap: anywhere;
+}
+.xweb .reveal,
+.xweb [data-reveal] {
+  opacity: 1;
+  transform: none;
+  visibility: visible;
+}
+.xweb .studio-footer .brand {
+  font-size: var(--fs-lead);
+}
+.xweb .studio-footer__identity p {
+  font-size: var(--fs-body);
+}
+.xweb .studio-footer summary {
+  cursor: pointer;
+  min-height: var(--signal-touch);
+  display: flex;
+  align-items: center;
+}
+@media (max-width: 900px) {
+  .xweb .grid--2 {
+    gap: var(--sp-8);
+  }
+}
+@media (max-width: 600px) {
+  .xweb .form {
+    padding: var(--sp-5);
+  }
+  .xweb .form__row {
+    grid-template-columns: 1fr;
+  }
+  .xweb .grid--2 {
+    grid-template-columns: 1fr;
+  }
+  .xweb table {
+    font-size: var(--fs-sm);
+  }
+}
+
+@media (max-width: 900px) {
+  .xweb .web-menu:not([data-enhanced]) {
+    display: flex;
+    position: static;
+    flex-direction: column;
+  }
+  .xweb .web-header__inner:has(.web-menu:not([data-enhanced])) {
+    flex-wrap: wrap;
+  }
+  .xweb .web-header__inner:has(.web-menu:not([data-enhanced])) .web-toggle {
+    display: none;
+  }
+}

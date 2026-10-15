@@ -13,8 +13,8 @@ const baseline = 'a9dfd3ca33875f1b0e68a13dd9c15e4ff00ec7c3';
 // The firm pages were edited following annotated copy review on 2026-10-02.
 // Remaining pages keep the original copy.
 const pages = [
-  'contact.html', 'mentions-legales.html', 'cookies.html',
-  'en/contact.html', 'en/legal-notice.html', 'en/cookies.html',
+  'mentions-legales.html', 'cookies.html',
+  'en/legal-notice.html', 'en/cookies.html',
 ];
 const voidTags = new Set('area base br col embed hr img input link meta param source track wbr'.split(' '));
 const blockTags = new Set('address article aside blockquote br dd div dl dt fieldset figcaption figure footer form h1 h2 h3 h4 h5 h6 header hr li main nav ol p section table tbody td th thead tr ul'.split(' '));

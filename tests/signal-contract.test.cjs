@@ -92,25 +92,6 @@ test('Every public stylesheet and script uses its exact content-derived cache ke
   }
 });
 
-test('The hero stylesheet cannot reuse the pre-logo release cache key', () => {
-  const asset = 'assets/css/heritage-site.css';
-  // Immutable release observed in the browser cache during the original-mark fix.
-  const before = execFileSync('git', ['show', `4b4ed03a3c26e4195cfb3da63c41c403dcd93ae6:${asset}`], { cwd: root });
-  const after = fs.readFileSync(path.join(root, asset));
-  assert.notEqual(digest(before), digest(after), 'The logo layout must differ from the old infrastructure layout');
-  for (const file of ['index.html', 'en/index.html']) {
-    const href = [...read(file).matchAll(/<link\b[^>]*>/g)].map(match => attributes(match[0]))
-      .find(tag => tag.rel === 'stylesheet' && new URL(tag.href, `${origin}/${file}`).pathname === `/${asset}`)?.href;
-    assert.ok(href, `${file}: missing hero stylesheet`);
-    const current = new URL(href, `${origin}/${file}`);
-    const legacy = new URL(asset, `${origin}/`);
-    assert.notEqual(current.href, legacy.href, 'Do not reuse the unversioned browser cache');
-    legacy.search = `?v=${digest(before)}`;
-    assert.notEqual(current.href, legacy.href, 'A changed stylesheet requires a changed version URL');
-    assert.equal(current.search, `?v=${digest(after)}`);
-  }
-});
-
 test('Font faces ship actual WOFF2 assets without remote CSS imports', () => {
   const styles = ['assets/css', ...(fs.existsSync(path.join(root, 'design-system')) ? ['design-system'] : [])]
     .flatMap(allFiles).filter((file) => file.endsWith('.css'));
