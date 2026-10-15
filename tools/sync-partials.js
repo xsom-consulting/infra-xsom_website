@@ -111,9 +111,10 @@ function setActiveNav(block, navTarget) {
 function setLanguageLinks(block, lang, altHref) {
   const otherLang = lang === 'fr' ? 'en' : 'fr';
   const labels = lang === 'fr' ? 'EN|English' : 'FR|Français';
-  return block.replace(/<a\b[^>]*>[^<]*<\/a>/g, tag => {
+  return block.replace(/<a\b[^>]*>[^<]*<\/a\s*>/g, tag => {
+    const label = tag.replace(/<[^>]*>/g, '').trim();
     if (!new RegExp(`hreflang="${otherLang}"`).test(tag)
-        || !new RegExp(`>\\s*(?:${labels})\\s*</a>$`).test(tag)) return tag;
+        || !new RegExp(`^(?:${labels})$`).test(label)) return tag;
     return tag.replace(/href="[^"]*"/, `href="${altHref}"`);
   });
 }

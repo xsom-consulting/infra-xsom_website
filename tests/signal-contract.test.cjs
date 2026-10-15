@@ -151,3 +151,16 @@ test('The corporate site contains no POC promotion, product link or indexed prod
   }
   assert.doesNotMatch(read('sitemap.xml'), /ai-guard|vision\.html/i);
 });
+
+test('Navigation switches to the equivalent document in multiline HTML', () => {
+  for (const [fr, en] of pairs) {
+    for (const [file, other, lang] of [[fr, en, 'en'], [en, fr, 'fr']]) {
+      const nav = read(file).match(/<!--\s*nav:start\s*-->[\s\S]*?<!--\s*nav:end\s*-->/)?.[0];
+      assert.ok(nav, `${file}: shared navigation`);
+      const links = [...nav.matchAll(/<a\b[^>]*>/g)].map(match => attributes(match[0]));
+      const href = links.find(link => link.hreflang === lang && link.lang === lang)?.href;
+      assert.ok(href, `${file}: language link`);
+      assert.equal(new URL(href, `${origin}/${file}`).pathname, `/${other}`, file);
+    }
+  }
+});
