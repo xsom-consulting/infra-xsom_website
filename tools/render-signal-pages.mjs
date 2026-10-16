@@ -18,7 +18,15 @@ const pairs = [
   ['mentions-legales.html', 'en/legal-notice.html'], ['cookies.html', 'en/cookies.html'],
 ];
 const read = file => restore ? execFileSync('git', ['show', `a9dfd3c:${file}`], { cwd: root, encoding: 'utf8' }) : fs.readFileSync(path.join(root, file), 'utf8');
-const write = (file, content) => fs.writeFileSync(path.join(root, file), content.replace(/[ \t]+$/gm, '').trim() + '\n');
+// GitHub Pages serves `expertises.html` at `/expertises` and `index.html` at its folder:
+// every same-site link, canonical, alternate, redirect and sitemap entry uses that clean form.
+const cleanUrl = url => url.replace(/^((?:https:\/\/www\.xsom\.fr)?\/?(?:\.\.\/)*(?:[\w-]+\/)*)([\w-]+)\.html(?=#|$)/,
+  (_, dir, name) => name === 'index' ? dir || './' : dir + name);
+const cleanUrls = html => html
+  .replace(/(\b(?:href|content)=")([^"]+)"/g, (_, attr, url) => `${attr}${cleanUrl(url)}"`)
+  .replace(/(\burl=)([^"';\s]+)/g, (_, attr, url) => attr + cleanUrl(url))
+  .replace(/<loc>([^<]+)<\/loc>/g, (_, url) => `<loc>${cleanUrl(url)}</loc>`);
+const write = (file, content) => fs.writeFileSync(path.join(root, file), (/\.(?:html|xml)$/.test(file) ? cleanUrls(content) : content).replace(/[ \t]+$/gm, '').trim() + '\n');
 const filmTokens = JSON.parse(fs.readFileSync(path.join(root, 'design/home-film.tokens.json'), 'utf8'));
 write('assets/css/home-film-tokens.css', `/* Generated from design/home-film.tokens.json. */\n:root {\n${Object.entries(filmTokens).map(([name, value]) => `  --${name}: ${value};`).join('\n')}\n}`);
 const styles = ['design-system/fonts.css', 'assets/css/tokens.css', 'assets/css/base.css', 'assets/css/components.css', 'design-system/tokens.css', 'design-system/components.css', 'assets/css/heritage-site.css'];
@@ -217,6 +225,11 @@ function decorate(file, source, pair) {
     html = html.replace(new RegExp(`(?:\\.\\./)?assets/media/((?:${media})-(?:desktop|mobile)\\.(?:jpg|mp4))(?:\\?v=[a-f0-9]{12})?`, 'g'),
       (_, name) => runtimeAsset(`assets/media/${name}`, prefix));
   }
+  // The expertise practice loops (film/src/practices.tsx) and their posters.
+  if (isExpertise) {
+    html = html.replace(/(?:\.\.\/)?assets\/media\/(xsom-practice-(?:network|compute|data)\.(?:jpg|mp4))(?:\?v=[a-f0-9]{12})?/g,
+      (_, name) => runtimeAsset(`assets/media/${name}`, prefix));
+  }
   // User exception: this experimental product is not part of the corporate offer.
   html = html.replace(/\s*<section\b[^>]*aria-labelledby="guard-title"[\s\S]*?<\/section>/g, '');
   html = html.replace(/<!--[^>]*(?:NOTRE OUTIL|OUR TOOL)[\s\S]*?-->/g, '');
@@ -260,7 +273,7 @@ function decorate(file, source, pair) {
     const preferences = `<div class="heritage-preferences"><signal-preferences lang="${en ? 'en' : 'fr'}">${en ? 'Theme and motion respect your browser preferences.' : 'Le thème et les animations suivent les préférences de votre navigateur.'}</signal-preferences></div>`;
     html = html.includes('</footer>') ? html.replace('</footer>', `${preferences}\n</footer>`) : html.replace('</main>', `${preferences}\n</main>`);
   }
-  html = html.replace('</body>', `<script src="${runtimeAsset('assets/js/heritage-site.js', prefix)}" defer></script>${isHome || filmName ? `\n<script src="${runtimeAsset('assets/js/home-film.js', prefix)}" defer></script>\n<script src="${runtimeAsset('assets/js/film-titles.js', prefix)}" defer></script>` : ''}${isHome ? `\n<script src="${runtimeAsset('assets/js/home-page.js', prefix)}" defer></script>` : ''}${isHome || isStory ? `\n<script src="${runtimeAsset('assets/js/story.js', prefix)}" defer></script>` : ''}\n<script type="module" src="${runtimeAsset('design-system/signal.js', prefix)}"></script>${file.endsWith('contact.html') ? `\n<script src="${runtimeAsset('assets/js/contact-form.js', prefix)}" defer></script>` : ''}\n</body>`);
+  html = html.replace('</body>', `<script src="${runtimeAsset('assets/js/heritage-site.js', prefix)}" defer></script>${isHome || filmName ? `\n<script src="${runtimeAsset('assets/js/home-film.js', prefix)}" defer></script>\n<script src="${runtimeAsset('assets/js/film-titles.js', prefix)}" defer></script>` : ''}${isHome ? `\n<script src="${runtimeAsset('assets/js/home-page.js', prefix)}" defer></script>` : ''}${isExpertise ? `\n<script src="${runtimeAsset('assets/js/expertise-loops.js', prefix)}" defer></script>` : ''}${isHome || isStory ? `\n<script src="${runtimeAsset('assets/js/story.js', prefix)}" defer></script>` : ''}\n<script type="module" src="${runtimeAsset('design-system/signal.js', prefix)}"></script>${file.endsWith('contact.html') ? `\n<script src="${runtimeAsset('assets/js/contact-form.js', prefix)}" defer></script>` : ''}\n</body>`);
   return html.replace(/\n[ \t]*\n(?:[ \t]*\n)+/g, '\n\n');
 }
 

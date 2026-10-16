@@ -9,7 +9,7 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="xSOM Consulting">
 <meta property="og:locale" content="fr_FR">
-<meta property="og:url" content="https://www.xsom.fr/expertises.html">
+<meta property="og:url" content="https://www.xsom.fr/expertises">
 <meta property="og:title" content="Expertises — xSOM Consulting">
 <meta property="og:description" content="Réseaux, cybersécurité, infrastructures IA, cloud HPC et MLOps. Trois expertises reliées à la production.">
 <meta property="og:image" content="https://www.xsom.fr/assets/images/og-cover.jpg">
@@ -22,10 +22,10 @@
 <link rel="icon" href="assets/logo/favicon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="assets/logo/apple-touch-icon.png">
 
-<link rel="canonical" href="https://www.xsom.fr/expertises.html">
-<link rel="alternate" hreflang="fr" href="https://www.xsom.fr/expertises.html">
-<link rel="alternate" hreflang="en" href="https://www.xsom.fr/en/expertise.html">
-<link rel="alternate" hreflang="x-default" href="https://www.xsom.fr/expertises.html">
+<link rel="canonical" href="https://www.xsom.fr/expertises">
+<link rel="alternate" hreflang="fr" href="https://www.xsom.fr/expertises">
+<link rel="alternate" hreflang="en" href="https://www.xsom.fr/en/expertise">
+<link rel="alternate" hreflang="x-default" href="https://www.xsom.fr/expertises">
 <link rel="preload" href="design-system/assets/manrope-latin-variable.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="design-system/assets/source-sans-3-latin-variable.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" as="image" href="assets/media/xsom-expertise-desktop.jpg?v=1848815d2c53" media="(min-width: 700px)">
@@ -39,7 +39,7 @@
 <link rel="stylesheet" href="assets/css/heritage-site.css?v=a08f806ca6a1">
 <link rel="stylesheet" href="assets/css/home-film-tokens.css?v=70d0fa854d66">
 <link rel="stylesheet" href="assets/css/film-titles.css?v=1b91261ed463">
-<link rel="stylesheet" href="assets/css/expertise-story.css?v=303f23b4b9a2">
+<link rel="stylesheet" href="assets/css/expertise-story.css?v=72400748be31">
 <script src="assets/js/signal-preferences-init.js?v=df27c76a85ce"></script>
 </head>
 <body class="heritage-site expertise-page" data-page="expertises">
@@ -49,7 +49,7 @@
 <!-- nav:start -->
 <header class="site-header">
   <div class="wrap site-header__inner">
-    <a class="brand" href="index.html">
+    <a class="brand" href="./">
       <img src="assets/logo/moderne-dark.svg" alt="" width="42" height="42">
       <span>
         <span class="brand__name">xSOM Consulting</span>
@@ -59,18 +59,18 @@
 
     <div class="nav-panel" id="nav-panel">
       <nav class="nav" aria-label="Navigation principale">
-        <a href="index.html">Accueil</a>
-        <a href="expertises.html" aria-current="page">Expertises</a>
-        <a href="ia-souverainete.html">IA &amp; Souveraineté</a>
-        <a href="cabinet.html">Cabinet &amp; carrières</a>
+        <a href="./">Accueil</a>
+        <a href="expertises" aria-current="page">Expertises</a>
+        <a href="ia-souverainete">IA &amp; Souveraineté</a>
+        <a href="cabinet">Cabinet &amp; carrières</a>
       </nav>
       <div class="header-actions">
         <p class="lang">
           <span aria-current="true">FR</span>
           <span aria-hidden="true">/</span>
-          <a href="en/expertise.html" hreflang="en" lang="en">EN</a>
+          <a href="en/expertise" hreflang="en" lang="en">EN</a>
         </p>
-        <a class="header-cta" href="contact.html">Nous contacter</a>
+        <a class="header-cta" href="contact">Nous contacter</a>
       </div>
     </div>
 
@@ -163,10 +163,7 @@
     <div class="wrap">
       <p class="expertise-overline">La chaîne xSOM</p>
       <div class="expertise-section-heading"><h2 id="practice-map-title">Trois expertises. Une seule continuité.</h2><p>Chaque pôle peut intervenir seul ou en combinaison. Tous visent le même résultat : un système exploitable.</p></div>
-      <div class="expertise-flow" aria-label="Trois expertises. Une seule continuité.">
-        <div class="expertise-flow__lanes"><a href="#pole-cyber"><span>01</span><strong>Réseaux &amp; cyber</strong><span aria-hidden="true">↗</span></a><a href="#pole-ia"><span>02</span><strong>Infrastructures IA</strong><span aria-hidden="true">↗</span></a><a href="#pole-data"><span>03</span><strong>Données &amp; MLOps</strong><span aria-hidden="true">↗</span></a></div>
-        <div class="expertise-flow__outcome"><span class="expertise-flow__pulse" aria-hidden="true"></span><strong>Production</strong></div>
-      </div>
+      <div class="expertise-stack" role="group" aria-label="Trois expertises empilées, du socle réseau à la production."><a class="expertise-stack__layer" href="#pole-cyber"><span>01</span><strong>Réseaux &amp; cyber</strong><small>Le socle : relier et protéger</small><span aria-hidden="true">↗</span></a><a class="expertise-stack__layer" href="#pole-ia"><span>02</span><strong>Infrastructures IA</strong><small>La puissance : calculer et héberger</small><span aria-hidden="true">↗</span></a><a class="expertise-stack__layer" href="#pole-data"><span>03</span><strong>Données &amp; MLOps</strong><small>La valeur : des modèles en service</small><span aria-hidden="true">↗</span></a><p class="expertise-stack__outcome"><span class="expertise-stack__pulse" aria-hidden="true"></span><strong>Production</strong><small>Un système exploitable</small></p></div>
     </div>
   </section>
 
@@ -177,11 +174,14 @@
       <h2 id="pole-cyber-title">Réseaux &amp; cybersécurité</h2>
       <p>Concevoir et protéger les infrastructures qui ne peuvent pas s’arrêter.</p>
       <ul class="expertise-panel__tags"><li>Architecture réseau</li><li>DORA · NIS2 · LPM</li><li>PCA / PRA</li><li>Audit</li></ul>
-      <a class="expertise-panel__link" href="contact.html">Échanger sur le réseau <span aria-hidden="true">↗</span></a>
+      <a class="expertise-panel__link" href="contact">Échanger sur le réseau <span aria-hidden="true">↗</span></a>
     </div>
-    <figure class="expertise-panel__visual expertise-panel__visual--network">
-      <svg viewBox="0 0 600 300" fill="none" aria-hidden="true"><rect class="visual-frame" x="36" y="30" width="528" height="240" rx="24"/><path class="visual-path" d="M93 150H184L244 82H353L410 150H507M184 150l60 68h109l57-68M244 82v136M353 82v136"/><circle class="visual-node" cx="93" cy="150" r="13"/><circle class="visual-node" cx="244" cy="82" r="13"/><circle class="visual-node" cx="244" cy="218" r="13"/><circle class="visual-node" cx="353" cy="82" r="13"/><circle class="visual-node" cx="353" cy="218" r="13"/><circle class="visual-node visual-node--hot" cx="507" cy="150" r="19"/><path class="visual-shield" d="M410 150c0-60 42-94 97-108 55 14 97 48 97 108"/></svg>
-      <figcaption><span>Réseau</span><span>Contrôles</span><span>Résilience</span></figcaption>
+    <figure class="expertise-panel__visual" data-practice-loop>
+      <div class="practice-loop" role="img" aria-label="Animation : le trafic traverse le pare-feu, une intrusion est bloquée, une liaison coupée est contournée.">
+        <img src="assets/media/xsom-practice-network.jpg?v=0d675dd32661" width="720" height="540" loading="lazy" alt="">
+        <video muted loop playsinline preload="none" tabindex="-1" aria-hidden="true" data-src="assets/media/xsom-practice-network.mp4?v=9e1f4eb9c800"></video>
+      </div>
+      <figcaption><span data-act="0">Réseau</span><span data-act="1">Contrôles</span><span data-act="2">Résilience</span></figcaption>
     </figure>
   </article>
   <article class="expertise-panel" id="pole-ia" aria-labelledby="pole-ia-title">
@@ -190,11 +190,14 @@
       <h2 id="pole-ia-title">Infrastructures IA &amp; cloud HPC</h2>
       <p>Dimensionner, héberger et exploiter les charges IA sous contrôle.</p>
       <ul class="expertise-panel__tags"><li>Cloud souverain</li><li>GPU &amp; datacenter</li><li>Cloud HPC</li><li>FinOps · AIOps</li><li>Green IT</li></ul>
-      <a class="expertise-panel__link" href="ia-souverainete.html">Voir l’offre IA <span aria-hidden="true">↗</span></a>
+      <a class="expertise-panel__link" href="ia-souverainete">Voir l’offre IA <span aria-hidden="true">↗</span></a>
     </div>
-    <figure class="expertise-panel__visual expertise-panel__visual--compute">
-      <svg viewBox="0 0 600 300" fill="none" aria-hidden="true"><rect class="visual-frame" x="36" y="30" width="528" height="240" rx="24"/><path class="visual-path" d="M80 150H175M425 150h95M300 48v38M300 214v38"/><rect class="visual-chip" x="175" y="86" width="250" height="128" rx="18"/><rect class="visual-chip-core" x="218" y="116" width="164" height="68" rx="10"/><path class="visual-pin" d="M205 70v16m46-16v16m49-16v16m49-16v16m46-16v16M205 214v16m46-16v16m49-16v16m49-16v16m46-16v16"/><path class="visual-pulse" d="M236 150h35l18-17 21 34 18-17h36"/></svg>
-      <figcaption><span>Capacité</span><span>Hébergement</span><span>Observabilité</span></figcaption>
+    <figure class="expertise-panel__visual" data-practice-loop>
+      <div class="practice-loop" role="img" aria-label="Animation : des serveurs GPU se remplissent, les charges entrent dans un hébergement fermé, la supervision s’affiche.">
+        <img src="assets/media/xsom-practice-compute.jpg?v=1d1a9ff320c7" width="720" height="540" loading="lazy" alt="">
+        <video muted loop playsinline preload="none" tabindex="-1" aria-hidden="true" data-src="assets/media/xsom-practice-compute.mp4?v=ab001ea287bc"></video>
+      </div>
+      <figcaption><span data-act="0">Capacité</span><span data-act="1">Hébergement</span><span data-act="2">Observabilité</span></figcaption>
     </figure>
   </article>
   <article class="expertise-panel" id="pole-data" aria-labelledby="pole-data-title">
@@ -203,11 +206,14 @@
       <h2 id="pole-data-title">Données &amp; MLOps</h2>
       <p>Faire passer les modèles du prototype à un service suivi en production.</p>
       <ul class="expertise-panel__tags"><li>Data engineering</li><li>ML &amp; automatisation</li><li>MLOps</li><li>Gouvernance</li></ul>
-      <a class="expertise-panel__link" href="contact.html">Échanger sur la donnée <span aria-hidden="true">↗</span></a>
+      <a class="expertise-panel__link" href="contact">Échanger sur la donnée <span aria-hidden="true">↗</span></a>
     </div>
-    <figure class="expertise-panel__visual expertise-panel__visual--data">
-      <svg viewBox="0 0 600 300" fill="none" aria-hidden="true"><rect class="visual-frame" x="36" y="30" width="528" height="240" rx="24"/><path class="visual-path" d="M70 85h125l65 65h80l65-65h125M70 150h460M70 215h125l65-65h80l65 65h125"/><circle class="visual-node" cx="95" cy="85" r="10"/><circle class="visual-node" cx="95" cy="150" r="10"/><circle class="visual-node" cx="95" cy="215" r="10"/><circle class="visual-node" cx="300" cy="150" r="23"/><circle class="visual-node visual-node--hot" cx="510" cy="150" r="17"/><path class="visual-pulse" d="M276 150h18l8-11 8 22 8-11h11"/></svg>
-      <figcaption><span>Données</span><span>Modèles</span><span>Production</span></figcaption>
+    <figure class="expertise-panel__visual" data-practice-loop>
+      <div class="practice-loop" role="img" aria-label="Animation : des sources de données alimentent un modèle qui apprend, puis un service suivi en production.">
+        <img src="assets/media/xsom-practice-data.jpg?v=fe52e0a3f8a9" width="720" height="540" loading="lazy" alt="">
+        <video muted loop playsinline preload="none" tabindex="-1" aria-hidden="true" data-src="assets/media/xsom-practice-data.mp4?v=86d17e27b020"></video>
+      </div>
+      <figcaption><span data-act="0">Données</span><span data-act="1">Modèles</span><span data-act="2">Production</span></figcaption>
     </figure>
   </article>
   </section>
@@ -229,7 +235,7 @@
   </section>
 
   <section class="expertise-contact" aria-labelledby="expertise-contact-title">
-    <div class="wrap"><h2 id="expertise-contact-title">Un système critique à faire évoluer ?</h2><a href="contact.html">Parlons de votre projet<span aria-hidden="true">↗</span></a></div>
+    <div class="wrap"><h2 id="expertise-contact-title">Un système critique à faire évoluer ?</h2><a href="contact">Parlons de votre projet<span aria-hidden="true">↗</span></a></div>
   </section>
 </main>
 
@@ -238,7 +244,7 @@
   <div class="wrap">
     <div class="site-footer__top">
       <div>
-        <a class="brand" href="index.html">
+        <a class="brand" href="./">
           <img src="assets/logo/moderne-dark.svg" alt="" width="42" height="42">
           <span><span class="brand__name">xSOM Consulting</span></span>
         </a>
@@ -249,20 +255,20 @@
       <div>
         <h2 class="footer-title">Expertises</h2>
         <ul>
-          <li><a href="expertises.html">Toutes nos expertises</a></li>
-          <li><a href="expertises.html#pole-cyber">Télécom &amp; cybersécurité</a></li>
-          <li><a href="ia-souverainete.html">IA &amp; souveraineté</a></li>
-          <li><a href="expertises.html#pole-data">Data science &amp; MLOps</a></li>
+          <li><a href="expertises">Toutes nos expertises</a></li>
+          <li><a href="expertises#pole-cyber">Télécom &amp; cybersécurité</a></li>
+          <li><a href="ia-souverainete">IA &amp; souveraineté</a></li>
+          <li><a href="expertises#pole-data">Data science &amp; MLOps</a></li>
         </ul>
       </div>
 
       <div>
         <h2 class="footer-title">Cabinet</h2>
         <ul>
-          <li><a href="cabinet.html">Qui nous sommes</a></li>
-          <li><a href="carrieres.html">Carrières</a></li>
-          <li><a href="contact.html">Contact</a></li>
-          <li><a href="en/expertise.html" hreflang="en" lang="en">English</a></li>
+          <li><a href="cabinet">Qui nous sommes</a></li>
+          <li><a href="carrieres">Carrières</a></li>
+          <li><a href="contact">Contact</a></li>
+          <li><a href="en/expertise" hreflang="en" lang="en">English</a></li>
         </ul>
       </div>
 
@@ -271,8 +277,8 @@
         <ul>
           <li><a href="mailto:jean-philippe.talou@xsom.fr">jean-philippe.talou@xsom.fr</a></li>
           <li><a href="https://www.linkedin.com/company/xsom-consulting/" target="_blank" rel="noopener">LinkedIn</a></li>
-          <li><a href="mentions-legales.html">Mentions légales</a></li>
-          <li><a href="cookies.html">Cookies</a></li>
+          <li><a href="mentions-legales">Mentions légales</a></li>
+          <li><a href="cookies">Cookies</a></li>
         </ul>
       </div>
     </div>
@@ -289,6 +295,7 @@
 <script src="assets/js/heritage-site.js?v=2e2fb0a3889b" defer></script>
 <script src="assets/js/home-film.js?v=eab2fd2a7aef" defer></script>
 <script src="assets/js/film-titles.js?v=89bba17a4ada" defer></script>
+<script src="assets/js/expertise-loops.js?v=359003288fd4" defer></script>
 <script type="module" src="design-system/signal.js?v=76f290b9cea8"></script>
 </body>
 </html>

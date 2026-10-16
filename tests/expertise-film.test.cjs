@@ -63,6 +63,37 @@ for (const [file, copy] of Object.entries(pages)) {
   });
 }
 
+// The practice chapters: a stack from the network foundation to production, then one
+// silent motion loop per practice, its poster in place and its caption naming its three acts.
+for (const file of Object.keys(pages)) {
+  test(`${file}: the system map stacks the practices under production, and each practice has its loop`, () => {
+    const html = read(file);
+    const stack = html.match(/<div class="expertise-stack"[\s\S]*?<\/p><\/div>/)[0];
+    const targets = [...stack.matchAll(/<a class="expertise-stack__layer" href="#([\w-]+)">/g)].map(m => m[1]);
+    assert.equal(targets.length, 3);
+    targets.forEach(id => assert.match(html, new RegExp(`<article class="expertise-panel" id="${id}"`)));
+    assert.match(stack, /<p class="expertise-stack__outcome">[\s\S]*<strong>Production<\/strong>/);
+    assert.doesNotMatch(html, /expertise-flow|visual-frame/);
+    const loops = [...html.matchAll(/<figure class="expertise-panel__visual" data-practice-loop>[\s\S]*?<\/figure>/g)].map(m => m[0]);
+    assert.deepEqual(loops.map(loop => loop.match(/xsom-practice-(\w+)\.mp4/)[1]), ['network', 'compute', 'data']);
+    for (const loop of loops) {
+      assert.match(loop, /<div class="practice-loop" role="img" aria-label="[^"]{20,}">/);
+      assert.match(loop, /<video muted loop playsinline preload="none" [^>]*data-src="[^"]+\?v=[a-f0-9]{12}"><\/video>/);
+      for (const [, media] of loop.matchAll(/(?:src|data-src)="(?:\.\.\/)?(assets\/media\/[^"?]+)/g)) assert.ok(fs.existsSync(path.join(root, media)), media);
+      assert.deepEqual([...loop.matchAll(/<span data-act="(\d)">/g)].map(m => m[1]), ['0', '1', '2']);
+    }
+    assert.match(html, /<script src="(?:\.\.\/)?assets\/js\/expertise-loops\.js\?v=[a-f0-9]{12}" defer><\/script>/);
+  });
+}
+
+test('Practice loops: nine silent seconds, three acts of three', { skip: !hasFfprobe() && 'ffprobe is not installed' }, () => {
+  for (const practice of ['network', 'compute', 'data']) {
+    const probe = JSON.parse(execFileSync('ffprobe', ['-v', 'error', '-show_entries', 'format=duration:stream=codec_type', '-of', 'json', path.join(root, 'assets/media', `xsom-practice-${practice}.mp4`)], { encoding: 'utf8' }));
+    assert.deepEqual(probe.streams.map(s => s.codec_type), ['video']);
+    assert.ok(Math.abs(Number(probe.format.duration) - 9) < 0.1);
+  }
+});
+
 test('Expertise film media: 18 seconds with its soundtrack', { skip: !hasFfprobe() && 'ffprobe is not installed' }, () => {
   for (const name of ['xsom-expertise-desktop.mp4', 'xsom-expertise-mobile.mp4']) {
     const probe = JSON.parse(execFileSync('ffprobe', ['-v', 'error', '-show_entries', 'format=duration:stream=codec_type', '-of', 'json', path.join(root, 'assets/media', name)], { encoding: 'utf8' }));

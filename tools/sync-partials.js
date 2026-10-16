@@ -38,28 +38,28 @@ const PAGES = {
     reference: 'index.html',
     footerReference: 'expertises.html',
     items: [
-      { file: 'index.html',             nav: 'index.html',            alt: 'en/index.html' },
-      { file: 'expertises.html',        nav: 'expertises.html',       alt: 'en/expertise.html' },
-      { file: 'ia-souverainete.html',   nav: 'ia-souverainete.html',  alt: 'en/ai-sovereignty.html' },
-      { file: 'cabinet.html',           nav: 'cabinet.html',          alt: 'en/firm.html' },
-      { file: 'carrieres.html',         nav: 'cabinet.html',          alt: 'en/careers.html' },
-      { file: 'contact.html',           nav: 'contact.html',          alt: 'en/contact.html' },
-      { file: 'mentions-legales.html',  nav: null,                    alt: 'en/legal-notice.html' },
-      { file: 'cookies.html',           nav: null,                    alt: 'en/cookies.html' }
+      { file: 'index.html',              nav: './',                alt: 'en/' },
+      { file: 'expertises.html',         nav: 'expertises',        alt: 'en/expertise' },
+      { file: 'ia-souverainete.html',    nav: 'ia-souverainete',   alt: 'en/ai-sovereignty' },
+      { file: 'cabinet.html',            nav: 'cabinet',           alt: 'en/firm' },
+      { file: 'carrieres.html',          nav: 'cabinet',           alt: 'en/careers' },
+      { file: 'contact.html',            nav: 'contact',           alt: 'en/contact' },
+      { file: 'mentions-legales.html',   nav: null,                alt: 'en/legal-notice' },
+      { file: 'cookies.html',            nav: null,                alt: 'en/cookies' }
     ]
   },
   en: {
     reference: 'en/index.html',
     footerReference: 'en/expertise.html',
     items: [
-      { file: 'en/index.html',          nav: 'index.html',            alt: '../index.html' },
-      { file: 'en/expertise.html',      nav: 'expertise.html',        alt: '../expertises.html' },
-      { file: 'en/ai-sovereignty.html', nav: 'ai-sovereignty.html',   alt: '../ia-souverainete.html' },
-      { file: 'en/firm.html',           nav: 'firm.html',             alt: '../cabinet.html' },
-      { file: 'en/careers.html',        nav: 'firm.html',             alt: '../carrieres.html' },
-      { file: 'en/contact.html',        nav: 'contact.html',          alt: '../contact.html' },
-      { file: 'en/legal-notice.html',   nav: null,                    alt: '../mentions-legales.html' },
-      { file: 'en/cookies.html',        nav: null,                    alt: '../cookies.html' }
+      { file: 'en/index.html',           nav: './',                alt: '../' },
+      { file: 'en/expertise.html',       nav: 'expertise',         alt: '../expertises' },
+      { file: 'en/ai-sovereignty.html',  nav: 'ai-sovereignty',    alt: '../ia-souverainete' },
+      { file: 'en/firm.html',            nav: 'firm',              alt: '../cabinet' },
+      { file: 'en/careers.html',         nav: 'firm',              alt: '../carrieres' },
+      { file: 'en/contact.html',         nav: 'contact',           alt: '../contact' },
+      { file: 'en/legal-notice.html',    nav: null,                alt: '../mentions-legales' },
+      { file: 'en/cookies.html',         nav: null,                alt: '../cookies' }
     ]
   }
 };
