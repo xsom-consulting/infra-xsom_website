@@ -73,7 +73,7 @@ const output = process.env.SITE_QA_OUTPUT || '/tmp/xsom-original-mark-final';
     await noScript.goto(base);
     assert.equal(await noScript.locator('[data-mark-practice]').count(), 3);
     assert.ok(await noScript.locator('.heritage-mark').isVisible());
-    await Promise.all([noScript.waitForURL(`${base}/ia-souverainete.html`), noScript.locator('[data-mark-practice="2"]').click()]);
+    await Promise.all([noScript.waitForURL(`${base}/expertises#pole-ia`), noScript.locator('[data-mark-practice="2"]').click()]);
     assert.deepEqual(errors, []);
     fs.writeFileSync(path.join(output, 'report.json'), JSON.stringify({ layouts: observations.length, observations, errors, keyboard: 'six real FR/EN links, focus and Enter', reducedMotion: 'OS disables transitions', noJavaScript: 'original mark and real links work' }, null, 2));
     console.log(JSON.stringify({ layouts: observations.length, errors, output }));

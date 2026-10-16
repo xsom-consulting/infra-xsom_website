@@ -282,3 +282,10 @@ html { color-scheme: var(--signal-scheme); }
   .heritage-site .header-cta { justify-content: center; }
   .heritage-site .lang { justify-content: flex-start; border: 0; padding: 0 var(--sp-2); }
 }
+/* Links that leave for the xSOM AI division carry a small up-right arrow. */
+.heritage-site .nav-out { margin-left: .3em; font-size: .9em; transition: transform var(--signal-normal) var(--signal-ease); }
+.heritage-site a:hover > .nav-out { transform: translate(2px, -2px); }
+/* LinkedIn: the logo beside “Nous rejoindre”, and in the careers LinkedIn button. */
+.heritage-site .btn--linkedin { min-width: var(--signal-touch); padding-inline: var(--sp-3); justify-content: center; }
+.heritage-site .linkedin-logo { flex: none; width: 1.15em; height: 1.15em; }
+.heritage-site .home-cta__linkedin .linkedin-logo { margin-right: .5em; }

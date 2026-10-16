@@ -42,7 +42,13 @@ The following approved exceptions are applied:
   on an 18-second film of three stock shots (Sérénité / Sécurité / Souveraineté
   with a French flag; missions, decision-makers, transmission), with the same
   titles, bar and sound as the homepage (tests/page-films.test.cjs).
-- The AI & sovereignty page stays generalist and hands over to the xSOM AI division
+- Since 2026-10-16 (user request) the AI & sovereignty pages are gone: the
+  navigation reads “Intelligence Artificielle ↗” / “Artificial Intelligence ↗” and
+  leads straight to the xSOM AI division (https://ai.xsom.fr); `ia-souverainete`,
+  `en/ai-sovereignty`, `IA` and `vision` redirect there, unindexed, and the homepage
+  AI-infrastructure card leads to that practice on the expertise page. The cabinet
+  page carries the LinkedIn logo beside “Nous rejoindre”. Historical note below:
+- (Former) The AI & sovereignty page stays generalist and hands over to the xSOM AI division
   (https://ai.xsom.fr): its second section fills the screen with the footage
   of that site's opening film (`film/`, `StudioLoop`: silent seamless
   loop, played only in view and never with reduced motion) under the studio's

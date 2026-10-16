@@ -9,11 +9,12 @@ import { createHash } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import { WIDTH, HEIGHT, MISSIONS, project } from './presence-projection.mjs';
 
+const AI_DIVISION = 'https://ai.xsom.fr';
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const restore = process.argv.includes('--restore-original-copy');
 const pairs = [
   ['index.html', 'en/index.html'], ['expertises.html', 'en/expertise.html'],
-  ['ia-souverainete.html', 'en/ai-sovereignty.html'], ['cabinet.html', 'en/firm.html'],
+  ['cabinet.html', 'en/firm.html'],
   ['carrieres.html', 'en/careers.html'], ['contact.html', 'en/contact.html'],
   ['mentions-legales.html', 'en/legal-notice.html'], ['cookies.html', 'en/cookies.html'],
 ];
@@ -43,11 +44,11 @@ function runtimeAsset(file, prefix) {
 function heroArt(prefix, en) {
   const practices = en ? [
     ['Telecom, network &amp; cybersecurity', 'expertise.html#practice-cyber'],
-    ['AI infrastructure &amp; sovereign cloud', 'ai-sovereignty.html'],
+    ['AI infrastructure &amp; sovereign cloud', 'expertise.html#practice-ai'],
     ['Data science, ML &amp; automation', 'expertise.html#practice-data'],
   ] : [
     ['Télécom, réseau &amp; cybersécurité', 'expertises.html#pole-cyber'],
-    ['Infrastructures IA &amp; cloud souverain', 'ia-souverainete.html'],
+    ['Infrastructures IA &amp; cloud souverain', 'expertises.html#pole-ia'],
     ['Data science, ML &amp; automatisation', 'expertises.html#pole-data'],
   ];
   return `<figure class="hero__viz heritage-hero-art" data-hero-mark>
@@ -110,11 +111,11 @@ function offerMap(en) {
   const timing = (arrow, part) => ` style="--delay: ${part === 'draw' ? delay[arrow.key] : delay[arrow.key] + 0.65}s"`;
   const practices = en ? [
     ['Telecom, network &amp; cybersecurity', 'expertise.html#practice-cyber'],
-    ['AI infrastructure &amp; sovereign cloud', 'ai-sovereignty.html'],
+    ['AI infrastructure &amp; sovereign cloud', 'expertise.html#practice-ai'],
     ['Data science, ML &amp; automation', 'expertise.html#practice-data'],
   ] : [
     ['Télécom, réseau &amp; cybersécurité', 'expertises.html#pole-cyber'],
-    ['Infrastructures IA &amp; cloud souverain', 'ia-souverainete.html'],
+    ['Infrastructures IA &amp; cloud souverain', 'expertises.html#pole-ia'],
     ['Data science, ML &amp; automatisation', 'expertises.html#pole-data'],
   ];
   const routes = ['M280 157 L280 114 L320 114 L320 90', 'M456 412 L504 412 L504 486', 'M146 438 L96 438 L96 486'];
@@ -214,7 +215,7 @@ function decorate(file, source, pair) {
   const prefix = file.endsWith('404.html') ? '/' : en ? '../' : '';
   const isHome = file === 'index.html' || file === 'en/index.html';
   const isExpertise = file === 'expertises.html' || file === 'en/expertise.html';
-  const isStory = ['ia-souverainete.html', 'en/ai-sovereignty.html', 'carrieres.html', 'en/careers.html'].includes(file);
+  const isStory = ['carrieres.html', 'en/careers.html'].includes(file);
   let html = source;
   // Page-top films other than the homepage's: the marker carries Discover's target.
   const filmName = isExpertise ? 'xsom-expertise' : isStory ? (file.includes('car') ? 'xsom-careers' : 'xsom-sovereignty') : '';
@@ -278,17 +279,18 @@ function decorate(file, source, pair) {
 }
 
 for (const pair of pairs) for (const file of pair) write(file, decorate(file, read(file), pair));
-for (const file of ['404.html', 'expertise.html', 'IA.html', 'about.html', 'join.html', 'vision.html']) write(file, decorate(file, read(file)));
+for (const file of ['404.html', 'expertise.html', 'about.html', 'join.html']) write(file, decorate(file, read(file)));
 
 function redirect(file, target) {
   const en = file.startsWith('en/');
   const base = en ? 'en/' : '';
-  const html = `<!DOCTYPE html>\n<html lang="${en ? 'en' : 'fr'}"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta http-equiv="refresh" content="0; url=${target}"><meta name="robots" content="noindex, follow"><link rel="canonical" href="https://www.xsom.fr/${base}${target}"><title>${en ? 'Page moved' : 'Page déplacée'} — xSOM Consulting</title></head><body><main class="redirect"><h1>${en ? 'Page moved' : 'Page déplacée'}</h1><p><a class="btn btn--primary" href="${target}">${en ? 'Continue' : 'Continuer'}</a></p></main></body></html>`;
+  const html = `<!DOCTYPE html>\n<html lang="${en ? 'en' : 'fr'}"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta http-equiv="refresh" content="0; url=${target}"><meta name="robots" content="noindex, follow"><link rel="canonical" href="${/^https:/.test(target) ? target : `https://www.xsom.fr/${base}${target}`}"><title>${en ? 'Page moved' : 'Page déplacée'} — xSOM Consulting</title></head><body><main class="redirect"><h1>${en ? 'Page moved' : 'Page déplacée'}</h1><p><a class="btn btn--primary" href="${target}">${en ? 'Continue' : 'Continuer'}</a></p></main></body></html>`;
   write(file, decorate(file, html));
 }
 redirect('ai-guard.html', 'index.html');
 redirect('en/ai-guard.html', 'index.html');
-redirect('en/vision.html', 'ai-sovereignty.html');
+// The AI pages now hand over directly to the xSOM AI division (user request, 2026-10-16).
+for (const file of ['ia-souverainete.html', 'en/ai-sovereignty.html', 'IA.html', 'vision.html', 'en/vision.html']) redirect(file, AI_DIVISION);
 write('en/404.html', decorate('en/404.html', fs.readFileSync(path.join(root, 'en/404.html'), 'utf8')));
 write('sitemap.xml', `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${pairs.flatMap(pair => pair.map(file => `<url><loc>https://www.xsom.fr/${file}</loc><xhtml:link rel="alternate" hreflang="fr" href="https://www.xsom.fr/${pair[0]}"/><xhtml:link rel="alternate" hreflang="en" href="https://www.xsom.fr/${pair[1]}"/><xhtml:link rel="alternate" hreflang="x-default" href="https://www.xsom.fr/${pair[0]}"/></url>`)).join('\n')}\n</urlset>`);
 console.log(`${restore ? 'Restored original copy and' : 'Preserved current copy and'} rendered heritage design contracts for 16 bilingual pages and legacy redirects.`);

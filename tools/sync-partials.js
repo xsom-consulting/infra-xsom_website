@@ -40,7 +40,6 @@ const PAGES = {
     items: [
       { file: 'index.html',              nav: './',                alt: 'en/' },
       { file: 'expertises.html',         nav: 'expertises',        alt: 'en/expertise' },
-      { file: 'ia-souverainete.html',    nav: 'ia-souverainete',   alt: 'en/ai-sovereignty' },
       { file: 'cabinet.html',            nav: 'cabinet',           alt: 'en/firm' },
       { file: 'carrieres.html',          nav: 'cabinet',           alt: 'en/careers' },
       { file: 'contact.html',            nav: 'contact',           alt: 'en/contact' },
@@ -54,7 +53,6 @@ const PAGES = {
     items: [
       { file: 'en/index.html',           nav: './',                alt: '../' },
       { file: 'en/expertise.html',       nav: 'expertise',         alt: '../expertises' },
-      { file: 'en/ai-sovereignty.html',  nav: 'ai-sovereignty',    alt: '../ia-souverainete' },
       { file: 'en/firm.html',            nav: 'firm',              alt: '../cabinet' },
       { file: 'en/careers.html',         nav: 'firm',              alt: '../carrieres' },
       { file: 'en/contact.html',         nav: 'contact',           alt: '../contact' },

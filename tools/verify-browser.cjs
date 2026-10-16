@@ -6,7 +6,7 @@ const path = require('node:path');
 const { chromium } = require(process.env.PLAYWRIGHT_MODULE || '@playwright/test');
 const base = process.env.SITE_URL || 'http://127.0.0.1:4173';
 const output = process.env.SITE_QA_OUTPUT || '/tmp/xsom-site-qa';
-const pages = ['index.html','expertises.html','ia-souverainete.html','cabinet.html','carrieres.html','contact.html','mentions-legales.html','cookies.html','404.html','en/index.html','en/expertise.html','en/ai-sovereignty.html','en/firm.html','en/careers.html','en/contact.html','en/legal-notice.html','en/cookies.html','en/404.html'];
+const pages = ['index.html','expertises.html','cabinet.html','carrieres.html','contact.html','mentions-legales.html','cookies.html','404.html','en/index.html','en/expertise.html','en/firm.html','en/careers.html','en/contact.html','en/legal-notice.html','en/cookies.html','en/404.html'];
 
 (async () => {
   fs.mkdirSync(output, { recursive: true });
