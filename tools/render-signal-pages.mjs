@@ -19,6 +19,10 @@ const FORM_PROCESSORS = {
   enCookies: '<tr class="heritage-privacy-update"><th scope="row">Contact form</th><td>Messages sent through the form go to the server of the xSOM AI division (ai.xsom.fr, hosted by Vercel Inc., United States), which delivers them by email through Resend (Resend, Inc., United States). Contacted only at the moment you submit it, and only then. No cookie is set.</td></tr>',
   legal: '<tr class="heritage-privacy-update"><th scope="row">Sous-traitants</th><td>Vercel Inc. (États-Unis), hébergeur du serveur de la division IA de xSOM (ai.xsom.fr) qui reçoit le formulaire, et Resend, Inc. (États-Unis), pour l’acheminement technique des messages par email</td></tr>',
   enLegal: '<tr class="heritage-privacy-update"><th scope="row">Processors</th><td>Vercel Inc. (United States), which hosts the xSOM AI division’s server (ai.xsom.fr) that receives the form, and Resend, Inc. (United States), for email delivery of messages only</td></tr>',
+  // Précision de Julian (2026-10-16) : aucune donnée des produits ne sort de l'UE ; seuls
+  // les messages du formulaire passent par Resend ; Vercel ne sert que le site.
+  transfer: '<tr class="heritage-privacy-update"><th scope="row">Transfert hors UE</th><td>Aucune donnée des produits xSOM ne quitte l’Union européenne. Seuls les messages du formulaire de contact transitent par Resend (États-Unis), le temps de leur acheminement par email ; Vercel héberge le site sans conserver leur contenu.</td></tr>',
+  enTransfer: '<tr class="heritage-privacy-update"><th scope="row">Transfers outside the EU</th><td>No data from xSOM products leaves the European Union. Only contact-form messages pass through Resend (United States) while they are delivered by email; Vercel hosts the website without keeping their content.</td></tr>',
 };
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const restore = process.argv.includes('--restore-original-copy');
@@ -262,6 +266,7 @@ function decorate(file, source, pair) {
   // Approved technical exception: the form processor is the AI division's server and Resend.
   if (file.endsWith('cookies.html')) html = html.replace(/<tr>\s*<th scope="row">Web3Forms<\/th>[\s\S]*?<\/tr>/, en ? FORM_PROCESSORS.enCookies : FORM_PROCESSORS.cookies);
   if (/(?:mentions-legales|legal-notice)\.html$/.test(file)) html = html.replace(/<tr><th scope="row">(?:Sous-traitant|Processor)<\/th><td>Web3Forms[^<]*<\/td><\/tr>/, en ? FORM_PROCESSORS.enLegal : FORM_PROCESSORS.legal);
+  if (/(?:mentions-legales|legal-notice)\.html$/.test(file)) html = html.replace(/<tr><th scope="row">(?:Transfert hors UE|Transfers outside the EU)<\/th><td>[^<]*<\/td><\/tr>/, en ? FORM_PROCESSORS.enTransfer : FORM_PROCESSORS.transfer);
   if (file.endsWith('cookies.html')) {
     // Approved technical exception: never restore the obsolete remote-font claim.
     html = html.replace(/<tr>\s*<th scope="row">Google Fonts<\/th>[\s\S]*?<\/tr>/, '<tr class="heritage-privacy-update"><th scope="row">Polices locales</th><td>Les polices WOFF2 sont servies depuis ce domaine. Aucune connexion à Google Fonts ou à un CDN de polices.</td></tr>');

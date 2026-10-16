@@ -98,6 +98,13 @@ function exclusions(file, isBaseline) {
       || (file === 'en/legal-notice.html' && normalize(text(node)).startsWith('Processor Web3Forms')))) {
       return true;
     }
+    // The transfer row now states the actual scope (Julian, 2026-10-16): no product data
+    // leaves the EU; only contact-form messages pass through Resend.
+    if (isBaseline && node.tag === 'tr' && (
+      (file === 'mentions-legales.html' && normalize(text(node)).startsWith('Transfert hors UE '))
+      || (file === 'en/legal-notice.html' && normalize(text(node)).startsWith('Transfers outside the EU ')))) {
+      return true;
+    }
     return isBaseline && file === 'cookies.html' && node.tag === 'tr'
       && normalize(text(node)).startsWith('Google Fonts ');
   };
@@ -144,9 +151,11 @@ test('Approved privacy corrections are present and limited to the named technica
     ],
     'mentions-legales.html': [
       'Sous-traitants Vercel Inc. (États-Unis), hébergeur du serveur de la division IA de xSOM (ai.xsom.fr) qui reçoit le formulaire, et Resend, Inc. (États-Unis), pour l’acheminement technique des messages par email',
+      'Transfert hors UE Aucune donnée des produits xSOM ne quitte l’Union européenne. Seuls les messages du formulaire de contact transitent par Resend (États-Unis), le temps de leur acheminement par email ; Vercel héberge le site sans conserver leur contenu.',
     ],
     'en/legal-notice.html': [
       'Processors Vercel Inc. (United States), which hosts the xSOM AI division’s server (ai.xsom.fr) that receives the form, and Resend, Inc. (United States), for email delivery of messages only',
+      'Transfers outside the EU No data from xSOM products leaves the European Union. Only contact-form messages pass through Resend (United States) while they are delivered by email; Vercel hosts the website without keeping their content.',
     ],
   };
   for (const [file, rows] of Object.entries(expected)) {
