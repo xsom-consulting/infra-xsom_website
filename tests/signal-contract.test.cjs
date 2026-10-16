@@ -195,6 +195,32 @@ test('Every navigation and footer leads to the xSOM AI division, and LinkedIn si
   }
 });
 
+test('Contact forms post to the AI division endpoint, with no third-party key', () => {
+  for (const file of ['contact.html', 'en/contact.html', 'index.html', 'en/index.html']) {
+    const html = read(file);
+    const forms = [...html.matchAll(/<form\b[^>]*>/g)].map(match => match[0]);
+    assert.equal(forms.length, 1, file);
+    assert.match(forms[0], /data-contact-form method="post" action="https:\/\/ai\.xsom\.fr\/api\/contact"/, file);
+    assert.doesNotMatch(html, /web3forms|access_key|from_name/i, file);
+  }
+  const script = read('assets/js/contact-form.js');
+  assert.doesNotMatch(script, /web3forms|access_key/i);
+  assert.match(script, /form\[data-contact-form\]/);
+});
+
+test('Footers carry the LinkedIn logo instead of an email address', () => {
+  let footers = 0;
+  for (const file of publicPages) {
+    const footer = read(file).match(/<footer class="site-footer">[\s\S]*?<\/footer>/)?.[0];
+    if (!footer) continue;
+    footers += 1;
+    assert.doesNotMatch(footer, /mailto:|@xsom\.fr/, `${file}: no email in the footer`);
+    const label = file.startsWith('en/') ? 'xSOM Consulting on LinkedIn' : 'xSOM Consulting sur LinkedIn';
+    assert.match(footer, new RegExp(`<a class="footer-linkedin" href="https://www\\.linkedin\\.com/company/xsom-consulting" target="_blank" rel="noopener" aria-label="${label}"[^>]*><svg class="linkedin-logo"[^>]*aria-hidden="true"`), file);
+  }
+  assert.ok(footers >= 14, `Only ${footers} footers were checked`);
+});
+
 test('The corporate site contains no POC promotion, product link or indexed product page', () => {
   for (const file of publicPages) {
     const html = read(file).replace(/&nbsp;|&#160;|&#xA0;/gi, ' ');

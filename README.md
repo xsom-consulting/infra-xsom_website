@@ -64,6 +64,23 @@ The following approved exceptions are applied:
   and both languages accurately disclose local reading preferences.
 - The contact form retains secure POST/native-validation fallback, per-field
   feedback, double-submission protection and input preservation on failure.
+- Since 2026-10-16 (user request) the forms no longer use Web3Forms. GitHub Pages runs
+  no server code, so `assets/js/contact-form.js` posts JSON to the form's `action`,
+  `https://ai.xsom.fr/api/contact`: the xSOM AI division's server (Vercel), which sends
+  the message through Resend to the xsom.fr contact address, reply-to the visitor. No key
+  sits in this site. Without JavaScript the same URL takes a native POST and answers 303
+  back to the page with `?envoi=ok` or `?envoi=erreur`, which the script displays. The
+  cookie and legal pages name these processors (Vercel Inc. and Resend, Inc., United
+  States) in rows marked `heritage-privacy-update`, which `tests/heritage-copy.test.cjs`
+  lists word for word, as it does the earlier technical corrections. The homepage
+  closing call to action unfolds a compact form under its buttons (name, email,
+  optional organisation, message, consent); without JavaScript “Nous contacter” stays a
+  link to the contact page.
+- The same day, the footer stopped showing an email address: the “Nous joindre” /
+  “Reach us” column opens with the LinkedIn logo (`.footer-linkedin`, accessible name
+  “xSOM Consulting sur LinkedIn”). The source of the footer is `expertises.html` and
+  `en/expertise.html`, copied everywhere by `node tools/sync-partials.js`. The email
+  remains on the contact page, in the legal notices and in the form's mailto fallback.
 
 `tests/heritage-copy.test.cjs` compares the 12 remaining internal-page texts and heading
 hierarchies with the immutable original snapshot. It names and bounds every
@@ -120,7 +137,9 @@ Site-specific implementation:
 - `assets/css/heritage-site.css`: layout over the retained original HTML.
 - `assets/js/heritage-site.js`: navigation, original-logo theme selection,
   practice connector focus and interactive existing diagrams.
-- `assets/js/contact-form.js`: the preserved secure contact contract.
+- `assets/js/contact-form.js`: the preserved secure contact contract, for every
+  `form[data-contact-form]` (contact pages, homepage closing section) and the
+  `[data-contact-toggle]` link that unfolds the homepage form.
 - `assets/css/story.css`, `assets/js/story.js`: schemas that draw themselves on arrival (AI &
   sovereignty, careers, homepage marks and closing call to action).
 - `assets/css/film-titles.css`: live titles and film bar shared by the homepage and expertise films.
@@ -185,8 +204,10 @@ PLAYWRIGHT_MODULE=/absolute/path/to/poc-AI_guard/frontend/node_modules/@playwrig
   SITE_URL=http://127.0.0.1:4173 node tools/verify-home-film.cjs
 ```
 
-The browser suite exercises 18 pages at 390/768/1440 in both themes, native
-fallback, keyboard navigation, preferences, and mocked contact success/failure.
+The browser suite exercises 16 pages at 390/768/1440 in both themes, native
+fallback, keyboard navigation, preferences, mocked contact success/failure on the
+contact page and the homepage form (`https://ai.xsom.fr/api/contact` is always routed
+to a local mock, never called), the `?envoi=ok` return and the footer LinkedIn logo.
 The film check covers both homepages at 390/736/768/1440 in both themes,
 viewport fit, real video playback, keyboard pause/resume, reduced motion and
 poster fallbacks when JavaScript, media or autoplay are unavailable.

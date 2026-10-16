@@ -10,6 +10,20 @@ import { fileURLToPath } from 'node:url';
 import { WIDTH, HEIGHT, MISSIONS, project } from './presence-projection.mjs';
 
 const AI_DIVISION = 'https://ai.xsom.fr';
+// Les formulaires de contact sont envoyés au serveur de la division IA, qui les
+// transmet par Resend (GitHub Pages n'exécute aucun code serveur).
+const CONTACT_ENDPOINT = `${AI_DIVISION}/api/contact`;
+// Mention exacte du traitement du formulaire, en remplacement de l'ancien service.
+const FORM_PROCESSORS = {
+  cookies: '<tr class="heritage-privacy-update"><th scope="row">Formulaire de contact</th><td>Les messages du formulaire sont envoyés au serveur de la division IA de xSOM (ai.xsom.fr, hébergé par Vercel Inc., États-Unis), qui les transmet par email via Resend (Resend, Inc., États-Unis). Sollicité uniquement au moment de l’envoi, sur action explicite de votre part. Aucun cookie n’est déposé.</td></tr>',
+  enCookies: '<tr class="heritage-privacy-update"><th scope="row">Contact form</th><td>Messages sent through the form go to the server of the xSOM AI division (ai.xsom.fr, hosted by Vercel Inc., United States), which delivers them by email through Resend (Resend, Inc., United States). Contacted only at the moment you submit it, and only then. No cookie is set.</td></tr>',
+  legal: '<tr class="heritage-privacy-update"><th scope="row">Sous-traitants</th><td>Vercel Inc. (États-Unis), hébergeur du serveur de la division IA de xSOM (ai.xsom.fr) qui reçoit le formulaire, et Resend, Inc. (États-Unis), pour l’acheminement technique des messages par email</td></tr>',
+  enLegal: '<tr class="heritage-privacy-update"><th scope="row">Processors</th><td>Vercel Inc. (United States), which hosts the xSOM AI division’s server (ai.xsom.fr) that receives the form, and Resend, Inc. (United States), for email delivery of messages only</td></tr>',
+  // Précision de Julian (2026-10-16) : aucune donnée des produits ne sort de l'UE ; seuls
+  // les messages du formulaire passent par Resend ; Vercel ne sert que le site.
+  transfer: '<tr class="heritage-privacy-update"><th scope="row">Transfert hors UE</th><td>Aucune donnée des produits xSOM ne quitte l’Union européenne. Seuls les messages du formulaire de contact transitent par Resend (États-Unis), le temps de leur acheminement par email ; Vercel héberge le site sans conserver leur contenu.</td></tr>',
+  enTransfer: '<tr class="heritage-privacy-update"><th scope="row">Transfers outside the EU</th><td>No data from xSOM products leaves the European Union. Only contact-form messages pass through Resend (United States) while they are delivered by email; Vercel hosts the website without keeping their content.</td></tr>',
+};
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const restore = process.argv.includes('--restore-original-copy');
 const pairs = [
@@ -240,13 +254,19 @@ function decorate(file, source, pair) {
   html = html.replace(/design-system\/assets\/mark\.svg/g, 'assets/logo/moderne-dark.svg');
   html = html.replace(/\sdata-split\b/g, '');
   html = html.replace(/<main id="main">/, '<main id="main" tabindex="-1">');
-  html = html.replace(/<form class="form" id="contact-form"\s+novalidate/, '<form class="form" id="contact-form" method="post" action="https://api.web3forms.com/submit"');
+  // Envoi du formulaire : serveur de la division IA (Resend), plus de clé dans le HTML.
+  html = html.replace(/<form class="form" id="contact-form"\s+novalidate/, `<form class="form" id="contact-form" data-contact-form method="post" action="${CONTACT_ENDPOINT}"`);
+  html = html.replace(/\s*<input type="hidden" name="(?:access_key|from_name)"[^>]*>/g, '');
   html = html.replace(/<div class="hero__viz">[\s\S]*?(?=\n {4}<\/div>\n {2}<\/section>)/, heroArt(prefix, en));
   html = html.replace(/<figure class="hero__viz heritage-hero-art"[\s\S]*?<\/figure>/, heroArt(prefix, en));
   if (file.endsWith('index.html')) html = html.replace(/aria-labelledby="offer-title"(?! data-heritage-poles)/, 'aria-labelledby="offer-title" data-heritage-poles');
   if (isHome) html = homeFilm(html, prefix, en);
   html = html.replace(/<div class="home-cta__mark"[^>]*>[\s\S]*?<\/div>/, `<div class="home-cta__mark" aria-hidden="true">${drawnMark('cta')}</div>`);
   html = html.replace(/<div class="story-orbit__mark"[^>]*>[\s\S]*?<\/div>/, `<div class="story-orbit__mark" aria-hidden="true">${drawnMark('orbit')}</div>`);
+  // Approved technical exception: the form processor is the AI division's server and Resend.
+  if (file.endsWith('cookies.html')) html = html.replace(/<tr>\s*<th scope="row">Web3Forms<\/th>[\s\S]*?<\/tr>/, en ? FORM_PROCESSORS.enCookies : FORM_PROCESSORS.cookies);
+  if (/(?:mentions-legales|legal-notice)\.html$/.test(file)) html = html.replace(/<tr><th scope="row">(?:Sous-traitant|Processor)<\/th><td>Web3Forms[^<]*<\/td><\/tr>/, en ? FORM_PROCESSORS.enLegal : FORM_PROCESSORS.legal);
+  if (/(?:mentions-legales|legal-notice)\.html$/.test(file)) html = html.replace(/<tr><th scope="row">(?:Transfert hors UE|Transfers outside the EU)<\/th><td>[^<]*<\/td><\/tr>/, en ? FORM_PROCESSORS.enTransfer : FORM_PROCESSORS.transfer);
   if (file.endsWith('cookies.html')) {
     // Approved technical exception: never restore the obsolete remote-font claim.
     html = html.replace(/<tr>\s*<th scope="row">Google Fonts<\/th>[\s\S]*?<\/tr>/, '<tr class="heritage-privacy-update"><th scope="row">Polices locales</th><td>Les polices WOFF2 sont servies depuis ce domaine. Aucune connexion à Google Fonts ou à un CDN de polices.</td></tr>');
@@ -272,7 +292,7 @@ function decorate(file, source, pair) {
     const preferences = `<div class="heritage-preferences"><signal-preferences lang="${en ? 'en' : 'fr'}">${en ? 'Theme and motion respect your browser preferences.' : 'Le thème et les animations suivent les préférences de votre navigateur.'}</signal-preferences></div>`;
     html = html.includes('</footer>') ? html.replace('</footer>', `${preferences}\n</footer>`) : html.replace('</main>', `${preferences}\n</main>`);
   }
-  html = html.replace('</body>', `<script src="${runtimeAsset('assets/js/heritage-site.js', prefix)}" defer></script>${isHome || filmName ? `\n<script src="${runtimeAsset('assets/js/home-film.js', prefix)}" defer></script>\n<script src="${runtimeAsset('assets/js/film-titles.js', prefix)}" defer></script>` : ''}${isHome ? `\n<script src="${runtimeAsset('assets/js/home-page.js', prefix)}" defer></script>` : ''}${isExpertise ? `\n<script src="${runtimeAsset('assets/js/expertise-loops.js', prefix)}" defer></script>` : ''}${isHome || isStory ? `\n<script src="${runtimeAsset('assets/js/story.js', prefix)}" defer></script>` : ''}\n<script type="module" src="${runtimeAsset('design-system/signal.js', prefix)}"></script>${file.endsWith('contact.html') ? `\n<script src="${runtimeAsset('assets/js/contact-form.js', prefix)}" defer></script>` : ''}\n</body>`);
+  html = html.replace('</body>', `<script src="${runtimeAsset('assets/js/heritage-site.js', prefix)}" defer></script>${isHome || filmName ? `\n<script src="${runtimeAsset('assets/js/home-film.js', prefix)}" defer></script>\n<script src="${runtimeAsset('assets/js/film-titles.js', prefix)}" defer></script>` : ''}${isHome ? `\n<script src="${runtimeAsset('assets/js/home-page.js', prefix)}" defer></script>` : ''}${isExpertise ? `\n<script src="${runtimeAsset('assets/js/expertise-loops.js', prefix)}" defer></script>` : ''}${isHome || isStory ? `\n<script src="${runtimeAsset('assets/js/story.js', prefix)}" defer></script>` : ''}\n<script type="module" src="${runtimeAsset('design-system/signal.js', prefix)}"></script>${file.endsWith('contact.html') || isHome ? `\n<script src="${runtimeAsset('assets/js/contact-form.js', prefix)}" defer></script>` : ''}\n</body>`);
   return html.replace(/\n[ \t]*\n(?:[ \t]*\n)+/g, '\n\n');
 }
 

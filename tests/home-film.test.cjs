@@ -119,8 +119,23 @@ for (const [file, copy] of Object.entries(brief)) {
     const cta = html.match(/<section class="home-cta"[\s\S]*?<\/section>/);
     assert.ok(cta, 'Call to action is present');
     assert.ok(html.indexOf(cta[0]) > html.indexOf('class="home-presence"'), 'It closes the page');
-    assert.match(cta[0], new RegExp(`<a class="btn btn--primary" href="contact">${copy.cta[0]}</a>`));
+    // Without JavaScript it stays a link to the contact page; with it, it unfolds the form below.
+    assert.match(cta[0], new RegExp(`<a class="btn btn--primary" href="contact" data-contact-toggle="home-contact">${copy.cta[0]}</a>`));
     assert.match(cta[0], new RegExp(`<a class="btn btn--ghost home-cta__linkedin" href="https://www.linkedin.com/company/xsom-consulting" target="_blank" rel="noopener">${copy.cta[1]}`));
+  });
+
+  test(`${file}: the closing section carries a compact contact form, folded until asked for`, () => {
+    const cta = html.match(/<section class="home-cta"[\s\S]*?<\/section>/)[0];
+    assert.match(cta, /<div class="home-cta__form" id="home-contact" hidden>/);
+    const form = cta.match(/<form\b[^>]*>[\s\S]*?<\/form>/)[0];
+    assert.match(form, /^<form class="form home-contact" id="home-contact-form" data-contact-form method="post" action="https:\/\/ai\.xsom\.fr\/api\/contact"/);
+    assert.deepEqual([...form.matchAll(/\bname="(\w+)"/g)].map(m => m[1]), ['botcheck', 'name', 'email', 'company', 'message', 'consent']);
+    assert.match(form, /<input type="checkbox" name="botcheck" class="hp" tabindex="-1"/);
+    assert.match(form, /name="message"[^>]*required minlength="10"/);
+    assert.match(form, /data-form-status/);
+    assert.match(form, /<button type="submit" class="btn btn--primary">/);
+    assert.doesNotMatch(form, /access_key|web3forms/i);
+    assert.match(html, /<script src="(?:\.\.\/)?assets\/js\/contact-form\.js\?v=[a-f0-9]{12}" defer><\/script>/);
   });
 }
 
