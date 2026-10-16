@@ -39,7 +39,7 @@
     },
     {
       "id": "1085656",
-      "use": "Expertise 1 : réseaux & cybersécurité ; AI Studio",
+      "use": "Expertise 1 : réseaux & cybersécurité",
       "title": "Blue Colored Cables",
       "author": "Dima Krivoy",
       "page": "https://www.pexels.com/video/blue-colored-cables-1085656/"
@@ -50,27 +50,6 @@
       "title": "Man Using Tablet at the Office",
       "author": "Kampus Production",
       "page": "https://www.pexels.com/video/man-using-tablet-at-the-office-8348320/"
-    },
-    {
-      "id": "4774976",
-      "use": "IA & souveraineté 1 : sérénité",
-      "title": "Man Looking Outside of the Window",
-      "author": "Pavel Danilyuk",
-      "page": "https://www.pexels.com/video/man-looking-outside-of-the-window-4774976/"
-    },
-    {
-      "id": "2887463",
-      "use": "IA & souveraineté 2 : sécurité",
-      "title": "A Computer Monitor Flashing Digital Information",
-      "author": "Bedrijfsfilmspecialist.nl",
-      "page": "https://www.pexels.com/video/a-computer-monitor-flashing-digital-information-2887463/"
-    },
-    {
-      "id": "5903290",
-      "use": "IA & souveraineté 3 : souveraineté",
-      "title": "French National Flag Waving in the Wind",
-      "author": "Samar Layek",
-      "page": "https://www.pexels.com/video/french-national-flag-waving-in-the-wind-5903290/"
     },
     {
       "id": "7692932",
@@ -92,27 +71,6 @@
       "title": "People Working Together",
       "author": "Pavel Danilyuk",
       "page": "https://www.pexels.com/video/people-working-together-8004275/"
-    },
-    {
-      "id": "6803584",
-      "use": "AI Studio",
-      "title": "Men Brainstorming at Work",
-      "author": "cottonbro studio",
-      "page": "https://www.pexels.com/video/men-brainstorming-at-work-6803584/"
-    },
-    {
-      "id": "34279721",
-      "use": "AI Studio",
-      "title": "Modern Desktop Coding Setup with Neon Glow",
-      "author": "Jakub Zerdzicki",
-      "page": "https://www.pexels.com/video/modern-desktop-coding-setup-with-neon-glow-34279721/"
-    },
-    {
-      "id": "20670675",
-      "use": "AI Studio",
-      "title": "Нічний Брюссель (Brussels at night)",
-      "author": "Borys Trusevych",
-      "page": "https://www.pexels.com/video/20670675/"
     }
   ]
 }

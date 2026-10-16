@@ -18,7 +18,7 @@ const brief = {
     title: 'Cabinet de conseil SI, cybersécurité et IA',
     lead: 'Gouvernance des systèmes d’information, cybersécurité et infrastructures d’intelligence artificielle. Depuis 2007, nous accompagnons les DSI de grands comptes sur leurs systèmes les plus critiques — du cadrage stratégique jusqu’à la mise en production.',
     next: ['Découvrir', '#offre'],
-    offer: { id: 'offre', title: 'Trois pôles, une même exigence d’exécution', links: ['expertises.html#pole-cyber', 'ia-souverainete.html', 'expertises.html#pole-data'] },
+    offer: { id: 'offre', title: 'Trois pôles, une même exigence d’exécution', links: ['expertises#pole-cyber', 'expertises#pole-ia', 'expertises#pole-data'] },
     sound: 'Activer le son',
     cta: ['Nous contacter', 'Nous suivre sur LinkedIn'],
     banned: /conseil qui tient|Parlons de votre projet/i,
@@ -28,7 +28,7 @@ const brief = {
     title: 'IT, cybersecurity and AI consulting firm',
     lead: 'IT governance, cybersecurity and artificial intelligence infrastructure. Since 2007, we have advised the CIOs of large organisations on their most critical systems — from strategic framing through to production.',
     next: ['Discover', '#offer'],
-    offer: { id: 'offer', title: 'Three practices, one standard of execution', links: ['expertise.html#practice-cyber', 'ai-sovereignty.html', 'expertise.html#practice-data'] },
+    offer: { id: 'offer', title: 'Three practices, one standard of execution', links: ['expertise#practice-cyber', 'expertise#practice-ai', 'expertise#practice-data'] },
     sound: 'Turn sound on',
     cta: ['Get in touch', 'Follow us on LinkedIn'],
     banned: /consulting that holds|Discuss your project/i,
@@ -98,7 +98,7 @@ for (const [file, copy] of Object.entries(brief)) {
     });
     // The film bar no longer carries the legal links: the page ends on the site footer.
     assert.doesNotMatch(section, /film-footer/);
-    assert.match(html, /<!-- footer:start -->[\s\S]*mentions-legales\.html|legal-notice\.html/);
+    assert.match(html, /<!-- footer:start -->[\s\S]*mentions-legales"|legal-notice"/);
   });
 
   test(`${file}: presence map marks the seven missions, Bordeaux largest, with no remote asset`, () => {
@@ -119,7 +119,7 @@ for (const [file, copy] of Object.entries(brief)) {
     const cta = html.match(/<section class="home-cta"[\s\S]*?<\/section>/);
     assert.ok(cta, 'Call to action is present');
     assert.ok(html.indexOf(cta[0]) > html.indexOf('class="home-presence"'), 'It closes the page');
-    assert.match(cta[0], new RegExp(`<a class="btn btn--primary" href="contact.html">${copy.cta[0]}</a>`));
+    assert.match(cta[0], new RegExp(`<a class="btn btn--primary" href="contact">${copy.cta[0]}</a>`));
     assert.match(cta[0], new RegExp(`<a class="btn btn--ghost home-cta__linkedin" href="https://www.linkedin.com/company/xsom-consulting" target="_blank" rel="noopener">${copy.cta[1]}`));
   });
 }

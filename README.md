@@ -1,7 +1,10 @@
 # xSOM Consulting — heritage blue
 
 Bilingual corporate site served as checked-in HTML by GitHub Pages at
-`www.xsom.fr`. No production build step. The original corporate copy is retained
+`www.xsom.fr`. No production build step. Public URLs carry no `.html`: GitHub Pages
+serves `expertises.html` at `/expertises` and `en/index.html` at `/en/`, so every
+link, canonical, alternate, redirect and sitemap entry uses that form
+(`tools/render-signal-pages.mjs` enforces it; old `.html` URLs still answer). The original corporate copy is retained
 from commit `a9dfd3c` on the remaining internal pages. The homepages and
 expertise pages were redesigned at the user’s request.
 
@@ -39,7 +42,15 @@ The following approved exceptions are applied:
   on an 18-second film of three stock shots (Sérénité / Sécurité / Souveraineté
   with a French flag; missions, decision-makers, transmission), with the same
   titles, bar and sound as the homepage (tests/page-films.test.cjs).
-- The AI & sovereignty page stays generalist and hands over to the xSOM AI division
+- Since 2026-10-16 (user request) the AI & sovereignty pages are gone: the
+  navigation reads “Intelligence Artificielle ↗” / “Artificial Intelligence ↗” and
+  leads straight to the xSOM AI division (https://ai.xsom.fr); `ia-souverainete`,
+  `en/ai-sovereignty`, `IA` and `vision` redirect there, unindexed, and the homepage
+  AI-infrastructure card leads to that practice on the expertise page; the AI page's
+  films (sovereignty film, AI Studio loop) and their footage were deleted. The cabinet
+  page is reduced to its header (no difference, values, principles or closing call),
+  with a LinkedIn-blue button beside “Nous rejoindre”. Historical note below:
+- (Former) The AI & sovereignty page stays generalist and hands over to the xSOM AI division
   (https://ai.xsom.fr): its second section fills the screen with the footage
   of that site's opening film (`film/`, `StudioLoop`: silent seamless
   loop, played only in view and never with reduced motion) under the studio's
@@ -74,8 +85,12 @@ exception; a changed or removed service paragraph fails the test.
   Guard film. Navigation and legal links remain available on the film. A
   portrait export serves phones. No video downloads without JS or with reduced
   motion.
-- The expertise pages combine a film, a connected diagram, three technical
-  visuals and a four-step delivery path. The film uses the same titles engine,
+- The expertise pages combine a film, a stack of the three practices (network
+  foundation, compute, data, then production), one silent motion loop per practice
+  and a four-step delivery path. Each loop (`film/src/practices.tsx`) runs nine
+  seconds in three acts that light the practice's three caption words in turn
+  (`assets/js/expertise-loops.js`); it is drawn, without words, so one render serves
+  both languages, loads only near the screen and keeps its poster for reduced motion. The film uses the same titles engine,
   bar, sound, playback and reduced-motion behavior as the homepage.
 - Sovereignty diagrams retain their keyboard-readable controls.
 
@@ -135,6 +150,7 @@ cd film
 npm ci
 npm run footage
 npm run render            # or by film: npm run render -- xsom-film xsom-studio
+npm run render -- xsom-practice   # the expertise practice loops only (no footage needed)
 node ../tools/render-signal-pages.mjs   # new content hashes in the pages
 ```
 
@@ -153,7 +169,7 @@ is free for individuals and companies of up to three people; larger companies ne
 ## Preview and verification
 
 ```sh
-python3 -m http.server 4173 --bind 127.0.0.1
+node tools/serve.mjs 4173   # resolves clean URLs as GitHub Pages does
 node --test tests/*.test.cjs
 node tools/sync-partials.js --check
 node --check assets/js/heritage-site.js

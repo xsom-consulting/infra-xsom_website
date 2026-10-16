@@ -9,16 +9,25 @@ import { createHash } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import { WIDTH, HEIGHT, MISSIONS, project } from './presence-projection.mjs';
 
+const AI_DIVISION = 'https://ai.xsom.fr';
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const restore = process.argv.includes('--restore-original-copy');
 const pairs = [
   ['index.html', 'en/index.html'], ['expertises.html', 'en/expertise.html'],
-  ['ia-souverainete.html', 'en/ai-sovereignty.html'], ['cabinet.html', 'en/firm.html'],
+  ['cabinet.html', 'en/firm.html'],
   ['carrieres.html', 'en/careers.html'], ['contact.html', 'en/contact.html'],
   ['mentions-legales.html', 'en/legal-notice.html'], ['cookies.html', 'en/cookies.html'],
 ];
 const read = file => restore ? execFileSync('git', ['show', `a9dfd3c:${file}`], { cwd: root, encoding: 'utf8' }) : fs.readFileSync(path.join(root, file), 'utf8');
-const write = (file, content) => fs.writeFileSync(path.join(root, file), content.replace(/[ \t]+$/gm, '').trim() + '\n');
+// GitHub Pages serves `expertises.html` at `/expertises` and `index.html` at its folder:
+// every same-site link, canonical, alternate, redirect and sitemap entry uses that clean form.
+const cleanUrl = url => url.replace(/^((?:https:\/\/www\.xsom\.fr)?\/?(?:\.\.\/)*(?:[\w-]+\/)*)([\w-]+)\.html(?=#|$)/,
+  (_, dir, name) => name === 'index' ? dir || './' : dir + name);
+const cleanUrls = html => html
+  .replace(/(\b(?:href|content)=")([^"]+)"/g, (_, attr, url) => `${attr}${cleanUrl(url)}"`)
+  .replace(/(\burl=)([^"';\s]+)/g, (_, attr, url) => attr + cleanUrl(url))
+  .replace(/<loc>([^<]+)<\/loc>/g, (_, url) => `<loc>${cleanUrl(url)}</loc>`);
+const write = (file, content) => fs.writeFileSync(path.join(root, file), (/\.(?:html|xml)$/.test(file) ? cleanUrls(content) : content).replace(/[ \t]+$/gm, '').trim() + '\n');
 const filmTokens = JSON.parse(fs.readFileSync(path.join(root, 'design/home-film.tokens.json'), 'utf8'));
 write('assets/css/home-film-tokens.css', `/* Generated from design/home-film.tokens.json. */\n:root {\n${Object.entries(filmTokens).map(([name, value]) => `  --${name}: ${value};`).join('\n')}\n}`);
 const styles = ['design-system/fonts.css', 'assets/css/tokens.css', 'assets/css/base.css', 'assets/css/components.css', 'design-system/tokens.css', 'design-system/components.css', 'assets/css/heritage-site.css'];
@@ -35,11 +44,11 @@ function runtimeAsset(file, prefix) {
 function heroArt(prefix, en) {
   const practices = en ? [
     ['Telecom, network &amp; cybersecurity', 'expertise.html#practice-cyber'],
-    ['AI infrastructure &amp; sovereign cloud', 'ai-sovereignty.html'],
+    ['AI infrastructure &amp; sovereign cloud', 'expertise.html#practice-ai'],
     ['Data science, ML &amp; automation', 'expertise.html#practice-data'],
   ] : [
     ['Télécom, réseau &amp; cybersécurité', 'expertises.html#pole-cyber'],
-    ['Infrastructures IA &amp; cloud souverain', 'ia-souverainete.html'],
+    ['Infrastructures IA &amp; cloud souverain', 'expertises.html#pole-ia'],
     ['Data science, ML &amp; automatisation', 'expertises.html#pole-data'],
   ];
   return `<figure class="hero__viz heritage-hero-art" data-hero-mark>
@@ -102,11 +111,11 @@ function offerMap(en) {
   const timing = (arrow, part) => ` style="--delay: ${part === 'draw' ? delay[arrow.key] : delay[arrow.key] + 0.65}s"`;
   const practices = en ? [
     ['Telecom, network &amp; cybersecurity', 'expertise.html#practice-cyber'],
-    ['AI infrastructure &amp; sovereign cloud', 'ai-sovereignty.html'],
+    ['AI infrastructure &amp; sovereign cloud', 'expertise.html#practice-ai'],
     ['Data science, ML &amp; automation', 'expertise.html#practice-data'],
   ] : [
     ['Télécom, réseau &amp; cybersécurité', 'expertises.html#pole-cyber'],
-    ['Infrastructures IA &amp; cloud souverain', 'ia-souverainete.html'],
+    ['Infrastructures IA &amp; cloud souverain', 'expertises.html#pole-ia'],
     ['Data science, ML &amp; automatisation', 'expertises.html#pole-data'],
   ];
   const routes = ['M280 157 L280 114 L320 114 L320 90', 'M456 412 L504 412 L504 486', 'M146 438 L96 438 L96 486'];
@@ -206,15 +215,18 @@ function decorate(file, source, pair) {
   const prefix = file.endsWith('404.html') ? '/' : en ? '../' : '';
   const isHome = file === 'index.html' || file === 'en/index.html';
   const isExpertise = file === 'expertises.html' || file === 'en/expertise.html';
-  const isStory = ['ia-souverainete.html', 'en/ai-sovereignty.html', 'carrieres.html', 'en/careers.html'].includes(file);
+  const isStory = ['carrieres.html', 'en/careers.html'].includes(file);
   let html = source;
   // Page-top films other than the homepage's: the marker carries Discover's target.
-  const filmName = isExpertise ? 'xsom-expertise' : isStory ? (file.includes('car') ? 'xsom-careers' : 'xsom-sovereignty') : '';
+  const filmName = isExpertise ? 'xsom-expertise' : isStory ? 'xsom-careers' : '';
   if (filmName) {
     html = html.replace(/<!-- film-bar:start ?(#[\w-]+)? -->[\s\S]*?<!-- film-bar:end -->/, (_, next = '#practice-map') => `<!-- film-bar:start ${next} -->\n${filmBar(en, next)}\n    <!-- film-bar:end -->`);
-    // The AI page also carries xSOM AI Studio's footage (film/src/films.tsx, StudioLoop).
-    const media = filmName === 'xsom-sovereignty' ? `${filmName}|xsom-studio` : filmName;
-    html = html.replace(new RegExp(`(?:\\.\\./)?assets/media/((?:${media})-(?:desktop|mobile)\\.(?:jpg|mp4))(?:\\?v=[a-f0-9]{12})?`, 'g'),
+    html = html.replace(new RegExp(`(?:\\.\\./)?assets/media/((?:${filmName})-(?:desktop|mobile)\\.(?:jpg|mp4))(?:\\?v=[a-f0-9]{12})?`, 'g'),
+      (_, name) => runtimeAsset(`assets/media/${name}`, prefix));
+  }
+  // The expertise practice loops (film/src/practices.tsx) and their posters.
+  if (isExpertise) {
+    html = html.replace(/(?:\.\.\/)?assets\/media\/(xsom-practice-(?:network|compute|data)\.(?:jpg|mp4))(?:\?v=[a-f0-9]{12})?/g,
       (_, name) => runtimeAsset(`assets/media/${name}`, prefix));
   }
   // User exception: this experimental product is not part of the corporate offer.
@@ -260,22 +272,23 @@ function decorate(file, source, pair) {
     const preferences = `<div class="heritage-preferences"><signal-preferences lang="${en ? 'en' : 'fr'}">${en ? 'Theme and motion respect your browser preferences.' : 'Le thème et les animations suivent les préférences de votre navigateur.'}</signal-preferences></div>`;
     html = html.includes('</footer>') ? html.replace('</footer>', `${preferences}\n</footer>`) : html.replace('</main>', `${preferences}\n</main>`);
   }
-  html = html.replace('</body>', `<script src="${runtimeAsset('assets/js/heritage-site.js', prefix)}" defer></script>${isHome || filmName ? `\n<script src="${runtimeAsset('assets/js/home-film.js', prefix)}" defer></script>\n<script src="${runtimeAsset('assets/js/film-titles.js', prefix)}" defer></script>` : ''}${isHome ? `\n<script src="${runtimeAsset('assets/js/home-page.js', prefix)}" defer></script>` : ''}${isHome || isStory ? `\n<script src="${runtimeAsset('assets/js/story.js', prefix)}" defer></script>` : ''}\n<script type="module" src="${runtimeAsset('design-system/signal.js', prefix)}"></script>${file.endsWith('contact.html') ? `\n<script src="${runtimeAsset('assets/js/contact-form.js', prefix)}" defer></script>` : ''}\n</body>`);
+  html = html.replace('</body>', `<script src="${runtimeAsset('assets/js/heritage-site.js', prefix)}" defer></script>${isHome || filmName ? `\n<script src="${runtimeAsset('assets/js/home-film.js', prefix)}" defer></script>\n<script src="${runtimeAsset('assets/js/film-titles.js', prefix)}" defer></script>` : ''}${isHome ? `\n<script src="${runtimeAsset('assets/js/home-page.js', prefix)}" defer></script>` : ''}${isExpertise ? `\n<script src="${runtimeAsset('assets/js/expertise-loops.js', prefix)}" defer></script>` : ''}${isHome || isStory ? `\n<script src="${runtimeAsset('assets/js/story.js', prefix)}" defer></script>` : ''}\n<script type="module" src="${runtimeAsset('design-system/signal.js', prefix)}"></script>${file.endsWith('contact.html') ? `\n<script src="${runtimeAsset('assets/js/contact-form.js', prefix)}" defer></script>` : ''}\n</body>`);
   return html.replace(/\n[ \t]*\n(?:[ \t]*\n)+/g, '\n\n');
 }
 
 for (const pair of pairs) for (const file of pair) write(file, decorate(file, read(file), pair));
-for (const file of ['404.html', 'expertise.html', 'IA.html', 'about.html', 'join.html', 'vision.html']) write(file, decorate(file, read(file)));
+for (const file of ['404.html', 'expertise.html', 'about.html', 'join.html']) write(file, decorate(file, read(file)));
 
 function redirect(file, target) {
   const en = file.startsWith('en/');
   const base = en ? 'en/' : '';
-  const html = `<!DOCTYPE html>\n<html lang="${en ? 'en' : 'fr'}"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta http-equiv="refresh" content="0; url=${target}"><meta name="robots" content="noindex, follow"><link rel="canonical" href="https://www.xsom.fr/${base}${target}"><title>${en ? 'Page moved' : 'Page déplacée'} — xSOM Consulting</title></head><body><main class="redirect"><h1>${en ? 'Page moved' : 'Page déplacée'}</h1><p><a class="btn btn--primary" href="${target}">${en ? 'Continue' : 'Continuer'}</a></p></main></body></html>`;
+  const html = `<!DOCTYPE html>\n<html lang="${en ? 'en' : 'fr'}"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta http-equiv="refresh" content="0; url=${target}"><meta name="robots" content="noindex, follow"><link rel="canonical" href="${/^https:/.test(target) ? target : `https://www.xsom.fr/${base}${target}`}"><title>${en ? 'Page moved' : 'Page déplacée'} — xSOM Consulting</title></head><body><main class="redirect"><h1>${en ? 'Page moved' : 'Page déplacée'}</h1><p><a class="btn btn--primary" href="${target}">${en ? 'Continue' : 'Continuer'}</a></p></main></body></html>`;
   write(file, decorate(file, html));
 }
 redirect('ai-guard.html', 'index.html');
 redirect('en/ai-guard.html', 'index.html');
-redirect('en/vision.html', 'ai-sovereignty.html');
+// The AI pages now hand over directly to the xSOM AI division (user request, 2026-10-16).
+for (const file of ['ia-souverainete.html', 'en/ai-sovereignty.html', 'IA.html', 'vision.html', 'en/vision.html']) redirect(file, AI_DIVISION);
 write('en/404.html', decorate('en/404.html', fs.readFileSync(path.join(root, 'en/404.html'), 'utf8')));
 write('sitemap.xml', `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${pairs.flatMap(pair => pair.map(file => `<url><loc>https://www.xsom.fr/${file}</loc><xhtml:link rel="alternate" hreflang="fr" href="https://www.xsom.fr/${pair[0]}"/><xhtml:link rel="alternate" hreflang="en" href="https://www.xsom.fr/${pair[1]}"/><xhtml:link rel="alternate" hreflang="x-default" href="https://www.xsom.fr/${pair[0]}"/></url>`)).join('\n')}\n</urlset>`);
 console.log(`${restore ? 'Restored original copy and' : 'Preserved current copy and'} rendered heritage design contracts for 16 bilingual pages and legacy redirects.`);

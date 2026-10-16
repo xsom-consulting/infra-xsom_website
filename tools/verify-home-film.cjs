@@ -129,7 +129,7 @@ const output = process.env.SITE_QA_OUTPUT || '/tmp/xsom-home-film';
     report.behaviors.push('Real autoplay, keyboard pause/resume, persistent user pause, live OS preference');
     // The expertise page carries the same film treatment: 18 s, live titles, the same bar.
     await page.emulateMedia({ reducedMotion: 'no-preference' });
-    const pageFilms = [['expertises.html', 1440, 900, 18], ['en/expertise.html', 390, 844, 18], ['ia-souverainete.html', 1440, 900, 18], ['en/ai-sovereignty.html', 390, 844, 18], ['carrieres.html', 768, 900, 18], ['en/careers.html', 390, 844, 18]];
+    const pageFilms = [['expertises.html', 1440, 900, 18], ['en/expertise.html', 390, 844, 18], ['carrieres.html', 768, 900, 18], ['en/careers.html', 390, 844, 18]];
     for (const [file, width, height, seconds] of pageFilms) {
       await page.setViewportSize({ width, height });
       await page.goto(`${base}/${file}`, { waitUntil: 'domcontentloaded' });
@@ -161,7 +161,7 @@ const output = process.env.SITE_QA_OUTPUT || '/tmp/xsom-home-film';
       if (film.index) assert.ok(film.bar.every(item => item.top >= film.index.bottom - 1), `${file}: the bar sits below the index`);
       await page.screenshot({ path: path.join(output, `${file.replace(/\W+/g, '-')}-${width}.png`) });
     }
-    report.behaviors.push('Expertise, AI & sovereignty and careers films: 18 s, live titles clear of header, index and bar');
+    report.behaviors.push('Expertise and careers films: 18 s, live titles clear of header, index and bar');
     await page.setViewportSize({ width: 1440, height: 900 });
     for (const state of ['reduced', 'saved-reduced', 'no-javascript', 'failed-media', 'blocked-autoplay']) {
       const isolated = await browser.newContext({ viewport: { width: 390, height: 844 }, javaScriptEnabled: state !== 'no-javascript', reducedMotion: state === 'reduced' ? 'reduce' : 'no-preference' });

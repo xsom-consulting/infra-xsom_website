@@ -12,8 +12,6 @@ const words = text => new Set(text.toLowerCase().replace(/['’]/g, ' ').match(/
 // Films for the AI & sovereignty and careers pages (Remotion, stock footage, 2026-10-01):
 // three shots, each carrying one idea already stated on the page.
 const pages = {
-  'ia-souverainete.html': { media: 'xsom-sovereignty', next: ['Découvrir', '#ai-studio'], beats: ['Sérénité', 'Sécurité', 'Souveraineté'] },
-  'en/ai-sovereignty.html': { media: 'xsom-sovereignty', next: ['Discover', '#ai-studio'], beats: ['Operational confidence', 'Security', 'Sovereignty'] },
   'carrieres.html': { media: 'xsom-careers', next: ['Découvrir', '#roles'], beats: ['Missions à impact', 'Proximité avec les décideurs', 'Transmission & montée en compétence'] },
   'en/careers.html': { media: 'xsom-careers', next: ['Discover', '#roles'], beats: ['Work that matters', 'Close to decision-makers', 'Learning and passing it on'] },
 };
@@ -53,7 +51,7 @@ for (const [file, page] of Object.entries(pages)) {
 }
 
 test('Page films: 18 seconds each, with sound', { skip: !hasFfprobe() && 'ffprobe is not installed' }, () => {
-  for (const name of ['xsom-sovereignty', 'xsom-careers']) {
+  for (const name of ['xsom-careers']) {
     for (const variant of ['desktop', 'mobile']) {
       const probe = JSON.parse(execFileSync('ffprobe', ['-v', 'error', '-show_entries', 'format=duration:stream=codec_type', '-of', 'json', path.join(root, 'assets/media', `${name}-${variant}.mp4`)], { encoding: 'utf8' }));
       assert.deepEqual(probe.streams.map(s => s.codec_type).sort(), ['audio', 'video']);
@@ -65,7 +63,7 @@ test('Page films: 18 seconds each, with sound', { skip: !hasFfprobe() && 'ffprob
 test('Every page-top film has its own background music, one chord per six-second shot', async () => {
   const { pathToFileURL } = require('node:url');
   const { cues } = await import(pathToFileURL(path.join(root, 'tools/film-score.mjs')));
-  assert.deepEqual(cues, { 'xsom-film': 5, 'xsom-expertise': 3, 'xsom-sovereignty': 3, 'xsom-careers': 3 });
+  assert.deepEqual(cues, { 'xsom-film': 5, 'xsom-expertise': 3, 'xsom-careers': 3 });
   const pipeline = read('film/scripts/render.mjs');
   assert.match(pipeline, /level\(score\(name, /, 'Every film is rendered with its levelled music');
 });

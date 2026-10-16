@@ -1,7 +1,7 @@
 // Renders the site's page-top films with Remotion, desktop (16:9) and phones (9:16), with
 // their first-frame posters, the AI Studio loop and the homepage offer cards' stills, into
 // assets/media/. Run `npm run footage` first. Optional arguments filter by film name:
-//   npm run render -- xsom-film xsom-studio
+//   npm run render -- xsom-film xsom-careers
 // The music is tools/film-score.mjs, levelled here; the footage itself is silent.
 import { createHash } from 'node:crypto';
 import fs from 'node:fs';
@@ -17,8 +17,10 @@ const output = path.resolve(root, '../assets/media');
 const TARGET_RMS_DB = -23;
 
 const VARIANTS = { desktop: '25', mobile: '26' };
-const STUDIO = { desktop: '27', mobile: '28' };
 // The homepage offer cards: one still per practice, from the films (1280 × 720).
+// The expertise page's practice loops (src/practices.tsx): silent, with a still that tells
+// the whole story for reduced motion and slow connections.
+const PRACTICE_POSTERS = { network: 7.3, compute: 7.8, data: 8.1 };
 const POLES = [['xsom-pole-1', 'xsom-film-desktop', 9], ['xsom-pole-2', 'xsom-film-desktop', 21], ['xsom-pole-3', 'xsom-expertise-desktop', 15]];
 
 /** Brings a float WAV from film-score.mjs to the target level, peaks under -1 dBFS. */
@@ -34,7 +36,8 @@ function level(file) {
 
 const wanted = process.argv.slice(2);
 const pick = name => !wanted.length || wanted.includes(name);
-if (!fs.existsSync(path.join(root, 'public/footage'))) throw new Error('Run `npm run footage` first.');
+// Only the footage films need the stock clips; the practice loops are drawn.
+if (Object.keys(cues).some(pick) && !fs.existsSync(path.join(root, 'public/footage'))) throw new Error('Run `npm run footage` first.');
 
 fs.mkdirSync(path.join(root, 'public/score'), { recursive: true });
 for (const name of Object.keys(cues).filter(pick)) level(score(name, path.join(root, 'public/score', `${name}.wav`)));
@@ -59,12 +62,9 @@ for (const name of Object.keys(cues).filter(pick)) {
     await still(`${name}-${variant}`, `${name}-${variant}`, 0);
   }
 }
-if (pick('xsom-studio')) {
-  for (const [variant, crf] of Object.entries(STUDIO)) {
-    await render(`xsom-studio-${variant}`, `xsom-studio-${variant}`, crf, true);
-    // The business district under the dusk, the loop's closing image: the still for reduced motion.
-    await still(`xsom-studio-${variant}`, `xsom-studio-${variant}`, 12);
-  }
+for (const [practice, seconds] of Object.entries(PRACTICE_POSTERS).filter(([practice]) => pick(`xsom-practice-${practice}`) || pick('xsom-practice'))) {
+  await render(`xsom-practice-${practice}`, `xsom-practice-${practice}`, 30, true);
+  await still(`xsom-practice-${practice}`, `xsom-practice-${practice}`, seconds, 0.6);
 }
 if (pick('xsom-film') || pick('xsom-expertise')) {
   for (const [file, id, seconds] of POLES) await still(id, file, seconds, 2 / 3);
@@ -73,7 +73,7 @@ if (pick('xsom-film') || pick('xsom-expertise')) {
 const sha = file => createHash('sha256').update(fs.readFileSync(file)).digest('hex').slice(0, 16);
 const { clips } = JSON.parse(fs.readFileSync(path.join(root, 'footage.json'), 'utf8'));
 console.log(JSON.stringify({
-  footage: clips.map(({ id }) => ({ id, sha256: sha(path.join(root, 'public/footage', `${id}.mp4`)) })),
-  assets: fs.readdirSync(output).filter(file => /^xsom-(film|expertise|sovereignty|careers|studio|pole)-/.test(file))
+  footage: clips.filter(({ id }) => fs.existsSync(path.join(root, 'public/footage', `${id}.mp4`))).map(({ id }) => ({ id, sha256: sha(path.join(root, 'public/footage', `${id}.mp4`)) })),
+  assets: fs.readdirSync(output).filter(file => /^xsom-(film|expertise|careers|pole|practice)-/.test(file))
     .map(file => ({ file, bytes: fs.statSync(path.join(output, file)).size })),
 }, null, 2));

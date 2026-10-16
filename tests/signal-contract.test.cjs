@@ -11,7 +11,6 @@ const pairs = [
   ['index.html', 'en/index.html'],
   ['expertises.html', 'en/expertise.html'],
   ['cabinet.html', 'en/firm.html'],
-  ['ia-souverainete.html', 'en/ai-sovereignty.html'],
   ['carrieres.html', 'en/careers.html'],
   ['contact.html', 'en/contact.html'],
   ['mentions-legales.html', 'en/legal-notice.html'],
@@ -19,6 +18,10 @@ const pairs = [
 ];
 const publicPages = ['', 'en'].flatMap(directory => fs.readdirSync(path.join(root, directory))
   .filter(file => file.endsWith('.html')).map(file => path.join(directory, file)));
+// The public URL of a page, as GitHub Pages serves it: no `.html`, folders for `index.html`.
+const clean = file => file.replace(/(^|\/)index\.html$/, '$1').replace(/\.html$/, '');
+// The file GitHub Pages serves for a clean path.
+const served = pathname => pathname.endsWith('/') ? `${pathname}index.html` : `${pathname}.html`;
 const digest = content => createHash('sha256').update(content).digest('hex').slice(0, 12);
 
 function read(file) {
@@ -45,11 +48,11 @@ test('French and English pages retain reciprocal, canonical language URLs', () =
       const html = read(file);
       const links = [...html.matchAll(/<link\b[^>]*>/g)].map((match) => attributes(match[0]));
       assert.match(html, new RegExp(`<html[^>]+lang=["']${language}["']`), file);
-      assert.equal(links.find((link) => link.rel === 'canonical')?.href, `${origin}/${file}`, file);
+      assert.equal(links.find((link) => link.rel === 'canonical')?.href, `${origin}/${clean(file)}`, file);
       for (const [lang, target] of [['fr', fr], ['en', en], ['x-default', fr]]) {
         assert.equal(
           links.find((link) => link.rel === 'alternate' && link.hreflang === lang)?.href,
-          `${origin}/${target}`,
+          `${origin}/${clean(target)}`,
           `${file}: ${lang}`,
         );
       }
@@ -139,24 +142,56 @@ test('GitHub Pages domain, old URLs and search sitemap remain valid', () => {
   assert.equal(read('CNAME').trim(), 'www.xsom.fr');
   const redirects = {
     'expertise.html': 'expertises.html',
-    'IA.html': 'ia-souverainete.html',
     'about.html': 'cabinet.html',
     'join.html': 'carrieres.html',
-    'vision.html': 'ia-souverainete.html',
-    'en/vision.html': 'ai-sovereignty.html',
     'ai-guard.html': 'index.html',
     'en/ai-guard.html': 'index.html',
   };
   for (const [file, target] of Object.entries(redirects)) {
-    assert.match(read(file), new RegExp(`url=${target.replace('.', '\\.')}["']`, 'i'), file);
+    const url = clean(target) || './';
+    assert.match(read(file), new RegExp(`url=${url.replace('.', '\\.')}["']`, 'i'), file);
     assert.ok(fs.existsSync(path.resolve(root, path.dirname(file), target)), target);
   }
+  // The former AI pages hand over to the xSOM AI division, unindexed.
+  for (const file of ['ia-souverainete.html', 'en/ai-sovereignty.html', 'IA.html', 'vision.html', 'en/vision.html']) {
+    assert.match(read(file), /url=https:\/\/ai\.xsom\.fr["']/, file);
+    assert.match(read(file), /name=["']robots["'][^>]+content=["']noindex/i, file);
+  }
+  assert.doesNotMatch(read('sitemap.xml'), /souverainete|sovereignty/);
   const urls = [...read('sitemap.xml').matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => new URL(match[1]));
   assert.ok(urls.length >= pairs.length * 2, 'Sitemap must cover both languages');
   for (const url of urls) {
     assert.equal(url.origin, origin);
-    const pathname = url.pathname.endsWith('/') ? `${url.pathname}index.html` : url.pathname;
-    assert.ok(fs.existsSync(path.join(root, pathname)), `Sitemap points at ${pathname}`);
+    assert.doesNotMatch(url.pathname, /\.html$/, 'Sitemap uses clean URLs');
+    assert.ok(fs.existsSync(path.join(root, served(url.pathname))), `Sitemap points at ${url.pathname}`);
+  }
+});
+
+test('Same-site links, canonicals and redirects use clean URLs, and each one resolves', () => {
+  for (const file of publicPages) {
+    const html = read(file);
+    for (const [, , url] of html.matchAll(/(\shref="|og:url" content="|; url=)([^"]+)"/g)) {
+      const target = new URL(url, `${origin}/${clean(file)}`);
+      if (target.origin !== origin || /^(?:mailto|tel):/.test(url)) continue;
+      if (/\.\w+$/.test(target.pathname) && !target.pathname.endsWith('.html')) continue;
+      assert.doesNotMatch(target.pathname, /\.html$/, `${file}: ${url}`);
+      assert.ok(fs.existsSync(path.join(root, decodeURIComponent(served(target.pathname)))), `${file}: ${url}`);
+    }
+  }
+});
+
+test('Every navigation and footer leads to the xSOM AI division, and LinkedIn sits beside “Nous rejoindre”', () => {
+  for (const [file, label] of [['index.html', 'Intelligence Artificielle'], ['cabinet.html', 'Intelligence Artificielle'], ['en/index.html', 'Artificial Intelligence'], ['en/firm.html', 'Artificial Intelligence']]) {
+    const nav = read(file).match(/<nav class="nav"[\s\S]*?<\/nav>/)[0];
+    assert.match(nav, new RegExp(`<a href="https://ai\\.xsom\\.fr">${label} <span class="nav-out" aria-hidden="true">↗</span></a>`), file);
+  }
+  for (const [file, join] of [['cabinet.html', 'Nous rejoindre'], ['en/firm.html', 'Join us']]) {
+    assert.match(read(file), new RegExp(`>${join}</a>\\s*<a class="btn btn--linkedin" href="https://www\\.linkedin\\.com/company/xsom-consulting/" target="_blank" rel="noopener" aria-label="[^"]+"[^>]*><svg class="linkedin-logo"`), file);
+  }
+  for (const file of ['carrieres.html', 'en/careers.html']) assert.match(read(file), /class="btn btn--linkedin home-cta__linkedin"[^>]*><svg class="linkedin-logo"/, file);
+  // The firm page is the header only: no difference, values, principles or closing call.
+  for (const file of ['cabinet.html', 'en/firm.html']) {
+    assert.doesNotMatch(read(file), /stance-title|values-title|principles-title|cta-band/, file);
   }
 });
 

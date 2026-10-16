@@ -29,12 +29,6 @@ const CUES = {
     { bass: 41, pad: [57, 60, 64, 69, 72] },
     { bass: 36, pad: [55, 59, 62, 64, 71] },
   ],
-  // AI & sovereignty: E minor, Em9 – Cmaj7 – Dsus2.
-  'xsom-sovereignty': [
-    { bass: 40, pad: [55, 59, 62, 66, 71] },
-    { bass: 36, pad: [55, 59, 64, 67, 71] },
-    { bass: 38, pad: [57, 62, 64, 69, 74] },
-  ],
   // Careers: C major, Cmaj9 – Am9 – Fmaj9.
   'xsom-careers': [
     { bass: 36, pad: [52, 55, 59, 62, 67] },
