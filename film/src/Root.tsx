@@ -1,6 +1,6 @@
 import { Fragment } from "react";
 import { Composition } from "remotion";
-import { FILMS, PageFilm, SHOT, STUDIO_SECONDS, StudioLoop, type FilmName } from "./films";
+import { FILMS, PageFilm, SHOT, type FilmName } from "./films";
 import { PRACTICE_LOOPS, PRACTICE_SECONDS, PRACTICE_SIZE, PRACTICES } from "./practices";
 
 const FPS = 24;
@@ -15,7 +15,6 @@ export function Root() {
           {(Object.keys(FILMS) as FilmName[]).map((name) => (
             <Composition key={`${name}-${variant}`} id={`${name}-${variant}`} component={PageFilm} defaultProps={{ name }} durationInFrames={FILMS[name].length * SHOT * FPS} fps={FPS} {...size} />
           ))}
-          <Composition id={`xsom-studio-${variant}`} component={StudioLoop} durationInFrames={STUDIO_SECONDS * FPS} fps={FPS} {...size} />
         </Fragment>
       ))}
       {/* The expertise page's practice loops: silent, one render for both languages. */}

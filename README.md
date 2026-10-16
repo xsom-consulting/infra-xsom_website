@@ -46,8 +46,10 @@ The following approved exceptions are applied:
   navigation reads “Intelligence Artificielle ↗” / “Artificial Intelligence ↗” and
   leads straight to the xSOM AI division (https://ai.xsom.fr); `ia-souverainete`,
   `en/ai-sovereignty`, `IA` and `vision` redirect there, unindexed, and the homepage
-  AI-infrastructure card leads to that practice on the expertise page. The cabinet
-  page carries the LinkedIn logo beside “Nous rejoindre”. Historical note below:
+  AI-infrastructure card leads to that practice on the expertise page; the AI page's
+  films (sovereignty film, AI Studio loop) and their footage were deleted. The cabinet
+  page is reduced to its header (no difference, values, principles or closing call),
+  with a LinkedIn-blue button beside “Nous rejoindre”. Historical note below:
 - (Former) The AI & sovereignty page stays generalist and hands over to the xSOM AI division
   (https://ai.xsom.fr): its second section fills the screen with the footage
   of that site's opening film (`film/`, `StudioLoop`: silent seamless

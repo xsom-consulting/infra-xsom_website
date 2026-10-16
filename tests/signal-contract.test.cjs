@@ -186,9 +186,13 @@ test('Every navigation and footer leads to the xSOM AI division, and LinkedIn si
     assert.match(nav, new RegExp(`<a href="https://ai\\.xsom\\.fr">${label} <span class="nav-out" aria-hidden="true">↗</span></a>`), file);
   }
   for (const [file, join] of [['cabinet.html', 'Nous rejoindre'], ['en/firm.html', 'Join us']]) {
-    assert.match(read(file), new RegExp(`>${join}</a>\\s*<a class="btn btn--ghost btn--linkedin" href="https://www\\.linkedin\\.com/company/xsom-consulting/" target="_blank" rel="noopener" aria-label="[^"]+"[^>]*><svg class="linkedin-logo"`), file);
+    assert.match(read(file), new RegExp(`>${join}</a>\\s*<a class="btn btn--linkedin" href="https://www\\.linkedin\\.com/company/xsom-consulting/" target="_blank" rel="noopener" aria-label="[^"]+"[^>]*><svg class="linkedin-logo"`), file);
   }
-  for (const file of ['carrieres.html', 'en/careers.html']) assert.match(read(file), /home-cta__linkedin"[^>]*><svg class="linkedin-logo"/, file);
+  for (const file of ['carrieres.html', 'en/careers.html']) assert.match(read(file), /class="btn btn--linkedin home-cta__linkedin"[^>]*><svg class="linkedin-logo"/, file);
+  // The firm page is the header only: no difference, values, principles or closing call.
+  for (const file of ['cabinet.html', 'en/firm.html']) {
+    assert.doesNotMatch(read(file), /stance-title|values-title|principles-title|cta-band/, file);
+  }
 });
 
 test('The corporate site contains no POC promotion, product link or indexed product page', () => {

@@ -51,7 +51,7 @@ for (const [file, page] of Object.entries(pages)) {
 }
 
 test('Page films: 18 seconds each, with sound', { skip: !hasFfprobe() && 'ffprobe is not installed' }, () => {
-  for (const name of ['xsom-sovereignty', 'xsom-careers']) {
+  for (const name of ['xsom-careers']) {
     for (const variant of ['desktop', 'mobile']) {
       const probe = JSON.parse(execFileSync('ffprobe', ['-v', 'error', '-show_entries', 'format=duration:stream=codec_type', '-of', 'json', path.join(root, 'assets/media', `${name}-${variant}.mp4`)], { encoding: 'utf8' }));
       assert.deepEqual(probe.streams.map(s => s.codec_type).sort(), ['audio', 'video']);
@@ -63,7 +63,7 @@ test('Page films: 18 seconds each, with sound', { skip: !hasFfprobe() && 'ffprob
 test('Every page-top film has its own background music, one chord per six-second shot', async () => {
   const { pathToFileURL } = require('node:url');
   const { cues } = await import(pathToFileURL(path.join(root, 'tools/film-score.mjs')));
-  assert.deepEqual(cues, { 'xsom-film': 5, 'xsom-expertise': 3, 'xsom-sovereignty': 3, 'xsom-careers': 3 });
+  assert.deepEqual(cues, { 'xsom-film': 5, 'xsom-expertise': 3, 'xsom-careers': 3 });
   const pipeline = read('film/scripts/render.mjs');
   assert.match(pipeline, /level\(score\(name, /, 'Every film is rendered with its levelled music');
 });

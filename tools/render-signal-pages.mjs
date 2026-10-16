@@ -218,12 +218,10 @@ function decorate(file, source, pair) {
   const isStory = ['carrieres.html', 'en/careers.html'].includes(file);
   let html = source;
   // Page-top films other than the homepage's: the marker carries Discover's target.
-  const filmName = isExpertise ? 'xsom-expertise' : isStory ? (file.includes('car') ? 'xsom-careers' : 'xsom-sovereignty') : '';
+  const filmName = isExpertise ? 'xsom-expertise' : isStory ? 'xsom-careers' : '';
   if (filmName) {
     html = html.replace(/<!-- film-bar:start ?(#[\w-]+)? -->[\s\S]*?<!-- film-bar:end -->/, (_, next = '#practice-map') => `<!-- film-bar:start ${next} -->\n${filmBar(en, next)}\n    <!-- film-bar:end -->`);
-    // The AI page also carries xSOM AI Studio's footage (film/src/films.tsx, StudioLoop).
-    const media = filmName === 'xsom-sovereignty' ? `${filmName}|xsom-studio` : filmName;
-    html = html.replace(new RegExp(`(?:\\.\\./)?assets/media/((?:${media})-(?:desktop|mobile)\\.(?:jpg|mp4))(?:\\?v=[a-f0-9]{12})?`, 'g'),
+    html = html.replace(new RegExp(`(?:\\.\\./)?assets/media/((?:${filmName})-(?:desktop|mobile)\\.(?:jpg|mp4))(?:\\?v=[a-f0-9]{12})?`, 'g'),
       (_, name) => runtimeAsset(`assets/media/${name}`, prefix));
   }
   // The expertise practice loops (film/src/practices.tsx) and their posters.

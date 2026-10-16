@@ -286,6 +286,8 @@ html { color-scheme: var(--signal-scheme); }
 .heritage-site .nav-out { margin-left: .3em; font-size: .9em; transition: transform var(--signal-normal) var(--signal-ease); }
 .heritage-site a:hover > .nav-out { transform: translate(2px, -2px); }
 /* LinkedIn: the logo beside “Nous rejoindre”, and in the careers LinkedIn button. */
-.heritage-site .btn--linkedin { min-width: var(--signal-touch); padding-inline: var(--sp-3); justify-content: center; }
-.heritage-site .linkedin-logo { flex: none; width: 1.15em; height: 1.15em; }
+.heritage-site .btn.btn--linkedin { justify-content: center; border-color: #0a66c2; background: #0a66c2; color: #fff; }
+.heritage-site .btn.btn--linkedin:hover { border-color: #004182; background: #004182; color: #fff; }
+.heritage-site .btn--linkedin:not(.home-cta__linkedin) { aspect-ratio: 1; padding: 0; }
+.heritage-site .linkedin-logo { flex: none; width: 1.25em; height: 1.25em; }
 .heritage-site .home-cta__linkedin .linkedin-logo { margin-right: .5em; }
