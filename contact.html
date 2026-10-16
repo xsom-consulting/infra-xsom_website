@@ -34,7 +34,7 @@
 <link rel="stylesheet" href="assets/css/components.css?v=25e04e80bea9">
 <link rel="stylesheet" href="design-system/tokens.css?v=d3f9c8183253">
 <link rel="stylesheet" href="design-system/components.css?v=58339a992fc9">
-<link rel="stylesheet" href="assets/css/heritage-site.css?v=63b1a4e2783c">
+<link rel="stylesheet" href="assets/css/heritage-site.css?v=2ad7933a2a64">
 <script src="assets/js/signal-preferences-init.js?v=df27c76a85ce"></script>
 </head>
 <body class="heritage-site" data-page="contact">
@@ -99,25 +99,26 @@
         <h2 class="t-h3" id="form-title" style="margin-bottom:var(--sp-8)">Écrivez-nous</h2>
 
         <!--
-          Formulaire Web3Forms — compatible hébergement statique.
-          La clé d'accès est publique par conception : elle n'autorise que l'envoi
-          vers l'adresse email qui l'a générée, et rien d'autre. La laisser en clair
-          dans le HTML est le fonctionnement nominal du service.
-          Si la requête échoue, le formulaire bascule sur un mailto: pré-rempli :
+          Hébergement statique : GitHub Pages n'exécute aucun code serveur.
+          Le formulaire est envoyé au serveur de la division IA
+          (https://ai.xsom.fr/api/contact, sur Vercel), qui le transmet par
+          Resend à l'adresse de contact xsom.fr. Aucune clé dans ce HTML.
+          Avec JavaScript, envoi JSON ; sans JavaScript, POST natif et retour
+          sur cette page avec ?envoi=ok ou ?envoi=erreur.
+          Si l'envoi échoue, le formulaire propose un mailto: pré-rempli :
           aucune saisie n'est perdue.
         -->
-        <form class="form" id="contact-form" method="post" action="https://api.web3forms.com/submit"
+        <form class="form" id="contact-form" data-contact-form method="post" action="https://ai.xsom.fr/api/contact"
               data-mailto="jean-philippe.talou@xsom.fr"
               data-msg-required="Ce champ est requis."
               data-msg-email="Adresse email invalide."
+              data-msg-minlength="Quelques mots de plus, s’il vous plaît (10 caractères au moins)."
               data-msg-consent="Merci de cocher cette case pour continuer."
               data-msg-sending="Envoi en cours…"
               data-msg-success="Message envoyé. Un consultant revient vers vous sous 48 heures."
               data-msg-error="L'envoi automatique a échoué."
               data-msg-fallback="Envoyer par email à la place">
 
-          <input type="hidden" name="access_key" value="c843faec-fec8-43dc-8c8b-7dd1025d384f">
-          <input type="hidden" name="from_name" value="Formulaire xsom.fr">
           <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
 
           <div class="form__row">
@@ -157,7 +158,7 @@
 
           <div class="field">
             <label for="f-message">Votre message <span class="req" aria-hidden="true">*</span></label>
-            <textarea id="f-message" name="message" required data-validate="required"
+            <textarea id="f-message" name="message" required minlength="10" data-validate="required"
                       placeholder="Décrivez votre contexte et ce que vous cherchez à obtenir. Quelques lignes suffisent."></textarea>
             <p class="field__error" aria-live="polite"></p>
           </div>
@@ -295,8 +296,7 @@
       <div>
         <h2 class="footer-title">Nous joindre</h2>
         <ul>
-          <li><a href="mailto:jean-philippe.talou@xsom.fr">jean-philippe.talou@xsom.fr</a></li>
-          <li><a href="https://www.linkedin.com/company/xsom-consulting/" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a class="footer-linkedin" href="https://www.linkedin.com/company/xsom-consulting" target="_blank" rel="noopener" aria-label="xSOM Consulting sur LinkedIn" title="LinkedIn"><svg class="linkedin-logo" viewBox="3 3 18 18" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 1 1 0-4.125 2.062 2.062 0 0 1 0 4.125zm1.782 13.019H3.555V9h3.564v11.452z"/></svg></a></li>
           <li><a href="mentions-legales">Mentions légales</a></li>
           <li><a href="cookies">Cookies</a></li>
         </ul>
@@ -314,6 +314,6 @@
 
 <script src="assets/js/heritage-site.js?v=2e2fb0a3889b" defer></script>
 <script type="module" src="design-system/signal.js?v=76f290b9cea8"></script>
-<script src="assets/js/contact-form.js?v=7a703eda027c" defer></script>
+<script src="assets/js/contact-form.js?v=0391ff5912be" defer></script>
 </body>
 </html>

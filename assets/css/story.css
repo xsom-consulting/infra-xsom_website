@@ -24,6 +24,38 @@
 .home-cta__actions { display: flex; flex-wrap: wrap; justify-content: center; gap: var(--sp-4); }
 .home-cta .btn--ghost { border-color: var(--film-border); color: var(--signal-hero-text); background: transparent; }
 .home-cta .btn--ghost:hover { border-color: var(--signal-hero-text); background: color-mix(in srgb, var(--signal-hero-text) 8%, transparent); }
+/* Formulaire déplié sous les boutons (contact-form.js) : sur le bleu nuit, texte clair,
+   champs sombres translucides, focus visible, envoi en bleu comme .btn--primary. */
+.home-cta__form { width: 100%; max-width: 46rem; margin: var(--sp-10) auto 0; text-align: left; }
+.home-cta__form[hidden] { display: none; }
+.home-cta .home-contact { gap: var(--sp-4); padding: var(--sp-6); border: 1px solid var(--signal-hero-line); border-radius: var(--r-lg); background: color-mix(in srgb, var(--signal-hero-bg) 72%, transparent); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); color: var(--signal-hero-text); }
+.home-cta .home-contact .form__row { gap: var(--sp-4); }
+.home-cta .home-contact .field { gap: var(--sp-1); }
+.home-cta .home-contact .field label, .home-cta .home-contact .consent label { color: var(--signal-hero-text); }
+.home-cta .home-contact .field label .req { color: var(--film-accent); }
+.home-cta .home-contact__optional { color: var(--signal-hero-muted); font-weight: 400; }
+.home-cta .home-contact .field input, .home-cta .home-contact .field textarea { border-color: color-mix(in srgb, var(--signal-hero-text) 28%, transparent); background: rgba(4, 12, 24, .45); color: var(--signal-hero-text); }
+.home-cta .home-contact .field textarea { min-height: 7.5rem; }
+.home-cta .home-contact .field input::placeholder, .home-cta .home-contact .field textarea::placeholder { color: color-mix(in srgb, var(--signal-hero-muted) 70%, transparent); }
+.home-cta .home-contact .field input:focus, .home-cta .home-contact .field textarea:focus, .home-cta .home-contact :focus-visible { outline: 2px solid var(--film-accent); outline-offset: 2px; border-color: var(--film-accent); }
+.home-cta .home-contact .field [aria-invalid=true] { border-color: #ff8f8f; }
+.home-cta .home-contact .field__error { min-height: 0; color: #ffb4b4; }
+.home-cta .home-contact .consent { min-height: 0; }
+.home-cta .home-contact .consent label { min-height: 0; color: var(--signal-hero-muted); font-size: var(--fs-sm); }
+.home-cta .home-contact .consent a { color: var(--signal-hero-text); text-decoration: underline; }
+.home-cta .home-contact .consent input[type=checkbox] { accent-color: var(--film-accent); }
+.home-cta .home-contact .form__status { padding: var(--sp-3) var(--sp-4); }
+.home-cta .home-contact .form__status.is-success { border-color: #7fd8b0; background: rgba(127, 216, 176, .1); color: #b9f0d6; }
+.home-cta .home-contact .form__status.is-error { border-color: #ff8f8f; background: rgba(255, 143, 143, .1); color: #ffd0d0; }
+.home-cta .home-contact .form__status a { color: inherit; }
+.home-cta .home-contact__submit { display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-3) var(--sp-5); }
+.home-cta .home-contact__note { margin: 0; color: var(--signal-hero-muted); font-size: var(--fs-sm); }
+.home-cta [data-contact-toggle][aria-expanded=true] { box-shadow: 0 0 0 3px color-mix(in srgb, var(--film-accent) 45%, transparent); }
+@media (max-width: 640px) {
+  .home-cta__form { margin-top: var(--sp-8); }
+  .home-cta .home-contact { padding: var(--sp-5) var(--sp-4); }
+  .home-cta .home-contact__submit .btn { width: 100%; justify-content: center; }
+}
 
 /* ---- Page-top film (careers): night header over the film, as on Expertise. */
 .story-page .site-header { position: sticky; top: 0; margin-bottom: calc(-1 * var(--header-h)); z-index: var(--signal-z-nav); background: rgba(7, 23, 42, .78); border-color: rgba(233, 242, 255, .17); -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px); }

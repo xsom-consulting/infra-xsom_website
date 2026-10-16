@@ -79,7 +79,7 @@ function exclusions(file, isBaseline) {
       return true; // New visual controls; never the editorial source container.
     }
     if (classes.includes('heritage-privacy-update')) {
-      assert.ok(['cookies.html', 'en/cookies.html'].includes(file));
+      assert.ok(['cookies.html', 'en/cookies.html', 'mentions-legales.html', 'en/legal-notice.html'].includes(file));
       assert.equal(node.tag, 'tr');
       return true; // Approved technical disclosure only, not marketing copy.
     }
@@ -89,6 +89,14 @@ function exclusions(file, isBaseline) {
     }
     if (['contact.html', 'en/contact.html'].includes(file) && node.tag === 'strong' && normalize(text(node)).startsWith('Bordeaux · France')) {
       return true; // Same request: the address line loses “États-Unis”.
+    }
+    // The form processor changed (user request, 2026-10-16): the original Web3Forms rows
+    // give way to the exact AI division / Resend disclosure checked below.
+    if (isBaseline && node.tag === 'tr' && (
+      (['cookies.html', 'en/cookies.html'].includes(file) && normalize(text(node)).startsWith('Web3Forms '))
+      || (file === 'mentions-legales.html' && normalize(text(node)).startsWith('Sous-traitant Web3Forms'))
+      || (file === 'en/legal-notice.html' && normalize(text(node)).startsWith('Processor Web3Forms')))) {
+      return true;
     }
     return isBaseline && file === 'cookies.html' && node.tag === 'tr'
       && normalize(text(node)).startsWith('Google Fonts ');
@@ -123,14 +131,22 @@ test('The copy comparison preserves inline words and cannot hide a rewritten par
   assert.equal(normalize(text(parse('<main><p>Réseau &amp; IA&nbsp;souveraine</p><svg><title>Décor</title></svg></main>'))), 'Réseau & IA souveraine');
 });
 
-test('Approved privacy corrections are present and limited to the three technical rows', () => {
+test('Approved privacy corrections are present and limited to the named technical rows', () => {
   const expected = {
     'cookies.html': [
       'Polices locales Les polices WOFF2 sont servies depuis ce domaine. Aucune connexion à Google Fonts ou à un CDN de polices.',
+      'Formulaire de contact Les messages du formulaire sont envoyés au serveur de la division IA de xSOM (ai.xsom.fr, hébergé par Vercel Inc., États-Unis), qui les transmet par email via Resend (Resend, Inc., États-Unis). Sollicité uniquement au moment de l’envoi, sur action explicite de votre part. Aucun cookie n’est déposé.',
       'Préférences locales Le thème et la réduction des animations sont mémorisés dans le stockage local de votre navigateur. Le son démarre désactivé à chaque visite. Aucun identifiant de suivi n’est stocké.',
     ],
     'en/cookies.html': [
+      'Contact form Messages sent through the form go to the server of the xSOM AI division (ai.xsom.fr, hosted by Vercel Inc., United States), which delivers them by email through Resend (Resend, Inc., United States). Contacted only at the moment you submit it, and only then. No cookie is set.',
       'Local preferences Theme and reduced-motion choices are saved in your browser’s local storage. Sound starts off on each visit. No tracking identifier is stored.',
+    ],
+    'mentions-legales.html': [
+      'Sous-traitants Vercel Inc. (États-Unis), hébergeur du serveur de la division IA de xSOM (ai.xsom.fr) qui reçoit le formulaire, et Resend, Inc. (États-Unis), pour l’acheminement technique des messages par email',
+    ],
+    'en/legal-notice.html': [
+      'Processors Vercel Inc. (United States), which hosts the xSOM AI division’s server (ai.xsom.fr) that receives the form, and Resend, Inc. (United States), for email delivery of messages only',
     ],
   };
   for (const [file, rows] of Object.entries(expected)) {

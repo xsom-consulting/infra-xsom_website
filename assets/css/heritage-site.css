@@ -183,6 +183,9 @@ html { color-scheme: var(--signal-scheme); }
 .heritage-site .site-footer__top { gap: var(--sp-8); }
 .heritage-site .site-footer ul { gap: 0; }
 .heritage-site .site-footer ul a { display: inline-flex; min-height: var(--signal-touch); align-items: center; font-size: var(--fs-body); overflow-wrap: anywhere; }
+/* Le logo LinkedIn du pied de page, à la place de l'adresse email : glyphe à la couleur des liens (clair sur le pied de page nuit), cible tactile carrée. */
+.heritage-site .site-footer .footer-linkedin { justify-content: flex-start; min-width: var(--signal-touch); }
+.heritage-site .site-footer .footer-linkedin .linkedin-logo { width: 1.5rem; height: 1.5rem; }
 .heritage-site .footer-title { font: 650 var(--fs-body) var(--signal-font-display); color: var(--signal-text); letter-spacing: normal; text-transform: none; margin-bottom: var(--sp-3); }
 .heritage-site .site-footer p { font-size: var(--fs-body); }
 .heritage-site .site-footer__bottom { font-family: var(--signal-font-body); letter-spacing: normal; font-size: var(--fs-sm); }
